@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="D:\AndroidSDK\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="D:\CS 371 Lab 7\CS371PigGameStarter\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_91f5c31930175b7860fe0f87febc4f6b571bd292\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\CS 371 Lab 7\CS371PigGameStarter\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="D:\CS 371 Lab 7\CS371PigGameStarter\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_65d43c6c593a0ee1d39f94dd86f98d2d355213ce\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\CS 371 Lab 7\CS371PigGameStarter\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="7f3f42df2874117f6d964f154ea4852533c32ed0">
+        <dex dex="D:\CS 371 Lab 7\CS371PigGameStarter\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_c4b369af6291600540d9ae2e631829aaf5e60109\classes.dex" />
+    </item>
+
+</items>
