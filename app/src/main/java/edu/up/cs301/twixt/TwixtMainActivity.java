@@ -1,4 +1,4 @@
-package edu.up.cs301.pig;
+package edu.up.cs301.twixt;
 
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ import edu.up.cs301.game.config.GamePlayerType;
  * @author Andrew M. Nuxoll, modified by Steven R. Vegdahl
  * @version February 2016
  */
-public class PigMainActivity extends GameMainActivity {
+public class TwixtMainActivity extends GameMainActivity {
 
     // the port number that this game will use when playing over the network
     private static final int PORT_NUMBER = 2278;
@@ -36,11 +36,11 @@ public class PigMainActivity extends GameMainActivity {
         // Pig has two player types:  human and computer
         playerTypes.add(new GamePlayerType("Local Human Player") {
             public GamePlayer createPlayer(String name) {
-                return new PigHumanPlayer(name);
+                return new TwixtHumanPlayer(name);
             }});
         playerTypes.add(new GamePlayerType("Computer Player") {
             public GamePlayer createPlayer(String name) {
-                return new PigComputerPlayer(name);
+                return new TwixtComputerPlayer(name);
             }});
 
         // Create a game configuration class for Pig:
@@ -60,7 +60,7 @@ public class PigMainActivity extends GameMainActivity {
      */
     @Override
     public LocalGame createLocalGame() {
-        return new PigLocalGame();
+        return new TwixtLocalGame();
     }
 
 }

@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_launcher.png",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\drawable-ldpi\\ic_launcher.png"
+    },
+    {
         "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_launcher.png",
         "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\drawable-ldpi\\ic_launcher.png"
     }
