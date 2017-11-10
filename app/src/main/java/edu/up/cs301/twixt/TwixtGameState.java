@@ -10,6 +10,9 @@ import edu.up.cs301.game.infoMsg.GameState;
 
 public class TwixtGameState extends GameState {
 private ArrayList<Peg> Board;
+
+
+
     private int turn;
 
 
@@ -20,7 +23,8 @@ private ArrayList<Peg> Board;
     }
 
     public TwixtGameState(TwixtGameState fresh){
-
+        fresh.setBoard(this.getBoard());
+        fresh.setTurn(this.getTurn());
     }
 
 
@@ -29,5 +33,20 @@ public Peg[][] stateToArray(){ //placeholder
     return array;
 }
 
+    public ArrayList<Peg> getBoard() {
+        return Board;
+    }
+
+    public void setBoard(ArrayList<Peg> board) {
+        Board = board;
+    }
+
+    public int getTurn() {
+        return turn;
+    }
+
+    public void setTurn(int turn) {
+        this.turn = turn;
+    }
 
 }
