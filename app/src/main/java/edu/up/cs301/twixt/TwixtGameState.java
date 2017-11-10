@@ -9,10 +9,7 @@ import edu.up.cs301.game.infoMsg.GameState;
  */
 
 public class TwixtGameState extends GameState {
-private ArrayList<Peg> Board;
-
-
-
+    private ArrayList<Peg> Board;
     private int turn;
 
 
