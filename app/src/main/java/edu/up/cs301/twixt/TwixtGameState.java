@@ -46,7 +46,10 @@ public Peg[][] stateToArray(){
     }
 
     public void setTurn(int turn) {
-        this.turn = turn;
+        if(turn ==0 || turn ==1){
+            this.turn = turn;
+        }
+
     }
 
 }

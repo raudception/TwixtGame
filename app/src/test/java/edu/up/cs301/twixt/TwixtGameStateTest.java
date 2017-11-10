@@ -14,32 +14,18 @@ public class TwixtGameStateTest {
     public void stateToArray() throws Exception {
         TwixtGameState official = new TwixtGameState();
         ArrayList<Peg> test = new ArrayList<Peg>();
-        Peg testpeg = new Peg(1,2,0,test);
+        Peg testpeg = new Peg(1, 2, 0, test);
         test.add(testpeg);
         official.setBoard(test);
-        official.stateToArray();
-        Assert.assertTrue(official.getBoard() == null);
+        Peg[][] testarray = official.stateToArray();
+        Assert.assertTrue(testarray[1][2].equals(testpeg));
 
     }
-
     @Test
-    public void getBoard() throws Exception {
-
+    public void copyConstructor() throws Exception{
+        TwixtGameState official = new TwixtGameState();
+        official.setTurn(1);
+        TwixtGameState test = new TwixtGameState(official);
+        Assert.assertTrue(test.getTurn() ==1);
     }
-
-    @Test
-    public void setBoard() throws Exception {
-
-    }
-
-    @Test
-    public void getTurn() throws Exception {
-
-    }
-
-    @Test
-    public void setTurn() throws Exception {
-
-    }
-
 }

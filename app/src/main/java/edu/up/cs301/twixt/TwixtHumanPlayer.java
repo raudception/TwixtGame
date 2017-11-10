@@ -81,4 +81,4 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
     }//setAsGui
 
-}// class PigHumanPlayer
+}// class TwixtHumanPlayer
