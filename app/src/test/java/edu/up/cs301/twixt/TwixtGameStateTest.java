@@ -2,6 +2,7 @@ package edu.up.cs301.twixt;
 
 
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  * Created by Kollin on 11/9/2017.
  */
 public class TwixtGameStateTest {
-    @org.junit.Test
+    @Test
     public void stateToArray() throws Exception {
         TwixtGameState official = new TwixtGameState();
         ArrayList<Peg> test = new ArrayList<Peg>();
@@ -21,22 +22,22 @@ public class TwixtGameStateTest {
 
     }
 
-    @org.junit.Test
+    @Test
     public void getBoard() throws Exception {
 
     }
 
-    @org.junit.Test
+    @Test
     public void setBoard() throws Exception {
 
     }
 
-    @org.junit.Test
+    @Test
     public void getTurn() throws Exception {
 
     }
 
-    @org.junit.Test
+    @Test
     public void setTurn() throws Exception {
 
     }

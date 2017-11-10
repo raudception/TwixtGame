@@ -14,10 +14,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b07bd4f-ba07-415b-a988-0bd4a9766b8b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtGameState.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtGameState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java" />
     </list>
     <ignored path="CS371PigGameStarter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TwixtGameState.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TwixtGameState.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtGameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="459">
+              <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TwixtGameStateTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TwixtGameStateTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            <state relative-caret-position="657">
+              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,9 +121,24 @@
       <file leaf-file-name="Peg.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="986">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding>
+                <element signature="e#504#505#0" expanded="true" />
+                <element signature="e#531#532#0" expanded="true" />
+                <element signature="e#568#569#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
+                <element signature="e#628#629#0" expanded="true" />
+                <element signature="e#655#656#0" expanded="true" />
+                <element signature="e#692#693#0" expanded="true" />
+                <element signature="e#724#725#0" expanded="true" />
+                <element signature="e#769#770#0" expanded="true" />
+                <element signature="e#802#803#0" expanded="true" />
+                <element signature="e#862#863#0" expanded="true" />
+                <element signature="e#906#907#0" expanded="true" />
+                <element signature="e#938#939#0" expanded="true" />
+                <element signature="e#969#970#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1870,7 +1887,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/PigGameState.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtMainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/PlacePegAction.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/SwtichSidesAction.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/RemoveLinkAction.java" />
@@ -1878,10 +1894,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/EndTurnAction.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/PlaceLinkAction.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/OfferDrawAction.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtGameState.java" />
         <option value="$PROJECT_DIR$/app/src/test/java/edu/up/cs301/game/test/TwixtLocalGameTest.java" />
         <option value="$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtLocalGameTest.java" />
         <option value="$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtGameState.java" />
       </list>
     </option>
   </component>
@@ -2527,7 +2544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510277908079</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Initial Test Location Added">
+      <created>1510278824450</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1510278824450</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2609,7 +2633,8 @@
     <MESSAGE value="Renaming Classes, and Removing Pig Specific Classes" />
     <MESSAGE value="Created Peg, Action Classes, Added most Methods/attributes as placeholders" />
     <MESSAGE value="Copy Constructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Copy Constructor" />
+    <MESSAGE value="Initial Test Location Added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Test Location Added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2917,14 +2942,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtLocalGameTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -2933,20 +2950,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtGameState.java">
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="657">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        <state relative-caret-position="986">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="e#504#505#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#568#569#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#692#693#0" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
+            <element signature="e#802#803#0" expanded="true" />
+            <element signature="e#862#863#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#938#939#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtGameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

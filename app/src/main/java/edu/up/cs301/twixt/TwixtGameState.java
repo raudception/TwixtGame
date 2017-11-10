@@ -25,8 +25,11 @@ public class TwixtGameState extends GameState {
     }
 
 
-public Peg[][] stateToArray(){ //placeholder
+public Peg[][] stateToArray(){
     Peg[][] array = new Peg[24][24];
+    for(int i =0; i < Board.size(); i++) {
+        array[Board.get(i).getxPos()][Board.get(i).getyPos()] = Board.get(i);
+    }
     return array;
 }
 
