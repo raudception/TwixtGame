@@ -61,9 +61,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
      * @param button
      * 		the button that was clicked
      */
-    public void onClick(View button) {
-
-}// onClick
+    public void onClick(View button) {}// onClick
 
     /**
      * callback method--our game has been chosen/rechosen to be the GUI,

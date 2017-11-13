@@ -25,8 +25,13 @@ public class TwixtLocalGame extends LocalGame {
      */
     @Override
     protected boolean canMove(int playerIdx) {
+        if(playerIdx == official.getTurn()){ //this may or may not match the passed in value, playerIdx
+            return true;
+        }
+        else{
+            return false;
+        }
 
-        return false;
     }
 
     /**
@@ -36,6 +41,47 @@ public class TwixtLocalGame extends LocalGame {
      */
     @Override
     protected boolean makeMove(GameAction action) {
+        if(action instanceof EndTurnAction){
+            if(action.getPlayer().equals(players[official.getTurn()])){
+
+            }
+        }
+
+        if(action instanceof OfferDrawAction){
+            if(action.getPlayer().equals(players[official.getTurn()])){
+
+            }
+        }
+
+        if(action instanceof PlaceLinkAction){
+            if(action.getPlayer().equals(players[official.getTurn()])){
+
+            }
+        }
+
+        if(action instanceof PlacePegAction){
+            if(action.getPlayer().equals(players[official.getTurn()])){
+
+            }
+        }
+
+        if(action instanceof RemoveLinkAction){
+            if(action.getPlayer().equals(players[official.getTurn()])){
+
+            }
+        }
+
+        if(action instanceof RemovePegAction){
+            if(action.getPlayer().equals(players[official.getTurn()])){
+
+            }
+        }
+
+        if(action instanceof SwitchSidesAction){
+            if(action.getPlayer().equals(players[official.getTurn()])){
+
+            }
+        }
 
         return false;
     }//makeMove

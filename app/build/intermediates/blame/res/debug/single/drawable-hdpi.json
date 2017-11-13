@@ -16,6 +16,18 @@
         "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\drawable-hdpi\\ic_action_search.png"
     },
     {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\purple_delete_button.png",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\drawable-hdpi\\purple_delete_button.png"
+    },
+    {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_search.png",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\drawable-hdpi\\ic_action_search.png"
+    },
+    {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
         "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_search.png",
         "source": "D:\\TwixtGame\\app\\src\\main\\res\\drawable-hdpi\\ic_action_search.png"
     },
