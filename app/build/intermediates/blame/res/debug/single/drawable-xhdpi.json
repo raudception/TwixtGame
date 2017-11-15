@@ -12,6 +12,14 @@
         "source": "S:\\TwixtGame\\app\\src\\main\\res\\drawable-xhdpi\\face2.png"
     },
     {
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\face2.png",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\drawable-xhdpi\\face2.png"
+    },
+    {
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\face5.png",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\drawable-xhdpi\\face5.png"
+    },
+    {
         "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\face5.png",
         "source": "S:\\TwixtGame\\app\\src\\main\\res\\drawable-xhdpi\\face5.png"
     },
@@ -22,6 +30,14 @@
     {
         "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\face4.png",
         "source": "S:\\TwixtGame\\app\\src\\main\\res\\drawable-xhdpi\\face4.png"
+    },
+    {
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\face1.png",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\drawable-xhdpi\\face1.png"
+    },
+    {
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\face4.png",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\drawable-xhdpi\\face4.png"
     },
     {
         "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\face1.png",
@@ -42,6 +58,18 @@
     {
         "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\face6.png",
         "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\drawable-xhdpi\\face6.png"
+    },
+    {
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\face3.png",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\drawable-xhdpi\\face3.png"
+    },
+    {
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\face6.png",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\drawable-xhdpi\\face6.png"
     },
     {
         "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
@@ -82,6 +110,10 @@
     {
         "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\face2.png",
         "source": "D:\\TwixtGame\\app\\src\\main\\res\\drawable-xhdpi\\face2.png"
+    },
+    {
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_action_search.png",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_search.png"
     },
     {
         "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\face4.png",

@@ -56,5 +56,9 @@ public class Peg {
         return isEndRow;
     }
 
+    public void setIsEndRow(int isEndRow) {this.isEndRow = isEndRow;}
 
+    public int getPegTeam() {return pegTeam;}
+
+    public void setPegTeam(int pegTeam) {this.pegTeam = pegTeam;}
 }
