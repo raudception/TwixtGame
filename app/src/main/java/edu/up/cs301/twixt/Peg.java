@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Peg {
     private int xPos, yPos;
-    public ArrayList<Peg> linkedPegs;
+    private ArrayList<Peg> linkedPegs;
 
 
 
