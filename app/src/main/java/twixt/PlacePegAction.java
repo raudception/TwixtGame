@@ -1,4 +1,4 @@
-package edu.up.cs301.twixt;
+package twixt;
 
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.actionMsg.GameAction;
@@ -7,10 +7,10 @@ import edu.up.cs301.game.actionMsg.GameAction;
  * Created by Kollin on 11/8/2017.
  */
 
-public class RemovePegAction extends GameAction {
+public class PlacePegAction extends GameAction {
     private Peg HoldPeg;
 
-    public RemovePegAction (GamePlayer player, Peg newPeg){
+    public PlacePegAction (GamePlayer player, Peg newPeg){
         super(player);
         HoldPeg = newPeg;
     }

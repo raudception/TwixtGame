@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
-        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\layout\\game_no_gui.xml"
     },
     {
-        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
-        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_no_gui.xml"
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
     },
     {
         "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
@@ -14,10 +14,6 @@
     {
         "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
         "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_local_tab.xml"
-    },
-    {
-        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
-        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
     },
     {
         "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
@@ -32,24 +28,12 @@
         "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\layout\\game_config_main.xml"
     },
     {
-        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
-        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_main.xml"
-    },
-    {
-        "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
-        "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
-    },
-    {
-        "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
-        "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\layout\\game_no_gui.xml"
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\twixt_layer.xml",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\layout\\twixt_layer.xml"
     },
     {
         "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
         "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
-    },
-    {
-        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
-        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
     },
     {
         "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
@@ -60,8 +44,60 @@
         "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\layout\\pig_layout.xml"
     },
     {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_main.xml"
+    },
+    {
         "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\pig_layout.xml",
         "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\pig_layout.xml"
+    },
+    {
+        "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
+        "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\layout\\game_local_tab.xml"
+    },
+    {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
+    },
+    {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
+    },
+    {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_no_gui.xml"
+    },
+    {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
+    },
+    {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
+    },
+    {
+        "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
+        "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
+    },
+    {
+        "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
+        "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\layout\\game_no_gui.xml"
+    },
+    {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
+    },
+    {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\layout\\game_local_tab.xml"
     },
     {
         "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
@@ -74,13 +110,5 @@
     {
         "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
         "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_local_tab.xml"
-    },
-    {
-        "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
-        "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\layout\\game_local_tab.xml"
-    },
-    {
-        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
-        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
     }
 ]

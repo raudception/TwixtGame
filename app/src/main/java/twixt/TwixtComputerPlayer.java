@@ -1,4 +1,4 @@
-package edu.up.cs301.twixt;
+package twixt;
 
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.infoMsg.GameInfo;

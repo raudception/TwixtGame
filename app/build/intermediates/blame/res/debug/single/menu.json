@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\menu\\game_main.xml",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\menu\\game_main.xml"
+    },
+    {
         "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\menu\\game_main.xml",
         "source": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\src\\main\\res\\menu\\game_main.xml"
     },

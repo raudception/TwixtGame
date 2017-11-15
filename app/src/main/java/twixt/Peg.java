@@ -1,4 +1,4 @@
-package edu.up.cs301.twixt;
+package twixt;
 
 import java.util.ArrayList;
 

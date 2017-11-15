@@ -1,8 +1,9 @@
-package edu.up.cs301.twixt;
+package twixt;
 
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
+import twixt.TwixtGameState;
 
 /**
  * class PigLocalGame controls the play of the game

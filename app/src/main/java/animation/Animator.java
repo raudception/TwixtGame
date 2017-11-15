@@ -1,4 +1,4 @@
-package edu.up.cs301.animation;
+package animation;
 
 import android.graphics.Canvas;
 import android.view.MotionEvent;

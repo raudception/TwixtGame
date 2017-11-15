@@ -13,10 +13,10 @@
 
     <application
         android:icon="@drawable/face1"
-        android:label="@string/app_name"
+        android:label="TWIXT"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="edu.up.cs301.twixt.PigMainActivity"
+            android:name="edu.up.cs301.twixt.TwixtMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
