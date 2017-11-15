@@ -11,7 +11,7 @@ import edu.up.cs301.game.infoMsg.GameState;
 public class TwixtGameState extends GameState {
     private ArrayList<Peg> Board;
     private int turn;
-
+    private int totalturns =0;
 
     public TwixtGameState (){
     Board = new ArrayList();
@@ -51,5 +51,14 @@ public Peg[][] stateToArray(){
         }
 
     }
+
+    public int getTotalturns() {
+        return totalturns;
+    }
+    public void incrementTotalTurns(){
+        totalturns ++;
+    }
+
+
 
 }
