@@ -16,12 +16,12 @@
         "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\layout\\game_local_tab.xml"
     },
     {
-        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\pig_layout.xml",
-        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\pig_layout.xml"
-    },
-    {
         "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
         "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
+    },
+    {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\pig_layout.xml",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\pig_layout.xml"
     },
     {
         "merged": "D:\\CS 371 Lab 7\\CS371PigGameStarter\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
