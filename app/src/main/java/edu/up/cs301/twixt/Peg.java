@@ -20,11 +20,23 @@ public class Peg {
         yPos = Y;
         pegTeam = team;
         linkedPegs = linked;
+        setEndRow();
     }
 
-    private void checkIfEndRow(){
+    private void setEndRow(){ //determine what end row the peg is in
+        if(xPos > 0 && yPos == 0){ //top
+            isEndRow =1;
+        }
+        else if (xPos ==0 && yPos >0){//left
+            isEndRow = 4;
+        }
+        else if(xPos == 23 && yPos >0){ //right
+            isEndRow = 2;
+        }
+        else if (xPos >0 && yPos ==23){ //bottom
+            isEndRow = 3;
+        }
 
-        isEndRow = 0;//placeholder
     }
 
 
@@ -55,8 +67,6 @@ public class Peg {
     public int getIsEndRow() {
         return isEndRow;
     }
-
-    public void setIsEndRow(int isEndRow) {this.isEndRow = isEndRow;}
 
     public int getPegTeam() {return pegTeam;}
 

@@ -84,7 +84,7 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
 
-        if(action instanceof PlacePegAction){
+        if(action instanceof PlacePegAction){ //add checking what player is placing where
             if(action.getPlayer().equals(players[official.getTurn()])){
 
                 PlacePegAction rmP = (PlacePegAction) action;
