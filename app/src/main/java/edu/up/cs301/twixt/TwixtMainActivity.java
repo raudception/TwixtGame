@@ -40,7 +40,7 @@ public class TwixtMainActivity extends GameMainActivity {
             }});
         playerTypes.add(new GamePlayerType("Computer Player") {
             public GamePlayer createPlayer(String name) {
-                return new TwixtComputerPlayer(name);
+                return new TwixtDumbPlayer(name);
             }});
 
         // Create a game configuration class for Pig:
