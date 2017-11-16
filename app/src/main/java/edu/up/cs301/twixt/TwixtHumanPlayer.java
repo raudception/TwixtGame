@@ -51,6 +51,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
      */
     @Override
     public void receiveInfo(GameInfo info) {
+        //this method will need to paint objects, and update the states of buttons
 
     }//receiveInfo
 
@@ -95,6 +96,10 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         // remember the activity
         myActivity = activity;
+        activity.setContentView(R.layout.twixt_layout);
+
+        //initialize widgets, buttons etc. here
+
 
 
 

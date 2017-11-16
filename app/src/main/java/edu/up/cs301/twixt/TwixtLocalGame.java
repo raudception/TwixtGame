@@ -183,5 +183,10 @@ public class TwixtLocalGame extends LocalGame {
         return null;
     }
 
-    //private ArrayList<Peg> gameOverHelper();
-}// class PigLocalGame
+    private ArrayList<Peg> gameOverHelper(ArrayList<Peg> input){
+
+
+
+        return null;
+    }
+}// class TwixtLocalGame
