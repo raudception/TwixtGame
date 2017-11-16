@@ -35,19 +35,21 @@ public final class R {
         public static final int purple_delete_button=0x7f020008;
     }
     public static final class id {
+        public static final int EndTurnButton=0x7f090020;
+        public static final int OfferDrawButton=0x7f09001f;
+        public static final int PlaceLinkButton=0x7f09001d;
+        public static final int PlacePegButton=0x7f09001b;
+        public static final int RemoveLinkButton=0x7f09001e;
+        public static final int RemovePegButton=0x7f09001c;
         public static final int addPlayerButton=0x7f09000e;
         public static final int backButton2=0x7f090003;
         public static final int configTableLayout=0x7f090008;
         public static final int delPlayerButton=0x7f090012;
-        public static final int dieButton=0x7f090020;
-        public static final int holdButton=0x7f090021;
+        public static final int imageView=0x7f090019;
         public static final int ipCodeLabel=0x7f09000a;
         public static final int localGameTab=0x7f090004;
         public static final int localTabLayout=0x7f090005;
-        public static final int menu_settings=0x7f090023;
-        public static final int messageTextView=0x7f090022;
-        public static final int oppScoreText=0x7f09001c;
-        public static final int oppScoreValue=0x7f09001d;
+        public static final int menu_settings=0x7f090021;
         public static final int playGameButton=0x7f090002;
         public static final int playerNameEditText=0x7f090010;
         public static final int playerNameHeadingText=0x7f09000c;
@@ -63,14 +65,10 @@ public final class R {
         public static final int tabHost=0x7f090000;
         public static final int tableDataRow=0x7f090013;
         public static final int tableHeadingRow=0x7f09000b;
+        public static final int textView=0x7f09001a;
         public static final int textView1=0x7f090009;
         public static final int textView2=0x7f09000f;
-        public static final int titleText=0x7f090019;
         public static final int top_gui_layout=0x7f090018;
-        public static final int turnTotalText=0x7f09001e;
-        public static final int turnTotalValue=0x7f09001f;
-        public static final int yourScoreText=0x7f09001a;
-        public static final int yourScoreValue=0x7f09001b;
     }
     public static final class layout {
         public static final int game_config_main=0x7f030000;
