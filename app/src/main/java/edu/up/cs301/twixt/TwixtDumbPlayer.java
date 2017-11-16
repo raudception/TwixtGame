@@ -34,8 +34,9 @@ public class TwixtDumbPlayer extends GameComputerPlayer {
 
         // pick peg positions at random on the board
         Random r = new Random();
-        int xVal = r.nextInt(23 - 1) + 1;//random x value
-        int yVal = r.nextInt(23 - 1) + 1;//random y value
+        int xVal = r.nextInt(23 - 1) + 1;//random x value, math may not be right as of now
+        int yVal = r.nextInt(23) + 1;//random y value, math may not be right as of now.
+
 
 
 
