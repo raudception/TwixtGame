@@ -4,6 +4,10 @@ import android.util.Log;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
@@ -84,7 +88,7 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
 
-        if(action instanceof PlacePegAction){
+        if(action instanceof PlacePegAction){ //add checking what player is placing where
             if(action.getPlayer().equals(players[official.getTurn()])){
 
                 PlacePegAction rmP = (PlacePegAction) action;
@@ -171,17 +175,92 @@ public class TwixtLocalGame extends LocalGame {
     @Override
     protected String checkIfGameOver() {
         Peg[][] test = official.stateToArray();
-        for(int i =0; i<24; i++){
-                ArrayList<Peg> temp = test[i][0].getLinkedPegs();
-                    for(int y =0; y<temp.size(); y++){
-                        ArrayList<Peg> linked = temp.get(i).getLinkedPegs();
-                            for(int t =0; t<linked.size(); t++){
+        ArrayList<Peg> usedPegsTop = new ArrayList<Peg>();
+        ArrayList<Peg> usedPegsRight = new ArrayList<Peg>();
+        ArrayList<Peg> topPegs = new ArrayList<Peg>();
+        ArrayList<Peg> rightPegs = new ArrayList<Peg>();
+        boolean rightLeft = false;
+        boolean topBottom = false;
 
-                            }
-                    }
+        for(int i =0; i<24; i++){ //add the top row of pegs into an array list
+            if(test[i][0] != null){
+                topPegs.add(test[i][0]);
+            }
         }
-        return null;
+        for(int i =1; i<24; i++){ //add the right row of pegs into an arraylist
+            if(test[23][i] != null){
+                rightPegs.add(test[23][i]);
+            }
+        }
+        if(topPegs.size() >0) { //only run this if there are Pegs in the array/top row of the board
+            for (int i = 0; i < topPegs.size(); i++) {
+                topBottom = gameOverHelper(topPegs, 1, usedPegsTop);
+            }
+        }
+        if(rightPegs.size() >0) { //only run this if there are Pegs in the array/right row of the board
+            for (int i = 0; i < rightPegs.size(); i++) {
+                rightLeft = gameOverHelper(rightPegs, 1, usedPegsRight);
+            }
+        }
+
+        if(topBottom){
+            return playerNames[0] + " Won!"; //might be the wrong player names, this is the human player
+        }
+        if(rightLeft){
+            return playerNames[1] + " Won!";
+        }
+
+        return null;//neither player won
+
+
+        //            usedPegs.add(test[i][0]); //add the current peg to the array list of used pegs, to prevent looping
+//            if(test[i][0] != null) {
+//                temp = test[i][0].getLinkedPegs();
+//
+//                for (int y = 0; y < temp.size(); y++){
+//                    if(temp.get(y).getLinkedPegs() != null){
+//                        gameOverHelper(temp.get(y).getLinkedPegs(), 1, usedPegs);
+//
+//                    }
+//                }
+//            }
     }
 
-    //private ArrayList<Peg> gameOverHelper();
-}// class PigLocalGame
+    /**
+     * This method takes in an arrayList of Pegs, a given endRow Value, and an ArrayList of Pegs that have
+     * already iterated over.  It is recursive, and returns true when a Peg has been found, connected to the
+     * input array of Pegs, that has an opposite value.
+     * @param input
+     * @param endRow
+     * @param usedPegs
+     * @return
+     */
+    private boolean gameOverHelper(ArrayList<Peg> input, int endRow, ArrayList<Peg> usedPegs) {
+        ArrayList<Peg> output = new ArrayList<Peg>();
+        if (input != null) {
+            int found = endRow +2; //if we find a Peg with the opposite endRow value (we only pass in 1 or 2
+            boolean won =false;
+            //go through the pegs here
+
+                for(int i =0; i<input.size(); i++){
+                    if(endRow ==1){ //top to bottom
+                        if(input.get(i).getIsEndRow() ==found){
+                            won = true;
+                        }
+                    }
+
+                }
+
+
+            if(output != null){
+
+
+                for(int i =0; i< output.size(); i++){
+
+                }
+                gameOverHelper(output, 1, usedPegs);
+            }
+        }
+        return false;
+    }
+}// class TwixtLocalGame
