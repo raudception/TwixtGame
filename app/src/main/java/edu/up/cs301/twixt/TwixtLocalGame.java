@@ -50,6 +50,7 @@ public class TwixtLocalGame extends LocalGame {
      */
     @Override
     protected boolean makeMove(GameAction action) {
+
         if(action instanceof EndTurnAction){
             if(action.getPlayer().equals(players[official.getTurn()])){
                 if (official.getTurn() ==1){
@@ -70,26 +71,49 @@ public class TwixtLocalGame extends LocalGame {
 
         if(action instanceof OfferDrawAction){
             if(action.getPlayer().equals(players[official.getTurn()])){
-                //no action yet
+                Log.i("Offer Draw Action", "Player: " + playerNames[official.getTurn()] + " Offered draw"); //placeholder
+                sendAllUpdatedState();
             }
         }
 
         if(action instanceof PlaceLinkAction){ //unknown how to finish adding links
             if(action.getPlayer().equals(players[official.getTurn()])){
-                PlaceLinkAction rmP = (PlaceLinkAction) action;
-                int x1 = rmP.getHoldPeg1().getxPos();
-                int y1 = rmP.getHoldPeg1().getyPos();
-                int x2 = rmP.getHoldPeg2().getxPos();
-                int y2 = rmP.getHoldPeg2().getyPos();
+                PlaceLinkAction pla = (PlaceLinkAction) action;
+                int x1 = pla.getHoldPeg1().getxPos();
+                int y1 = pla.getHoldPeg1().getyPos();
+                int x2 = pla.getHoldPeg2().getxPos();
+                int y2 = pla.getHoldPeg2().getyPos();
                 ArrayList<Peg> temp = official.getBoard();
 
+                if( ((x1 - x2) ==1 || (x1 - x2) ==-1) && ((y1-y2 ==2) || (y1-y2) ==-2)){
+                    ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
+                    newlinked1.add(pla.getHoldPeg2());
+                    pla.getHoldPeg1().setLinkedPegs(newlinked1);
 
+                    ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
+                    newlinked2.add(pla.getHoldPeg1());
+                    pla.getHoldPeg2().setLinkedPegs(newlinked2);
+                }
 
+                else if(((x1 - x2) ==2 || (x1 - x2) ==-2) && ((y1-y2 ==1) || (y1-y2) ==-2)){
+                    ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
+                    newlinked1.add(pla.getHoldPeg2());
+                    pla.getHoldPeg1().setLinkedPegs(newlinked1);
+
+                    ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
+                    newlinked2.add(pla.getHoldPeg1());
+                    pla.getHoldPeg2().setLinkedPegs(newlinked2);
+                }
             }
+            sendAllUpdatedState();
         }
 
-        if(action instanceof PlacePegAction){ //add checking what player is placing where
+        if(action instanceof PlacePegAction){ //add adding the linked Pegs to the new peg
             if(action.getPlayer().equals(players[official.getTurn()])){
+                int endRows =0;
+
+                if(official.getTurn() ==0){endRows =1;}
+                else{endRows =2;}
 
                 PlacePegAction rmP = (PlacePegAction) action;
                 Peg peg = rmP.getHoldPeg();
@@ -99,26 +123,47 @@ public class TwixtLocalGame extends LocalGame {
                 ArrayList<Peg> temp = official.getBoard();
                 Peg[][] temparray = official.stateToArray();
 
-                if(temparray[x][y] == null){
-                    temp.add(peg);
-                }
-                official.setBoard(temp);
 
-//                for(int i = 0; i<temp.size(); i++){
-//                    if((temp.get(i).getxPos() == x) && (temp.get(i).getyPos() == y)){
-//                        Peg removepeg = temp.get(i);
-//                        temp.remove(removepeg);
-//                        Log.i("Remove Peg", "Peg Removed");
-//                        official.setBoard(temp);
-//                    }
-//                }
+                boolean dosetlink = false;
+                if(temparray[x][y] == null){
+                    if( (endRows ==1) && (x!=0) && (x!=23)){ //don't allow placing in opponent's end Rows
+                        dosetlink = true;
+                    }
+                    else if (endRows ==2 && y!=0 && y != 23){
+                        dosetlink = true;
+                    }
+
+                    if(dosetlink) { //if the peg was added, set the linked pegs arraylist
+                        ArrayList<Peg> setlinked = new ArrayList<Peg>();
+                        for (int xp = 0; x < 24; xp++) {
+                            for (int yp = 0; y < 24; yp++) {
+                                if (((x - xp) == 1 || (x - xp) == -1) && ((y - yp == 2) || (y - yp) == -2)) {
+                                    setlinked.add(temparray[xp][yp]);
+                                }
+                                if (((x - xp) == 2 || (x - xp) == -2) && ((y - yp == 1) || (y - yp) == -1)) {
+                                    setlinked.add(temparray[xp][yp]);
+                                }
+                            }
+                        }
+                        peg.setLinkedPegs(setlinked); //modify the peg's linked pegs array
+                        temp.add(peg); //add the peg to the temp array
+                    }
+
+                }
+                official.setBoard(temp); //set the board's state, including the new peg
+                sendAllUpdatedState();
             }
         }
 
         if(action instanceof RemoveLinkAction){
             if(action.getPlayer().equals(players[official.getTurn()])){
-
+                RemoveLinkAction rla = (RemoveLinkAction) action;
+                if(rla.getHoldPeg1().getLinkedPegs().contains(rla.getHoldPeg2()) && rla.getHoldPeg2().getLinkedPegs().contains(rla.getHoldPeg2()) ){ //if each peg has the other remove them
+                    rla.getHoldPeg1().getLinkedPegs().remove(rla.getHoldPeg2());
+                    rla.getHoldPeg2().getLinkedPegs().remove(rla.getHoldPeg1());
+                }
             }
+            sendAllUpdatedState();
         }
 
         if(action instanceof RemovePegAction){
@@ -137,6 +182,7 @@ public class TwixtLocalGame extends LocalGame {
                     }
                 }
             }
+            sendAllUpdatedState();
         }
 
         if(action instanceof SwitchSidesAction){ //unsure of functionality
@@ -150,6 +196,7 @@ public class TwixtLocalGame extends LocalGame {
                     Log.i("Invalid Total Turns", "Switch Sides Action Error");
                 }
             }
+            sendAllUpdatedState();
         }
 
         return false;
@@ -193,14 +240,10 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
         if(topPegs.size() >0) { //only run this if there are Pegs in the array/top row of the board
-            for (int i = 0; i < topPegs.size(); i++) {
                 topBottom = gameOverHelper(topPegs, 1, usedPegsTop);
-            }
         }
         if(rightPegs.size() >0) { //only run this if there are Pegs in the array/right row of the board
-            for (int i = 0; i < rightPegs.size(); i++) {
                 rightLeft = gameOverHelper(rightPegs, 1, usedPegsRight);
-            }
         }
 
         if(topBottom){
@@ -212,18 +255,6 @@ public class TwixtLocalGame extends LocalGame {
 
         return null;//neither player won
 
-
-        //            usedPegs.add(test[i][0]); //add the current peg to the array list of used pegs, to prevent looping
-//            if(test[i][0] != null) {
-//                temp = test[i][0].getLinkedPegs();
-//
-//                for (int y = 0; y < temp.size(); y++){
-//                    if(temp.get(y).getLinkedPegs() != null){
-//                        gameOverHelper(temp.get(y).getLinkedPegs(), 1, usedPegs);
-//
-//                    }
-//                }
-//            }
     }
 
     /**
@@ -237,30 +268,60 @@ public class TwixtLocalGame extends LocalGame {
      */
     private boolean gameOverHelper(ArrayList<Peg> input, int endRow, ArrayList<Peg> usedPegs) {
         ArrayList<Peg> output = new ArrayList<Peg>();
+        boolean won = false;
+        boolean dobreak = false;
         if (input != null) {
             int found = endRow +2; //if we find a Peg with the opposite endRow value (we only pass in 1 or 2
-            boolean won =false;
             //go through the pegs here
 
-                for(int i =0; i<input.size(); i++){
-                    if(endRow ==1){ //top to bottom
-                        if(input.get(i).getIsEndRow() ==found){
-                            won = true;
+                for(Peg p : input){ //may be adding to many pegs
+                    usedPegs.add(p);
+                    ArrayList<Peg> newinput = new ArrayList<Peg>();
+
+                    for(Peg g: p.getLinkedPegs()){
+                        if(g.getIsEndRow() ==found){won = true; dobreak = true; break;} //if you find a peg that is in the other endRow,
+                        // leave both loops and return true
+                        else {
+                            if (!input.contains(g)) { //don't add the original peg to the new arraylist
+                                newinput.add(g);
+                            }
+                            if (gameOverHelper(newinput, endRow, usedPegs)) {
+                                dobreak = true;
+                                break;
+                            }
                         }
                     }
-
+                    if(dobreak){break;}
                 }
-
-
-            if(output != null){
-
-
-                for(int i =0; i< output.size(); i++){
-
-                }
-                gameOverHelper(output, 1, usedPegs);
-            }
+        }
+        if(won){
+            return true;
         }
         return false;
     }
+
+//    /**
+//     * This method takes in a peg with its x and y position and populates its linkedPegs arraylist
+//     *                        currently unused
+//     * @param x
+//     * @param y
+//     * @param peg
+//     * @return
+//     */
+//    public Peg setPegLinks (int x, int y, Peg peg){
+//        Peg [] [] temparray = official.stateToArray();
+//        ArrayList<Peg> setlinked = new ArrayList<Peg>();
+//        for (int xp = 0; x < 24; xp++) {
+//            for (int yp = 0; y < 24; yp++) {
+//                if (((x - xp) == 1 || (x - xp) == -1) && ((y - yp == 2) || (y - yp) == -2)) {
+//                    setlinked.add(temparray[xp][yp]);
+//                }
+//                if (((x - xp) == 2 || (x - xp) == -2) && ((y - yp == 1) || (y - yp) == -1)) {
+//                    setlinked.add(temparray[xp][yp]);
+//                }
+//            }
+//        }
+//        peg.setLinkedPegs(setlinked);
+//        return peg;
+//    }
 }// class TwixtLocalGame

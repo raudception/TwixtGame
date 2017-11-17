@@ -14,7 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b07bd4f-ba07-415b-a988-0bd4a9766b8b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/android_android_18.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_android_18.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
@@ -29,11 +29,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtDumbPlayer.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtDumbPlayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtSmartPlayer.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtSmartPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
     </list>
     <ignored path="CS371PigGameStarter.iws" />
@@ -83,62 +81,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TwixtLocalGame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Peg.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+              <folding>
+                <element signature="method#setEndRow#0;class#Peg#0" expanded="false" />
+                <element signature="e#977#978#0" expanded="true" />
+                <element signature="e#1004#1005#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TwixtLocalGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="231" column="54" selection-start-line="231" selection-start-column="54" selection-end-line="231" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TwixtSmartPlayer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtSmartPlayer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2376">
-              <caret line="115" column="8" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TwixtDumbPlayer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtDumbPlayer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="twixt_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/twixt_layout.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TwixtMainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtMainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="49" column="66" selection-start-line="49" selection-start-column="66" selection-end-line="49" selection-end-column="66" />
+            <state relative-caret-position="357">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1208#1209#0" expanded="false" />
-                <element signature="e#1273#1274#0" expanded="false" />
-                <element signature="e#1398#1399#0" expanded="false" />
-                <element signature="e#1462#1463#0" expanded="false" />
-                <element signature="e#2048#2049#0" expanded="false" />
-                <element signature="e#2091#2092#0" expanded="false" />
+                <element signature="method#TwixtLocalGame#0;class#TwixtLocalGame#0" expanded="false" />
+                <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+                <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+                <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+                <element signature="method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+                <element signature="docComment;method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+                <element signature="method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+                <element signature="docComment;method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+                <element signature="method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+                <element signature="docComment;method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+                <element signature="method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+                <element signature="e#11875#11884#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -161,7 +135,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\Sean\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9\gradle-3.3" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\Kollin\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9\gradle-3.3" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -1864,24 +1838,24 @@
         <option value="$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtLocalGameTest.java" />
         <option value="$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtGameState.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java" />
         <option value="$USER_HOME$/AppData/Local/Android/sdk/platforms/android-18/android.jar!/android/os/Binder.class" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/pig_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtHumanPlayer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtMainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtDumbPlayer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtSmartPlayer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1908,10 +1882,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2084,6 +2054,10 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2543,7 +2517,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2559,7 +2533,7 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22771214" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22761194" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2641,8 +2615,9 @@
         <state relative-caret-position="748">
           <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
+            <element signature="method#setEndRow#0;class#Peg#0" expanded="false" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1004#1005#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2651,7 +2626,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
           <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="method#TwixtLocalGame#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="e#11875#11884#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2718,7 +2706,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-          <folding />
+          <folding>
+            <element signature="method#TwixtLocalGame#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="e#11875#11884#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2733,15 +2734,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="867">
           <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1208#1209#0" expanded="false" />
-            <element signature="e#1273#1274#0" expanded="false" />
-            <element signature="e#1398#1399#0" expanded="false" />
-            <element signature="e#1462#1463#0" expanded="false" />
-            <element signature="e#2048#2049#0" expanded="false" />
-            <element signature="e#2091#2092#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2757,7 +2750,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="method#TwixtLocalGame#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="e#11875#11884#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2780,7 +2786,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#TwixtLocalGame#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="e#11875#11884#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2803,7 +2822,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#TwixtLocalGame#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="e#11875#11884#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2950,6 +2982,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
@@ -2958,59 +2993,29 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/twixt_layout.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-          <folding>
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
-          </folding>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtMainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
+        <state relative-caret-position="663">
           <caret line="49" column="66" selection-start-line="49" selection-start-column="66" selection-end-line="49" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1208#1209#0" expanded="false" />
-            <element signature="e#1273#1274#0" expanded="false" />
-            <element signature="e#1398#1399#0" expanded="false" />
-            <element signature="e#1462#1463#0" expanded="false" />
-            <element signature="e#2048#2049#0" expanded="false" />
-            <element signature="e#2091#2092#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="231" column="54" selection-start-line="231" selection-start-column="54" selection-end-line="231" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtDumbPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
+        <state relative-caret-position="578">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
@@ -3018,9 +3023,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtSmartPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2376">
-          <caret line="115" column="8" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="8" />
+        <state relative-caret-position="810">
+          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding>
+            <element signature="method#setEndRow#0;class#Peg#0" expanded="false" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1004#1005#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="method#TwixtLocalGame#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#sendUpdatedStateTo#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#checkIfGameOver#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="docComment;method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#gameOverHelper#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="e#11875#11884#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

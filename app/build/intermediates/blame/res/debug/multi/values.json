@@ -1161,7 +1161,14 @@
                     "endOffset": 87
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\color.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 57,
+                        "endColumn": 36,
+                        "endOffset": 89
+                    }
                 }
             },
             {
@@ -1173,7 +1180,14 @@
                     "endOffset": 124
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\color.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 95,
+                        "endColumn": 36,
+                        "endOffset": 127
+                    }
                 }
             },
             {
@@ -1185,7 +1199,14 @@
                     "endOffset": 162
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\color.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 133,
+                        "endColumn": 37,
+                        "endOffset": 166
+                    }
                 }
             },
             {
@@ -1197,7 +1218,14 @@
                     "endOffset": 213
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\dimen.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\dimen.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 314,
+                        "endColumn": 50,
+                        "endOffset": 360
+                    }
                 }
             },
             {
@@ -1209,7 +1237,14 @@
                     "endOffset": 267
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\dimen.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\dimen.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 57,
+                        "endColumn": 53,
+                        "endOffset": 106
+                    }
                 }
             },
             {
@@ -1221,7 +1256,14 @@
                     "endOffset": 309
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\dimen.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\dimen.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 168,
+                        "endColumn": 41,
+                        "endOffset": 205
+                    }
                 }
             },
             {
@@ -1233,7 +1275,14 @@
                     "endOffset": 364
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\dimen.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\dimen.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 112,
+                        "endColumn": 54,
+                        "endOffset": 162
+                    }
                 }
             },
             {
@@ -1245,7 +1294,14 @@
                     "endOffset": 415
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\dimen.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\dimen.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 262,
+                        "endColumn": 50,
+                        "endOffset": 308
+                    }
                 }
             },
             {
@@ -1257,7 +1313,14 @@
                     "endOffset": 465
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\dimen.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\dimen.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 211,
+                        "endColumn": 49,
+                        "endOffset": 256
+                    }
                 }
             },
             {
@@ -1269,7 +1332,14 @@
                     "endOffset": 515
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 533,
+                        "endColumn": 49,
+                        "endOffset": 578
+                    }
                 }
             },
             {
@@ -1300,7 +1370,14 @@
                     "endOffset": 608
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 316,
+                        "endColumn": 49,
+                        "endOffset": 361
+                    }
                 }
             },
             {
@@ -1312,7 +1389,14 @@
                     "endOffset": 680
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 878,
+                        "endColumn": 71,
+                        "endOffset": 945
+                    }
                 }
             },
             {
@@ -1324,7 +1408,14 @@
                     "endOffset": 731
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 951,
+                        "endColumn": 50,
+                        "endOffset": 997
+                    }
                 }
             },
             {
@@ -1336,7 +1427,14 @@
                     "endOffset": 808
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1003,
+                        "endColumn": 76,
+                        "endOffset": 1075
+                    }
                 }
             },
             {
@@ -1348,7 +1446,14 @@
                     "endOffset": 848
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 690,
+                        "endColumn": 39,
+                        "endOffset": 725
+                    }
                 }
             },
             {
@@ -1360,7 +1465,14 @@
                     "endOffset": 901
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 63,
+                        "endColumn": 52,
+                        "endOffset": 111
+                    }
                 }
             },
             {
@@ -1372,7 +1484,14 @@
                     "endOffset": 950
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1081,
+                        "endColumn": 48,
+                        "endOffset": 1125
+                    }
                 }
             },
             {
@@ -1384,7 +1503,14 @@
                     "endOffset": 1001
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 117,
+                        "endColumn": 50,
+                        "endOffset": 163
+                    }
                 }
             },
             {
@@ -1396,7 +1522,14 @@
                     "endOffset": 1046
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 367,
+                        "endColumn": 44,
+                        "endOffset": 407
+                    }
                 }
             },
             {
@@ -1408,7 +1541,14 @@
                     "endOffset": 1098
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 584,
+                        "endColumn": 51,
+                        "endOffset": 631
+                    }
                 }
             },
             {
@@ -1420,7 +1560,14 @@
                     "endOffset": 1150
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 637,
+                        "endColumn": 51,
+                        "endOffset": 684
+                    }
                 }
             },
             {
@@ -1432,7 +1579,14 @@
                     "endOffset": 1201
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1131,
+                        "endColumn": 50,
+                        "endOffset": 1177
+                    }
                 }
             },
             {
@@ -1444,7 +1598,14 @@
                     "endOffset": 1257
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 476,
+                        "endColumn": 55,
+                        "endOffset": 527
+                    }
                 }
             },
             {
@@ -1456,7 +1617,14 @@
                     "endOffset": 1327
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 245,
+                        "endColumn": 69,
+                        "endOffset": 310
+                    }
                 }
             },
             {
@@ -1468,7 +1636,14 @@
                     "endOffset": 1417
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 731,
+                        "endColumn": 89,
+                        "endOffset": 816
+                    }
                 }
             },
             {
@@ -1480,7 +1655,14 @@
                     "endOffset": 1479
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 413,
+                        "endColumn": 61,
+                        "endOffset": 470
+                    }
                 }
             },
             {
@@ -1492,7 +1674,14 @@
                     "endOffset": 1534
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 89,
+                        "startOffset": 816,
+                        "endColumn": 139,
+                        "endOffset": 866
+                    }
                 }
             },
             {
@@ -1504,7 +1693,14 @@
                     "endOffset": 1609
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 169,
+                        "endColumn": 74,
+                        "endOffset": 239
+                    }
                 }
             },
             {
@@ -1516,7 +1712,14 @@
                     "endOffset": 1667
                 },
                 "from": {
-                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\styles.xml"
+                    "file": "D:\\TwixtGame\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 19,
+                        "endColumn": 58,
+                        "endOffset": 73
+                    }
                 }
             }
         ]
