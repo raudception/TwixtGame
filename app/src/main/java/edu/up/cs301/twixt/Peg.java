@@ -9,11 +9,15 @@ import java.util.ArrayList;
 public class Peg {
     private int xPos, yPos;
     private ArrayList<Peg> linkedPegs;
-
-
-
     private int isEndRow;
     private int pegTeam;
+
+    public Peg(int X, int Y, int team){
+        xPos = X;
+        yPos = Y;
+        pegTeam = team;
+        setEndRow();
+    }
 
     public Peg(int X, int Y, int team, ArrayList<Peg> linked){
         xPos = X;
