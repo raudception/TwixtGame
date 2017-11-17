@@ -22,8 +22,8 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
 
     /*
-         * Constructor for the TwixtSmartPlayer class
-         */
+     * Constructor for the TwixtSmartPlayer class
+     */
     public TwixtSmartPlayer(String name) {
         super(name);
     }
@@ -47,56 +47,67 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
         current = turnState.stateToArray();
 
 
-        //This chunk of logic will see if there is 4 in a row and try to extend it
-        for (int i = 0; i < 24; i++) {
-            for (int j = 0; j < 24; j++) {
-                if (current[i][j] != null) {
-                    if (current[i][j].getPegTeam() == 0) {
-                        copy = (current[i][j].getLinkedPegs());
-                        if (copy != null) {
-                            for (int k = 0; k < copy.size(); k++) {
-                                copy2 = (copy.get(i).getLinkedPegs());
-                                if (copy2 != null) {
-                                    for (int l = 0; l < copy2.size(); l++) {
-                                        copy3 = (copy2.get(i).getLinkedPegs());
-                                        if (copy3 != null) {
-                                            for (int m = 0; m < copy3.size(); m++) {
-                                                copy4 = (copy3.get(i).getLinkedPegs());
-                                                if (copy4 != null) {
-                                                    for (int n = 0; n < copy4.size(); n++) {
+        //This chunk of logic will see if there is 4 in a row of the other player and try to block
+        //as of now, it puts pegs in the vicinity of an end of the other players link of 4
+        for (int x = 0; x < 24; x++) {
+            for (int y = 0; y < 24; y++) {//iterates through the current state of the board
+                if (current[x][y] != null) {//if there is a piece in this spot
+                    if (current[x][y].getPegTeam() == 0) {//if the piece belongs to the other player
+                        copy = (current[x][y].getLinkedPegs());//getting linked pegs of this peg into a arraylist
+                        if (copy != null) {//if there are linked pegs for this piece
+                            for (int one = 0; one < copy.size(); one++) {//iterates through copy arraylist
+                                copy2 = (copy.get(one).getLinkedPegs());//arraylist for all linked pegs in the selected pegs linked pegs
+                                if (copy2 != null) {//if there are pegs linked to this peg
+                                    for (int two = 0; two < copy2.size(); two++) {
+                                        if (copy2.get(two) != current[x][y]) {//making sure that these linked pegs are not the first peg
+                                            copy3 = (copy2.get(two).getLinkedPegs());
+                                            if (copy3 != null) {
+                                                for (int three = 0; three < copy3.size(); three++) {
+                                                    if (copy3.get(three) != copy.get(one)) {//making sure that there are no re counts of pegs
+                                                        copy4 = (copy3.get(three).getLinkedPegs());
+                                                        if (copy4 != null) {
+                                                            for (int four = 0; four < copy4.size(); four++) {
+                                                                if (copy4.get(four) != copy2.get(two)) {
 
-                                                        int xLoc = copy4.get(n).getxPos();//location of peg
-                                                        int yLoc = copy4.get(n).getyPos();
-                                                        int rndX = rand.nextInt(2);//either 2 or 1 for an L shape
-                                                        int rndY = rand.nextInt(2);//either 2 or 1 for an L shape
-                                                        int tempRnd = rand.nextInt(2);//will be used to "randomly" choose a valid linkable hole
-                                                        if (rndX == rndY && rndX == 1) {
-                                                            if (tempRnd == 1)
-                                                                rndX += 1;
-                                                            else {
-                                                                rndY += 1;
-                                                            }
-                                                        } else {
-                                                            if (tempRnd == 2) {
-                                                                rndX -= 1;
-                                                            } else {
-                                                                rndY -= 1;
+
+                                                                    int xLoc = copy4.get(four).getxPos();//location of peg at end of a string of 4
+                                                                    int yLoc = copy4.get(four).getyPos();//location of peg at end of a string of 4
+                                                                    int rndX = rand.nextInt(2);//either 2 or 1
+                                                                    int rndY = rand.nextInt(2);//either 2 or 1
+                                                                    int tempRnd = rand.nextInt(2);//either 2 or l, will be used to "randomly" choose a valid linkable hole
+                                                                    if (rndX == rndY && rndX == 1) {
+                                                                        if (tempRnd == 1)
+                                                                            rndX += 1;
+                                                                        else {
+                                                                            rndY += 1;
+                                                                        }
+                                                                        //the above if else makes sure it is an 'L' shape from the last peg in the row
+                                                                    } else if (rndX == rndY && rndX == 2) {
+                                                                        if (tempRnd == 2) {
+                                                                            rndX -= 1;
+                                                                        } else {
+                                                                            rndY -= 1;
+                                                                        }
+                                                                        //the above if else makes it an l shape from last peg
+                                                                    }
+
+                                                                    if (tempRnd == 1) {
+                                                                        xLoc = xLoc + rndX;//attempts to move in an l shape
+                                                                        yLoc = yLoc - rndY;//attempts to move in an l shape so it linkes
+                                                                    } else {
+                                                                        xLoc = xLoc - rndX;//attempts to move in an l shape
+                                                                        yLoc = yLoc + rndY;//attempts to move in an l shape so it linkes
+                                                                    }
+
+                                                                    Peg thisTurnPeg = new Peg(xLoc, yLoc, 1);//peg object that is being placed on this turn
+
+                                                                    //Submit our move to the game object. We haven't even checked it it's
+                                                                    // our turn, or that that position is unoccupied.
+                                                                    game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                                                                    game.sendAction(new EndTurnAction(this));//ends this turn with an attempted block
+                                                                }
                                                             }
                                                         }
-
-                                                        if (tempRnd == 1) {
-                                                            xLoc = xLoc + rndX;//attempts to move in an l shape
-                                                            yLoc = yLoc + rndY;//attempts to move in an l shape so it linkes
-                                                        } else {
-                                                            xLoc = xLoc - rndX;//attempts to move in an l shape
-                                                            yLoc = yLoc - rndY;//attempts to move in an l shape so it linkes
-                                                        }
-
-                                                        Peg thisTurnPeg = new Peg(xLoc, yLoc, 0, copy);//peg object that is being placed on this turn
-
-                                                        //Submit our move to the game object. We haven't even checked it it's
-                                                        // our turn, or that that position is unoccupied.
-                                                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
                                                     }
                                                 }
                                             }
@@ -109,12 +120,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 }
             }
         }
-
-
-        //here is where there will be code for if what happens if there is not 4 in a row
-
-
-
     }
-}
+}//end of class
 
