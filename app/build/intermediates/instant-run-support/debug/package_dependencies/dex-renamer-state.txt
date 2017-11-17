@@ -1,4 +1,4 @@
-#Wed Nov 15 18:38:14 GMT-08:00 2017
-base.0=C\:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-v4-18.0.0_f9f2876608489b69a1de7703d5754533c8adb250
+#Wed Nov 15 18:16:42 PST 2017
+base.0=C\:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-v4-18.0.0_0f98899db1903d775cac64f79637f6c83b51a4d7
 renamed.0=classes.dex
-file.0=C\:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-v4-18.0.0_f9f2876608489b69a1de7703d5754533c8adb250\\classes.dex
+file.0=C\:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-v4-18.0.0_0f98899db1903d775cac64f79637f6c83b51a4d7\\classes.dex

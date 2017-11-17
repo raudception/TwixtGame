@@ -3,30 +3,30 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\tdog9\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_f9f2876608489b69a1de7703d5754533c8adb250\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="32b150f7c3e3511ff3b016e4b55b078ea9dd0bfc">
-        <dex dex="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_961745adca91c7ee240df891ae3eed23844e6955\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\CS301\Assignments\TwixtGame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_ca219f97f6022af3003b7a0f6080d2db969d590a\classes.dex" />
+        <dex dex="C:\CS301\Assignments\TwixtGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_3fab08d327459da93e8a305beba0d7ca1c73f828\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\CS301\Assignments\TwixtGame\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="1421aeff70c0ca41a64975e4977792ea0d7d9d0b">
+        <dex dex="C:\CS301\Assignments\TwixtGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_4a39cab4a0b31e5a792e56a3dc9ea7f3855cd663\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Sean\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="C:\CS301\Assignments\TwixtGame\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_0f98899db1903d775cac64f79637f6c83b51a4d7\classes.dex" />
     </item>
 
 </items>

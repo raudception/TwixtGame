@@ -20,6 +20,10 @@
         "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_local_tab.xml"
     },
     {
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\twixt_layout.xml",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\layout\\twixt_layout.xml"
+    },
+    {
         "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
         "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\layout\\game_local_tab.xml"
     },
