@@ -76,7 +76,7 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
 
-        if(action instanceof PlaceLinkAction){ //unknown how to finish adding links
+        if(action instanceof PlaceLinkAction){
             if(action.getPlayer().equals(players[official.getTurn()])){
                 PlaceLinkAction pla = (PlaceLinkAction) action;
                 int x1 = pla.getHoldPeg1().getxPos();
@@ -108,7 +108,7 @@ public class TwixtLocalGame extends LocalGame {
             sendAllUpdatedState();
         }
 
-        if(action instanceof PlacePegAction){ //add adding the linked Pegs to the new peg
+        if(action instanceof PlacePegAction){
             if(action.getPlayer().equals(players[official.getTurn()])){
                 int endRows =0;
 

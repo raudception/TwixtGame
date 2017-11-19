@@ -16,6 +16,7 @@ public class TwixtGameState extends GameState {
     public TwixtGameState (){
     Board = new ArrayList();
     turn =0;
+    Board = new ArrayList<Peg>();
 
     }
 
