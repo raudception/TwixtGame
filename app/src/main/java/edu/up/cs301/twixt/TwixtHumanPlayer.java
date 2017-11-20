@@ -205,7 +205,9 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
     public void tick(Canvas g){
 
-
+        Paint black = new Paint();
+        black.setColor(Color.BLACK);
+        g.drawRect(0,0,1200,1200,black);
 
         if (state == null){
             return;
@@ -227,13 +229,13 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 paint.setColor(Color.WHITE);
 
                 if(array[i][j] != null){
-                    //Log.i("peg is","not null");
+                    Log.i("peg is","not null");
 
                     int pegTeam = array[i][j].getPegTeam();
-                    radius = 15;
+                    radius = 12;
 
                     if(pegTeam == 0) {
-                        //Log.i("team is","human");
+                        Log.i("team is","human");
                         paint.setColor(Color.GREEN);
                     }
                     else if(pegTeam == 1){
@@ -248,7 +250,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 else if((i==0 && j==0)||(i==0 && j==23)||(i==23 && j==0)||(i==23 && j==23)){
                     paint.setColor(Color.BLACK);
                 }
-                g.drawCircle(i*printOffset+5, j*printOffset+5, radius, paint);
+                g.drawCircle(i*printOffset+15, j*printOffset+15, radius, paint);
 
                 if(array[i][j] != null){
                     ArrayList<Peg> linkedPegs = new ArrayList<Peg>();
@@ -270,10 +272,10 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         Paint blue = new Paint();
         blue.setColor(Color.GREEN);
 
-        g.drawLine(50,30,1110,30,blue);
-        g.drawLine(50,1130,1110,1130,blue);
-        g.drawLine(30,50,30,1110,red);
-        g.drawLine(1130,50,1130,1110,red);
+        g.drawLine(60,40,1120,40,blue);
+        g.drawLine(60,1140,1120,1140,blue);
+        g.drawLine(40,60,40,1120,red);
+        g.drawLine(1140,60,1140,1120,red);
 
 
     }
