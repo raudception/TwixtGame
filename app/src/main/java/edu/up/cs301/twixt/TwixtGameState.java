@@ -1,5 +1,7 @@
 package edu.up.cs301.twixt;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 import edu.up.cs301.game.infoMsg.GameState;
@@ -28,6 +30,7 @@ public class TwixtGameState extends GameState {
 
 public Peg[][] stateToArray(){
     Peg[][] array = new Peg[24][24];
+    Log.i("hello",""+Board.size());
     for(int i =0; i < Board.size(); i++) {
         array[Board.get(i).getxPos()][Board.get(i).getyPos()] = Board.get(i);
     }

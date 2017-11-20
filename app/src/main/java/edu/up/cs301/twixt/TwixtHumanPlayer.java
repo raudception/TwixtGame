@@ -1,24 +1,39 @@
 package edu.up.cs301.twixt;
 
+import edu.up.cs301.animation.AnimationSurface;
+import edu.up.cs301.animation.Animator;
 import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.R;
+import edu.up.cs301.game.actionMsg.GameAction;
 import edu.up.cs301.game.infoMsg.GameInfo;
 
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import java.util.ArrayList;
+
 /**
- * A GUI for a human to play Pig. This default version displays the GUI but is incomplete
+ * A GUI for a human to play Twixt. This default version displays the GUI but is incomplete
  *
  *
  * @author Andrew M. Nuxoll, modified by Steven R. Vegdahl
  * @version February 2016
  */
-public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener {
+public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
 
 	/* instance variables */
-
+    private boolean placePeg = false;
+    private boolean removePeg = false;
+    private GameAction action = null;
+    protected TwixtGameState state;
+    private int backgroundColor;
+    private AnimationSurface surface;
     // These variables will reference widgets that will be modified during play
 
 
@@ -52,6 +67,9 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     @Override
     public void receiveInfo(GameInfo info) {
         //this method will need to paint objects, and update the states of buttons
+        this.state = (TwixtGameState)info;
+        Log.i("hello","world");
+
 
     }//receiveInfo
 
@@ -64,10 +82,12 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
      */
     public void onClick(View button) {
 
-        if(button.getId() == R.id.PlacePegButton){
 
+        if(button.getId() == R.id.PlacePegButton){
+            placePeg = true;
         }
         else if(button.getId() == R.id.RemovePegButton){
+            removePeg = true;
 
         }
         else if(button.getId() == R.id.PlaceLinkButton){
@@ -85,6 +105,25 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
     }// onClick
 
+
+    public void onTouch(MotionEvent e){
+
+        int x = (int)e.getX();
+        int y = (int)e.getY();
+        ArrayList<Peg> peg = new ArrayList<Peg>();
+        Peg selectedPeg = new Peg(x,y,0,peg);
+
+        if(placePeg){
+            action = new PlacePegAction(this,selectedPeg);
+            placePeg=false;
+        }
+        else if(removePeg){
+            action = new RemovePegAction(this,selectedPeg);
+            removePeg = false;
+        }
+    }
+
+
     /**
      * callback method--our game has been chosen/rechosen to be the GUI,
      * called from the GUI thread
@@ -98,11 +137,62 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         myActivity = activity;
         activity.setContentView(R.layout.twixt_layout);
 
+        surface = (AnimationSurface) myActivity
+                .findViewById(R.id.animation_surface);
+        surface.setAnimator(this);
+
         //initialize widgets, buttons etc. here
-
-
-
-
     }//setAsGui
+
+    public int interval() {
+        // 1/20 of a second
+        return 50;
+    }
+
+    /**
+     * @return
+     * 		the background color
+     */
+    public int backgroundColor() {
+        return backgroundColor;
+    }
+
+    /**
+     * @return
+     * 		whether the animation should be paused
+     */
+    public boolean doPause() {
+        return false;
+    }
+
+    /**
+     * @return
+     * 		whether the animation should be terminated
+     */
+    public boolean doQuit() {
+        return false;
+    }
+
+    public void tick(Canvas g){
+
+        if (state == null){ return; }
+
+        //Peg[][] array = state.stateToArray();
+
+        for(int i=0; i<24; i++){
+            for(int j=0; j<24;j++){
+                Paint paint = new Paint();
+                paint.setColor(Color.WHITE);
+                g.drawCircle((i*60+5),(j*60+5),5,paint);
+            }
+        }
+
+
+
+    }
+
+
+
+
 
 }// class TwixtHumanPlayer

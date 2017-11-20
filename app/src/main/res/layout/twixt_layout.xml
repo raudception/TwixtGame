@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="@android:color/black">
 
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="600dp"
@@ -14,6 +16,13 @@
         android:src="@android:color/background_light"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true" />
+
+    <edu.up.cs301.animation.AnimationSurface
+        android:id="@+id/animation_surface"
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignLeft="@+id/imageView" />
 
     <TextView
         android:id="@+id/textView"

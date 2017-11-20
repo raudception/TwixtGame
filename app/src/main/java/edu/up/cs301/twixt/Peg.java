@@ -1,5 +1,9 @@
 package edu.up.cs301.twixt;
 
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+
 import java.util.ArrayList;
 
 /**
@@ -75,4 +79,17 @@ public class Peg {
     public int getPegTeam() {return pegTeam;}
 
     public void setPegTeam(int pegTeam) {this.pegTeam = pegTeam;}
+
+    public void draw(Canvas canvas){
+
+        Paint paint = new Paint();
+        if(pegTeam == 0) {
+            paint.setColor(Color.BLUE);
+        }
+        else if(pegTeam == 1){
+            paint.setColor(Color.RED);
+        }
+        canvas.drawCircle(xPos, yPos, 5, paint);
+
+    }
 }

@@ -43,7 +43,7 @@ public class TwixtLocalGame extends LocalGame {
 
     }
 
-    /**
+     /**
      * This method is called when a new action arrives from a player
      *
      * @return true if the action was taken or false if the action was invalid/illegal.
