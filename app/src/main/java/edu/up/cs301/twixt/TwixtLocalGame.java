@@ -199,7 +199,7 @@ public class TwixtLocalGame extends LocalGame {
                 int y = peg.getyPos();
                 ArrayList<Peg> temp = official.getBoard();
                 for(int i = 0; i<temp.size(); i++){
-                    if((temp.get(i).getxPos() == x) && (temp.get(i).getyPos() == y)){
+                    if((temp.get(i).getxPos() == x) && (temp.get(i).getyPos() == y) && (temp.get(i).getPegTeam() == official.getTurn())){
                         Peg removepeg = temp.get(i);
                         temp.remove(removepeg);
                         Log.i("Remove Peg", "Peg Removed");
