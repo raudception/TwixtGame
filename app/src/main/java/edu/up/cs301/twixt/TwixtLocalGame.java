@@ -200,7 +200,7 @@ public class TwixtLocalGame extends LocalGame {
     }//makeMove
 
     /**
-     * This method is called in the add PegAction of make move.  It adds pegs to the linkedPegs ArrayList for the Peg input
+     * This method is called in the add PegAction of makemove.  It adds pegs to the linkedPegs ArrayList for the Peg input
      * @param peg
      */
     public ArrayList<Peg> addPegLinks(Peg peg){
