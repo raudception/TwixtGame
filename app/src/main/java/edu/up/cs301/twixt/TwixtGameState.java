@@ -18,7 +18,6 @@ public class TwixtGameState extends GameState {
     public TwixtGameState (){
     Board = new ArrayList<Peg>();
     turn =0;
-    Board = null;
 
     }
 
@@ -30,10 +29,12 @@ public class TwixtGameState extends GameState {
 
 public Peg[][] stateToArray(){
     Peg[][] array = new Peg[24][24];
-    Log.i("hello",""+Board.size());
-    for(int i =0; i < Board.size(); i++) {
-        array[Board.get(i).getxPos()][Board.get(i).getyPos()] = Board.get(i);
+    try {
+        for (int i = 0; i < Board.size(); i++) {
+                array[Board.get(i).getxPos()][Board.get(i).getyPos()] = Board.get(i);
+        }
     }
+    catch (NullPointerException np) {}
     return array;
 }
 

@@ -67,15 +67,14 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
     @Override
     public void receiveInfo(GameInfo info) {
         //this method will need to paint objects, and update the states of buttons
-        this.state = (TwixtGameState)info;
+        this.state = new TwixtGameState((TwixtGameState) info);
         Log.i("hello","world");
 
 
     }//receiveInfo
 
     /**
-     * this method gets called when the user clicks the die or hold button. It
-     * creates a new PigRollAction or PigHoldAction and sends it to the game.
+     * this method gets called when the user clicks a button, creating an action to send to the game state
      *
      * @param button
      * 		the button that was clicked
@@ -177,7 +176,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
 
         if (state == null){ return; }
 
-        //Peg[][] array = state.stateToArray();
+        Peg[][] array = state.stateToArray();
 
         for(int i=0; i<24; i++){
             for(int j=0; j<24;j++){
