@@ -1,4 +1,4 @@
-#Sun Nov 19 21:02:20 PST 2017
-base.0=C\:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_9
+#Sun Nov 19 22:09:26 GMT-08:00 2017
+base.0=C\:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_9
 renamed.0=classes.dex
-file.0=C\:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_9\\classes.dex
+file.0=C\:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_9\\classes.dex
