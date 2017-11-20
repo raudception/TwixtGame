@@ -6,7 +6,7 @@
     density="xhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1511150732076"
+    timestamp="1511152508594"
     token="4091225397271027191"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -66,7 +66,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1511150376810"
+        timestamp="1511152400183"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
@@ -74,7 +74,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1511150732076"
+        timestamp="1511152508594"
         verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>
