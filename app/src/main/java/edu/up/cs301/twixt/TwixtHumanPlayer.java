@@ -256,8 +256,10 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                     ArrayList<Peg> linkedPegs = new ArrayList<Peg>();
                     linkedPegs = array[i][j].getLinkedPegs();
                     //linkedPegs.add(peg2);
-                    for(int k=0; k < linkedPegs.size(); k++){
-                        g.drawLine(i*printOffset+15,j*printOffset+15,(linkedPegs.get(k).getxPos())*printOffset+15,(linkedPegs.get(k).getyPos())*printOffset+15,paint);
+                    if(linkedPegs != null) {
+                        for (int k = 0; k < linkedPegs.size(); k++) {
+                            g.drawLine(i * printOffset + 5, j * printOffset + 5, (linkedPegs.get(k).getxPos()) * printOffset + 5, (linkedPegs.get(k).getyPos()) * printOffset + 5, paint);
+                        }
                     }
                 }
 
