@@ -22,9 +22,9 @@ public class TwixtGameState extends GameState {
     }
 
     public TwixtGameState(TwixtGameState fresh){
-        fresh.setBoard(this.Board);
-        fresh.setTurn(this.turn);
-        fresh.setTotalTurns(this.totalturns);
+        this.Board = fresh.getBoard();
+        this.turn = fresh.getTurn();
+        this.totalturns = fresh.getTotalturns();
     }
 
 

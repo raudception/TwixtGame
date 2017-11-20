@@ -75,6 +75,7 @@ public class TwixtLocalGame extends LocalGame {
             if(action.getPlayer().equals(players[official.getTurn()])){
                 Log.i("Offer Draw Action", "Player: " + playerNames[official.getTurn()] + " Offered draw"); //placeholder
                 sendAllUpdatedState();
+                return true;
             }
         }
 
@@ -108,6 +109,7 @@ public class TwixtLocalGame extends LocalGame {
                 }
             }
             sendAllUpdatedState();
+            return true;
         }
 
         if(action instanceof PlacePegAction){
@@ -164,9 +166,7 @@ public class TwixtLocalGame extends LocalGame {
                         }
                         peg.setLinkedPegs(setlinked); //modify the peg's linked pegs array
                         Log.i("End of Place", "setPeg");
-
                     }
-
                     temp.add(peg); //add the peg to the temp array
                 }
                 Log.i("End of Place", "End of Peg");
@@ -174,6 +174,7 @@ public class TwixtLocalGame extends LocalGame {
                 pegUsed = true;
                 sendUpdatedStateTo(players[0]);
                 sendUpdatedStateTo(players[1]);
+                return true;
                // sendAllUpdatedState();
             }
         }
@@ -187,6 +188,7 @@ public class TwixtLocalGame extends LocalGame {
                 }
             }
             sendAllUpdatedState();
+            return true;
         }
 
         if(action instanceof RemovePegAction){
@@ -206,6 +208,7 @@ public class TwixtLocalGame extends LocalGame {
                 }
             }
             sendAllUpdatedState();
+            return true;
         }
 
         if(action instanceof SwitchSidesAction){ //unsure of functionality
@@ -220,6 +223,7 @@ public class TwixtLocalGame extends LocalGame {
                 }
             }
             sendAllUpdatedState();
+            return true;
         }
 
         return false;
@@ -231,7 +235,7 @@ public class TwixtLocalGame extends LocalGame {
     @Override
     protected void sendUpdatedStateTo(GamePlayer p) {
         TwixtGameState copy = new TwixtGameState();
-        copy = new TwixtGameState(copy);
+        copy =  new TwixtGameState(official);
         p.sendInfo(copy);
     }//sendUpdatedSate
 
