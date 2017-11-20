@@ -214,14 +214,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         }
         //Log.i("tick","running");
         Peg[][] array = state.stateToArray();
-        /*
-        Peg peg = new Peg(5,5,0);
-        Peg peg1 = new Peg(5,6,1);
-        Peg peg2 = new Peg(7,6,0);
-        array[5][5]=peg;
-        array[5][6]=peg1;
-        array[7][6]=peg2;
-        */
+
         for(int i=0; i<24; i++){
             for(int j=0; j<24;j++){
                 int radius = 5;
@@ -255,7 +248,6 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 if(array[i][j] != null){
                     ArrayList<Peg> linkedPegs = new ArrayList<Peg>();
                     linkedPegs = array[i][j].getLinkedPegs();
-                    //linkedPegs.add(peg2);
                     if(linkedPegs != null) {
                         for (int k = 0; k < linkedPegs.size(); k++) {
                             g.drawLine(i * printOffset + 15, j * printOffset + 15, (linkedPegs.get(k).getxPos()) * printOffset + 15, (linkedPegs.get(k).getyPos()) * printOffset + 15, paint);

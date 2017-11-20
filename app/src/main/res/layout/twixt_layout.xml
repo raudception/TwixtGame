@@ -41,63 +41,62 @@
 
     <Button
         android:id="@+id/PlacePegButton"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="125dp"
+        android:layout_height="100dp"
         android:layout_below="@+id/textView"
-        android:layout_marginLeft="69dp"
+        android:layout_marginRight="45dp"
         android:layout_marginTop="36dp"
-        android:layout_toRightOf="@+id/imageView"
+        android:layout_toLeftOf="@+id/RemovePegButton"
         android:text="Place Peg"
         android:textColor="@android:color/background_light"
-        android:textStyle="italic" />
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/RemovePegButton"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/PlacePegButton"
-        android:layout_alignBottom="@+id/PlacePegButton"
+        android:layout_width="125dp"
+        android:layout_height="100dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="51dp"
+        android:layout_alignTop="@+id/PlacePegButton"
+        android:layout_marginRight="35dp"
         android:text="Remove Peg"
         android:textColor="@android:color/background_light"
-        android:textStyle="italic" />
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/PlaceLinkButton"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="125dp"
+        android:layout_height="100dp"
         android:layout_alignLeft="@+id/PlacePegButton"
         android:layout_below="@+id/PlacePegButton"
         android:layout_marginTop="50dp"
         android:text="Place Link"
         android:textColor="@android:color/background_light"
-        android:textStyle="italic" />
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/RemoveLinkButton"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="125dp"
+        android:layout_height="100dp"
         android:layout_alignLeft="@+id/RemovePegButton"
         android:layout_alignTop="@+id/PlaceLinkButton"
         android:text="Remove Link"
         android:textColor="@android:color/background_light"
-        android:textStyle="italic" />
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/OfferDrawButton"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="125dp"
+        android:layout_height="100dp"
         android:layout_alignLeft="@+id/PlaceLinkButton"
         android:layout_below="@+id/PlaceLinkButton"
         android:layout_marginTop="57dp"
         android:text="Offer Draw"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="italic" />
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/EndTurnButton"
-        android:layout_width="100dp"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/OfferDrawButton"
         android:layout_alignLeft="@+id/RemoveLinkButton"
@@ -105,5 +104,5 @@
         android:background="@color/red"
         android:text="End Turn"
         android:textColor="@android:color/background_light"
-        android:textStyle="italic" />
+        android:textStyle="bold|italic" />
 </RelativeLayout>
