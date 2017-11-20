@@ -24,6 +24,7 @@ public class TwixtGameState extends GameState {
     public TwixtGameState(TwixtGameState fresh){
         fresh.setBoard(this.getBoard());
         fresh.setTurn(this.getTurn());
+        fresh.setTotalTurns(this.getTotalturns());
     }
 
 
@@ -56,6 +57,7 @@ public Peg[][] stateToArray(){
         }
 
     }
+    public void setTotalTurns(int turns){this.totalturns = turns;}
 
     public int getTotalturns() {
         return totalturns;

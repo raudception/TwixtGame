@@ -26,8 +26,8 @@ public class TwixtLocalGame extends LocalGame {
      * This ctor creates a new game state
      */
     public TwixtLocalGame() {
-        TwixtGameState test = new TwixtGameState();
-        official = new TwixtGameState(test);
+       // TwixtGameState test = new TwixtGameState();
+        official = new TwixtGameState();
     }
 
     /**
@@ -130,30 +130,46 @@ public class TwixtLocalGame extends LocalGame {
 
                 boolean dosetlink = false;
                 if(temparray[x][y] == null){
+                    Log.i("End of Place", "xy = null");
                     if( (endRows ==1) && (x!=0) && (x!=23)){ //don't allow placing in opponent's end Rows
                         dosetlink = true;
                     }
                     else if (endRows ==2 && y!=0 && y != 23){
                         dosetlink = true;
                     }
-
+                    Log.i("End of Place", "DoSet: " + dosetlink);
                     if(dosetlink) { //if the peg was added, set the linked pegs arraylist
                         ArrayList<Peg> setlinked = new ArrayList<Peg>();
-                        for (int xp = 0; x < 24; xp++) {
-                            for (int yp = 0; y < 24; yp++) {
+                        Log.i("End of Place", "In Do Set: " );
+                        for (int xp = 0; xp < 24; xp++) {
+                            Log.i("End of Place", "Loop 1 " );
+                            for (int yp = 0; yp < 24; yp++) {
                                 if (((x - xp) == 1 || (x - xp) == -1) && ((y - yp == 2) || (y - yp) == -2)) {
-                                    setlinked.add(temparray[xp][yp]);
+                                    if(temparray[xp][yp] != null){
+                                        if(temparray[xp][yp].getPegTeam() ==official.getTurn()){
+                                            setlinked.add(temparray[xp][yp]);
+                                            Log.i("End of Place", "Add Set linked 1 " );
+                                        }
+                                    }
                                 }
                                 if (((x - xp) == 2 || (x - xp) == -2) && ((y - yp == 1) || (y - yp) == -1)) {
-                                    setlinked.add(temparray[xp][yp]);
+                                    if(temparray[xp][yp] != null){
+                                        if(temparray[xp][yp].getPegTeam() ==official.getTurn()){
+                                            setlinked.add(temparray[xp][yp]);
+                                            Log.i("End of Place", "Add Set linked 2 " );
+                                        }
+                                    }
                                 }
                             }
                         }
                         peg.setLinkedPegs(setlinked); //modify the peg's linked pegs array
-                        temp.add(peg); //add the peg to the temp array
-                    }
+                        Log.i("End of Place", "setPeg");
 
+                    }
+                    peg = new Peg(x,y,official.getTurn());
+                    temp.add(peg); //add the peg to the temp array
                 }
+                Log.i("End of Place", "End of Peg");
                 official.setBoard(temp); //set the board's state, including the new peg
                 pegUsed = true;
                 sendAllUpdatedState();
