@@ -68,7 +68,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     @Override
     public void receiveInfo(GameInfo info) {
         //this method will need to paint objects, and update the states of buttons
-        this.state = new TwixtGameState((TwixtGameState) info);
+        this.state = (TwixtGameState) info;
         Log.i("hello","world");
 
 
@@ -111,7 +111,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         int y = (int)e.getY()/printOffset;
         Log.i("onTouch", "In On Touch: " + x + " " + y);
         ArrayList<Peg> peg = new ArrayList<Peg>();
-        Peg selectedPeg = new Peg(x,y,0,peg);
+        Peg selectedPeg = new Peg(x,y,0);
         if(actionId == 1){ //Place Peg
             Log.i("peg","placed");
             game.sendAction(new PlacePegAction(this,selectedPeg));
@@ -200,21 +200,29 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
     public void tick(Canvas g){
 
-        if (state == null){ return; }
 
+
+        if (state == null){
+            return;
+        }
+        //Log.i("tick","running");
         Peg[][] array = state.stateToArray();
-
+        //Peg peg = new Peg(5,5,0);
+        //array[5][5]=peg;
         for(int i=0; i<24; i++){
             for(int j=0; j<24;j++){
                 Paint paint = new Paint();
                 paint.setColor(Color.WHITE);
                 if(array[i][j] != null){
+                    //Log.i("peg is","not null");
                     int pegTeam = array[i][j].getPegTeam();
 
                     if(pegTeam == 0) {
+                        //Log.i("team is","human");
                         paint.setColor(Color.BLUE);
                     }
                     else if(pegTeam == 1){
+                        //Log.i("team is","computer");
                         paint.setColor(Color.RED);
                     }
 

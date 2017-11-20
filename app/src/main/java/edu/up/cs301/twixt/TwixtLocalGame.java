@@ -51,7 +51,7 @@ public class TwixtLocalGame extends LocalGame {
      */
     @Override
     protected boolean makeMove(GameAction action) {
-
+        Log.i("local game","receving");
         if(action instanceof EndTurnAction){
             if(action.getPlayer().equals(players[official.getTurn()])){
                 if (official.getTurn() ==1){
@@ -111,7 +111,9 @@ public class TwixtLocalGame extends LocalGame {
         }
 
         if(action instanceof PlacePegAction){
+            Log.i("action is","place peg");
             if(action.getPlayer().equals(players[official.getTurn()]) && !pegUsed){
+                Log.i("action is","happening");
                 int endRows =0;
 
                 if(official.getTurn() ==0){endRows =1;}
