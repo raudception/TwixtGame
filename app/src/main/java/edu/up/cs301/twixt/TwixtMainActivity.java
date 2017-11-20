@@ -38,9 +38,13 @@ public class TwixtMainActivity extends GameMainActivity {
             public GamePlayer createPlayer(String name) {
                 return new TwixtHumanPlayer(name);
             }});
-        playerTypes.add(new GamePlayerType("Computer Player") {
+        playerTypes.add(new GamePlayerType(" Easy Computer Player") {
             public GamePlayer createPlayer(String name) {
                 return new TwixtDumbPlayer(name);
+            }});
+        playerTypes.add(new GamePlayerType(" Hard Computer Player") {
+            public GamePlayer createPlayer(String name) {
+                return new TwixtSmartPlayer(name);
             }});
 
         // Create a game configuration class for Twixt:

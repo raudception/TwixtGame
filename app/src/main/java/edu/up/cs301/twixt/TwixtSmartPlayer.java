@@ -17,13 +17,20 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
     private ArrayList<Peg> copy2;//copy arraylist of linked pegs, empty
     private ArrayList<Peg> copy3;//copy arraylist of linked pegs, empty
     private ArrayList<Peg> copy4;//copy arraylist of linked pegs, empty
-    Peg[][] current = new Peg[24][24];
-    Random rand = new Random();
+    private Peg[][] current = new Peg[24][24];//array with current peg placements
+    private Random rand = new Random();//random object for generating random numbers
+    private boolean moveMade = false;//for checking if it is the first turn
+    private ArrayList<Peg> placedPegs;//copy arraylist of linked pegs, empty
+    private Peg lastTurnPeg;
+    private Peg thisTurnPeg;
+    private Peg firstTurnPeg;
 
 
-    /*
-     * Constructor for the TwixtSmartPlayer class
-     */
+    /**
+
+     Constructor for TwixtSmartPlayer class
+
+     **/
     public TwixtSmartPlayer(String name) {
         super(name);
     }
@@ -46,7 +53,87 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
         TwixtGameState turnState = (TwixtGameState) info;
         current = turnState.stateToArray();
 
+        firstMove(moveMade);//places a peg in the end row for the first move
+        attemptBlock();//places peg as an attempted block if the other player has a 4 in a row
+        basicMove();//places pegs continuing from the first placed peg and going across the board.
 
+    }//end of recieveInfo
+
+
+    /**
+    This method places the first peg in the left end row
+     **/
+    public void firstMove(boolean moved) {
+        moved = moveMade;
+        if (!moved) {//ensures this is the first move
+
+            if (current[0][11] == null) ///check to make sure there is no other player piece there
+            {
+                firstTurnPeg = new Peg(0, 11, 1);//peg object that is being placed on this turn
+                placedPegs.add(firstTurnPeg);//adding the first peg to the array of placed pegs
+                //Submit our move to the game object. We haven't even checked it it's
+                // our turn, or that that position is unoccupied.
+                game.sendAction(new PlacePegAction(this, firstTurnPeg));//sends action to game for validation
+                game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed in left end row
+                moveMade = true;
+            }
+
+        }
+
+
+    }
+
+    /**
+     This method places a peg that follows from the previously placed peg.
+     only happens after the first move
+     **/
+    public void basicMove() {
+        if (moveMade) {
+            lastTurnPeg = placedPegs.get(placedPegs.size() - 1);
+            int whatMove = rand.nextInt(4) + 1;
+            if (whatMove == 1) {
+                Peg thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 1), (lastTurnPeg.getyPos() + 2), 1);//peg object that is being placed on this turn
+                //Submit our move to the game object. We haven't even checked it it's
+                // our turn, or that that position is unoccupied.
+                game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
+                lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+            } else if (whatMove == 2) {
+                Peg thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 1), (lastTurnPeg.getyPos() - 2), 1);//peg object that is being placed on this turn
+                //Submit our move to the game object. We haven't even checked it it's
+                // our turn, or that that position is unoccupied.
+                game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
+                lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+            } else if (whatMove == 3) {
+                Peg thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 2), (lastTurnPeg.getyPos() - 1), 1);//peg object that is being placed on this turn
+                //Submit our move to the game object. We haven't even checked it it's
+                // our turn, or that that position is unoccupied.
+                game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
+                lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+            } else if (whatMove == 4) {
+                Peg thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 2), (lastTurnPeg.getyPos() + 1), 1);//peg object that is being placed on this turn
+                //Submit our move to the game object. We haven't even checked it it's
+                // our turn, or that that position is unoccupied.
+                game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
+                lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+            }
+        }
+    }
+
+
+
+    /**
+     This method attempts to block the other player if they have at least 4 links in a row.
+     Done by placing a peg in a spot that inhibits further progress
+     **/
+    public void attemptBlock() {
         //This chunk of logic will see if there is 4 in a row of the other player and try to block
         //as of now, it puts pegs in the vicinity of an end of the other players link of 4
         for (int x = 0; x < 24; x++) {
@@ -99,12 +186,13 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                                                                         yLoc = yLoc + rndY;//attempts to move in an l shape so it linkes
                                                                     }
 
-                                                                    Peg thisTurnPeg = new Peg(xLoc, yLoc, 1);//peg object that is being placed on this turn
+                                                                    Peg blockPeg = new Peg(xLoc, yLoc, 1);//peg object that is being placed on this turn
 
                                                                     //Submit our move to the game object. We haven't even checked it it's
                                                                     // our turn, or that that position is unoccupied.
-                                                                    game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                                                                    game.sendAction(new PlacePegAction(this, blockPeg));//sends action to game for validation
                                                                     game.sendAction(new EndTurnAction(this));//ends this turn with an attempted block
+                                                                    moveMade = true;
                                                                 }
                                                             }
                                                         }
@@ -120,6 +208,9 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 }
             }
         }
-    }
+
+    }//attemptBlock
+
+
 }//end of class
 
