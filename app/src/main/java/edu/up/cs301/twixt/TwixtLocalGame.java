@@ -79,7 +79,7 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
 
-        if(action instanceof PlaceLinkAction){
+        if(action instanceof PlaceLinkAction){ //doesn't check for existing connections
             if(action.getPlayer().equals(players[official.getTurn()])){
                 PlaceLinkAction pla = (PlaceLinkAction) action;
                 int x1 = pla.getHoldPeg1().getxPos();
@@ -243,7 +243,7 @@ public class TwixtLocalGame extends LocalGame {
     public void addCurentPegTo(ArrayList<Peg> linked, Peg current){
         ArrayList<Peg> tempBoard = official.getBoard();
         for(Peg p: linked){
-            if(p.getLinkedPegs().contains(current)){
+            if(!p.getLinkedPegs().contains(current)){
                 p.getLinkedPegs().add(current);
             }
         }
