@@ -231,7 +231,22 @@ public class TwixtLocalGame extends LocalGame {
                     }
                 }
             }
+            addCurentPegTo(setlinked, peg); //add the current peg to the linked pegs arraylist
             return setlinked;
+    }
+
+    /**
+     * Add's the current Peg to each peg in the linked arraylist's linkedPegs
+     * @param linked
+     * @param current
+     */
+    public void addCurentPegTo(ArrayList<Peg> linked, Peg current){
+        ArrayList<Peg> tempBoard = official.getBoard();
+        for(Peg p: linked){
+            if(p.getLinkedPegs().contains(current)){
+                p.getLinkedPegs().add(current);
+            }
+        }
     }
 
     /**
