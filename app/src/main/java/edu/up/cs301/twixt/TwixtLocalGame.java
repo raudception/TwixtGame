@@ -143,8 +143,7 @@ public class TwixtLocalGame extends LocalGame {
                 Log.i("End of Place", "End of Peg");
                 official.setBoard(temp); //set the board's state, including the new peg
                 pegUsed = true;
-                sendUpdatedStateTo(players[0]);
-                sendUpdatedStateTo(players[1]);
+                sendAllUpdatedState();
                 return true;
                // sendAllUpdatedState();
             }
@@ -162,7 +161,7 @@ public class TwixtLocalGame extends LocalGame {
             return true;
         }
 
-        if(action instanceof RemovePegAction){
+        if(action instanceof RemovePegAction){ //doesn't remove it from other linkedPegs
             if(action.getPlayer().equals(players[official.getTurn()])){
                 RemovePegAction rmP = (RemovePegAction) action;
                 Peg peg = rmP.getHoldPeg();
@@ -308,7 +307,9 @@ public class TwixtLocalGame extends LocalGame {
                     ArrayList<Peg> newinput = new ArrayList<Peg>();
 
                     for(Peg g: p.getLinkedPegs()){
-                        if(g.getIsEndRow() ==found){won = true; dobreak = true; break;} //if you find a peg that is in the other endRow,
+                        if(g.getIsEndRow() == found){won = true;
+                            dobreak = true;
+                            break;} //if you find a peg that is in the other endRow,
                         // leave both loops and return true
                         else {
                             if (!input.contains(g)) { //don't add the original peg to the new arraylist
