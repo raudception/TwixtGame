@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\CS301\Assignments\TwixtGame\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\CS301\Assignments\TwixtGame\app\src\debug\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\tdog9\Documents\CS301\TwixtGame\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Users\tdog9\Documents\CS301\TwixtGame\app\src\debug\jniLibs"/></dataSet></merger>
