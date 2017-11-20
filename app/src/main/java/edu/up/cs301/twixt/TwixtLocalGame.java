@@ -21,6 +21,7 @@ import edu.up.cs301.game.actionMsg.GameAction;
  */
 public class TwixtLocalGame extends LocalGame {
     private TwixtGameState official;
+    private boolean pegUsed =false;
     /**
      * This ctor creates a new game state
      */
@@ -64,6 +65,7 @@ public class TwixtLocalGame extends LocalGame {
                 else{
                     Log.i("makeMove", "Invalid Turn: " + official.getTurn());
                 }
+                pegUsed = false;
 
             }
             sendAllUpdatedState();
@@ -109,7 +111,7 @@ public class TwixtLocalGame extends LocalGame {
         }
 
         if(action instanceof PlacePegAction){
-            if(action.getPlayer().equals(players[official.getTurn()])){
+            if(action.getPlayer().equals(players[official.getTurn()]) && !pegUsed){
                 int endRows =0;
 
                 if(official.getTurn() ==0){endRows =1;}
