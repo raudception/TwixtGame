@@ -305,19 +305,22 @@ public class TwixtLocalGame extends LocalGame {
                 for(Peg p : input){ //may be adding to many pegs
                     usedPegs.add(p);
                     ArrayList<Peg> newinput = new ArrayList<Peg>();
-
-                    for(Peg g: p.getLinkedPegs()){
-                        if(g.getIsEndRow() == found){won = true;
-                            dobreak = true;
-                            break;} //if you find a peg that is in the other endRow,
-                        // leave both loops and return true
-                        else {
-                            if (!input.contains(g)) { //don't add the original peg to the new arraylist
-                                newinput.add(g);
-                            }
-                            if (gameOverHelper(newinput, endRow, usedPegs)) {
+                    if(p.getLinkedPegs() != null) {
+                        for (Peg g : p.getLinkedPegs()) {
+                            if (g.getIsEndRow() == found) {
+                                won = true;
                                 dobreak = true;
                                 break;
+                            } //if you find a peg that is in the other endRow,
+                            // leave both loops and return true
+                            else {
+                                if (!input.contains(g)) { //don't add the original peg to the new arraylist
+                                    newinput.add(g);
+                                }
+                                if (gameOverHelper(newinput, endRow, usedPegs)) {
+                                    dobreak = true;
+                                    break;
+                                }
                             }
                         }
                     }
