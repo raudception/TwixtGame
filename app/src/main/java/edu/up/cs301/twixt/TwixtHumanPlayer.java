@@ -69,6 +69,9 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     public void receiveInfo(GameInfo info) {
         if(!(info instanceof TwixtGameState)){return;}
         //this method will need to paint objects, and update the states of buttons
+        if(!(info instanceof TwixtGameState)){
+            return;
+        }
         this.state = (TwixtGameState) info;
 
         Log.i("Human Player","receiveInfo");
@@ -209,32 +212,66 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         }
         //Log.i("tick","running");
         Peg[][] array = state.stateToArray();
-        //Peg peg = new Peg(5,5,0);
-        //array[5][5]=peg;
+        /*
+        Peg peg = new Peg(5,5,0);
+        Peg peg1 = new Peg(5,6,1);
+        Peg peg2 = new Peg(7,6,0);
+        array[5][5]=peg;
+        array[5][6]=peg1;
+        array[7][6]=peg2;
+        */
         for(int i=0; i<24; i++){
             for(int j=0; j<24;j++){
+                int radius = 5;
                 Paint paint = new Paint();
                 paint.setColor(Color.WHITE);
+
                 if(array[i][j] != null){
                     //Log.i("peg is","not null");
+
                     int pegTeam = array[i][j].getPegTeam();
+                    radius = 15;
 
                     if(pegTeam == 0) {
                         //Log.i("team is","human");
-                        paint.setColor(Color.BLUE);
+                        paint.setColor(Color.GREEN);
                     }
                     else if(pegTeam == 1){
                         //Log.i("team is","computer");
                         paint.setColor(Color.RED);
                     }
 
+
+
+
+                }
+                else if((i==0 && j==0)||(i==0 && j==23)||(i==23 && j==0)||(i==23 && j==23)){
+                    paint.setColor(Color.BLACK);
+                }
+                g.drawCircle(i*printOffset+5, j*printOffset+5, radius, paint);
+
+                if(array[i][j] != null){
+                    ArrayList<Peg> linkedPegs = new ArrayList<Peg>();
+                    //linkedPegs = array[i][j].getLinkedPegs();
+                    //linkedPegs.add(peg2);
+                    for(int k=0; k < linkedPegs.size(); k++){
+                        g.drawLine(i*printOffset+5,j*printOffset+5,(linkedPegs.get(k).getxPos())*printOffset+5,(linkedPegs.get(k).getyPos())*printOffset+5,paint);
+                    }
                 }
 
-                g.drawCircle(i*printOffset+5, j*printOffset+5, 5, paint);
 
             }
         }
+        Paint red = new Paint();
+        red.setColor(Color.RED);
 
+        Paint blue = new Paint();
+        blue.setColor(Color.GREEN);
+
+        g.drawLine(50,30,1110,30,blue);
+        g.drawLine(50,1130,1110,1130,blue);
+        g.drawLine(30,50,30,1110,red);
+        g.drawLine(1130,50,1130,1110,red);
 
 
     }
