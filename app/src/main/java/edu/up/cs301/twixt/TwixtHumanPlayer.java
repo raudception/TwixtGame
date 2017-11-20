@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ import java.util.ArrayList;
  * @author Andrew M. Nuxoll, modified by Steven R. Vegdahl
  * @version February 2016
  */
-public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
+public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener, Animator  {
 
 	/* instance variables */
    private int actionId;
@@ -81,9 +82,9 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
      */
     public void onClick(View button) {
 
-
         if(button.getId() == R.id.PlacePegButton){
             actionId =1;
+            Log.i("ActionId = ","1");
         }
         else if(button.getId() == R.id.RemovePegButton){
             actionId =2;
@@ -100,6 +101,10 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
         else if(button.getId() == R.id.EndTurnButton){
             game.sendAction( new EndTurnAction(this));
         }
+        else{
+            Log.i("no","thing");
+            return;
+        }
     }// onClick
     public void onTouch(MotionEvent e){
         int x = (int)e.getX()/printOffset;
@@ -107,7 +112,8 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
         Log.i("onTouch", "In On Touch: " + x + " " + y);
         ArrayList<Peg> peg = new ArrayList<Peg>();
         Peg selectedPeg = new Peg(x,y,0,peg);
-        if(actionId == 1){ //Pplace Peg
+        if(actionId == 1){ //Place Peg
+            Log.i("peg","placed");
             game.sendAction(new PlacePegAction(this,selectedPeg));
             actionId =0;
 
@@ -139,6 +145,26 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
         surface = (AnimationSurface) myActivity
                 .findViewById(R.id.animation_surface);
         surface.setAnimator(this);
+
+        Button placePegButton = (Button) activity.findViewById(R.id.PlacePegButton);
+        placePegButton.setOnClickListener(this);
+
+        Button removePegButton = (Button) activity.findViewById(R.id.RemovePegButton);
+        removePegButton.setOnClickListener(this);
+
+        Button placeLinkButton = (Button) activity.findViewById(R.id.PlaceLinkButton);
+        placeLinkButton.setOnClickListener(this);
+
+        Button removeLinkButton = (Button) activity.findViewById(R.id.RemoveLinkButton);
+        removeLinkButton.setOnClickListener(this);
+
+        Button offerDrawButton = (Button) activity.findViewById(R.id.OfferDrawButton);
+        offerDrawButton.setOnClickListener(this);
+
+        Button endTurnButton = (Button) activity.findViewById(R.id.EndTurnButton);
+        endTurnButton.setOnClickListener(this);
+
+
 
         //initialize widgets, buttons etc. here
     }//setAsGui
