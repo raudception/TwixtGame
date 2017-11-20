@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Nov 19 16:24:45 PST 2017
+#Sun Nov 19 17:06:05 PST 2017
 8.set=ANDROID_RESOURCE
 1.base=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_
 1.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\face2.png

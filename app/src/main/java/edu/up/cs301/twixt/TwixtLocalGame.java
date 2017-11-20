@@ -21,7 +21,7 @@ import edu.up.cs301.game.actionMsg.GameAction;
  */
 public class TwixtLocalGame extends LocalGame {
     private TwixtGameState official;
-    private boolean pegUsed =false;
+    private boolean pegUsed = false;
     /**
      * This ctor creates a new game state
      */
@@ -153,6 +153,7 @@ public class TwixtLocalGame extends LocalGame {
 
                 }
                 official.setBoard(temp); //set the board's state, including the new peg
+                pegUsed = true;
                 sendAllUpdatedState();
             }
         }

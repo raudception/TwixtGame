@@ -34,6 +34,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
     protected TwixtGameState state;
     private int backgroundColor;
     private AnimationSurface surface;
+    private int printOffset = 50;
     // These variables will reference widgets that will be modified during play
 
 
@@ -84,10 +85,11 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
 
         if(button.getId() == R.id.PlacePegButton){
             placePeg = true;
+            removePeg = false;
         }
         else if(button.getId() == R.id.RemovePegButton){
             removePeg = true;
-
+            placePeg = false;
         }
         else if(button.getId() == R.id.PlaceLinkButton){
 
@@ -101,17 +103,13 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
         else if(button.getId() == R.id.EndTurnButton){
 
         }
-
     }// onClick
-
-
     public void onTouch(MotionEvent e){
-
-        int x = (int)e.getX();
-        int y = (int)e.getY();
+        int x = (int)e.getX()/printOffset;
+        int y = (int)e.getY()/printOffset;
+        Log.i("onTouch", "In On Touch: " + x + " " + y);
         ArrayList<Peg> peg = new ArrayList<Peg>();
         Peg selectedPeg = new Peg(x,y,0,peg);
-
         if(placePeg){
             action = new PlacePegAction(this,selectedPeg);
             placePeg=false;
@@ -182,7 +180,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
             for(int j=0; j<24;j++){
                 Paint paint = new Paint();
                 paint.setColor(Color.WHITE);
-                g.drawCircle((i*60+5),(j*60+5),5,paint);
+                g.drawCircle((i*printOffset+5),(j*printOffset+5),5,paint);
             }
         }
 

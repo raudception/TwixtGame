@@ -22,7 +22,8 @@
         android:layout_width="600dp"
         android:layout_height="600dp"
         android:layout_alignTop="@+id/imageView"
-        android:layout_alignLeft="@+id/imageView" />
+        android:layout_alignLeft="@+id/imageView"
+        android:onClick="onClick"/>
 
     <TextView
         android:id="@+id/textView"
