@@ -14,9 +14,9 @@ public class TwixtGameState extends GameState {
     private int totalturns =0;
 
     public TwixtGameState (){
-    Board = new ArrayList();
-    turn =0;
     Board = new ArrayList<Peg>();
+    turn =0;
+    Board = null;
 
     }
 
