@@ -89,7 +89,11 @@ public class Peg {
         else if(pegTeam == 1){
             paint.setColor(Color.RED);
         }
+        else{
+            paint.setColor(Color.WHITE);
+        }
         canvas.drawCircle(xPos, yPos, 5, paint);
+
 
     }
 }

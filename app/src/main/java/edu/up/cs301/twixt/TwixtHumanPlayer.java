@@ -182,7 +182,20 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
             for(int j=0; j<24;j++){
                 Paint paint = new Paint();
                 paint.setColor(Color.WHITE);
-                g.drawCircle((i*printOffset+5),(j*printOffset+5),5,paint);
+                if(array[i][j] != null){
+                    int pegTeam = array[i][j].getPegTeam();
+
+                    if(pegTeam == 0) {
+                        paint.setColor(Color.BLUE);
+                    }
+                    else if(pegTeam == 1){
+                        paint.setColor(Color.RED);
+                    }
+
+                }
+
+                g.drawCircle(i*printOffset+5, j*printOffset+5, 5, paint);
+
             }
         }
 
