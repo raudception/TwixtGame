@@ -131,24 +131,25 @@ public class TwixtLocalGame extends LocalGame {
                 boolean dosetlink = false;
                 if(temparray[x][y] == null){
                     Log.i("End of Place", "xy = null");
+
                     if( (endRows ==1) && (x!=0) && (x!=23)){ //don't allow placing in opponent's end Rows
                         dosetlink = true;
+                        peg = new Peg(x,y,official.getTurn());
                     }
                     else if (endRows ==2 && y!=0 && y != 23){
                         dosetlink = true;
+                        peg = new Peg(x,y,official.getTurn());
                     }
                     Log.i("End of Place", "DoSet: " + dosetlink);
                     if(dosetlink) { //if the peg was added, set the linked pegs arraylist
                         ArrayList<Peg> setlinked = new ArrayList<Peg>();
                         Log.i("End of Place", "In Do Set: " );
                         for (int xp = 0; xp < 24; xp++) {
-                            Log.i("End of Place", "Loop 1 " );
                             for (int yp = 0; yp < 24; yp++) {
                                 if (((x - xp) == 1 || (x - xp) == -1) && ((y - yp == 2) || (y - yp) == -2)) {
                                     if(temparray[xp][yp] != null){
                                         if(temparray[xp][yp].getPegTeam() ==official.getTurn()){
                                             setlinked.add(temparray[xp][yp]);
-                                            Log.i("End of Place", "Add Set linked 1 " );
                                         }
                                     }
                                 }
@@ -156,7 +157,6 @@ public class TwixtLocalGame extends LocalGame {
                                     if(temparray[xp][yp] != null){
                                         if(temparray[xp][yp].getPegTeam() ==official.getTurn()){
                                             setlinked.add(temparray[xp][yp]);
-                                            Log.i("End of Place", "Add Set linked 2 " );
                                         }
                                     }
                                 }
@@ -166,13 +166,15 @@ public class TwixtLocalGame extends LocalGame {
                         Log.i("End of Place", "setPeg");
 
                     }
-                    peg = new Peg(x,y,official.getTurn());
+
                     temp.add(peg); //add the peg to the temp array
                 }
                 Log.i("End of Place", "End of Peg");
                 official.setBoard(temp); //set the board's state, including the new peg
                 pegUsed = true;
-                sendAllUpdatedState();
+                sendUpdatedStateTo(players[0]);
+                sendUpdatedStateTo(players[1]);
+               // sendAllUpdatedState();
             }
         }
 
@@ -229,7 +231,7 @@ public class TwixtLocalGame extends LocalGame {
     @Override
     protected void sendUpdatedStateTo(GamePlayer p) {
         TwixtGameState copy = new TwixtGameState();
-        copy = new  TwixtGameState(copy);
+        copy = new TwixtGameState(copy);
         p.sendInfo(copy);
     }//sendUpdatedSate
 
@@ -321,28 +323,4 @@ public class TwixtLocalGame extends LocalGame {
         return false;
     }
 
-//    /**
-//     * This method takes in a peg with its x and y position and populates its linkedPegs arraylist
-//     *                        currently unused
-//     * @param x
-//     * @param y
-//     * @param peg
-//     * @return
-//     */
-//    public Peg setPegLinks (int x, int y, Peg peg){
-//        Peg [] [] temparray = official.stateToArray();
-//        ArrayList<Peg> setlinked = new ArrayList<Peg>();
-//        for (int xp = 0; x < 24; xp++) {
-//            for (int yp = 0; y < 24; yp++) {
-//                if (((x - xp) == 1 || (x - xp) == -1) && ((y - yp == 2) || (y - yp) == -2)) {
-//                    setlinked.add(temparray[xp][yp]);
-//                }
-//                if (((x - xp) == 2 || (x - xp) == -2) && ((y - yp == 1) || (y - yp) == -1)) {
-//                    setlinked.add(temparray[xp][yp]);
-//                }
-//            }
-//        }
-//        peg.setLinkedPegs(setlinked);
-//        return peg;
-//    }
 }// class TwixtLocalGame

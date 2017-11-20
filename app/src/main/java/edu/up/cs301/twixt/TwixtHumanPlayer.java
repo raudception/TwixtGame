@@ -67,9 +67,11 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
      */
     @Override
     public void receiveInfo(GameInfo info) {
+        if(!(info instanceof TwixtGameState)){return;}
         //this method will need to paint objects, and update the states of buttons
         this.state = (TwixtGameState) info;
-        Log.i("hello","world");
+
+        Log.i("Human Player","receiveInfo");
 
 
     }//receiveInfo
