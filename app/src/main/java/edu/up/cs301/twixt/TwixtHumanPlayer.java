@@ -229,13 +229,13 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 paint.setColor(Color.WHITE);
 
                 if(array[i][j] != null){
-                    Log.i("peg is","not null");
+                    //Log.i("peg is","not null");
 
                     int pegTeam = array[i][j].getPegTeam();
                     radius = 12;
 
                     if(pegTeam == 0) {
-                        Log.i("team is","human");
+                       // Log.i("team is","human");
                         paint.setColor(Color.GREEN);
                     }
                     else if(pegTeam == 1){

@@ -134,11 +134,15 @@ public class TwixtLocalGame extends LocalGame {
 
                     if( (endRows ==1) && (x!=0) && (x!=23)){ //don't allow placing in opponent's end Rows
                         peg = new Peg(x,y,official.getTurn(),addPegLinks(peg));
+                        temp.add(peg); //add the peg to the temp array
                     }
-                    else if (endRows ==2 && y!=0 && y != 23){
+                    else if ( (endRows ==2) && (y!=0) && (y != 23) ){
                         peg = new Peg(x,y,official.getTurn(),addPegLinks(peg));
+                        temp.add(peg); //add the peg to the temp array
                     }
-                    temp.add(peg); //add the peg to the temp array
+                    else{
+                        return false;
+                    }
                 }
                 Log.i("End of Place", "End of Peg");
                 official.setBoard(temp); //set the board's state, including the new peg
