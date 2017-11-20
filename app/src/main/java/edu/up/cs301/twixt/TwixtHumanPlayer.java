@@ -28,8 +28,7 @@ import java.util.ArrayList;
 public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
 
 	/* instance variables */
-    private boolean placePeg = false;
-    private boolean removePeg = false;
+   private int actionId;
     private GameAction action = null;
     protected TwixtGameState state;
     private int backgroundColor;
@@ -84,24 +83,22 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
 
 
         if(button.getId() == R.id.PlacePegButton){
-            placePeg = true;
-            removePeg = false;
+            actionId =1;
         }
         else if(button.getId() == R.id.RemovePegButton){
-            removePeg = true;
-            placePeg = false;
+            actionId =2;
         }
         else if(button.getId() == R.id.PlaceLinkButton){
-
+            actionId =3;
         }
         else if(button.getId() == R.id.RemoveLinkButton){
-
+            actionId =4;
         }
         else if(button.getId() == R.id.OfferDrawButton){
-
+            game.sendAction( new OfferDrawAction(this));
         }
         else if(button.getId() == R.id.EndTurnButton){
-
+            game.sendAction( new EndTurnAction(this));
         }
     }// onClick
     public void onTouch(MotionEvent e){
@@ -110,13 +107,18 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements Animator {
         Log.i("onTouch", "In On Touch: " + x + " " + y);
         ArrayList<Peg> peg = new ArrayList<Peg>();
         Peg selectedPeg = new Peg(x,y,0,peg);
-        if(placePeg){
-            action = new PlacePegAction(this,selectedPeg);
-            placePeg=false;
+        if(actionId == 1){ //Pplace Peg
+            game.sendAction(new PlacePegAction(this,selectedPeg));
+            actionId =0;
+
         }
-        else if(removePeg){
-            action = new RemovePegAction(this,selectedPeg);
-            removePeg = false;
+        else if(actionId == 2){ //Remove Peg
+            game.sendAction( new RemovePegAction(this,selectedPeg));
+            actionId =0;
+        }
+        else if(actionId == 3){ //placeLinkAction
+            //game.sendAction( new PlaceLinkAction(this,selectedPeg));
+            actionId =0;
         }
     }
 
