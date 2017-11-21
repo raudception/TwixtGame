@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+        "outputFile": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 113
                 },
                 "from": {
-                    "file": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\values-v11\\styles.xml",
+                    "file": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\values-v11\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

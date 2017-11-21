@@ -41,7 +41,7 @@ public class TwixtDumbPlayer extends GameComputerPlayer {
 
 
         // delay for a second to simulate thinking
-        sleep(1000);
+        sleep(2000);
 
         Peg thisTurnPeg = new Peg(xVal, yVal, 1);//peg object that is being placed on this turn
 
