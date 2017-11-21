@@ -89,7 +89,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         if(button.getId() == R.id.PlacePegButton){
             actionId =1;
-            Log.i("ActionId = ","1");
+            //Log.i("ActionId = ","1");
         }
         else if(button.getId() == R.id.RemovePegButton){
             actionId =2;
@@ -107,18 +107,18 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             game.sendAction( new EndTurnAction(this));
         }
         else{
-            Log.i("no","thing");
+            //Log.i("no","thing");
             return;
         }
     }// onClick
     public void onTouch(MotionEvent e){
         int x = (int)e.getX()/printOffset;
         int y = (int)e.getY()/printOffset;
-        Log.i("onTouch", "In On Touch: " + x + " " + y);
+        //Log.i("onTouch", "In On Touch: " + x + " " + y);
         ArrayList<Peg> peg = new ArrayList<Peg>();
         Peg selectedPeg = new Peg(x,y,0);
         if(actionId == 1){ //Place Peg
-            Log.i("peg","placed");
+            //Log.i("peg","placed");
             game.sendAction(new PlacePegAction(this,selectedPeg));
             actionId =0;
 

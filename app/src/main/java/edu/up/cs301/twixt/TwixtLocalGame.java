@@ -52,6 +52,7 @@ public class TwixtLocalGame extends LocalGame {
     @Override
     protected boolean makeMove(GameAction action) {
         Log.i("local game","receving");
+
         if(action instanceof EndTurnAction){
             if(action.getPlayer().equals(players[official.getTurn()])){
                 if (official.getTurn() ==1){
@@ -156,9 +157,11 @@ public class TwixtLocalGame extends LocalGame {
         if(action instanceof RemoveLinkAction){
             if(action.getPlayer().equals(players[official.getTurn()])){
                 RemoveLinkAction rla = (RemoveLinkAction) action;
-                if(rla.getHoldPeg1().getLinkedPegs().contains(rla.getHoldPeg2()) && rla.getHoldPeg2().getLinkedPegs().contains(rla.getHoldPeg2()) ){ //if each peg has the other remove them
-                    rla.getHoldPeg1().getLinkedPegs().remove(rla.getHoldPeg2());
-                    rla.getHoldPeg2().getLinkedPegs().remove(rla.getHoldPeg1());
+                if(rla.getHoldPeg1().getLinkedPegs() != null && rla.getHoldPeg2() != null) {// null check for both arraylists
+                    if (rla.getHoldPeg1().getLinkedPegs().contains(rla.getHoldPeg2()) && rla.getHoldPeg2().getLinkedPegs().contains(rla.getHoldPeg2())) { //if each peg has the other remove them
+                        rla.getHoldPeg1().getLinkedPegs().remove(rla.getHoldPeg2());
+                        rla.getHoldPeg2().getLinkedPegs().remove(rla.getHoldPeg1());
+                    }
                 }
             }
             sendAllUpdatedState();
@@ -275,7 +278,6 @@ public class TwixtLocalGame extends LocalGame {
         ArrayList<Peg> rightPegs = new ArrayList<Peg>();
         boolean rightLeft = false;
         boolean topBottom = false;
-
         for(int i =0; i<24; i++){ //add the top row of pegs into an array list
             if(test[i][0] != null){
                 topPegs.add(test[i][0]);
@@ -290,7 +292,7 @@ public class TwixtLocalGame extends LocalGame {
                 topBottom = gameOverHelper(topPegs, 1, usedPegsTop);
         }
         if(rightPegs.size() >0) { //only run this if there are Pegs in the array/right row of the board
-                rightLeft = gameOverHelper(rightPegs, 1, usedPegsRight);
+                rightLeft = gameOverHelper(rightPegs, 2, usedPegsRight);
         }
 
         if(topBottom){
@@ -316,40 +318,32 @@ public class TwixtLocalGame extends LocalGame {
     private boolean gameOverHelper(ArrayList<Peg> input, int endRow, ArrayList<Peg> usedPegs) {
         ArrayList<Peg> output = new ArrayList<Peg>();
         boolean won = false;
-        boolean dobreak = false;
-        if (input != null) {
-            int found = endRow +2; //if we find a Peg with the opposite endRow value (we only pass in 1 or 2
-            //go through the pegs here
+        int found = endRow +2;
+        Peg [][] array = official.stateToArray();
 
-                for(Peg p : input){ //may be adding to many pegs
-                    usedPegs.add(p);
-                    ArrayList<Peg> newinput = new ArrayList<Peg>();
-                    if(p.getLinkedPegs() != null) {
-                        for (Peg g : p.getLinkedPegs()) {
-                            if (g.getIsEndRow() == found) {
-                                won = true;
-                                dobreak = true;
-                                break;
-                            } //if you find a peg that is in the other endRow,
-                            // leave both loops and return true
-                            else {
-                                if (!input.contains(g)) { //don't add the original peg to the new arraylist
-                                    newinput.add(g);
-                                }
-                                if (gameOverHelper(newinput, endRow, usedPegs)) {
-                                    dobreak = true;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    if(dobreak){break;}
-                }
-        }
-        if(won){
-            return true;
-        }
+       if(input != null){
+           for (Peg p: input){
+               usedPegs.add(p);
+               if(p.getIsEndRow() == found){
+                   return true;
+               }
+               if(p.getLinkedPegs() != null){
+                   for(Peg g: p.getLinkedPegs()){
+                       if(!usedPegs.contains(g)){ //don't add the original peg, or any peg that has been used
+                           output.add(array[g.getxPos()][g.getyPos()]);
+                           Log.i("Helper output", "add");
+                       }
+                   }
+                   if(gameOverHelper(output, endRow, usedPegs)){
+                       Log.i("Helper", "True");
+                       return true;
+                   }
+               }
+           }
+       }
+       if(won){
+           return true;
+       }
         return false;
     }
-
 }// class TwixtLocalGame
