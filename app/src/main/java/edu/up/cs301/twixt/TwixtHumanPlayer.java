@@ -152,7 +152,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             }
 
         }
-        else if(actionId == 4) { //removeLinkAction
+        else if(actionId == 4) { //removeLinkAction  doesn't actually pass in the pegs, it makes new ones, and I can't compare them using linkedPegs
 
             if(previousPeg != null && previousPeg.getxPos() != selectedPeg.getxPos() && previousPeg.getyPos() != selectedPeg.getyPos()){
 

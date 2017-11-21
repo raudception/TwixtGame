@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Kollin on 11/8/2017.
+ * This class populates the game board.
  */
 
 public class Peg {
@@ -17,6 +18,7 @@ public class Peg {
     private int pegTeam;
 
     public Peg(int X, int Y, int team){
+        linkedPegs = new ArrayList<Peg>();
         xPos = X;
         yPos = Y;
         pegTeam = team;
@@ -24,11 +26,16 @@ public class Peg {
     }
 
     public Peg(int X, int Y, int team, ArrayList<Peg> linked){
+        linkedPegs = new ArrayList<Peg>();
         xPos = X;
         yPos = Y;
         pegTeam = team;
         linkedPegs = linked;
         setEndRow();
+    }
+
+    public String ComparePeg(){
+        return "" +xPos +yPos;
     }
 
     private void setEndRow(){ //determine what end row the peg is in
@@ -93,7 +100,19 @@ public class Peg {
             paint.setColor(Color.WHITE);
         }
         canvas.drawCircle(xPos, yPos, 5, paint);
+    }
 
-
+    /**
+     * Should override the default equals method for ArrayLists, and just compare the x and y position on the board.
+     * @param peg
+     * @return
+     */
+    @Override
+    public boolean equals(Object peg){
+        Peg peg1 = (Peg) peg;
+        if(xPos == peg1.getxPos() && yPos == peg1.yPos){
+            return true;
+        }
+        return false;
     }
 }
