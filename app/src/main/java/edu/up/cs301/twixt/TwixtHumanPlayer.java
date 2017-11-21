@@ -78,8 +78,10 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         this.state = (TwixtGameState) info;
 
         Log.i("Human Player","receiveInfo");
+        if(state.getTurn() == 0){
+            turn.setText("Your Turn");
+        }
 
-        turn.setText("Your Turn");
 
 
     }//receiveInfo
