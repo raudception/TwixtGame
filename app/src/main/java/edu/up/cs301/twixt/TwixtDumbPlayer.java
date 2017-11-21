@@ -1,5 +1,7 @@
 package edu.up.cs301.twixt;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -36,6 +38,7 @@ public class TwixtDumbPlayer extends GameComputerPlayer {
         Random r = new Random();
         int xVal = r.nextInt(24);//random x value, math may not be right as of now
         int yVal = r.nextInt(24);//random y value, math may not be right as of now.
+
 
 
 
