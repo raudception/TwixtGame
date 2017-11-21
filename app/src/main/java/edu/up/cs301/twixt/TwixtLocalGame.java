@@ -157,8 +157,10 @@ public class TwixtLocalGame extends LocalGame {
         if(action instanceof RemoveLinkAction){
             if(action.getPlayer().equals(players[official.getTurn()])){
                 RemoveLinkAction rla = (RemoveLinkAction) action;
-                if(rla.getHoldPeg1().getLinkedPegs() != null && rla.getHoldPeg2() != null) {// null check for both arraylists
-                    if (rla.getHoldPeg1().getLinkedPegs().contains(rla.getHoldPeg2()) && rla.getHoldPeg2().getLinkedPegs().contains(rla.getHoldPeg2())) { //if each peg has the other remove them
+                Log.i("removing","links please");
+                if(rla.getHoldPeg1().getLinkedPegs() != null && rla.getHoldPeg2().getLinkedPegs() != null){
+                    Log.i("removing","links");
+                    if(rla.getHoldPeg1().getLinkedPegs().contains(rla.getHoldPeg2()) && rla.getHoldPeg2().getLinkedPegs().contains(rla.getHoldPeg1()) ){ //if each peg has the other remove them
                         rla.getHoldPeg1().getLinkedPegs().remove(rla.getHoldPeg2());
                         rla.getHoldPeg2().getLinkedPegs().remove(rla.getHoldPeg1());
                     }

@@ -105,4 +105,19 @@
         android:text="End Turn"
         android:textColor="@android:color/background_light"
         android:textStyle="bold|italic" />
+
+    <EditText
+        android:id="@+id/turnDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignLeft="@+id/OfferDrawButton"
+        android:layout_alignRight="@+id/EndTurnButton"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Your Turn"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 </RelativeLayout>

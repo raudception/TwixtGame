@@ -50,7 +50,7 @@ public final class R {
         public static final int ipCodeLabel=0x7f09000a;
         public static final int localGameTab=0x7f090004;
         public static final int localTabLayout=0x7f090005;
-        public static final int menu_settings=0x7f090022;
+        public static final int menu_settings=0x7f090023;
         public static final int playGameButton=0x7f090002;
         public static final int playerNameEditText=0x7f090010;
         public static final int playerNameHeadingText=0x7f09000c;
@@ -70,6 +70,7 @@ public final class R {
         public static final int textView1=0x7f090009;
         public static final int textView2=0x7f09000f;
         public static final int top_gui_layout=0x7f090018;
+        public static final int turnDisplay=0x7f090022;
     }
     public static final class layout {
         public static final int game_config_main=0x7f030000;

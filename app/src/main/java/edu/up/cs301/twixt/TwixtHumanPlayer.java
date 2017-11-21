@@ -16,6 +16,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -35,6 +36,8 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     private int backgroundColor;
     private AnimationSurface surface;
     private int printOffset = 50;
+    private TextView turn;
+    Peg previousPeg = null;
     // These variables will reference widgets that will be modified during play
 
 
@@ -76,6 +79,8 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         Log.i("Human Player","receiveInfo");
 
+        turn.setText("Your Turn");
+
 
     }//receiveInfo
 
@@ -104,7 +109,9 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             game.sendAction( new OfferDrawAction(this));
         }
         else if(button.getId() == R.id.EndTurnButton){
+            turn.setText("Opponent's Turn");
             game.sendAction( new EndTurnAction(this));
+
         }
         else{
             //Log.i("no","thing");
@@ -116,20 +123,46 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         int y = (int)e.getY()/printOffset;
         //Log.i("onTouch", "In On Touch: " + x + " " + y);
         ArrayList<Peg> peg = new ArrayList<Peg>();
-        Peg selectedPeg = new Peg(x,y,0);
+        Peg selectedPeg = new Peg(x,y,0,peg);
+
+
         if(actionId == 1){ //Place Peg
             //Log.i("peg","placed");
             game.sendAction(new PlacePegAction(this,selectedPeg));
             actionId =0;
 
+
         }
         else if(actionId == 2){ //Remove Peg
             game.sendAction( new RemovePegAction(this,selectedPeg));
             actionId =0;
+
         }
         else if(actionId == 3){ //placeLinkAction
-            //game.sendAction( new PlaceLinkAction(this,selectedPeg));
-            actionId =0;
+            if(previousPeg != null && previousPeg.getxPos() != selectedPeg.getxPos() && previousPeg.getyPos() != selectedPeg.getyPos()){
+
+                game.sendAction( new PlaceLinkAction(this,selectedPeg,previousPeg));
+                previousPeg = null;
+                actionId = 0;
+            }
+            else{
+                previousPeg = selectedPeg;
+            }
+
+        }
+        else if(actionId == 4) { //removeLinkAction
+
+            if(previousPeg != null && previousPeg.getxPos() != selectedPeg.getxPos() && previousPeg.getyPos() != selectedPeg.getyPos()){
+
+                game.sendAction( new RemoveLinkAction(this,selectedPeg,previousPeg));
+                previousPeg = null;
+                actionId = 0;
+            }
+            else{
+                previousPeg = selectedPeg;
+            }
+
+
         }
     }
 
@@ -168,6 +201,8 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         Button endTurnButton = (Button) activity.findViewById(R.id.EndTurnButton);
         endTurnButton.setOnClickListener(this);
+
+        turn = (TextView) activity.findViewById(R.id.turnDisplay);
 
 
 
