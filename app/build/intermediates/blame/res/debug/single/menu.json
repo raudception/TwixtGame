@@ -6,5 +6,9 @@
     {
         "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\menu\\game_main.xml",
         "source": "S:\\TwixtGame\\app\\src\\main\\res\\menu\\game_main.xml"
+    },
+    {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\menu\\game_main.xml",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\menu\\game_main.xml"
     }
 ]
