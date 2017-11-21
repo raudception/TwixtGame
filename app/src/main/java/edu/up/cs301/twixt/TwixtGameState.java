@@ -32,7 +32,7 @@ public Peg[][] stateToArray(){
     Peg[][] array = new Peg[24][24];
     try {
         for (int i = 0; i < Board.size(); i++) {
-                array[Board.get(i).getxPos()][Board.get(i).getyPos()] = Board.get(i);
+            array[Board.get(i).getxPos()][Board.get(i).getyPos()] = Board.get(i);
         }
     }
     catch (NullPointerException np) {}
