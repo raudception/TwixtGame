@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:icon="@mipmap/twixt_launcher"
         android:label="TWIXT"
         android:theme="@style/AppTheme" >
         <activity
