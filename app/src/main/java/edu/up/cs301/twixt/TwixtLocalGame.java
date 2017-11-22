@@ -79,27 +79,29 @@ public class TwixtLocalGame extends LocalGame {
         if(action instanceof PlaceLinkAction){
             if(action.getPlayer().equals(players[official.getTurn()])) {
                 PlaceLinkAction pla = (PlaceLinkAction) action;
-                int x1 = pla.getHoldPeg1().getxPos();
-                int y1 = pla.getHoldPeg1().getyPos();
-                int x2 = pla.getHoldPeg2().getxPos();
-                int y2 = pla.getHoldPeg2().getyPos();
-                if (pla.getHoldPeg1().getPegTeam() == official.getTurn() && pla.getHoldPeg2().getPegTeam() == official.getTurn()) {
-                    if (((x1 - x2) == 1 || (x1 - x2) == -1) && ((y1 - y2 == 2) || (y1 - y2) == -2)) {
-                        ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
-                        newlinked1.add(pla.getHoldPeg2());
-                        pla.getHoldPeg1().setLinkedPegs(newlinked1);
+                if (pla.getHoldPeg1() != null && pla.getHoldPeg2() != null) {
+                    int x1 = pla.getHoldPeg1().getxPos();
+                    int y1 = pla.getHoldPeg1().getyPos();
+                    int x2 = pla.getHoldPeg2().getxPos();
+                    int y2 = pla.getHoldPeg2().getyPos();
+                    if (pla.getHoldPeg1().getPegTeam() == official.getTurn() && pla.getHoldPeg2().getPegTeam() == official.getTurn()) {
+                        if (((x1 - x2) == 1 || (x1 - x2) == -1) && ((y1 - y2 == 2) || (y1 - y2) == -2)) {
+                            ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
+                            newlinked1.add(pla.getHoldPeg2());
+                            pla.getHoldPeg1().setLinkedPegs(newlinked1);
 
-                        ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
-                        newlinked2.add(pla.getHoldPeg1());
-                        pla.getHoldPeg2().setLinkedPegs(newlinked2);
-                    } else if (((x1 - x2) == 2 || (x1 - x2) == -2) && ((y1 - y2 == 1) || (y1 - y2) == -1)) {
-                        ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
-                        newlinked1.add(pla.getHoldPeg2());
-                        pla.getHoldPeg1().setLinkedPegs(newlinked1);
+                            ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
+                            newlinked2.add(pla.getHoldPeg1());
+                            pla.getHoldPeg2().setLinkedPegs(newlinked2);
+                        } else if (((x1 - x2) == 2 || (x1 - x2) == -2) && ((y1 - y2 == 1) || (y1 - y2) == -1)) {
+                            ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
+                            newlinked1.add(pla.getHoldPeg2());
+                            pla.getHoldPeg1().setLinkedPegs(newlinked1);
 
-                        ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
-                        newlinked2.add(pla.getHoldPeg1());
-                        pla.getHoldPeg2().setLinkedPegs(newlinked2);
+                            ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
+                            newlinked2.add(pla.getHoldPeg1());
+                            pla.getHoldPeg2().setLinkedPegs(newlinked2);
+                        }
                     }
                 }
             }
