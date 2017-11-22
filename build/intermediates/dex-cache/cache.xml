@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="D:\TwixtGame\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="c55581a4cee5356843b653e11d746078ec2abf93">
-        <dex dex="D:\TwixtGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_469c9e7c82b052824ccb993b63e29c69a9272ec4\classes.dex" />
+        sha1="51d5fa2a7e764d78f43983cfaf019ce291cd3932">
+        <dex dex="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_961745adca91c7ee240df891ae3eed23844e6955\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="D:\TwixtGame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="D:\TwixtGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_bae62f9a0bcba07a256a9c1753afc1bc0a68e289\classes.dex" />
+        <dex dex="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_ca219f97f6022af3003b7a0f6080d2db969d590a\classes.dex" />
     </item>
 
 </items>

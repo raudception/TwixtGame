@@ -40,6 +40,12 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     Peg previousPeg = null;
     private boolean flashBoolean = false;
     // These variables will reference widgets that will be modified during play
+    private Button buttonPP;
+    private Button buttonRP;
+    private Button buttonPL;
+    private Button buttonRL;
+    private Button buttonOD;
+    private Button buttonET;
 
 
 
@@ -95,31 +101,60 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
      */
     public void onClick(View button) {
 
+
         if(button.getId() == R.id.PlacePegButton){
             actionId =1;
-            //button.set
+            button.setBackgroundColor(Color.GREEN);
+            buttonRP.setBackgroundColor(Color.GRAY);
+            buttonPL.setBackgroundColor(Color.GRAY);
+            buttonRL.setBackgroundColor(Color.GRAY);
+            buttonOD.setBackgroundColor(Color.GRAY);
+
         }
         else if(button.getId() == R.id.RemovePegButton){
             actionId =2;
+            button.setBackgroundColor(Color.GREEN);
+            buttonPP.setBackgroundColor(Color.GRAY);
+            buttonOD.setBackgroundColor(Color.GRAY);
+            buttonPL.setBackgroundColor(Color.GRAY);
+            buttonRL.setBackgroundColor(Color.GRAY);
         }
         else if(button.getId() == R.id.PlaceLinkButton){
             actionId =3;
+            button.setBackgroundColor(Color.GREEN);
+            buttonPP.setBackgroundColor(Color.GRAY);
+            buttonRP.setBackgroundColor(Color.GRAY);
+            buttonRL.setBackgroundColor(Color.GRAY);
+            buttonOD.setBackgroundColor(Color.GRAY);
         }
         else if(button.getId() == R.id.RemoveLinkButton){
             actionId =4;
+            button.setBackgroundColor(Color.GREEN);
+            buttonPP.setBackgroundColor(Color.GRAY);
+            buttonRP.setBackgroundColor(Color.GRAY);
+            buttonPL.setBackgroundColor(Color.GRAY);
+            buttonOD.setBackgroundColor(Color.GRAY);
         }
         else if(button.getId() == R.id.OfferDrawButton){
             game.sendAction( new OfferDrawAction(this));
+            button.setBackgroundColor(Color.GREEN);
+            buttonPP.setBackgroundColor(Color.GRAY);
+            buttonRP.setBackgroundColor(Color.GRAY);
+            buttonPL.setBackgroundColor(Color.GRAY);
+            buttonRL.setBackgroundColor(Color.GRAY);
         }
         else if(button.getId() == R.id.EndTurnButton){
             turn.setText("Opponent's Turn");
+            buttonPP.setTextColor(Color.WHITE);
             game.sendAction( new EndTurnAction(this));
+
 
         }
         else{
             return;
         }
     }// onClick
+
     public void onTouch(MotionEvent e){
         int x = (int)e.getX()/printOffset;
         int y = (int)e.getY()/printOffset;
@@ -138,8 +173,17 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         if(actionId == 1){ //Place Peg
             //Log.i("peg","placed");
-            game.sendAction(new PlacePegAction(this,selectedPeg));
-            actionId =0;
+
+            if(selectedPeg == array[x][y]){
+                flashBoolean = true;
+            }
+            else{
+                game.sendAction(new PlacePegAction(this,selectedPeg));
+                actionId =0;
+                buttonPP.setBackgroundColor(Color.GRAY);
+                buttonPP.setTextColor(Color.BLACK);
+            }
+
 
 
         }
@@ -151,6 +195,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             else{
                 game.sendAction( new RemovePegAction(this,selectedPeg));
                 actionId =0;
+                buttonRP.setBackgroundColor(Color.GRAY);
             }
 
 
@@ -167,6 +212,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 game.sendAction( new PlaceLinkAction(this,selectedPeg,previousPeg));
                 previousPeg = null;
                 actionId = 0;
+                buttonPL.setBackgroundColor(Color.GRAY);
 
             }
 
@@ -183,6 +229,8 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 game.sendAction( new RemoveLinkAction(this,selectedPeg,previousPeg));
                 previousPeg = null;
                 actionId = 0;
+                buttonRL.setBackgroundColor(Color.GRAY);
+
 
             }
 
@@ -209,25 +257,27 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 .findViewById(R.id.animation_surface);
         surface.setAnimator(this);
 
-        Button placePegButton = (Button) activity.findViewById(R.id.PlacePegButton);
-        placePegButton.setOnClickListener(this);
+        buttonPP = (Button) activity.findViewById(R.id.PlacePegButton);
+        buttonPP.setOnClickListener(this);
 
-        Button removePegButton = (Button) activity.findViewById(R.id.RemovePegButton);
-        removePegButton.setOnClickListener(this);
+        buttonRP = (Button) activity.findViewById(R.id.RemovePegButton);
+        buttonRP.setOnClickListener(this);
 
-        Button placeLinkButton = (Button) activity.findViewById(R.id.PlaceLinkButton);
-        placeLinkButton.setOnClickListener(this);
+        buttonPL = (Button) activity.findViewById(R.id.PlaceLinkButton);
+        buttonPL.setOnClickListener(this);
 
-        Button removeLinkButton = (Button) activity.findViewById(R.id.RemoveLinkButton);
-        removeLinkButton.setOnClickListener(this);
+        buttonRL = (Button) activity.findViewById(R.id.RemoveLinkButton);
+        buttonRL.setOnClickListener(this);
 
-        Button offerDrawButton = (Button) activity.findViewById(R.id.OfferDrawButton);
-        offerDrawButton.setOnClickListener(this);
+        buttonOD = (Button) activity.findViewById(R.id.OfferDrawButton);
+        buttonOD.setOnClickListener(this);
 
-        Button endTurnButton = (Button) activity.findViewById(R.id.EndTurnButton);
-        endTurnButton.setOnClickListener(this);
+        buttonET = (Button) activity.findViewById(R.id.EndTurnButton);
+        buttonET.setOnClickListener(this);
 
         turn = (TextView) activity.findViewById(R.id.turnDisplay);
+
+
 
 
 

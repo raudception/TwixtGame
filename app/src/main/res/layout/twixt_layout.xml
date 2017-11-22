@@ -47,6 +47,7 @@
         android:layout_marginRight="45dp"
         android:layout_marginTop="36dp"
         android:layout_toLeftOf="@+id/RemovePegButton"
+        android:background="?android:attr/textColorHint"
         android:text="Place Peg"
         android:textColor="@android:color/background_light"
         android:textStyle="bold|italic" />
@@ -58,6 +59,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/PlacePegButton"
         android:layout_marginRight="35dp"
+        android:background="?android:attr/textColorHint"
         android:text="Remove Peg"
         android:textColor="@android:color/background_light"
         android:textStyle="bold|italic" />
@@ -69,6 +71,7 @@
         android:layout_alignLeft="@+id/PlacePegButton"
         android:layout_below="@+id/PlacePegButton"
         android:layout_marginTop="50dp"
+        android:background="?android:attr/textColorHint"
         android:text="Place Link"
         android:textColor="@android:color/background_light"
         android:textStyle="bold|italic" />
@@ -79,6 +82,7 @@
         android:layout_height="100dp"
         android:layout_alignLeft="@+id/RemovePegButton"
         android:layout_alignTop="@+id/PlaceLinkButton"
+        android:background="?android:attr/textColorHint"
         android:text="Remove Link"
         android:textColor="@android:color/background_light"
         android:textStyle="bold|italic" />
@@ -90,6 +94,7 @@
         android:layout_alignLeft="@+id/PlaceLinkButton"
         android:layout_below="@+id/PlaceLinkButton"
         android:layout_marginTop="57dp"
+        android:background="?android:attr/textColorHint"
         android:text="Offer Draw"
         android:textColor="@android:color/background_light"
         android:textStyle="bold|italic" />
