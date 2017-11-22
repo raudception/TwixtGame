@@ -38,6 +38,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     private int printOffset = 50;
     private TextView turn;
     Peg previousPeg = null;
+    private boolean flashBoolean = false;
     // These variables will reference widgets that will be modified during play
 
 
@@ -96,7 +97,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         if(button.getId() == R.id.PlacePegButton){
             actionId =1;
-            //Log.i("ActionId = ","1");
+            //button.set
         }
         else if(button.getId() == R.id.RemovePegButton){
             actionId =2;
@@ -116,7 +117,6 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         }
         else{
-            //Log.i("no","thing");
             return;
         }
     }// onClick
@@ -124,8 +124,16 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         int x = (int)e.getX()/printOffset;
         int y = (int)e.getY()/printOffset;
         //Log.i("onTouch", "In On Touch: " + x + " " + y);
-        ArrayList<Peg> peg = new ArrayList<Peg>();
-        Peg selectedPeg = new Peg(x,y,0,peg);
+
+        Peg[][] array = state.stateToArray();
+        Peg selectedPeg;
+        if(array[x][y] != null){
+            selectedPeg = array[x][y];
+        }
+        else{
+            selectedPeg = new Peg(x,y,0);
+        }
+
 
 
         if(actionId == 1){ //Place Peg
@@ -141,28 +149,36 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         }
         else if(actionId == 3){ //placeLinkAction
-            if(previousPeg != null && previousPeg.getxPos() != selectedPeg.getxPos() && previousPeg.getyPos() != selectedPeg.getyPos()){
+            if(previousPeg == null){
+                previousPeg = selectedPeg;
+            }
+            else if(previousPeg.getxPos() == selectedPeg.getxPos() && previousPeg.getyPos() == selectedPeg.getyPos()){
+                //flashBoolean = true;
+            }
+            else{
 
                 game.sendAction( new PlaceLinkAction(this,selectedPeg,previousPeg));
                 previousPeg = null;
                 actionId = 0;
-            }
-            else{
-                previousPeg = selectedPeg;
+
             }
 
         }
-        else if(actionId == 4) { //removeLinkAction  doesn't actually pass in the pegs, it makes new ones, and I can't compare them using linkedPegs
-
-            if(previousPeg != null && previousPeg.getxPos() != selectedPeg.getxPos() && previousPeg.getyPos() != selectedPeg.getyPos()){
+        else if(actionId == 4) { //removeLinkAction
+            if(previousPeg == null){
+                previousPeg = selectedPeg;
+            }
+            else if(previousPeg.getxPos() == selectedPeg.getxPos() && previousPeg.getyPos() == selectedPeg.getyPos()){
+                //flashBoolean = true;
+            }
+            else{
 
                 game.sendAction( new RemoveLinkAction(this,selectedPeg,previousPeg));
                 previousPeg = null;
                 actionId = 0;
+
             }
-            else{
-                previousPeg = selectedPeg;
-            }
+
 
 
         }
@@ -241,10 +257,19 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     }
 
     public void tick(Canvas g){
+        Paint flashColor = new Paint();
 
-        Paint black = new Paint();
-        black.setColor(Color.BLACK);
-        g.drawRect(0,0,1200,1200,black);
+        if(flashBoolean){
+            flashColor.setColor(Color.RED);
+            flashBoolean = false;
+        }
+        else{
+            flashColor.setColor(Color.BLACK);
+        }
+
+        g.drawRect(0,0,1200,1200,flashColor);
+
+
 
         if (state == null){
             return;
@@ -283,11 +308,14 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 g.drawCircle(i*printOffset+15, j*printOffset+15, radius, paint);
 
                 if(array[i][j] != null){
-                    ArrayList<Peg> linkedPegs = new ArrayList<Peg>();
+                    ArrayList<Peg> linkedPegs;
                     linkedPegs = array[i][j].getLinkedPegs();
                     if(linkedPegs != null) {
-                        for (int k = 0; k < linkedPegs.size(); k++) {
-                            g.drawLine(i * printOffset + 15, j * printOffset + 15, (linkedPegs.get(k).getxPos()) * printOffset + 15, (linkedPegs.get(k).getyPos()) * printOffset + 15, paint);
+                        for (Peg p: linkedPegs) {
+                            if(p.getLinkedPegs().contains(array[i][j])){
+                                g.drawLine(i * printOffset + 15, j * printOffset + 15, (p.getxPos()) * printOffset + 15, (p.getyPos()) * printOffset + 15, paint);
+                            }
+
                         }
                     }
                 }

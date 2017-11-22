@@ -12,14 +12,15 @@ import java.util.ArrayList;
 public class TwixtGameStateTest {
     @Test
     public void stateToArray() throws Exception {
-//        TwixtGameState official = new TwixtGameState();
-//        ArrayList<Peg> test = new ArrayList<Peg>();
-//        Peg testpeg = new Peg(1, 2, 0, test);
-//        test.add(testpeg);
-//        official.setBoard(test);
-//        Peg[][] testarray = official.stateToArray();
-//        Assert.assertTrue(testarray[1][2].equals(testpeg));
-
+        /*
+        TwixtGameState official = new TwixtGameState();
+        ArrayList<Peg> test = new ArrayList<Peg>();
+        Peg testpeg = new Peg(1, 2, 0, test);
+        test.add(testpeg);
+        official.setBoard(test);
+        Peg[][] testarray = official.stateToArray();
+        Assert.assertTrue(testarray[1][2].equals(testpeg));
+*/
     }
     @Test
     public void copyConstructor() throws Exception{
