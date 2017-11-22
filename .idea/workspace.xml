@@ -14,50 +14,334 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b07bd4f-ba07-415b-a988-0bd4a9766b8b" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/edu/up/cs301/game/BuildConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/edu/up/cs301/game/R.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v11.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v14.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-hdpi.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldpi.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/menu.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/animation/AnimationSurface$AnimationThread.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/animation/AnimationSurface.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/animation/Animator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/Game.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/GameComputerPlayer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/GameComputerPlayer$MyRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/GameComputerPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/GameHumanPlayer$MyRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/GameHumanPlayer$Unflasher.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/GameHumanPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/GameMainActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/GameMainActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/GameMainActivity$SpinnerListListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/GameMainActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/GamePlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/LocalGame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/LocalGame$GameStage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/LocalGame$MyHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/LocalGame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/ProxyGame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/ProxyGame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/ProxyPlayer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/ProxyPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/R$dimen.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/R$menu.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/actionMsg/GameAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/actionMsg/GameOverAckAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/actionMsg/MyNameIsAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/actionMsg/ReadyAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/actionMsg/TimerAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/config/GameConfig$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/config/GameConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/config/GamePlayerType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/infoMsg/BindGameInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/infoMsg/GameInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/infoMsg/GameOverInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/infoMsg/GameState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/infoMsg/IllegalMoveInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/infoMsg/NotYourTurnInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/infoMsg/StartGameInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/infoMsg/TimerInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/util/GameTimer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/util/GameTimer$MyTimer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/util/GameTimer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/util/IPCoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/util/MessageBox.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/util/NetworkObjectPasser$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/util/NetworkObjectPasser$CreateRunner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/util/NetworkObjectPasser$MsgRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/util/NetworkObjectPasser$RunnerStatus.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/util/NetworkObjectPasser$ServerSocketMap.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/util/NetworkObjectPasser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/edu/up/cs301/game/util/Tickable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-safeguard/debug/tag.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/animation/AnimationSurface$AnimationThread.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/animation/AnimationSurface.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/animation/Animator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/Game.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/GameComputerPlayer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/GameComputerPlayer$MyRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/GameComputerPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/GameHumanPlayer$MyRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/GameHumanPlayer$Unflasher.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/GameHumanPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/GameMainActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/GameMainActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/GameMainActivity$SpinnerListListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/GameMainActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/GamePlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/LocalGame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/LocalGame$GameStage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/LocalGame$MyHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/LocalGame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/ProxyGame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/ProxyGame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/ProxyPlayer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/ProxyPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/R$dimen.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/R$menu.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/actionMsg/GameAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/actionMsg/GameOverAckAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/actionMsg/MyNameIsAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/actionMsg/ReadyAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/actionMsg/TimerAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/config/GameConfig$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/config/GameConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/config/GamePlayerType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/infoMsg/BindGameInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/infoMsg/GameInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/infoMsg/GameOverInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/infoMsg/GameState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/infoMsg/IllegalMoveInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/infoMsg/NotYourTurnInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/infoMsg/StartGameInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/infoMsg/TimerInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/util/GameTimer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/util/GameTimer$MyTimer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/util/GameTimer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/util/IPCoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/util/MessageBox.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/util/NetworkObjectPasser$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/util/NetworkObjectPasser$CreateRunner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/util/NetworkObjectPasser$MsgRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/util/NetworkObjectPasser$RunnerStatus.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/util/NetworkObjectPasser$ServerSocketMap.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/util/NetworkObjectPasser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/edu/up/cs301/game/util/Tickable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/compileDebugAidl/dependency.store" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugShaders/merger.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/manifest.crc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/manifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/debug/AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_action_search.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi/purple_delete_button.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-ldpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_action_search.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi/face1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi/face2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi/face3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi/face4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi/face5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi/face6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_search.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/game_config_main.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/game_config_tabhost.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/game_local_tab.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/game_no_gui.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/game_player_list_row.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/game_remote_tab.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/menu/game_main.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v11/values-v11.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v14/values-v14.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/animation/AnimationSurface$AnimationThread.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/animation/AnimationSurface.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/animation/Animator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/Game.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/GameComputerPlayer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/GameComputerPlayer$MyRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/GameComputerPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/GameHumanPlayer$MyRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/GameHumanPlayer$Unflasher.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/GameHumanPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/GameMainActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/GameMainActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/GameMainActivity$SpinnerListListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/GameMainActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/GamePlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/LocalGame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/LocalGame$GameStage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/LocalGame$MyHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/LocalGame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/ProxyGame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/ProxyGame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/ProxyPlayer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/ProxyPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/R$dimen.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/R$menu.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/actionMsg/GameAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/actionMsg/GameOverAckAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/actionMsg/MyNameIsAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/actionMsg/ReadyAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/actionMsg/TimerAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/config/GameConfig$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/config/GameConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/config/GamePlayerType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/infoMsg/BindGameInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/infoMsg/GameInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/infoMsg/GameOverInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/infoMsg/GameState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/infoMsg/IllegalMoveInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/infoMsg/NotYourTurnInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/infoMsg/StartGameInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/infoMsg/TimerInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/util/GameTimer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/util/GameTimer$MyTimer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/util/GameTimer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/util/IPCoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/util/MessageBox.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/util/NetworkObjectPasser$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/util/NetworkObjectPasser$CreateRunner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/util/NetworkObjectPasser$MsgRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/util/NetworkObjectPasser$RunnerStatus.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/util/NetworkObjectPasser$ServerSocketMap.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/util/NetworkObjectPasser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/edu/up/cs301/game/util/Tickable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/com/android/tools/fd/dummy/slice_0.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/com/android/tools/fd/dummy/slice_1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/animation/AnimationSurface$AnimationThread.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/animation/AnimationSurface.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/animation/Animator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/Game.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/GameComputerPlayer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/GameComputerPlayer$MyRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/GameComputerPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/GameHumanPlayer$MyRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/GameHumanPlayer$Unflasher.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/GameHumanPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/GameMainActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/GameMainActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/GameMainActivity$SpinnerListListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/GameMainActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/GamePlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/LocalGame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/LocalGame$GameStage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/LocalGame$MyHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/LocalGame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/ProxyGame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/ProxyGame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/ProxyPlayer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/ProxyPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/R$dimen.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/R$menu.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/util/GameTimer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/util/GameTimer$MyTimer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/util/GameTimer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/util/IPCoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/util/MessageBox.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/util/NetworkObjectPasser$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/util/NetworkObjectPasser$CreateRunner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/util/NetworkObjectPasser$MsgRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/util/NetworkObjectPasser$RunnerStatus.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/util/NetworkObjectPasser$ServerSocketMap.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/util/NetworkObjectPasser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/edu/up/cs301/game/util/Tickable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/com/android/tools/fd/dummy/slice_2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/com/android/tools/fd/dummy/slice_3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/com/android/tools/fd/dummy/slice_4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_5/com/android/tools/fd/dummy/slice_5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_5/edu/up/cs301/game/config/GameConfig$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_5/edu/up/cs301/game/config/GameConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_5/edu/up/cs301/game/config/GamePlayerType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_6/com/android/tools/fd/dummy/slice_6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_6/edu/up/cs301/game/actionMsg/GameAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_6/edu/up/cs301/game/actionMsg/GameOverAckAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_6/edu/up/cs301/game/actionMsg/MyNameIsAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_6/edu/up/cs301/game/actionMsg/ReadyAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_6/edu/up/cs301/game/actionMsg/TimerAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/com/android/tools/fd/dummy/slice_7.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/com/android/tools/fd/dummy/slice_8.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/edu/up/cs301/game/infoMsg/BindGameInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/edu/up/cs301/game/infoMsg/GameInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/edu/up/cs301/game/infoMsg/GameOverInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/edu/up/cs301/game/infoMsg/GameState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/edu/up/cs301/game/infoMsg/IllegalMoveInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/edu/up/cs301/game/infoMsg/NotYourTurnInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/edu/up/cs301/game/infoMsg/StartGameInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/edu/up/cs301/game/infoMsg/TimerInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/android/tools/fd/dummy/slice_9.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_18_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_18_0_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/edu/up/cs301/game/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/edu/up/cs301/game/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v11.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v11.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v14.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v14.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-hdpi.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-hdpi.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldpi.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-ldpi.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/menu.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/menu.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugShaders/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugShaders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/manifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/manifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v11/values-v11.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v11/values-v11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v14/values-v14.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v14/values-v14.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
     </list>
     <ignored path="CS371PigGameStarter.iws" />
@@ -112,13 +396,13 @@
           <file leaf-file-name="TwixtLocalGame.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="35">
-                  <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+                <state relative-caret-position="51">
+                  <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
                   <folding>
-                    <element signature="imports" expanded="true" />
                     <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
                     <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
                     <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+                    <element signature="method#cannAddLinks#0;class#TwixtLocalGame#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -127,9 +411,11 @@
           <file leaf-file-name="TwixtGameStateTest.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-                  <folding />
+                <state relative-caret-position="255">
+                  <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+                  <folding>
+                    <element signature="imports" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -149,7 +435,19 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="3213">
                   <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
-                  <folding />
+                  <folding>
+                    <element signature="imports" expanded="false" />
+                    <element signature="e#2028#2029#0" expanded="false" />
+                    <element signature="e#2049#2050#0" expanded="false" />
+                    <element signature="e#4458#4459#0" expanded="false" />
+                    <element signature="e#4491#4492#0" expanded="false" />
+                    <element signature="e#6063#6064#0" expanded="false" />
+                    <element signature="e#6085#6086#0" expanded="false" />
+                    <element signature="e#8937#8938#0" expanded="false" />
+                    <element signature="e#8955#8956#0" expanded="false" />
+                    <element signature="e#9144#9145#0" expanded="false" />
+                    <element signature="e#9162#9163#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -159,7 +457,9 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="561">
                   <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
-                  <folding />
+                  <folding>
+                    <element signature="imports" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -167,9 +467,21 @@
           <file leaf-file-name="TwixtHumanPlayer.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtHumanPlayer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1343">
-                  <caret line="101" column="14" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
-                  <folding />
+                <state relative-caret-position="1479">
+                  <caret line="109" column="9" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
+                  <folding>
+                    <element signature="imports" expanded="false" />
+                    <element signature="e#1514#1515#0" expanded="false" />
+                    <element signature="e#1541#1542#0" expanded="false" />
+                    <element signature="e#1704#1705#0" expanded="false" />
+                    <element signature="e#1771#1772#0" expanded="false" />
+                    <element signature="e#6765#6766#0" expanded="false" />
+                    <element signature="e#6803#6804#0" expanded="false" />
+                    <element signature="e#6914#6915#0" expanded="false" />
+                    <element signature="e#6942#6943#0" expanded="false" />
+                    <element signature="e#7056#7057#0" expanded="false" />
+                    <element signature="e#7084#7085#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -179,7 +491,21 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="2074">
                   <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-                  <folding />
+                  <folding>
+                    <element signature="imports" expanded="false" />
+                    <element signature="e#1692#1693#0" expanded="false" />
+                    <element signature="e#1713#1714#0" expanded="false" />
+                    <element signature="e#1834#1835#0" expanded="false" />
+                    <element signature="e#1871#1872#0" expanded="false" />
+                    <element signature="e#2494#2495#0" expanded="false" />
+                    <element signature="e#2517#2518#0" expanded="false" />
+                    <element signature="e#4716#4717#0" expanded="false" />
+                    <element signature="e#4741#4742#0" expanded="false" />
+                    <element signature="e#7957#7958#0" expanded="false" />
+                    <element signature="e#7976#7977#0" expanded="false" />
+                    <element signature="e#8180#8181#0" expanded="false" />
+                    <element signature="e#8199#8200#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -188,29 +514,28 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Peg.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Peg.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="422">
-                  <caret line="115" column="86" selection-start-line="115" selection-start-column="86" selection-end-line="115" selection-end-column="86" />
-                  <folding />
+                <state relative-caret-position="595">
+                  <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+                  <folding>
+                    <element signature="method#Peg#0;class#Peg#0" expanded="false" />
+                    <element signature="method#Peg#1;class#Peg#0" expanded="false" />
+                    <element signature="method#setEndRow#0;class#Peg#0" expanded="false" />
+                    <element signature="docComment;method#equals#0;class#Peg#0" expanded="false" />
+                    <element signature="method#equals#0;class#Peg#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="TwixtGameState.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="TwixtGameState.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtGameState.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
+                <state relative-caret-position="103">
                   <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#599#600#0" expanded="true" />
-                    <element signature="e#619#620#0" expanded="true" />
-                    <element signature="e#654#655#0" expanded="true" />
-                    <element signature="e#711#712#0" expanded="true" />
-                    <element signature="e#743#744#0" expanded="true" />
-                    <element signature="e#771#772#0" expanded="true" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -1954,8 +2279,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtGameState.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtHumanPlayer.java" />
         <option value="$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java" />
       </list>
     </option>
   </component>
@@ -1990,8 +2315,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2026,8 +2351,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2575,7 +2900,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511236403915</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Can Now Remove a peg that Was placed on the same turn w/o penalty">
+      <created>1511311306907</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1511311306907</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2603,12 +2935,12 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26057908" sideWeight="0.48504272" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26057908" sideWeight="0.47863248" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26057908" sideWeight="0.51495725" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26057908" sideWeight="0.52136755" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21158129" sideWeight="0.49252138" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33853006" sideWeight="0.4957265" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2674,7 +3006,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created Peg, Action Classes, Added most Methods/attributes as placeholders" />
     <MESSAGE value="Copy Constructor" />
     <MESSAGE value="Initial Test Location Added" />
     <MESSAGE value="State to Array, Peg Getters and Setter" />
@@ -2699,11 +3030,12 @@
     <MESSAGE value="Added Null Check to Game Over Helper" />
     <MESSAGE value="Added, AddCurrentPeg to, Untested" />
     <MESSAGE value="New Method for Check if Game Over&#10;Pegs held in the LinkedPeg array don't have their linked Pegs array filled out" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Method for Check if Game Over&#10;Pegs held in the LinkedPeg array don't have their linked Pegs array filled out" />
+    <MESSAGE value="Can Now Remove a peg that Was placed on the same turn w/o penalty" />
+    <option name="LAST_COMMIT_MESSAGE" value="Can Now Remove a peg that Was placed on the same turn w/o penalty" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="71" />
+      <option name="time" value="72" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2719,7 +3051,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1514#1515#0" expanded="false" />
+            <element signature="e#1541#1542#0" expanded="false" />
+            <element signature="e#1704#1705#0" expanded="false" />
+            <element signature="e#1771#1772#0" expanded="false" />
+            <element signature="e#6765#6766#0" expanded="false" />
+            <element signature="e#6803#6804#0" expanded="false" />
+            <element signature="e#6914#6915#0" expanded="false" />
+            <element signature="e#6942#6943#0" expanded="false" />
+            <element signature="e#7056#7057#0" expanded="false" />
+            <element signature="e#7084#7085#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2729,10 +3073,10 @@
         <state relative-caret-position="442">
           <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
             <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
             <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#cannAddLinks#0;class#TwixtLocalGame#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2756,7 +3100,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1156">
           <caret line="84" column="70" selection-start-line="84" selection-start-column="70" selection-end-line="84" selection-end-column="70" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1514#1515#0" expanded="false" />
+            <element signature="e#1541#1542#0" expanded="false" />
+            <element signature="e#1704#1705#0" expanded="false" />
+            <element signature="e#1771#1772#0" expanded="false" />
+            <element signature="e#6765#6766#0" expanded="false" />
+            <element signature="e#6803#6804#0" expanded="false" />
+            <element signature="e#6914#6915#0" expanded="false" />
+            <element signature="e#6942#6943#0" expanded="false" />
+            <element signature="e#7056#7057#0" expanded="false" />
+            <element signature="e#7084#7085#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2765,10 +3121,10 @@
         <state relative-caret-position="170">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
             <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
             <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#cannAddLinks#0;class#TwixtLocalGame#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2784,7 +3140,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1156">
           <caret line="84" column="70" selection-start-line="84" selection-start-column="70" selection-end-line="84" selection-end-column="70" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1514#1515#0" expanded="false" />
+            <element signature="e#1541#1542#0" expanded="false" />
+            <element signature="e#1704#1705#0" expanded="false" />
+            <element signature="e#1771#1772#0" expanded="false" />
+            <element signature="e#6765#6766#0" expanded="false" />
+            <element signature="e#6803#6804#0" expanded="false" />
+            <element signature="e#6914#6915#0" expanded="false" />
+            <element signature="e#6942#6943#0" expanded="false" />
+            <element signature="e#7056#7057#0" expanded="false" />
+            <element signature="e#7084#7085#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2793,10 +3161,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
             <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
             <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#cannAddLinks#0;class#TwixtLocalGame#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2812,7 +3180,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1428">
           <caret line="84" column="70" selection-start-line="84" selection-start-column="70" selection-end-line="84" selection-end-column="70" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1514#1515#0" expanded="false" />
+            <element signature="e#1541#1542#0" expanded="false" />
+            <element signature="e#1704#1705#0" expanded="false" />
+            <element signature="e#1771#1772#0" expanded="false" />
+            <element signature="e#6765#6766#0" expanded="false" />
+            <element signature="e#6803#6804#0" expanded="false" />
+            <element signature="e#6914#6915#0" expanded="false" />
+            <element signature="e#6942#6943#0" expanded="false" />
+            <element signature="e#7056#7057#0" expanded="false" />
+            <element signature="e#7084#7085#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2821,10 +3201,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
             <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
             <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#cannAddLinks#0;class#TwixtLocalGame#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2840,7 +3220,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1514#1515#0" expanded="false" />
+            <element signature="e#1541#1542#0" expanded="false" />
+            <element signature="e#1704#1705#0" expanded="false" />
+            <element signature="e#1771#1772#0" expanded="false" />
+            <element signature="e#6765#6766#0" expanded="false" />
+            <element signature="e#6803#6804#0" expanded="false" />
+            <element signature="e#6914#6915#0" expanded="false" />
+            <element signature="e#6942#6943#0" expanded="false" />
+            <element signature="e#7056#7057#0" expanded="false" />
+            <element signature="e#7084#7085#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2985,9 +3377,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-          <folding>
-            <element signature="e#406#407#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2996,7 +3385,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3213">
           <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2028#2029#0" expanded="false" />
+            <element signature="e#2049#2050#0" expanded="false" />
+            <element signature="e#4458#4459#0" expanded="false" />
+            <element signature="e#4491#4492#0" expanded="false" />
+            <element signature="e#6063#6064#0" expanded="false" />
+            <element signature="e#6085#6086#0" expanded="false" />
+            <element signature="e#8937#8938#0" expanded="false" />
+            <element signature="e#8955#8956#0" expanded="false" />
+            <element signature="e#9144#9145#0" expanded="false" />
+            <element signature="e#9162#9163#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3004,7 +3405,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2074">
           <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1692#1693#0" expanded="false" />
+            <element signature="e#1713#1714#0" expanded="false" />
+            <element signature="e#1834#1835#0" expanded="false" />
+            <element signature="e#1871#1872#0" expanded="false" />
+            <element signature="e#2494#2495#0" expanded="false" />
+            <element signature="e#2517#2518#0" expanded="false" />
+            <element signature="e#4716#4717#0" expanded="false" />
+            <element signature="e#4741#4742#0" expanded="false" />
+            <element signature="e#7957#7958#0" expanded="false" />
+            <element signature="e#7976#7977#0" expanded="false" />
+            <element signature="e#8180#8181#0" expanded="false" />
+            <element signature="e#8199#8200#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3012,7 +3427,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3023,7 +3440,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3045,23 +3461,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtHumanPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="101" column="14" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtGameState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="1479">
+          <caret line="109" column="9" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
           <folding>
-            <element signature="e#599#600#0" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-            <element signature="e#711#712#0" expanded="true" />
-            <element signature="e#743#744#0" expanded="true" />
-            <element signature="e#771#772#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1514#1515#0" expanded="false" />
+            <element signature="e#1541#1542#0" expanded="false" />
+            <element signature="e#1704#1705#0" expanded="false" />
+            <element signature="e#1771#1772#0" expanded="false" />
+            <element signature="e#6765#6766#0" expanded="false" />
+            <element signature="e#6803#6804#0" expanded="false" />
+            <element signature="e#6914#6915#0" expanded="false" />
+            <element signature="e#6942#6943#0" expanded="false" />
+            <element signature="e#7056#7057#0" expanded="false" />
+            <element signature="e#7084#7085#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3075,30 +3488,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/edu/up/cs301/twixt/TwixtGameStateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="115" column="86" selection-start-line="115" selection-start-column="86" selection-end-line="115" selection-end-column="86" />
-          <folding />
+        <state relative-caret-position="255">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtLocalGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="docComment;method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
             <element signature="method#canMove#0;class#TwixtLocalGame#0" expanded="false" />
             <element signature="docComment;method#makeMove#0;class#TwixtLocalGame#0" expanded="false" />
+            <element signature="method#cannAddLinks#0;class#TwixtLocalGame#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/Peg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding>
+            <element signature="method#Peg#0;class#Peg#0" expanded="false" />
+            <element signature="method#Peg#1;class#Peg#0" expanded="false" />
+            <element signature="method#setEndRow#0;class#Peg#0" expanded="false" />
+            <element signature="docComment;method#equals#0;class#Peg#0" expanded="false" />
+            <element signature="method#equals#0;class#Peg#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/up/cs301/twixt/TwixtGameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
