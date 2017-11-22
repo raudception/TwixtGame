@@ -103,14 +103,17 @@ public class Peg {
     }
 
     /**
-     * Should override the default equals method for ArrayLists, and just compare the x and y position on the board.
+     * Should override the default equals method for Objects, and just compare the x and y position on the board.
      * @param peg
      * @return
      */
     @Override
     public boolean equals(Object peg){
         Peg peg1 = (Peg) peg;
-        if(xPos == peg1.getxPos() && yPos == peg1.yPos){
+        if(this == peg){
+            return true;
+        }
+        if(xPos == peg1.getxPos() && yPos == peg1.yPos && pegTeam == peg1.getPegTeam()){
             return true;
         }
         return false;
