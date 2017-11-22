@@ -1,4 +1,7 @@
-#Tue Nov 21 00:01:26 PST 2017
-base.0=S\:\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
-renamed.0=classes.dex
-file.0=S\:\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+#Tue Nov 21 16:15:14 GMT-08:00 2017
+base.0=C\:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_ca219f97f6022af3003b7a0f6080d2db969d590a
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_961745adca91c7ee240df891ae3eed23844e6955\\classes.dex
+base.1=C\:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_961745adca91c7ee240df891ae3eed23844e6955
+file.0=C\:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_ca219f97f6022af3003b7a0f6080d2db969d590a\\classes.dex
