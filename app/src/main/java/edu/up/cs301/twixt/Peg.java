@@ -59,16 +59,8 @@ public class Peg {
         return xPos;
     }
 
-    public void setxPos(int xPos) {
-        this.xPos = xPos;
-    }
-
     public int getyPos() {
         return yPos;
-    }
-
-    public void setyPos(int yPos) {
-        this.yPos = yPos;
     }
 
     public ArrayList<Peg> getLinkedPegs() {
@@ -85,32 +77,19 @@ public class Peg {
 
     public int getPegTeam() {return pegTeam;}
 
-    public void setPegTeam(int pegTeam) {this.pegTeam = pegTeam;}
-
-    public void draw(Canvas canvas){
-
-        Paint paint = new Paint();
-        if(pegTeam == 0) {
-            paint.setColor(Color.BLUE);
-        }
-        else if(pegTeam == 1){
-            paint.setColor(Color.RED);
-        }
-        else{
-            paint.setColor(Color.WHITE);
-        }
-        canvas.drawCircle(xPos, yPos, 5, paint);
-    }
 
     /**
-     * Should override the default equals method for ArrayLists, and just compare the x and y position on the board.
+     * Should override the default equals method for Objects, and just compare the x and y position on the board.
      * @param peg
      * @return
      */
     @Override
     public boolean equals(Object peg){
         Peg peg1 = (Peg) peg;
-        if(xPos == peg1.getxPos() && yPos == peg1.yPos){
+        if(this == peg){
+            return true;
+        }
+        if(xPos == peg1.getxPos() && yPos == peg1.yPos && pegTeam == peg1.getPegTeam()){
             return true;
         }
         return false;
