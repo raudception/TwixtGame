@@ -30,7 +30,8 @@ import java.util.ArrayList;
 public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener, Animator  {
 
 	/* instance variables */
-   private int actionId;
+    private int actionId;
+    private int humanPlayer = 0;
     private GameAction action = null;
     protected TwixtGameState state;
     private int backgroundColor;
@@ -158,7 +159,6 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     public void onTouch(MotionEvent e){
         int x = (int)e.getX()/printOffset;
         int y = (int)e.getY()/printOffset;
-        //Log.i("onTouch", "In On Touch: " + x + " " + y);
 
         Peg[][] array = state.stateToArray();
         Peg selectedPeg;
@@ -166,30 +166,32 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             selectedPeg = array[x][y];
         }
         else{
-            selectedPeg = new Peg(x,y,0);
+            selectedPeg = new Peg(x,y,humanPlayer);
         }
 
-
-
         if(actionId == 1){ //Place Peg
-            //Log.i("peg","placed");
 
-            if(selectedPeg == array[x][y]){
+            /*
+                Checks if the desired peg location already has a peg
+                If so, flash.
+                If not, send action.
+             */
+            if(selectedPeg == array[x][y] || x==23 || x==0){
                 flashBoolean = true;
             }
             else{
-                game.sendAction(new PlacePegAction(this,selectedPeg));
                 actionId =0;
                 buttonPP.setBackgroundColor(Color.GRAY);
                 buttonPP.setTextColor(Color.BLACK);
+                game.sendAction(new PlacePegAction(this,selectedPeg));
             }
-
-
 
         }
         else if(actionId == 2){ //Remove Peg
-
-            if(selectedPeg.getPegTeam() != 0){
+            /*
+                checks if peg to be removed belongs to player
+             */
+            if(selectedPeg.getPegTeam() != humanPlayer){
                 flashBoolean = true;
             }
             else{
@@ -341,17 +343,14 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 paint.setColor(Color.WHITE);
 
                 if(array[i][j] != null){
-                    //Log.i("peg is","not null");
 
                     int pegTeam = array[i][j].getPegTeam();
                     radius = 12;
 
-                    if(pegTeam == 0) {
-                       // Log.i("team is","human");
+                    if(pegTeam == humanPlayer) {
                         paint.setColor(Color.GREEN);
                     }
-                    else if(pegTeam == 1){
-                        //Log.i("team is","computer");
+                    else{
                         paint.setColor(Color.RED);
                     }
 

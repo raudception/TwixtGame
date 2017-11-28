@@ -37,10 +37,10 @@ public final class R {
     public static final class id {
         public static final int EndTurnButton=0x7f0a0021;
         public static final int OfferDrawButton=0x7f0a0020;
-        public static final int PlaceLinkButton=0x7f0a001e;
+        public static final int PlaceLinkButton=0x7f0a001f;
         public static final int PlacePegButton=0x7f0a001c;
-        public static final int RemoveLinkButton=0x7f0a001f;
-        public static final int RemovePegButton=0x7f0a001d;
+        public static final int RemoveLinkButton=0x7f0a001d;
+        public static final int RemovePegButton=0x7f0a001e;
         public static final int addPlayerButton=0x7f0a000e;
         public static final int animation_surface=0x7f0a001a;
         public static final int backButton2=0x7f0a0003;
