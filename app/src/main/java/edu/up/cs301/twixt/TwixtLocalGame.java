@@ -248,6 +248,8 @@ public class TwixtLocalGame extends LocalGame {
      * @param comp
      * @return
      */
+    //if there isn't any x overlap, y overlap, they aren't parallel, and they do not share a peg
+    //for x and y different, compare the max and min of each peg to the max and min of the other
     public boolean cannAddLinks(Peg peg, Peg comp){
         int x1= peg.getxPos();
         int y1 = peg.getyPos();

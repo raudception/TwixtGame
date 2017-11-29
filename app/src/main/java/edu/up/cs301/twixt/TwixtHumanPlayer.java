@@ -202,7 +202,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
 
         }
-        else if(actionId == 3){ //placeLinkAction
+        else if(actionId == 3){ //placeLinkAction, this is crashing the game when placing a link on a spot that doesn't have a peg, line 209
             if(previousPeg == null && array[x][y] != null){
                 previousPeg = selectedPeg;
             }

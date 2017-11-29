@@ -85,13 +85,9 @@ public class Peg {
      */
     @Override
     public boolean equals(Object peg){
+        if( !(peg instanceof Peg)){ return false;}
         Peg peg1 = (Peg) peg;
-        if(this == peg){
-            return true;
-        }
-        if(xPos == peg1.getxPos() && yPos == peg1.yPos && pegTeam == peg1.getPegTeam()){
-            return true;
-        }
-        return false;
+        return (xPos == peg1.xPos && yPos == peg1.yPos && pegTeam == peg1.getPegTeam());
+
     }
 }
