@@ -10,10 +10,10 @@ import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
 
 /**
- * class PigLocalGame controls the play of the game
+ * class TwixtLocalGame controls the play of the game
  *
- * @author Andrew M. Nuxoll, modified by Steven R. Vegdahl
- * @version February 2016
+ * @author Andrew M. Nuxoll, modified by Kollin A. Raudsepp
+ * @version November 2017
  */
 public class TwixtLocalGame extends LocalGame {
     private TwixtGameState official;
