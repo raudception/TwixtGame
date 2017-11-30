@@ -11,12 +11,13 @@ import edu.up.cs301.game.infoMsg.GameState;
  */
 
 public class TwixtGameState extends GameState {
-    private ArrayList<Peg> Board;
+    private Peg[][] Board;
+
     private int turn;
     private int totalturns =0;
 
     public TwixtGameState (){
-    Board = new ArrayList<Peg>();
+        Board = new Peg[24][24];
     turn =0;
 
     }
@@ -29,21 +30,16 @@ public class TwixtGameState extends GameState {
 
 
 public Peg[][] stateToArray(){
-    Peg[][] array = new Peg[24][24];
-    try {
-        for (int i = 0; i < Board.size(); i++) {
-            array[Board.get(i).getxPos()][Board.get(i).getyPos()] = Board.get(i);
-        }
-    }
-    catch (NullPointerException np) {}
-    return array;
+    return Board;
 }
-
-    public ArrayList<Peg> getBoard() {
+    public void placePeg(Peg peg){
+        Board[peg.getxPos()][peg.getyPos()] = peg;
+    }
+    public Peg[][] getBoard() {
         return Board;
     }
 
-    public void setBoard(ArrayList<Peg> board) {
+    public void setBoard(Peg[][] board) {
         Board = board;
     }
 

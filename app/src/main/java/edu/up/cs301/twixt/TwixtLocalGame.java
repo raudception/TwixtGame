@@ -2,12 +2,8 @@ package edu.up.cs301.twixt;
 
 import android.util.Log;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+
 
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
@@ -22,6 +18,7 @@ import edu.up.cs301.game.actionMsg.GameAction;
 public class TwixtLocalGame extends LocalGame {
     private TwixtGameState official;
     private boolean pegUsed = false;
+    Peg lastPeg;
     /**
      * This ctor creates a new game state
      */
@@ -51,8 +48,6 @@ public class TwixtLocalGame extends LocalGame {
      */
     @Override
     protected boolean makeMove(GameAction action) {
-        Log.i("local game","receving");
-
         if(action instanceof EndTurnAction){
             if(action.getPlayer().equals(players[official.getTurn()])){
                 if (official.getTurn() ==1){
@@ -67,6 +62,7 @@ public class TwixtLocalGame extends LocalGame {
                     Log.i("makeMove", "Invalid Turn: " + official.getTurn());
                 }
                 pegUsed = false;
+                lastPeg = new Peg(0,0,-1);
 
             }
             sendAllUpdatedState();
@@ -80,33 +76,33 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
 
-        if(action instanceof PlaceLinkAction){ //doesn't check for existing connections
-            if(action.getPlayer().equals(players[official.getTurn()])){
+        if(action instanceof PlaceLinkAction){
+            if(action.getPlayer().equals(players[official.getTurn()])) {
                 PlaceLinkAction pla = (PlaceLinkAction) action;
-                int x1 = pla.getHoldPeg1().getxPos();
-                int y1 = pla.getHoldPeg1().getyPos();
-                int x2 = pla.getHoldPeg2().getxPos();
-                int y2 = pla.getHoldPeg2().getyPos();
-                ArrayList<Peg> temp = official.getBoard();
+                if (pla.getHoldPeg1() != null && pla.getHoldPeg2() != null) {
+                    int x1 = pla.getHoldPeg1().getxPos();
+                    int y1 = pla.getHoldPeg1().getyPos();
+                    int x2 = pla.getHoldPeg2().getxPos();
+                    int y2 = pla.getHoldPeg2().getyPos();
+                    if (pla.getHoldPeg1().getPegTeam() == official.getTurn() && pla.getHoldPeg2().getPegTeam() == official.getTurn()) {
+                        if (((x1 - x2) == 1 || (x1 - x2) == -1) && ((y1 - y2 == 2) || (y1 - y2) == -2)) {
+                            ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
+                            newlinked1.add(pla.getHoldPeg2());
+                            pla.getHoldPeg1().setLinkedPegs(newlinked1);
 
-                if( ((x1 - x2) ==1 || (x1 - x2) ==-1) && ((y1-y2 ==2) || (y1-y2) ==-2)){
-                    ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
-                    newlinked1.add(pla.getHoldPeg2());
-                    pla.getHoldPeg1().setLinkedPegs(newlinked1);
+                            ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
+                            newlinked2.add(pla.getHoldPeg1());
+                            pla.getHoldPeg2().setLinkedPegs(newlinked2);
+                        } else if (((x1 - x2) == 2 || (x1 - x2) == -2) && ((y1 - y2 == 1) || (y1 - y2) == -1)) {
+                            ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
+                            newlinked1.add(pla.getHoldPeg2());
+                            pla.getHoldPeg1().setLinkedPegs(newlinked1);
 
-                    ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
-                    newlinked2.add(pla.getHoldPeg1());
-                    pla.getHoldPeg2().setLinkedPegs(newlinked2);
-                }
-
-                else if(((x1 - x2) ==2 || (x1 - x2) ==-2) && ((y1-y2 ==1) || (y1-y2) ==-2)){
-                    ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
-                    newlinked1.add(pla.getHoldPeg2());
-                    pla.getHoldPeg1().setLinkedPegs(newlinked1);
-
-                    ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
-                    newlinked2.add(pla.getHoldPeg1());
-                    pla.getHoldPeg2().setLinkedPegs(newlinked2);
+                            ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
+                            newlinked2.add(pla.getHoldPeg1());
+                            pla.getHoldPeg2().setLinkedPegs(newlinked2);
+                        }
+                    }
                 }
             }
             sendAllUpdatedState();
@@ -114,9 +110,7 @@ public class TwixtLocalGame extends LocalGame {
         }
 
         if(action instanceof PlacePegAction){
-            Log.i("action is","place peg");
             if(action.getPlayer().equals(players[official.getTurn()]) && !pegUsed){
-                Log.i("action is","happening");
                 int endRows =0;
 
                 if(official.getTurn() ==0){endRows =1;}
@@ -127,67 +121,73 @@ public class TwixtLocalGame extends LocalGame {
                 int x = peg.getxPos();
                 int y = peg.getyPos();
 
-                ArrayList<Peg> temp = official.getBoard();
                 Peg[][] temparray = official.stateToArray();
 
                 if(temparray[x][y] == null){
-                    Log.i("End of Place", "xy = null");
 
                     if( (endRows ==1) && (x!=0) && (x!=23)){ //don't allow placing in opponent's end Rows
                         peg = new Peg(x,y,official.getTurn(),addPegLinks(peg));
-                        temp.add(peg); //add the peg to the temp array
+                        official.placePeg(peg);
+                        lastPeg = peg;
                     }
                     else if ( (endRows ==2) && (y!=0) && (y != 23) ){
                         peg = new Peg(x,y,official.getTurn(),addPegLinks(peg));
-                        temp.add(peg); //add the peg to the temp array
+                        official.placePeg(peg); //add the peg to the temp array
+                        lastPeg = peg;
                     }
                     else{
                         return false;
                     }
                 }
-                Log.i("End of Place", "End of Peg");
-                official.setBoard(temp); //set the board's state, including the new peg
+                //set the board's state, including the new peg
                 pegUsed = true;
                 sendAllUpdatedState();
                 return true;
-               // sendAllUpdatedState();
             }
         }
 
         if(action instanceof RemoveLinkAction){
             if(action.getPlayer().equals(players[official.getTurn()])){
                 RemoveLinkAction rla = (RemoveLinkAction) action;
-                Log.i("removing","links please");
-                if(rla.getHoldPeg1().getLinkedPegs() != null && rla.getHoldPeg2().getLinkedPegs() != null){
-                    Log.i("removing","links");
-                    if(rla.getHoldPeg1().getLinkedPegs().contains(rla.getHoldPeg2()) && rla.getHoldPeg2().getLinkedPegs().contains(rla.getHoldPeg1()) ){ //if each peg has the other remove them
-                        rla.getHoldPeg1().getLinkedPegs().remove(rla.getHoldPeg2());
-                        rla.getHoldPeg2().getLinkedPegs().remove(rla.getHoldPeg1());
-                    }
+                Peg[][] temp = official.getBoard();
+                Peg peg1 = rla.getHoldPeg1();
+                Peg peg2 = rla.getHoldPeg2();
+                if(peg1.getLinkedPegs().contains(peg2) && peg2.getLinkedPegs().contains(peg1) && peg1.getPegTeam() == official.getTurn()){
+                    temp[peg1.getxPos()][peg1.getyPos()].getLinkedPegs().remove(peg2);
+                    temp[peg2.getxPos()][peg2.getyPos()].getLinkedPegs().remove(peg1);
+
                 }
             }
             sendAllUpdatedState();
             return true;
         }
 
-        if(action instanceof RemovePegAction){ //doesn't remove it from other linkedPegs
-            if(action.getPlayer().equals(players[official.getTurn()])){
+        if(action instanceof RemovePegAction) {
+            if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemovePegAction rmP = (RemovePegAction) action;
                 Peg peg = rmP.getHoldPeg();
                 int x = peg.getxPos();
                 int y = peg.getyPos();
-                ArrayList<Peg> temp = official.getBoard();
-                for(int i = 0; i<temp.size(); i++){
-                    if((temp.get(i).getxPos() == x) && (temp.get(i).getyPos() == y) && (temp.get(i).getPegTeam() == official.getTurn())){
-                        Peg removepeg = temp.get(i);
-                        temp.remove(removepeg);
-                        Log.i("Remove Peg", "Peg Removed");
-                        official.setBoard(temp);
+                Peg[][] temp = official.getBoard();
+                for (int i = 0; i < 24; i++) {
+                    for (int j = 0; j < 24; j++) {
+                        if(temp[i][j] != null) {
+                            if ((temp[i][j].getxPos() == x) && (temp[i][j].getyPos() == y) && (temp[i][j].getPegTeam() == official.getTurn())) {
+                                Peg removepeg = temp[i][j];
+                                if(removepeg.equals(lastPeg)){ //allow removing a peg that was placed in the same turn
+                                    pegUsed = false;
+                                }
+                                temp[i][j] = null;
+                                for(Peg p: removepeg.getLinkedPegs()){
+                                    temp[p.getxPos()][p.getyPos()].getLinkedPegs().remove(peg);
+                                }
+                            }
+                        }
                     }
                 }
+                sendAllUpdatedState();
+                return true;
             }
-            sendAllUpdatedState();
-            return true;
         }
 
         if(action instanceof SwitchSidesAction){ //unsure of functionality
@@ -198,7 +198,6 @@ public class TwixtLocalGame extends LocalGame {
                     players[1] =player0; //unsure if this is working correctly
                 }
                 else{
-                    Log.i("Invalid Total Turns", "Switch Sides Action Error");
                 }
             }
             sendAllUpdatedState();
@@ -210,6 +209,7 @@ public class TwixtLocalGame extends LocalGame {
 
     /**
      * This method is called in the add PegAction of makemove.  It adds pegs to the linkedPegs ArrayList for the Peg input
+     * implementing the canAddLinks Method will complete functionality, not alllowing lines to cross each other
      * @param peg
      */
     public ArrayList<Peg> addPegLinks(Peg peg){
@@ -217,20 +217,25 @@ public class TwixtLocalGame extends LocalGame {
         Peg[][] temparray = official.stateToArray();
         int x = peg.getxPos();
         int y = peg.getyPos();
-            Log.i("End of Place", "In Do Set: " );
+
             for (int xp = 0; xp < 24; xp++) {
                 for (int yp = 0; yp < 24; yp++) {
                     if (((x - xp) == 1 || (x - xp) == -1) && ((y - yp == 2) || (y - yp) == -2)) {
                         if(temparray[xp][yp] != null){
                             if(temparray[xp][yp].getPegTeam() ==official.getTurn()){
-                                setlinked.add(temparray[xp][yp]);
+                                if( cannAddLinks(peg,temparray[xp][yp]) ) {
+                                    setlinked.add(temparray[xp][yp]);
+                                }
+
                             }
                         }
                     }
                     if (((x - xp) == 2 || (x - xp) == -2) && ((y - yp == 1) || (y - yp) == -1)) {
                         if(temparray[xp][yp] != null){
                             if(temparray[xp][yp].getPegTeam() ==official.getTurn()){
-                                setlinked.add(temparray[xp][yp]);
+                                if( cannAddLinks(peg, temparray[xp][yp]) ) {
+                                    setlinked.add(temparray[xp][yp]);
+                                }
                             }
                         }
                     }
@@ -241,15 +246,124 @@ public class TwixtLocalGame extends LocalGame {
     }
 
     /**
+     * Returns False if the slope of the lines between peg1 and peg2 is not the same as the slop of peg3 and peg4.
+     * @param peg1
+     * @param peg2
+     * @param peg3
+     * @param peg4
+     * @return
+     */
+    public boolean slopeSame(Peg peg1, Peg peg2, Peg peg3, Peg peg4){
+        float x1= peg1.getxPos();
+        float y1 = peg1.getyPos();
+        float x2 = peg2.getxPos();
+        float y2 = peg2.getyPos();
+
+        float x3= peg3.getxPos();
+        float y3 = peg3.getyPos();
+        float x4 = peg4.getxPos();
+        float y4 = peg4.getyPos();
+        float slope1 = (y1-y2) / (x1-x2);
+        float slope2 = (y3-y4) / (x3-x4);
+        if(slope1 == slope2){
+            return true;
+        }
+
+
+        return false;
+    }
+
+    /**
+     * Unfinished
+     * @param peg
+     * @param comp
+     * @return
+     */
+    //if there isn't any x overlap, y overlap, they aren't parallel, and they do not share a peg
+    //for x and y different, compare the max and min of each peg to the max and min of the other
+    public boolean cannAddLinks(Peg peg, Peg comp){
+        int x1= peg.getxPos();
+        int y1 = peg.getyPos();
+        int x2 = comp.getxPos();
+        int y2 = comp.getyPos();
+        Peg[][] temp = official.getBoard();
+
+        int oldI;
+        int oldJ;
+        int maxI;
+        int maxJ;
+
+        if(x1<x2){ //determine the range of the for loops
+            if(y1<y2){
+                oldI = x1-1;
+                oldJ=y1-1;
+                maxI = x2+1;
+                maxJ = y2+1;
+            }
+            else { //y1>y2
+                oldI = x1-1;
+                oldJ = y2-1;
+                maxI = x2+1;
+                maxJ = y1+1;
+            }
+        }
+        else{ //x1>x2
+            if(y1<y2){ //position 1
+                oldI = x2-1;
+                oldJ=y1-1;
+                maxI = x1+1;
+                maxJ = y2+1;
+            }
+            else{  //pos4
+                oldI = x2-1;
+                oldJ=y2-1;
+                maxI = x1+1;
+                maxJ = y1+1;
+            }
+        }
+         //if pegs are bottom left to top right
+        for(int i = oldI; i<maxI; i++){
+            for(int j = oldJ; j<maxJ; j++){
+                if((i<24  && i>-1) && (j <24 && j >-1) ) { //check for array locations
+                    if (temp[i][j] != null) {
+                        if (!(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop cause it cannot overlap
+
+                            if (temp[i][j].getLinkedPegs() != null) {
+                                for (Peg p : temp[i][j].getLinkedPegs()) {
+
+                                    if (!(p.equals(peg) || p.equals(comp))) { //check if the peg we have is the same as the two pegs we are trying to connect
+                                        if ((p.getxPos() <= x1 || p.getxPos() <= x2) || (temp[i][j].getxPos() <= x1 || temp[i][j].getxPos() <= x2) && ((p.getyPos() <= y1 || p.getyPos() <= y2) || (temp[i][j].getyPos() <= y1 || temp[i][j].getyPos() <= y2))) { //x overlap these may not work
+                                            if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
+                                                return false;
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+
+        return true; //if no pegs are crossing
+    }
+    /**
      * Add's the current Peg to each peg in the linked arraylist's linkedPegs
      * @param linked
      * @param current
      */
-    public void addCurentPegTo(ArrayList<Peg> linked, Peg current){
-        ArrayList<Peg> tempBoard = official.getBoard();
-        for(Peg p: linked){
-            if(!p.getLinkedPegs().contains(current)){
-                p.getLinkedPegs().add(current);
+    public void addCurentPegTo(ArrayList<Peg> linked, Peg current) {
+        Peg[][] temp = official.getBoard();
+        for (Peg p : linked) {
+            if (p.getLinkedPegs() != null && !p.getLinkedPegs().contains(current)) {
+                temp[p.getxPos()][p.getyPos()].getLinkedPegs().add(current);
             }
         }
     }
@@ -324,21 +438,21 @@ public class TwixtLocalGame extends LocalGame {
         Peg [][] array = official.stateToArray();
 
        if(input != null){
-           for (Peg p: input){
-               usedPegs.add(p);
-               if(p.getIsEndRow() == found){
-                   return true;
-               }
-               if(p.getLinkedPegs() != null){
-                   for(Peg g: p.getLinkedPegs()){
-                       if(!usedPegs.contains(g)){ //don't add the original peg, or any peg that has been used
-                           output.add(array[g.getxPos()][g.getyPos()]);
-                           Log.i("Helper output", "add");
-                       }
-                   }
-                   if(gameOverHelper(output, endRow, usedPegs)){
-                       Log.i("Helper", "True");
+           for (Peg p: input) {
+               if (p != null) {
+                   usedPegs.add(p);
+                   if (p.getIsEndRow() == found) {
                        return true;
+                   }
+                   if (p.getLinkedPegs() != null) {
+                       for (Peg g : p.getLinkedPegs()) {
+                           if (!usedPegs.contains(g)) { //don't add the original peg, or any peg that has been used
+                               output.add(array[g.getxPos()][g.getyPos()]);
+                           }
+                       }
+                       if (gameOverHelper(output, endRow, usedPegs)) {
+                           return true;
+                       }
                    }
                }
            }

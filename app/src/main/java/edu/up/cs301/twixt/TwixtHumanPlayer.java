@@ -30,7 +30,8 @@ import java.util.ArrayList;
 public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener, Animator  {
 
 	/* instance variables */
-   private int actionId;
+    private int actionId;
+    private int humanPlayer = 0;
     private GameAction action = null;
     protected TwixtGameState state;
     private int backgroundColor;
@@ -38,7 +39,14 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     private int printOffset = 50;
     private TextView turn;
     Peg previousPeg = null;
+    private boolean flashBoolean = false;
     // These variables will reference widgets that will be modified during play
+    private Button buttonPP;
+    private Button buttonRP;
+    private Button buttonPL;
+    private Button buttonRL;
+    private Button buttonOD;
+    private Button buttonET;
 
 
 
@@ -94,75 +102,140 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
      */
     public void onClick(View button) {
 
+
         if(button.getId() == R.id.PlacePegButton){
             actionId =1;
-            //Log.i("ActionId = ","1");
+            button.setBackgroundColor(Color.GREEN);
+            buttonRP.setBackgroundColor(Color.GRAY);
+            buttonPL.setBackgroundColor(Color.GRAY);
+            buttonRL.setBackgroundColor(Color.GRAY);
+            buttonOD.setBackgroundColor(Color.GRAY);
+
         }
         else if(button.getId() == R.id.RemovePegButton){
             actionId =2;
+            button.setBackgroundColor(Color.GREEN);
+            buttonPP.setBackgroundColor(Color.GRAY);
+            buttonOD.setBackgroundColor(Color.GRAY);
+            buttonPL.setBackgroundColor(Color.GRAY);
+            buttonRL.setBackgroundColor(Color.GRAY);
         }
         else if(button.getId() == R.id.PlaceLinkButton){
             actionId =3;
+            button.setBackgroundColor(Color.GREEN);
+            buttonPP.setBackgroundColor(Color.GRAY);
+            buttonRP.setBackgroundColor(Color.GRAY);
+            buttonRL.setBackgroundColor(Color.GRAY);
+            buttonOD.setBackgroundColor(Color.GRAY);
         }
         else if(button.getId() == R.id.RemoveLinkButton){
             actionId =4;
+            button.setBackgroundColor(Color.GREEN);
+            buttonPP.setBackgroundColor(Color.GRAY);
+            buttonRP.setBackgroundColor(Color.GRAY);
+            buttonPL.setBackgroundColor(Color.GRAY);
+            buttonOD.setBackgroundColor(Color.GRAY);
         }
         else if(button.getId() == R.id.OfferDrawButton){
             game.sendAction( new OfferDrawAction(this));
+            button.setBackgroundColor(Color.GREEN);
+            buttonPP.setBackgroundColor(Color.GRAY);
+            buttonRP.setBackgroundColor(Color.GRAY);
+            buttonPL.setBackgroundColor(Color.GRAY);
+            buttonRL.setBackgroundColor(Color.GRAY);
         }
         else if(button.getId() == R.id.EndTurnButton){
             turn.setText("Opponent's Turn");
+            buttonPP.setTextColor(Color.WHITE);
             game.sendAction( new EndTurnAction(this));
+
 
         }
         else{
-            //Log.i("no","thing");
             return;
         }
     }// onClick
+
     public void onTouch(MotionEvent e){
         int x = (int)e.getX()/printOffset;
         int y = (int)e.getY()/printOffset;
-        //Log.i("onTouch", "In On Touch: " + x + " " + y);
-        ArrayList<Peg> peg = new ArrayList<Peg>();
-        Peg selectedPeg = new Peg(x,y,0,peg);
 
+        Peg[][] array = state.stateToArray();
+        Peg selectedPeg;
+        if(array[x][y] != null){
+            selectedPeg = array[x][y];
+        }
+        else{
+            selectedPeg = new Peg(x,y,humanPlayer);
+        }
 
         if(actionId == 1){ //Place Peg
-            //Log.i("peg","placed");
-            game.sendAction(new PlacePegAction(this,selectedPeg));
-            actionId =0;
 
+            /*
+                Checks if the desired peg location already has a peg
+                If so, flash.
+                If not, send action.
+             */
+            if(selectedPeg == array[x][y] || x==23 || x==0){
+                flashBoolean = true;
+            }
+            else{
+                actionId =0;
+                buttonPP.setBackgroundColor(Color.GRAY);
+                buttonPP.setTextColor(Color.BLACK);
+                game.sendAction(new PlacePegAction(this,selectedPeg));
+            }
 
         }
         else if(actionId == 2){ //Remove Peg
-            game.sendAction( new RemovePegAction(this,selectedPeg));
-            actionId =0;
+            /*
+                checks if peg to be removed belongs to player
+             */
+            if(selectedPeg.getPegTeam() != humanPlayer){
+                flashBoolean = true;
+            }
+            else{
+                game.sendAction( new RemovePegAction(this,selectedPeg));
+                actionId =0;
+                buttonRP.setBackgroundColor(Color.GRAY);
+            }
+
 
         }
-        else if(actionId == 3){ //placeLinkAction
-            if(previousPeg != null && previousPeg.getxPos() != selectedPeg.getxPos() && previousPeg.getyPos() != selectedPeg.getyPos()){
+        else if(actionId == 3){ //placeLinkAction, this is crashing the game when placing a link on a spot that doesn't have a peg, line 209
+            if(previousPeg == null && array[x][y] != null){
+                previousPeg = selectedPeg;
+            }
+            else if((previousPeg.getxPos() == selectedPeg.getxPos() && previousPeg.getyPos() == selectedPeg.getyPos()) || array[x][y] == null){
+                //flashBoolean = true;
+            }
+            else{
 
                 game.sendAction( new PlaceLinkAction(this,selectedPeg,previousPeg));
                 previousPeg = null;
                 actionId = 0;
-            }
-            else{
-                previousPeg = selectedPeg;
+                buttonPL.setBackgroundColor(Color.GRAY);
+
             }
 
         }
         else if(actionId == 4) { //removeLinkAction
-
-            if(previousPeg != null && previousPeg.getxPos() != selectedPeg.getxPos() && previousPeg.getyPos() != selectedPeg.getyPos()){
+            if(previousPeg == null){
+                previousPeg = selectedPeg;
+            }
+            else if(previousPeg.getxPos() == selectedPeg.getxPos() && previousPeg.getyPos() == selectedPeg.getyPos()){
+                //flashBoolean = true;
+            }
+            else{
 
                 game.sendAction( new RemoveLinkAction(this,selectedPeg,previousPeg));
                 previousPeg = null;
                 actionId = 0;
+                buttonRL.setBackgroundColor(Color.GRAY);
+
+
             }
-            else{
-                previousPeg = selectedPeg;
-            }
+
 
 
         }
@@ -186,25 +259,27 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 .findViewById(R.id.animation_surface);
         surface.setAnimator(this);
 
-        Button placePegButton = (Button) activity.findViewById(R.id.PlacePegButton);
-        placePegButton.setOnClickListener(this);
+        buttonPP = (Button) activity.findViewById(R.id.PlacePegButton);
+        buttonPP.setOnClickListener(this);
 
-        Button removePegButton = (Button) activity.findViewById(R.id.RemovePegButton);
-        removePegButton.setOnClickListener(this);
+        buttonRP = (Button) activity.findViewById(R.id.RemovePegButton);
+        buttonRP.setOnClickListener(this);
 
-        Button placeLinkButton = (Button) activity.findViewById(R.id.PlaceLinkButton);
-        placeLinkButton.setOnClickListener(this);
+        buttonPL = (Button) activity.findViewById(R.id.PlaceLinkButton);
+        buttonPL.setOnClickListener(this);
 
-        Button removeLinkButton = (Button) activity.findViewById(R.id.RemoveLinkButton);
-        removeLinkButton.setOnClickListener(this);
+        buttonRL = (Button) activity.findViewById(R.id.RemoveLinkButton);
+        buttonRL.setOnClickListener(this);
 
-        Button offerDrawButton = (Button) activity.findViewById(R.id.OfferDrawButton);
-        offerDrawButton.setOnClickListener(this);
+        buttonOD = (Button) activity.findViewById(R.id.OfferDrawButton);
+        buttonOD.setOnClickListener(this);
 
-        Button endTurnButton = (Button) activity.findViewById(R.id.EndTurnButton);
-        endTurnButton.setOnClickListener(this);
+        buttonET = (Button) activity.findViewById(R.id.EndTurnButton);
+        buttonET.setOnClickListener(this);
 
         turn = (TextView) activity.findViewById(R.id.turnDisplay);
+
+
 
 
 
@@ -241,10 +316,19 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     }
 
     public void tick(Canvas g){
+        Paint flashColor = new Paint();
 
-        Paint black = new Paint();
-        black.setColor(Color.BLACK);
-        g.drawRect(0,0,1200,1200,black);
+        if(flashBoolean){
+            flashColor.setColor(Color.RED);
+            flashBoolean = false;
+        }
+        else{
+            flashColor.setColor(Color.BLACK);
+        }
+
+        g.drawRect(0,0,1200,1200,flashColor);
+
+
 
         if (state == null){
             return;
@@ -259,17 +343,14 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 paint.setColor(Color.WHITE);
 
                 if(array[i][j] != null){
-                    //Log.i("peg is","not null");
 
                     int pegTeam = array[i][j].getPegTeam();
                     radius = 12;
 
-                    if(pegTeam == 0) {
-                       // Log.i("team is","human");
+                    if(pegTeam == humanPlayer) {
                         paint.setColor(Color.GREEN);
                     }
-                    else if(pegTeam == 1){
-                        //Log.i("team is","computer");
+                    else{
                         paint.setColor(Color.RED);
                     }
 
@@ -283,11 +364,14 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 g.drawCircle(i*printOffset+15, j*printOffset+15, radius, paint);
 
                 if(array[i][j] != null){
-                    ArrayList<Peg> linkedPegs = new ArrayList<Peg>();
+                    ArrayList<Peg> linkedPegs;
                     linkedPegs = array[i][j].getLinkedPegs();
                     if(linkedPegs != null) {
-                        for (int k = 0; k < linkedPegs.size(); k++) {
-                            g.drawLine(i * printOffset + 15, j * printOffset + 15, (linkedPegs.get(k).getxPos()) * printOffset + 15, (linkedPegs.get(k).getyPos()) * printOffset + 15, paint);
+                        for (Peg p: linkedPegs) {
+                            if(p.getLinkedPegs().contains(array[i][j])){
+                                g.drawLine(i * printOffset + 15, j * printOffset + 15, (p.getxPos()) * printOffset + 15, (p.getyPos()) * printOffset + 15, paint);
+                            }
+
                         }
                     }
                 }
