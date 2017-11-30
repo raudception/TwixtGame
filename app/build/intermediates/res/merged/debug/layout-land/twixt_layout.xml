@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:id="@+id/top_gui_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_marginLeft="26dp"
+        android:src="@android:color/background_light"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true" />
+
+    <edu.up.cs301.animation.AnimationSurface
+        android:id="@+id/animation_surface"
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignLeft="@+id/imageView"
+        android:onClick="onClick"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="99dp"
+        android:background="@color/black"
+        android:text="TWIXT"
+        android:textColor="@color/red"
+        android:textSize="66sp"
+        android:textStyle="bold"
+        android:typeface="normal" />
+
+    <Button
+        android:id="@+id/PlacePegButton"
+        android:layout_width="125dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/textView"
+        android:layout_marginRight="45dp"
+        android:layout_marginTop="36dp"
+        android:layout_toLeftOf="@+id/RemovePegButton"
+        android:background="?android:attr/textColorHint"
+        android:text="Place Peg"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/RemovePegButton"
+        android:layout_width="125dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/PlacePegButton"
+        android:layout_marginRight="35dp"
+        android:background="?android:attr/textColorHint"
+        android:text="Remove Peg"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/PlaceLinkButton"
+        android:layout_width="125dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/PlacePegButton"
+        android:layout_below="@+id/PlacePegButton"
+        android:layout_marginTop="50dp"
+        android:background="?android:attr/textColorHint"
+        android:text="Place Link"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/RemoveLinkButton"
+        android:layout_width="125dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/RemovePegButton"
+        android:layout_alignTop="@+id/PlaceLinkButton"
+        android:background="?android:attr/textColorHint"
+        android:text="Remove Link"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/OfferDrawButton"
+        android:layout_width="125dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/PlaceLinkButton"
+        android:layout_below="@+id/PlaceLinkButton"
+        android:layout_marginTop="57dp"
+        android:background="?android:attr/textColorHint"
+        android:text="Offer Draw"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/EndTurnButton"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/OfferDrawButton"
+        android:layout_alignLeft="@+id/RemoveLinkButton"
+        android:layout_alignTop="@+id/OfferDrawButton"
+        android:background="@color/red"
+        android:text="End Turn"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold|italic" />
+
+    <EditText
+        android:id="@+id/turnDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignLeft="@+id/OfferDrawButton"
+        android:layout_alignRight="@+id/EndTurnButton"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Your Turn"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+</RelativeLayout>
