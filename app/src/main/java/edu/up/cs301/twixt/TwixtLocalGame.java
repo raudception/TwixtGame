@@ -85,7 +85,7 @@ public class TwixtLocalGame extends LocalGame {
                     int x2 = pla.getHoldPeg2().getxPos();
                     int y2 = pla.getHoldPeg2().getyPos();
                     if (pla.getHoldPeg1().getPegTeam() == official.getTurn() && pla.getHoldPeg2().getPegTeam() == official.getTurn()) {
-                        if (((x1 - x2) == 1 || (x1 - x2) == -1) && ((y1 - y2 == 2) || (y1 - y2) == -2)) {
+                        if (((x1 - x2) == 1 || (x1 - x2) == -1) && ((y1 - y2 == 2) || (y1 - y2) == -2) && canAddLinks(pla.getHoldPeg1(), pla.getHoldPeg2())) {
                             ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
                             newlinked1.add(pla.getHoldPeg2());
                             pla.getHoldPeg1().setLinkedPegs(newlinked1);
@@ -93,7 +93,7 @@ public class TwixtLocalGame extends LocalGame {
                             ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
                             newlinked2.add(pla.getHoldPeg1());
                             pla.getHoldPeg2().setLinkedPegs(newlinked2);
-                        } else if (((x1 - x2) == 2 || (x1 - x2) == -2) && ((y1 - y2 == 1) || (y1 - y2) == -1)) {
+                        } else if (((x1 - x2) == 2 || (x1 - x2) == -2) && ((y1 - y2 == 1) || (y1 - y2) == -1)  && canAddLinks(pla.getHoldPeg1(), pla.getHoldPeg2() )) {
                             ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
                             newlinked1.add(pla.getHoldPeg2());
                             pla.getHoldPeg1().setLinkedPegs(newlinked1);
@@ -223,7 +223,7 @@ public class TwixtLocalGame extends LocalGame {
                     if (((x - xp) == 1 || (x - xp) == -1) && ((y - yp == 2) || (y - yp) == -2)) {
                         if(temparray[xp][yp] != null){
                             if(temparray[xp][yp].getPegTeam() ==official.getTurn()){
-                                if( cannAddLinks(peg,temparray[xp][yp]) ) {
+                                if( canAddLinks(peg,temparray[xp][yp]) ) {
                                     setlinked.add(temparray[xp][yp]);
                                 }
 
@@ -233,7 +233,7 @@ public class TwixtLocalGame extends LocalGame {
                     if (((x - xp) == 2 || (x - xp) == -2) && ((y - yp == 1) || (y - yp) == -1)) {
                         if(temparray[xp][yp] != null){
                             if(temparray[xp][yp].getPegTeam() ==official.getTurn()){
-                                if( cannAddLinks(peg, temparray[xp][yp]) ) {
+                                if( canAddLinks(peg, temparray[xp][yp]) ) {
                                     setlinked.add(temparray[xp][yp]);
                                 }
                             }
@@ -281,7 +281,7 @@ public class TwixtLocalGame extends LocalGame {
      */
     //if there isn't any x overlap, y overlap, they aren't parallel, and they do not share a peg
     //for x and y different, compare the max and min of each peg to the max and min of the other
-    public boolean cannAddLinks(Peg peg, Peg comp){
+    public boolean canAddLinks(Peg peg, Peg comp){
         int x1= peg.getxPos();
         int y1 = peg.getyPos();
         int x2 = comp.getxPos();

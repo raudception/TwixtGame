@@ -1,4 +1,4 @@
-#Tue Nov 28 17:39:53 PST 2017
+#Thu Nov 30 13:13:40 PST 2017
 base.0=D\:\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-v4-18.0.0_91f5c31930175b7860fe0f87febc4f6b571bd292
 renamed.0=classes.dex
 file.0=D\:\\TwixtGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-v4-18.0.0_91f5c31930175b7860fe0f87febc4f6b571bd292\\classes.dex

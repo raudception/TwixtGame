@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Nov 28 17:39:53 PST 2017
+#Thu Nov 30 13:13:41 PST 2017
 25.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-hdpi-v4\\purple_delete_button.png
 25.base=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_
 22.set=DEX
@@ -66,7 +66,7 @@ count=32
 18.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\face6.png
 9.base=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_
 18.base=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_
-11.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-mdpi-v4\\twixt_launcher.png
+11.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\game_player_list_row.xml
 29.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-xxhdpi-v4\\twixt_launcher.png
 11.base=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_
 29.base=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_
@@ -80,10 +80,10 @@ count=32
 18.set=ANDROID_RESOURCE
 19.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-hdpi-v4\\twixt_launcher.png
 19.base=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_
-12.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\game_player_list_row.xml
+12.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-mdpi-v4\\twixt_launcher.png
 12.base=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_
 4.set=ANDROID_RESOURCE
-4.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\game_no_gui.xml
+4.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\menu\\game_main.xml
 4.base=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_
 23.set=ANDROID_RESOURCE
 24.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-land\\twixt_layout.xml
@@ -94,6 +94,6 @@ count=32
 17.set=ANDROID_RESOURCE
 13.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\AndroidManifest.xml
 13.base=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_
-5.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\menu\\game_main.xml
+5.file=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\game_no_gui.xml
 3.set=ANDROID_RESOURCE
 5.base=D\:\\TwixtGame\\app\\build\\intermediates\\res\\resources-debug.ap_
