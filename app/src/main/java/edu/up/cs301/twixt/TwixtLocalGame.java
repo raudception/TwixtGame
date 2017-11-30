@@ -243,6 +243,35 @@ public class TwixtLocalGame extends LocalGame {
     }
 
     /**
+     * Returns False if the slope of the lines between peg1 and peg2 is not the same as the slop of peg3 and peg4.
+     * @param peg1
+     * @param peg2
+     * @param peg3
+     * @param peg4
+     * @return
+     */
+    public boolean slopeSame(Peg peg1, Peg peg2, Peg peg3, Peg peg4){
+        float x1= peg1.getxPos();
+        float y1 = peg1.getyPos();
+        float x2 = peg2.getxPos();
+        float y2 = peg2.getyPos();
+
+        float x3= peg3.getxPos();
+        float y3 = peg3.getyPos();
+        float x4 = peg4.getxPos();
+        float y4 = peg4.getyPos();
+
+        float slope1 = Math.abs((y1-y2) / (x1-x2));
+        float slope2 = Math.abs((y3-y4) / (x3-x4));
+        if(slope1 == slope2){
+            return true;
+        }
+
+
+        return false;
+    }
+
+    /**
      * Unfinished
      * @param peg
      * @param comp
@@ -256,24 +285,37 @@ public class TwixtLocalGame extends LocalGame {
         int x2 = comp.getxPos();
         int y2 = comp.getyPos();
         Peg[][] temp = official.getBoard();
+
         if(x1<x2){
             if(y1<y2){
                 for(int i =x1-1; i< x2+1; i ++){ //if pegs are top left to bottom right
                     for(int j = y1-1; i<y2 +1; j++){
-
                         if(temp[i][j] != null){
-                            if(temp[i][j].getLinkedPegs() != null){
-                                for(Peg p: temp[i][j].getLinkedPegs()){
-                                    float xdif = Math.abs(temp[i][j].getxPos() - p.getxPos() );
-                                    float ydif = Math.abs(temp[i][j].getyPos() - p.getyPos() );
-                                    //if(xdif < )
-                                }
-                            }
+                            if( !(temp[i][j].equals(peg) || temp[i][j].equals(comp)) ) { //check if the peg is the same, if it is, stop cause it cannot overlap
 
+                                if (temp[i][j].getLinkedPegs() != null) {
+                                    for (Peg p : temp[i][j].getLinkedPegs()) {
+
+                                        if (!(p.equals(peg) || p.equals(comp))) { //check if the peg we have is the same as the two pegs we are trying to connect
+                                            if ((p.getxPos() <= x1 || p.getxPos() <= x2) || (temp[i][j].getxPos() <= x1 || temp[i][j].getxPos() <= x2)) { //x overlap these may not work
+                                                if ((p.getyPos() <= y1 || p.getyPos() <= y2) || (temp[i][j].getyPos() <= y1 || temp[i][j].getyPos() <= y2)) { //y overlap
+                                                    if( !(slopeSame(peg,comp, temp[i][j],p)) ){ //if the slope is not the same/ they aren't parallel
+                                                        return false;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                    }
+                                }
+
+                            }
                         }
                     }
                 }
+
             }
+
             else{ //y1>y2
                 for(int i =x1-1; i< x2+1; i ++){ //if pegs are bottom left to top right
                     for(int j = y2-1; i<y1 +1; j++){

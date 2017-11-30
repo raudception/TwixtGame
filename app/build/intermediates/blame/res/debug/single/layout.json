@@ -8,8 +8,32 @@
         "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_no_gui.xml"
     },
     {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
+    },
+    {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_local_tab.xml"
+    },
+    {
         "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
         "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
+    },
+    {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
+    },
+    {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_main.xml"
+    },
+    {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
+    },
+    {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\twixt_layout.xml",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\twixt_layout.xml"
     },
     {
         "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\twixt_layout.xml",
@@ -18,6 +42,10 @@
     {
         "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
         "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_main.xml"
+    },
+    {
+        "merged": "S:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
+        "source": "S:\\TwixtGame\\app\\src\\main\\res\\layout\\game_no_gui.xml"
     },
     {
         "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",

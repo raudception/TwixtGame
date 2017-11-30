@@ -1,9 +1,4 @@
 package edu.up.cs301.twixt;
-
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-
 import java.util.ArrayList;
 
 /**
