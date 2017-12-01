@@ -6,30 +6,31 @@
     density="xhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1512087026921"
+    timestamp="1512088935749"
     token="4091225397271027191"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="324" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="31" />
     <task
         name="verifier"
-        duration="0" />
+        duration="19" />
+
+    <artifact
+        location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1512086950343"
+        timestamp="1512088252008"
         verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
         <artifact
             location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
@@ -49,6 +50,9 @@
             location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
+            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
             location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
@@ -66,7 +70,11 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1512087026921"
-        verifier="COLD_SWAP_REQUESTED" />
+        timestamp="1512088935749"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+    </build>
 
 </instant-run>
