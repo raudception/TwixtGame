@@ -7,10 +7,16 @@ import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.R;
 import edu.up.cs301.game.actionMsg.GameAction;
 import edu.up.cs301.game.infoMsg.GameInfo;
+import edu.up.cs301.game.util.MessageBox;
 
+import android.app.AlertDialog;
+import android.app.DialogFragment;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Message;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -40,6 +46,9 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     private TextView turn;
     Peg previousPeg = null;
     private boolean flashBoolean = false;
+    private int turnCount;
+    private boolean drawAvailable = false;
+    private boolean offerDraw = false;
     // These variables will reference widgets that will be modified during play
     private Button buttonPP;
     private Button buttonRP;
@@ -79,15 +88,37 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     @Override
     public void receiveInfo(GameInfo info) {
         if(!(info instanceof TwixtGameState)){return;}
+
         //this method will need to paint objects, and update the states of buttons
         if(!(info instanceof TwixtGameState)){
             return;
         }
         this.state = (TwixtGameState) info;
 
-        Log.i("Human Player","receiveInfo");
         if(state.getTurn() == 0){
             turn.setText("Your Turn");
+        }
+        if(state.getTotalturns() > 30){
+            buttonOD.setTextColor(Color.WHITE);
+            drawAvailable = true;
+        }
+        offerDraw = state.getOfferDraw0();
+        if(offerDraw){
+
+            MessageBox.popUpMessage("A draw has been offered!",myActivity);
+            buttonPP.setBackgroundColor(Color.GRAY);
+            buttonPP.setText("Accept");
+            buttonRP.setBackgroundColor(Color.GRAY);
+            buttonRP.setText("Reject");
+            buttonPL.setBackgroundColor(Color.GRAY);
+            buttonPL.setTextColor(Color.GRAY);
+            buttonRL.setBackgroundColor(Color.GRAY);
+            buttonRL.setTextColor(Color.GRAY);
+            buttonOD.setBackgroundColor(Color.GRAY);
+            buttonOD.setTextColor(Color.GRAY);
+            buttonET.setBackgroundColor(Color.GRAY);
+            buttonET.setTextColor(Color.GRAY);
+            state.setOfferDraw0(false);
         }
 
 
@@ -104,21 +135,43 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
 
         if(button.getId() == R.id.PlacePegButton){
-            actionId =1;
-            button.setBackgroundColor(Color.GREEN);
-            buttonRP.setBackgroundColor(Color.GRAY);
-            buttonPL.setBackgroundColor(Color.GRAY);
-            buttonRL.setBackgroundColor(Color.GRAY);
-            buttonOD.setBackgroundColor(Color.GRAY);
+            if(offerDraw){
+                MessageBox.popUpMessage("Computer Player Won!",myActivity);
+            }
+            else{
+                actionId =1;
+                button.setBackgroundColor(Color.GREEN);
+                buttonRP.setBackgroundColor(Color.GRAY);
+                buttonPL.setBackgroundColor(Color.GRAY);
+                buttonRL.setBackgroundColor(Color.GRAY);
+                buttonOD.setBackgroundColor(Color.GRAY);
+            }
+
+
 
         }
         else if(button.getId() == R.id.RemovePegButton){
-            actionId =2;
-            button.setBackgroundColor(Color.GREEN);
-            buttonPP.setBackgroundColor(Color.GRAY);
-            buttonOD.setBackgroundColor(Color.GRAY);
-            buttonPL.setBackgroundColor(Color.GRAY);
-            buttonRL.setBackgroundColor(Color.GRAY);
+            if(offerDraw){
+                buttonPL.setTextColor(Color.WHITE);
+                buttonRL.setTextColor(Color.WHITE);
+                buttonET.setTextColor(Color.WHITE);
+                buttonOD.setTextColor(Color.WHITE);
+                buttonET.setBackgroundColor(Color.RED);
+                offerDraw = false;
+                game.sendAction( new EndTurnAction(this));
+                buttonPP.setText("Place Peg");
+                buttonRP.setText("Remove Peg");
+
+            }
+            else{
+                actionId =2;
+                button.setBackgroundColor(Color.GREEN);
+                buttonPP.setBackgroundColor(Color.GRAY);
+                buttonOD.setBackgroundColor(Color.GRAY);
+                buttonPL.setBackgroundColor(Color.GRAY);
+                buttonRL.setBackgroundColor(Color.GRAY);
+            }
+
         }
         else if(button.getId() == R.id.PlaceLinkButton){
             actionId =3;
@@ -137,12 +190,21 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             buttonOD.setBackgroundColor(Color.GRAY);
         }
         else if(button.getId() == R.id.OfferDrawButton){
-            game.sendAction( new OfferDrawAction(this));
-            button.setBackgroundColor(Color.GREEN);
-            buttonPP.setBackgroundColor(Color.GRAY);
-            buttonRP.setBackgroundColor(Color.GRAY);
-            buttonPL.setBackgroundColor(Color.GRAY);
-            buttonRL.setBackgroundColor(Color.GRAY);
+            if(drawAvailable){
+
+                game.sendAction( new OfferDrawAction(this));
+                button.setBackgroundColor(Color.GREEN);
+                buttonPP.setBackgroundColor(Color.GRAY);
+                buttonRP.setBackgroundColor(Color.GRAY);
+                buttonPL.setBackgroundColor(Color.GRAY);
+                buttonRL.setBackgroundColor(Color.GRAY);
+
+            }
+            else{
+                flashBoolean = true;
+            }
+
+
         }
         else if(button.getId() == R.id.EndTurnButton){
             turn.setText("Opponent's Turn");
@@ -395,6 +457,8 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
 
     }
+
+
 
 
 

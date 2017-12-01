@@ -16,9 +16,13 @@ public class TwixtGameState extends GameState {
     private int turn;
     private int totalturns =0;
 
+    private boolean offerDraw0;
+    private boolean offerDraw1;
+
     public TwixtGameState (){
         Board = new Peg[24][24];
     turn =0;
+
 
     }
 
@@ -26,6 +30,8 @@ public class TwixtGameState extends GameState {
         this.Board = fresh.getBoard();
         this.turn = fresh.getTurn();
         this.totalturns = fresh.getTotalturns();
+        this.offerDraw0 = fresh.getOfferDraw0();
+        this.offerDraw1 = fresh.getOfferDraw1();
     }
 
 
@@ -61,6 +67,25 @@ public Peg[][] stateToArray(){
     public void incrementTotalTurns(){
         totalturns ++;
     }
+
+    public boolean getOfferDraw0(){
+        Log.i("draw","was got");
+        return offerDraw0;
+    }
+
+    public boolean getOfferDraw1(){
+        return offerDraw1;
+    }
+
+    public void setOfferDraw0(boolean b){
+        offerDraw0 = b;
+    }
+
+    public void setOfferDraw1(boolean b){
+        Log.i("draw","was set");
+        offerDraw1 = b;
+    }
+
 
 
 

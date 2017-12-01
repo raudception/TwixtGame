@@ -68,7 +68,14 @@ public class TwixtLocalGame extends LocalGame {
 
         if (action instanceof OfferDrawAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
-                Log.i("Offer Draw Action", "Player: " + playerNames[official.getTurn()] + " Offered draw"); //placeholder
+                if(official.getTurn() == 1){
+                    Log.i("draw","offered by computer");
+                    official.setOfferDraw0(true);
+                }
+                else if(official.getTurn() == 0){
+                    official.setOfferDraw1(true);
+                }
+
                 sendAllUpdatedState();
                 return true;
             }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:id="@+id/top_gui_layout"
     android:layout_width="match_parent"
@@ -90,13 +91,13 @@
         android:id="@+id/OfferDrawButton"
         android:layout_width="125dp"
         android:layout_height="100dp"
-        android:background="?android:attr/textColorHint"
-        android:text="Offer Draw"
-        android:textColor="@android:color/background_light"
-        android:textStyle="bold|italic"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/imageView"
-        android:layout_marginBottom="14dp" />
+        android:layout_marginBottom="14dp"
+        android:background="?android:attr/textColorHint"
+        android:text="Offer Draw"
+        android:textColor="@android:color/black"
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/EndTurnButton"
@@ -110,16 +111,15 @@
         android:layout_alignLeft="@+id/RemovePegButton"
         android:layout_alignTop="@+id/OfferDrawButton" />
 
-    <EditText
+    <TextView
         android:id="@+id/turnDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Your Turn"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="TextView"
         android:textColor="@android:color/background_light"
-        android:textSize="30sp"
-        android:textStyle="bold"
-         />
+        android:textSize="40sp"
+        tools:text="Your Turn" />
+
 </RelativeLayout>
