@@ -212,7 +212,7 @@ public class TwixtLocalGame extends LocalGame {
      *
      * @param peg
      */
-    public ArrayList<Peg> addPegLinks(Peg peg) {
+    private ArrayList<Peg> addPegLinks(Peg peg) {
         ArrayList<Peg> setlinked = new ArrayList<Peg>();
         Peg[][] temparray = official.stateToArray();
         int x = peg.getxPos();
@@ -254,7 +254,7 @@ public class TwixtLocalGame extends LocalGame {
      * @param peg4
      * @return
      */
-    public boolean slopeSame(Peg peg1, Peg peg2, Peg peg3, Peg peg4) {
+    private boolean slopeSame(Peg peg1, Peg peg2, Peg peg3, Peg peg4) {
         float x1 = peg1.getxPos();
         float y1 = peg1.getyPos();
         float x2 = peg2.getxPos();
@@ -283,7 +283,7 @@ public class TwixtLocalGame extends LocalGame {
      */
     //if there isn't any x overlap, y overlap, they aren't parallel, and they do not share a peg
     //for x and y different, compare the max and min of each peg to the max and min of the other
-    public boolean canAddLinks(Peg peg, Peg comp) {
+    private boolean canAddLinks(Peg peg, Peg comp) {
         int x1 = peg.getxPos();
         int y1 = peg.getyPos();
         int x2 = comp.getxPos();
@@ -329,14 +329,16 @@ public class TwixtLocalGame extends LocalGame {
 
                             if (temp[i][j].getLinkedPegs() != null) {
                                 for (Peg p : temp[i][j].getLinkedPegs()) {
+                                    if (!( p.equals(peg) || p.equals(comp) ) ) { //check if the peg we have is the same as the two pegs we are trying to connect
+                                        if (!(p.getxPos() < oldI || p.getxPos() > maxI) && !(p.getyPos()< oldJ || p.getyPos() > maxJ)) {
+                                            if (!XYCross(peg, comp, temp[i][j], p)) {
+                                                if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
+                                                    return false;
+                                                }
 
-                                    if (!(p.equals(peg) || p.equals(comp))) { //check if the peg we have is the same as the two pegs we are trying to connect
-                                        if ((p.getxPos() <= x1 || p.getxPos() <= x2) || (temp[i][j].getxPos() <= x1 || temp[i][j].getxPos() <= x2) && ((p.getyPos() <= y1 || p.getyPos() <= y2) || (temp[i][j].getyPos() <= y1 || temp[i][j].getyPos() <= y2))) { //x overlap these may not work
-                                            if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
-                                                return false;
                                             }
-
                                         }
+
                                     }
 
                                 }
@@ -350,17 +352,41 @@ public class TwixtLocalGame extends LocalGame {
 
         }
 
-
         return true; //if no pegs are crossing
     }
 
+
+    private boolean XYCross(Peg peg, Peg comp, Peg temp, Peg p) {
+        int x1 = peg.getxPos();
+        int y1 = peg.getyPos();
+        int x2 = comp.getxPos();
+        int y2 = comp.getyPos();
+
+        int x3 = temp.getxPos();
+        int y3 = temp.getyPos();
+        int x4 = p.getxPos();
+        int y4 = p.getyPos();
+
+
+        if ((x4 <= x1 || x4 <= x2) || (x3 <= x1 || x3 <= x2) && ((y4) <= y1 || y4 <= y2) || (y3 <= y1 || y3 <= y2)) {
+            return true;
+        }
+
+
+
+
+
+        return false;
+
+
+    }
     /**
      * Add's the current Peg to each peg in the linked arraylist's linkedPegs
      *
      * @param linked
      * @param current
      */
-    public void addCurentPegTo(ArrayList<Peg> linked, Peg current) {
+    private void addCurentPegTo(ArrayList<Peg> linked, Peg current) {
         Peg[][] temp = official.getBoard();
         for (Peg p : linked) {
             if (p.getLinkedPegs() != null && !p.getLinkedPegs().contains(current)) {
