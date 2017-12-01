@@ -331,7 +331,7 @@ public class TwixtLocalGame extends LocalGame {
                                 for (Peg p : temp[i][j].getLinkedPegs()) {
                                     if (!( p.equals(peg) || p.equals(comp) ) ) { //check if the peg we have is the same as the two pegs we are trying to connect
                                         if (!(p.getxPos() < oldI || p.getxPos() > maxI) && !(p.getyPos()< oldJ || p.getyPos() > maxJ)) {
-                                            if (!XYCross(peg, comp, temp[i][j], p)) {
+                                            if (XYCross(peg, comp, temp[i][j], p)) {
                                                 if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
                                                     return false;
                                                 }
