@@ -325,25 +325,27 @@ public class TwixtLocalGame extends LocalGame {
             for (int j = oldJ; j < maxJ; j++) {
                 if ((i < 24 && i > -1) && (j < 24 && j > -1)) { //check for array locations
                     if (temp[i][j] != null) {
-                        if (!(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop cause it cannot overlap
+                        if( (i == oldI && j==oldJ) || (i == maxI && j==oldJ) || (i == maxI && j==oldJ) || (i == maxI && j==maxJ) ) {
+                            if (!(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop cause it cannot overlap
 
-                            if (temp[i][j].getLinkedPegs() != null) {
-                                for (Peg p : temp[i][j].getLinkedPegs()) {
-                                    if (!( p.equals(peg) || p.equals(comp) ) ) { //check if the peg we have is the same as the two pegs we are trying to connect
-                                        if (!(p.getxPos() < oldI || p.getxPos() > maxI) && !(p.getyPos()< oldJ || p.getyPos() > maxJ)) {
-                                            if (XYCross(peg, comp, temp[i][j], p)) {
-                                                if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
-                                                    return false;
+                                if (temp[i][j].getLinkedPegs() != null) {
+                                    for (Peg p : temp[i][j].getLinkedPegs()) {
+                                        if (!(p.equals(peg) || p.equals(comp))) { //check if the peg we have is the same as the two pegs we are trying to connect
+                                            if (!(p.getxPos() < oldI || p.getxPos() > maxI) && !(p.getyPos() < oldJ || p.getyPos() > maxJ)) {
+                                                if (XYCross(peg, comp, temp[i][j], p)) {
+                                                    if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
+                                                        return false;
+                                                    }
+
                                                 }
-
                                             }
+
                                         }
 
                                     }
-
                                 }
-                            }
 
+                            }
                         }
                     }
                 }
@@ -368,7 +370,7 @@ public class TwixtLocalGame extends LocalGame {
         int y4 = p.getyPos();
 
 
-        if ((x4 <= x1 || x4 <= x2) || (x3 <= x1 || x3 <= x2) && ((y4) <= y1 || y4 <= y2) || (y3 <= y1 || y3 <= y2)) {
+        if ((x4 < x1 || x4 < x2) || (x3 < x1 || x3 < x2) && ((y4) < y1 || y4 < y2) || (y3 < y1 || y3 < y2)) {
             return true;
         }
 
