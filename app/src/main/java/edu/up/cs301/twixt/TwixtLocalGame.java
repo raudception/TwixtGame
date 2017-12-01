@@ -325,20 +325,20 @@ public class TwixtLocalGame extends LocalGame {
             for (int j = oldJ; j < maxJ; j++) {
                 if ((i < 24 && i > -1) && (j < 24 && j > -1)) { //check for array locations
                     if (temp[i][j] != null) {
-                        if( (i == oldI && j==oldJ) || (i == maxI && j==oldJ) || (i == maxI && j==oldJ) || (i == maxI && j==maxJ) ) {
-                            if (!(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop cause it cannot overlap
+
+                            if ( !(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop cause it cannot overlap
 
                                 if (temp[i][j].getLinkedPegs() != null) {
                                     for (Peg p : temp[i][j].getLinkedPegs()) {
                                         if (!(p.equals(peg) || p.equals(comp))) { //check if the peg we have is the same as the two pegs we are trying to connect
-                                            if (!(p.getxPos() < oldI || p.getxPos() > maxI) && !(p.getyPos() < oldJ || p.getyPos() > maxJ)) {
+
                                                 if (XYCross(peg, comp, temp[i][j], p)) {
                                                     if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
                                                         return false;
                                                     }
 
                                                 }
-                                            }
+
 
                                         }
 
@@ -346,7 +346,7 @@ public class TwixtLocalGame extends LocalGame {
                                 }
 
                             }
-                        }
+
                     }
                 }
 
@@ -357,7 +357,7 @@ public class TwixtLocalGame extends LocalGame {
         return true; //if no pegs are crossing
     }
 
-
+//if both mins happen before each max, then overlap
     private boolean XYCross(Peg peg, Peg comp, Peg temp, Peg p) {
         int x1 = peg.getxPos();
         int y1 = peg.getyPos();
@@ -369,10 +369,21 @@ public class TwixtLocalGame extends LocalGame {
         int x4 = p.getxPos();
         int y4 = p.getyPos();
 
+        int linkMinX = Math.min(x1,x2);
+        int linkMinY = Math.min(y1,y2);
+        int linkMaxX = Math.max(x1,x2);
+        int linkMaxY = Math.max(y1,y2);
 
-        if ((x4 < x1 || x4 < x2) || (x3 < x1 || x3 < x2) && ((y4) < y1 || y4 < y2) || (y3 < y1 || y3 < y2)) {
-            return true;
-        }
+        int checkkMinX = Math.min(x3,x4);
+        int checkMinY = Math.min(y3,y4);
+        int checkMaxX = Math.max(x3,x4);
+        int checkMaxY = Math.max(y3,y4);
+
+       if(linkMinX < checkMaxX && checkkMinX < linkMaxX){
+           if(linkMinY < checkMaxY && checkMinY < linkMaxY){
+               return true;
+           }
+       }
 
 
 
