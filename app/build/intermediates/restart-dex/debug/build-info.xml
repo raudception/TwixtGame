@@ -6,67 +6,75 @@
     density="xhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1512087026921"
-    token="4091225397271027191"
+    timestamp="1512088846031"
+    token="-4303075125912243582"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="167" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="16" />
     <task
         name="verifier"
-        duration="0" />
+        duration="4" />
+
+    <artifact
+        location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1512086950343"
+        timestamp="1512088276903"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="D:\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="D:\TwixtGame\app\build\outputs\apk\app-debug.apk"
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\outputs\apk\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
-        timestamp="1512087026921"
-        verifier="COLD_SWAP_REQUESTED" />
+        timestamp="1512088846031"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\tdog9\Documents\CS301\TwixtGame\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+    </build>
 
 </instant-run>
