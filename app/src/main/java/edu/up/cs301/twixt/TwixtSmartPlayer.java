@@ -55,8 +55,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
             turnState = (TwixtGameState) info;
             current = turnState.stateToArray();
 
-
-
                 if (moveMade == false) {
                     firstMove(moveMade);//places a peg in the end row for the first move
 
@@ -64,7 +62,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                     attemptBlock(moveMade);//places peg as an attempted block if the other player has a 4 in a row
                     basicMove(moveMade);//places pegs continuing from the first placed peg and going across the board.
                 }
-
+            Log.d("recieved info", "received info");
         }
 
     }//end of recieveInfo
@@ -101,16 +99,15 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
      **/
     public void basicMove(boolean moved) {
         moveMade = moved;
+
         if (moved && turnState.getTurn() == 1) {
 
             if (lastTurnPeg != null) {
-                Log.d("WE ARE IN THE STINKIN FIRST IFF", "______FIRST IF YEEEEE");
+                Log.d("WE ARE IN THE first if", "______FIRST IF YEEEEE");
                 lastTurnPeg = placedPegs.get((placedPegs.size()) - 1);
             }
             int whatMove = rand.nextInt(4);
-            Log.d("WHATMOVE VVALUE IS", "" + whatMove);
-            if (whatMove == 0 && lastTurnPeg != null) {
-                Log.d("IN THE ", "______BASIC MOVE MOELFILE");
+            if (whatMove == 0 && lastTurnPeg != null && counter == 0) {
                 thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 1), (lastTurnPeg.getyPos() + 2), 1);//peg object that is being placed on this turn
                 //Submit our move to the game object. We haven't even checked it it's
                 // our turn, or that that position is unoccupied.
@@ -118,10 +115,11 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
                 placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                 game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
+                Log.d("just completed for", "" + whatMove);
 
 
-            } else if (whatMove == 1 && lastTurnPeg != null) {
-                Log.d("IN THE ", "______BASIC MOVE MOELFILE");
+
+            } else if (whatMove == 1 && lastTurnPeg != null && counter == 0) {
                 thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 1), (lastTurnPeg.getyPos() - 2), 1);//peg object that is being placed on this turn
                 //Submit our move to the game object. We haven't even checked it it's
                 // our turn, or that that position is unoccupied.
@@ -129,10 +127,11 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
                 placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                 game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
+                Log.d("just completed for", "" + whatMove);
 
 
-            } else if (whatMove == 2 && lastTurnPeg != null) {
-                Log.d("IN THE ", "______BASIC MOVE MOELFILE");
+
+            } else if (whatMove == 2 && lastTurnPeg != null && counter == 0) {
                 thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 2), (lastTurnPeg.getyPos() - 1), 1);//peg object that is being placed on this turn
                 //Submit our move to the game object. We haven't even checked it it's
                 // our turn, or that that position is unoccupied.
@@ -140,10 +139,11 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
                 placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                 game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
+                Log.d("just completed for", "" + whatMove);
 
 
-            } else if (whatMove == 3 && lastTurnPeg != null) {
-                Log.d("IN THE ", "______BASIC MOVE MOELFILE");
+
+            } else if (whatMove == 3 && lastTurnPeg != null && counter == 0) {
                 thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 2), (lastTurnPeg.getyPos() + 1), 1);//peg object that is being placed on this turn
                 //Submit our move to the game object. We haven't even checked it it's
                 // our turn, or that that position is unoccupied.
@@ -151,6 +151,8 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
                 placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                 game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
+                Log.d("just completed for", "" + whatMove);
+
 
 
             }
@@ -224,7 +226,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                                                                         game.sendAction(new PlacePegAction(this, blockPeg));//sends action to game for validation
                                                                         game.sendAction(new EndTurnAction(this));//ends this turn with an attempted block
                                                                         moveMade = true;
-                                                                        Log.d("IN THE ", "______ATTEMPT BLOCK MOELFILE");
+                                                                        Log.d("IN THE ", "_aTTEMPT BLOCK");
                                                                     }
                                                                 }
                                                             }
