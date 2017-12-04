@@ -107,7 +107,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 lastTurnPeg = placedPegs.get((placedPegs.size()) - 1);
             }
             int whatMove = rand.nextInt(4);
-            if (whatMove == 0 && lastTurnPeg != null && counter == 0) {
+            if (whatMove == 0 && lastTurnPeg != null) {
                 thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 1), (lastTurnPeg.getyPos() + 2), 1);//peg object that is being placed on this turn
                 //Submit our move to the game object. We haven't even checked it it's
                 // our turn, or that that position is unoccupied.
@@ -119,7 +119,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
 
 
-            } else if (whatMove == 1 && lastTurnPeg != null && counter == 0) {
+            } else if (whatMove == 1 && lastTurnPeg != null) {
                 thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 1), (lastTurnPeg.getyPos() - 2), 1);//peg object that is being placed on this turn
                 //Submit our move to the game object. We haven't even checked it it's
                 // our turn, or that that position is unoccupied.
@@ -131,7 +131,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
 
 
-            } else if (whatMove == 2 && lastTurnPeg != null && counter == 0) {
+            } else if (whatMove == 2 && lastTurnPeg != null) {
                 thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 2), (lastTurnPeg.getyPos() - 1), 1);//peg object that is being placed on this turn
                 //Submit our move to the game object. We haven't even checked it it's
                 // our turn, or that that position is unoccupied.
@@ -143,7 +143,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
 
 
-            } else if (whatMove == 3 && lastTurnPeg != null && counter == 0) {
+            } else if (whatMove == 3 && lastTurnPeg != null) {
                 thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 2), (lastTurnPeg.getyPos() + 1), 1);//peg object that is being placed on this turn
                 //Submit our move to the game object. We haven't even checked it it's
                 // our turn, or that that position is unoccupied.
