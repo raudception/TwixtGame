@@ -416,7 +416,7 @@ public class TwixtLocalGame extends LocalGame {
      */
     @Override
     protected void sendUpdatedStateTo(GamePlayer p) {
-        TwixtGameState copy = new TwixtGameState();
+        TwixtGameState copy;
         copy = new TwixtGameState(official);
         p.sendInfo(copy);
     }//sendUpdatedSate

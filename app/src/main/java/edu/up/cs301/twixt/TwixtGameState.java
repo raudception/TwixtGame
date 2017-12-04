@@ -42,10 +42,20 @@ public Peg[][] stateToArray(){
     public void placePeg(Peg peg){
         Board[peg.getxPos()][peg.getyPos()] = peg;
     }
-    public Peg[][] getBoard() {
-        return Board;
-    }
 
+
+    public Peg[][] getBoard() {
+        return makeBoardCopy();
+    }
+public Peg[][] makeBoardCopy(){
+    Peg [][] returnval = new Peg[24][24];
+    for(int i = 0; i<24; i++ ){
+        for(int j = 0; j<24; j++){
+            returnval[i][j] = Board[i][j];
+        }
+    }
+    return returnval;
+}
     public void setBoard(Peg[][] board) {
         Board = board;
     }
