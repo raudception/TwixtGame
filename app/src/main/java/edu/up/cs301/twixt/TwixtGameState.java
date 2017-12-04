@@ -37,7 +37,7 @@ public class TwixtGameState extends GameState implements Serializable {
 
 
 public Peg[][] stateToArray(){
-    return Board;
+    return makeBoardCopy();
 }
     public void placePeg(Peg peg){
         Board[peg.getxPos()][peg.getyPos()] = peg;
