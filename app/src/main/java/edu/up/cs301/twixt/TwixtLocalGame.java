@@ -409,6 +409,7 @@ public class TwixtLocalGame extends LocalGame {
                 temp[p.getxPos()][p.getyPos()].getLinkedPegs().add(current);
             }
         }
+        official.setBoard(temp); //changed copy in GameSate
     }
 
     /**

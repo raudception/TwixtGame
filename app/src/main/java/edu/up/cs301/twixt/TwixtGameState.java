@@ -54,7 +54,11 @@ public Peg[][] makeBoardCopy(){
         for(int j = 0; j<24; j++){
             returnval[i][j] = Board[i][j];
             if(Board[i][j] != null && Board[i][j].getLinkedPegs() != null){
-                returnval[i][j].setLinkedPegs(Board[i][j].getLinkedPegs());
+                ArrayList<Peg> setNew = new ArrayList<Peg>();
+                for(Peg p: Board[i][j].getLinkedPegs()){
+                    setNew.add(p);
+                }
+                returnval[i][j].setLinkedPegs(setNew);
             }
         }
     }
