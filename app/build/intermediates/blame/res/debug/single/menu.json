@@ -1,10 +1,6 @@
 [
     {
-        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\menu\\game_main.xml",
-        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\menu\\game_main.xml"
-    },
-    {
-        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\menu\\game_main.xml",
-        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\menu\\game_main.xml"
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\menu\\game_main.xml",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\menu\\game_main.xml"
     }
 ]

@@ -1,4 +1,5 @@
 package edu.up.cs301.twixt;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -6,7 +7,7 @@ import java.util.ArrayList;
  * This class populates the game board.
  */
 
-public class Peg {
+public class Peg implements Serializable {
     private int xPos, yPos;
     private ArrayList<Peg> linkedPegs;
     private int isEndRow;

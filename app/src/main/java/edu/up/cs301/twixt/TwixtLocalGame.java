@@ -381,20 +381,16 @@ public class TwixtLocalGame extends LocalGame {
         int linkMaxX = Math.max(x1,x2);
         int linkMaxY = Math.max(y1,y2);
 
-        int checkkMinX = Math.min(x3,x4);
+        int checkMinX = Math.min(x3,x4);
         int checkMinY = Math.min(y3,y4);
         int checkMaxX = Math.max(x3,x4);
         int checkMaxY = Math.max(y3,y4);
 
-       if(linkMinX < checkMaxX && checkkMinX < linkMaxX){
+       if(linkMinX < checkMaxX && checkMinX < linkMaxX){
            if(linkMinY < checkMaxY && checkMinY < linkMaxY){
                return true;
            }
        }
-
-
-
-
 
         return false;
 
