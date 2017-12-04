@@ -91,7 +91,7 @@ public Peg[][] makeBoardCopy(){
             }
         }
         }
-        Board = board;
+
     }
 
     public boolean getOfferDraw0(){
