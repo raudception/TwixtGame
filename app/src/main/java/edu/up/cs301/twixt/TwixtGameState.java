@@ -2,6 +2,7 @@ package edu.up.cs301.twixt;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import edu.up.cs301.game.infoMsg.GameState;
@@ -10,7 +11,7 @@ import edu.up.cs301.game.infoMsg.GameState;
  * Created by Kollin on 10/12/2017.
  */
 
-public class TwixtGameState extends GameState {
+public class TwixtGameState extends GameState implements Serializable {
     private Peg[][] Board;
 
     private int turn;
