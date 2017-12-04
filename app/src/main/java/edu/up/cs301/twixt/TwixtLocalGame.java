@@ -63,7 +63,7 @@ public class TwixtLocalGame extends LocalGame {
                 lastPeg = new Peg(0, 0, -1);
 
             }
-            sendAllUpdatedState();
+
         }
 
         if (action instanceof OfferDrawAction) {
@@ -76,7 +76,7 @@ public class TwixtLocalGame extends LocalGame {
                     official.setOfferDraw1(true);
                 }
 
-                sendAllUpdatedState();
+
                 return true;
             }
         }
@@ -110,7 +110,7 @@ public class TwixtLocalGame extends LocalGame {
                     }
                 }
             }
-            sendAllUpdatedState();
+
             return true;
         }
 
@@ -147,7 +147,7 @@ public class TwixtLocalGame extends LocalGame {
                     }
                     //set the board's state, including the new peg
                     pegUsed = true;
-                    sendAllUpdatedState();
+
                     return true;
                 }
             }
@@ -165,7 +165,7 @@ public class TwixtLocalGame extends LocalGame {
 
                 }
             }
-            sendAllUpdatedState();
+
             return true;
         }
 
@@ -192,7 +192,7 @@ public class TwixtLocalGame extends LocalGame {
                         }
                     }
                 }
-                sendAllUpdatedState();
+
                 return true;
             }
         }
@@ -206,7 +206,7 @@ public class TwixtLocalGame extends LocalGame {
                 } else {
                 }
             }
-            sendAllUpdatedState();
+
             return true;
         }
 

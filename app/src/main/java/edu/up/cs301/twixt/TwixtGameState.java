@@ -56,14 +56,10 @@ public Peg[][] makeBoardCopy(){
             if(Board[i][j] != null && Board[i][j].getLinkedPegs() != null){
                 returnval[i][j].setLinkedPegs(Board[i][j].getLinkedPegs());
             }
-
         }
     }
     return returnval;
 }
-    public void setBoard(Peg[][] board) {
-        Board = board;
-    }
 
     public int getTurn() {
         return turn;
