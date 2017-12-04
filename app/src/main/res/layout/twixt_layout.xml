@@ -36,7 +36,8 @@
         android:textStyle="bold"
         android:typeface="normal"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        />
 
     <Button
         android:id="@+id/PlacePegButton"
@@ -117,7 +118,7 @@
         android:layout_height="200dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="TextView"
+        android:text="Green's Turn"
         android:textColor="@android:color/background_light"
         android:textSize="40sp"
         tools:text="Your Turn" />
