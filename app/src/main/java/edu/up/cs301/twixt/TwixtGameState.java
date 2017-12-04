@@ -83,7 +83,14 @@ public Peg[][] makeBoardCopy(){
     public void incrementTotalTurns(){
         totalturns ++;
     }
+
     public void setBoard(Peg[][] board){
+        for(int i =0; i<24; i++){
+            for(int j =0; j<24; j++){{
+               Board[i][j] = board[i][j];
+            }
+        }
+        }
         Board = board;
     }
 
@@ -104,8 +111,5 @@ public Peg[][] makeBoardCopy(){
         Log.i("draw","was set");
         offerDraw1 = b;
     }
-
-
-
 
 }
