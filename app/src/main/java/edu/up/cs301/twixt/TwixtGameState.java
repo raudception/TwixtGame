@@ -79,6 +79,9 @@ public Peg[][] makeBoardCopy(){
     public void incrementTotalTurns(){
         totalturns ++;
     }
+    public void setBoard(Peg[][] board){
+        Board = board;
+    }
 
     public boolean getOfferDraw0(){
         Log.i("draw","was got");

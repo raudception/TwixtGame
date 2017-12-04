@@ -192,7 +192,7 @@ public class TwixtLocalGame extends LocalGame {
                         }
                     }
                 }
-
+                official.setBoard(temp);
                 return true;
             }
         }
