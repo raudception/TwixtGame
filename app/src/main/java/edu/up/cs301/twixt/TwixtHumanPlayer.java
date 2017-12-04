@@ -120,6 +120,12 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             buttonET.setTextColor(Color.GRAY);
             state.setOfferDraw0(false);
         }
+        if(state.getTurn() == humanPlayer){
+            turn.setText("Green's Turn");
+        }
+        else{
+            turn.setText("Red's Turn");
+        }
 
 
 
@@ -136,7 +142,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         if(button.getId() == R.id.PlacePegButton){
             if(offerDraw){
-                MessageBox.popUpMessage("Computer Player Won!",myActivity);
+                MessageBox.popUpMessage("It is a draw!",myActivity);
             }
             else{
                 actionId =1;
@@ -207,8 +213,13 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         }
         else if(button.getId() == R.id.EndTurnButton){
-            turn.setText("Opponent's Turn");
+            //turn.setText("Opponent's Turn");
             buttonPP.setTextColor(Color.WHITE);
+            buttonPP.setBackgroundColor(Color.GRAY);
+            buttonRP.setBackgroundColor(Color.GRAY);
+            buttonOD.setBackgroundColor(Color.GRAY);
+            buttonPL.setBackgroundColor(Color.GRAY);
+            buttonRL.setBackgroundColor(Color.GRAY);
             game.sendAction( new EndTurnAction(this));
 
 
@@ -228,7 +239,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             selectedPeg = array[x][y];
         }
         else{
-            selectedPeg = new Peg(x,y,humanPlayer);
+            selectedPeg = new Peg(x,y,state.getTurn());
         }
 
         if(actionId == 1){ //Place Peg
@@ -238,22 +249,36 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 If so, flash.
                 If not, send action.
              */
-            if(selectedPeg == array[x][y] || x==23 || x==0){
-                flashBoolean = true;
+            if(state.getTurn() == 0){
+                if(selectedPeg == array[x][y] || x==23 || x==0){
+                    flashBoolean = true;
+                }
+                else{
+                    actionId =0;
+                    buttonPP.setBackgroundColor(Color.GRAY);
+                    buttonPP.setTextColor(Color.BLACK);
+                    game.sendAction(new PlacePegAction(this,selectedPeg));
+                }
             }
             else{
-                actionId =0;
-                buttonPP.setBackgroundColor(Color.GRAY);
-                buttonPP.setTextColor(Color.BLACK);
-                game.sendAction(new PlacePegAction(this,selectedPeg));
+                if(selectedPeg == array[x][y] || y==23 || y==0){
+                    flashBoolean = true;
+                }
+                else{
+                    actionId =0;
+                    buttonPP.setBackgroundColor(Color.GRAY);
+                    buttonPP.setTextColor(Color.BLACK);
+                    game.sendAction(new PlacePegAction(this,selectedPeg));
+                }
             }
+
 
         }
         else if(actionId == 2){ //Remove Peg
             /*
                 checks if peg to be removed belongs to player
              */
-            if(selectedPeg.getPegTeam() != humanPlayer){
+            if(selectedPeg.getPegTeam() != state.getTurn()){
                 flashBoolean = true;
             }
             else{
@@ -419,9 +444,6 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                         paint.setColor(Color.RED);
                     }
 
-
-
-
                 }
                 else if((i==0 && j==0)||(i==0 && j==23)||(i==23 && j==0)||(i==23 && j==23)){
                     paint.setColor(Color.BLACK);
@@ -429,10 +451,8 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 g.drawCircle(i*printOffset+15, j*printOffset+15, radius, paint);
 
                 if(array[i][j] != null){
-                    ArrayList<Peg> linkedPegs;
-                    linkedPegs = array[i][j].getLinkedPegs();
-                    if(linkedPegs != null) {
-                        for (Peg p: linkedPegs) {
+                    if(array[i][j].getLinkedPegs() != null) {
+                        for (Peg p:array[i][j].getLinkedPegs()) {
                             if(p.getLinkedPegs().contains(array[i][j])){
                                 g.drawLine(i * printOffset + 15, j * printOffset + 15, (p.getxPos()) * printOffset + 15, (p.getyPos()) * printOffset + 15, paint);
                             }

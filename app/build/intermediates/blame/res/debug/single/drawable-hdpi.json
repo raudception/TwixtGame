@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\purple_delete_button.png",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\drawable-hdpi\\purple_delete_button.png"
+    },
+    {
         "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_search.png",
         "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\drawable-hdpi\\ic_action_search.png"
     },
@@ -10,5 +14,13 @@
     {
         "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\purple_delete_button.png",
         "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\drawable-hdpi\\purple_delete_button.png"
+    },
+    {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_search.png",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\drawable-hdpi\\ic_action_search.png"
+    },
+    {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
     }
 ]
