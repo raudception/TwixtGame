@@ -49,6 +49,8 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     private int turnCount;
     private boolean drawAvailable = false;
     private boolean offerDraw = false;
+    private boolean piRuleOffered = false;
+    private boolean piRuleAccepted = false;
     // These variables will reference widgets that will be modified during play
     private Button buttonPP;
     private Button buttonRP;
@@ -127,6 +129,24 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             turn.setText("Red's Turn");
         }
 
+        if(state.getTotalturns() == 1 && state.getTurn() == humanPlayer && !piRuleOffered ){
+            MessageBox.popUpMessage("Would you like to switch side?",myActivity);
+            buttonPP.setBackgroundColor(Color.GRAY);
+            buttonPP.setText("Accept");
+            buttonRP.setBackgroundColor(Color.GRAY);
+            buttonRP.setText("Reject");
+            buttonPL.setBackgroundColor(Color.GRAY);
+            buttonPL.setTextColor(Color.GRAY);
+            buttonRL.setBackgroundColor(Color.GRAY);
+            buttonRL.setTextColor(Color.GRAY);
+            buttonOD.setBackgroundColor(Color.GRAY);
+            buttonOD.setTextColor(Color.GRAY);
+            buttonET.setBackgroundColor(Color.GRAY);
+            buttonET.setTextColor(Color.GRAY);
+            piRuleOffered = true;
+        }
+
+
 
 
     }//receiveInfo
@@ -143,6 +163,19 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         if(button.getId() == R.id.PlacePegButton){
             if(offerDraw){
                 MessageBox.popUpMessage("It is a draw!",myActivity);
+            }
+            else if(piRuleOffered){
+                MessageBox.popUpMessage("Side's switched!",myActivity);
+                game.sendAction( new PiRuleAction(this));
+                game.sendAction( new EndTurnAction(this));
+                buttonPL.setTextColor(Color.WHITE);
+                buttonRL.setTextColor(Color.WHITE);
+                buttonET.setTextColor(Color.WHITE);
+                buttonOD.setTextColor(Color.WHITE);
+                buttonET.setBackgroundColor(Color.RED);
+                piRuleOffered = false;
+                buttonPP.setText("Place Peg");
+                buttonRP.setText("Remove Peg");
             }
             else{
                 actionId =1;
@@ -168,6 +201,16 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 buttonPP.setText("Place Peg");
                 buttonRP.setText("Remove Peg");
 
+            }
+            else if(piRuleOffered){
+                buttonPL.setTextColor(Color.WHITE);
+                buttonRL.setTextColor(Color.WHITE);
+                buttonET.setTextColor(Color.WHITE);
+                buttonOD.setTextColor(Color.WHITE);
+                buttonET.setBackgroundColor(Color.RED);
+                piRuleOffered = false;
+                buttonPP.setText("Place Peg");
+                buttonRP.setText("Remove Peg");
             }
             else{
                 actionId =2;
@@ -213,7 +256,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         }
         else if(button.getId() == R.id.EndTurnButton){
-            //turn.setText("Opponent's Turn");
+
             buttonPP.setTextColor(Color.WHITE);
             buttonPP.setBackgroundColor(Color.GRAY);
             buttonRP.setBackgroundColor(Color.GRAY);

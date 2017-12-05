@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\twixt_launcher.png",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\mipmap-hdpi\\twixt_launcher.png"
+    },
+    {
         "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\twixt_launcher.png",
         "source": "D:\\TwixtGame\\app\\src\\main\\res\\mipmap-hdpi\\twixt_launcher.png"
     },
@@ -14,5 +18,9 @@
     {
         "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
         "source": "D:\\TwixtGame\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     }
 ]

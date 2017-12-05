@@ -73,6 +73,10 @@ public class Peg implements Serializable {
 
     public int getPegTeam() {return pegTeam;}
 
+    public void setPegTeam(int a){
+        pegTeam = a;
+    }
+
 
     /**
      * Should override the default equals method for Objects, and just compare the x and y position on the board.
