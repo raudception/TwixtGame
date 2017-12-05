@@ -207,8 +207,7 @@ public class TwixtLocalGame extends LocalGame {
                     GamePlayer player0 = players[0];
                     players[0] = players[1];
                     players[1] = player0; //unsure if this is working correctly
-                } else {
-                }
+                } else {}
             }
 
             return true;
@@ -429,6 +428,7 @@ public class TwixtLocalGame extends LocalGame {
                 temp[p.getxPos()][p.getyPos()].getLinkedPegs().add(current);
             }
         }
+        official.setBoard(temp,false, null);
     }
 
     /**
