@@ -138,11 +138,11 @@ public class TwixtLocalGame extends LocalGame {
 
                         if ((endRows == 1) && (x != 0) && (x != 23)) { //don't allow placing in opponent's end Rows
                             peg = new Peg(x, y, official.getTurn(), addPegLinks(peg));
-                            official.placePeg(peg);
+                            official.placePeg(peg, false);
                             lastPeg = peg;
                         } else if ((endRows == 2) && (y != 0) && (y != 23)) {
                             peg = new Peg(x, y, official.getTurn(), addPegLinks(peg));
-                            official.placePeg(peg); //add the peg to the temp array
+                            official.placePeg(peg, false); //add the peg to the temp array
                             lastPeg = peg;
                         } else {
                             return false;
@@ -187,10 +187,11 @@ public class TwixtLocalGame extends LocalGame {
                                 if (removepeg.equals(lastPeg)) { //allow removing a peg that was placed in the same turn
                                     pegUsed = false;
                                 }
-                                temp[i][j] = null;
+
                                 for (Peg p : removepeg.getLinkedPegs()) {
                                     temp[p.getxPos()][p.getyPos()].getLinkedPegs().remove(peg);
                                 }
+                                official.setBoard(temp, true, removepeg);
                             }
                         }
                     }

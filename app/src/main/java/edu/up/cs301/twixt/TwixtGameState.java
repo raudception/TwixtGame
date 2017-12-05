@@ -39,8 +39,18 @@ public class TwixtGameState extends GameState implements Serializable {
 public Peg[][] stateToArray(){
     return makeBoardCopy();
 } //deprecated getBoard method
-    public void placePeg(Peg peg){
-        Board[peg.getxPos()][peg.getyPos()] = peg;
+
+    public void placePeg(Peg peg, Boolean nullPeg){
+        if(nullPeg){
+            Board[peg.getxPos()][peg.getyPos()] = null;
+        }
+       else if(peg != null) {
+            Board[peg.getxPos()][peg.getyPos()] = peg;
+        }
+
+
+
+
     }
 
 
@@ -84,17 +94,20 @@ public Peg[][] makeBoardCopy(){
         totalturns ++;
     }
 
-    public void setBoard(Peg[][] board){ //needs debugging
+    public void setBoard(Peg[][] board, Boolean nullPeg, Peg removePeg){ //needs debugging
         for(int i =0; i<24; i++){
             for(int j =0; j<24; j++){{
-               Board[i][j] = board[i][j];
-                if(Board[i][j] != null && Board[i][j].getLinkedPegs() != null){
-                    ArrayList<Peg> newSet = new ArrayList<Peg>();
-                    for(Peg p : Board[i][j].getLinkedPegs()){
-                        newSet.add(p);
-                    }
-                    Board[i][j].setLinkedPegs(newSet);
+                    placePeg(board[i][j], false);
+                if(nullPeg){
+                    placePeg(removePeg, true);
                 }
+//                if(Board[i][j] != null && Board[i][j].getLinkedPegs() != null){
+//                    ArrayList<Peg> newSet = new ArrayList<Peg>();
+//                    for(Peg p : Board[i][j].getLinkedPegs()){
+//                        newSet.add(p);
+//                    }
+//                    Board[i][j].setLinkedPegs(newSet);
+//                }
             }
         }
         }
