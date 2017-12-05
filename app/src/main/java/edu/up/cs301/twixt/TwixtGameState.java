@@ -84,7 +84,7 @@ public Peg[][] makeBoardCopy(){
         totalturns ++;
     }
 
-    public void setBoard(Peg[][] board){
+    public void setBoard(Peg[][] board){ //needs debugging
         for(int i =0; i<24; i++){
             for(int j =0; j<24; j++){{
                Board[i][j] = board[i][j];

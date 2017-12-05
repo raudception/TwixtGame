@@ -61,12 +61,12 @@ public class TwixtLocalGame extends LocalGame {
                 }
                 pegUsed = false;
                 lastPeg = new Peg(0, 0, -1);
-
+                sendAllUpdatedState();
             }
 
         }
 
-        if (action instanceof OfferDrawAction) {
+        else if (action instanceof OfferDrawAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 if(official.getTurn() == 1){
                     Log.i("draw","offered by computer");
@@ -81,7 +81,7 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
 
-        if (action instanceof PlaceLinkAction) {
+        else if (action instanceof PlaceLinkAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 PlaceLinkAction pla = (PlaceLinkAction) action;
                 if (pla.getHoldPeg1() != null && pla.getHoldPeg2() != null) {
@@ -114,7 +114,7 @@ public class TwixtLocalGame extends LocalGame {
             return true;
         }
 
-        if (action instanceof PlacePegAction) {
+        else if (action instanceof PlacePegAction) {
             if (action.getPlayer().equals(players[official.getTurn()]) && !pegUsed) {
                 int endRows = 0;
 
@@ -153,7 +153,7 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
 
-        if (action instanceof RemoveLinkAction) {
+        else if (action instanceof RemoveLinkAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemoveLinkAction rla = (RemoveLinkAction) action;
                 Peg[][] temp = official.getBoard();
@@ -169,7 +169,7 @@ public class TwixtLocalGame extends LocalGame {
             return true;
         }
 
-        if (action instanceof RemovePegAction) {
+        else if (action instanceof RemovePegAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemovePegAction rmP = (RemovePegAction) action;
                 Peg peg = rmP.getHoldPeg();
@@ -197,7 +197,7 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
 
-        if (action instanceof SwitchSidesAction) { //unsure of functionality
+        else if (action instanceof SwitchSidesAction) { //unsure of functionality
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 if (official.getTotalturns() == 1) {
                     GamePlayer player0 = players[0];
