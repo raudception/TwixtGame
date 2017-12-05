@@ -58,9 +58,12 @@ public class TwixtLocalGame extends LocalGame {
                     official.incrementTotalTurns(); //keep track of the total number of turns
                 } else {
                     Log.i("makeMove", "Invalid Turn: " + official.getTurn());
+                    return false;
                 }
                 pegUsed = false;
                 lastPeg = new Peg(0, 0, -1);
+
+                return true;
 
             }
 

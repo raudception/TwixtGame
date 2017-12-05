@@ -1,30 +1,30 @@
 [
     {
-        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
-        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
     },
     {
-        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
-        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_no_gui.xml"
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\twixt_layout.xml",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\layout\\twixt_layout.xml"
     },
     {
-        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
-        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\layout\\game_local_tab.xml"
     },
     {
-        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\twixt_layout.xml",
-        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\twixt_layout.xml"
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_main.xml"
     },
     {
-        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_main.xml",
-        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_main.xml"
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_player_list_row.xml",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\layout\\game_player_list_row.xml"
     },
     {
-        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_local_tab.xml",
-        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_local_tab.xml"
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_no_gui.xml",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\layout\\game_no_gui.xml"
     },
     {
-        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_config_tabhost.xml",
-        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout\\game_config_tabhost.xml"
+        "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_remote_tab.xml",
+        "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\layout\\game_remote_tab.xml"
     }
 ]
