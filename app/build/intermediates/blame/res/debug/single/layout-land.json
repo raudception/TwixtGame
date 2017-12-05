@@ -1,6 +1,14 @@
 [
     {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\twixt_layout.xml",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\layout-land\\twixt_layout.xml"
+    },
+    {
         "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\twixt_layout.xml",
         "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\layout-land\\twixt_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\twixt_layout.xml",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\layout-land\\twixt_layout.xml"
     }
 ]

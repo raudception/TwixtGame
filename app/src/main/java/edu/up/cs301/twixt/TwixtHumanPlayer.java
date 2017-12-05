@@ -49,6 +49,8 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     private int turnCount;
     private boolean drawAvailable = false;
     private boolean offerDraw = false;
+    private boolean piRuleOffered = false;
+    private boolean piRuleResolved = false;
     // These variables will reference widgets that will be modified during play
     private Button buttonPP;
     private Button buttonRP;
@@ -127,6 +129,25 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             turn.setText("Red's Turn");
         }
 
+        if(state.getTotalturns() == 1 && state.getTurn() == humanPlayer && !piRuleResolved ){
+            MessageBox.popUpMessage("Would you like to switch side?",myActivity);
+            buttonPP.setBackgroundColor(Color.GRAY);
+            buttonPP.setText("Accept");
+            buttonRP.setBackgroundColor(Color.GRAY);
+            buttonRP.setText("Reject");
+            buttonPL.setBackgroundColor(Color.GRAY);
+            buttonPL.setTextColor(Color.GRAY);
+            buttonRL.setBackgroundColor(Color.GRAY);
+            buttonRL.setTextColor(Color.GRAY);
+            buttonOD.setBackgroundColor(Color.GRAY);
+            buttonOD.setTextColor(Color.GRAY);
+            buttonET.setBackgroundColor(Color.GRAY);
+            buttonET.setTextColor(Color.GRAY);
+            piRuleOffered = true;
+            piRuleResolved = true;
+        }
+
+
 
 
     }//receiveInfo
@@ -143,6 +164,19 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         if(button.getId() == R.id.PlacePegButton){
             if(offerDraw){
                 MessageBox.popUpMessage("It is a draw!",myActivity);
+            }
+            else if(piRuleOffered){
+                MessageBox.popUpMessage("Side's switched!",myActivity);
+                game.sendAction( new PiRuleAction(this));
+                game.sendAction( new EndTurnAction(this));
+                buttonPL.setTextColor(Color.WHITE);
+                buttonRL.setTextColor(Color.WHITE);
+                buttonET.setTextColor(Color.WHITE);
+                buttonOD.setTextColor(Color.WHITE);
+                buttonET.setBackgroundColor(Color.RED);
+                piRuleOffered = false;
+                buttonPP.setText("Place Peg");
+                buttonRP.setText("Remove Peg");
             }
             else{
                 actionId =1;
@@ -168,6 +202,16 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 buttonPP.setText("Place Peg");
                 buttonRP.setText("Remove Peg");
 
+            }
+            else if(piRuleOffered){
+                buttonPL.setTextColor(Color.WHITE);
+                buttonRL.setTextColor(Color.WHITE);
+                buttonET.setTextColor(Color.WHITE);
+                buttonOD.setTextColor(Color.WHITE);
+                buttonET.setBackgroundColor(Color.RED);
+                piRuleOffered = false;
+                buttonPP.setText("Place Peg");
+                buttonRP.setText("Remove Peg");
             }
             else{
                 actionId =2;
@@ -213,7 +257,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         }
         else if(button.getId() == R.id.EndTurnButton){
-            //turn.setText("Opponent's Turn");
+
             buttonPP.setTextColor(Color.WHITE);
             buttonPP.setBackgroundColor(Color.GRAY);
             buttonRP.setBackgroundColor(Color.GRAY);
@@ -232,102 +276,89 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     public void onTouch(MotionEvent e){
         int x = (int)e.getX()/printOffset;
         int y = (int)e.getY()/printOffset;
+        if((x>-1 && x<24) && (y<24 && y>-1)) {
+            Peg[][] array = state.stateToArray();
+            Peg selectedPeg;
+            if (array[x][y] != null) {
+                selectedPeg = array[x][y];
+            } else {
+                selectedPeg = new Peg(x, y, state.getTurn());
+            }
 
-        Peg[][] array = state.stateToArray();
-        Peg selectedPeg;
-        if(array[x][y] != null){
-            selectedPeg = array[x][y];
-        }
-        else{
-            selectedPeg = new Peg(x,y,state.getTurn());
-        }
-
-        if(actionId == 1){ //Place Peg
+            if (actionId == 1) { //Place Peg
 
             /*
                 Checks if the desired peg location already has a peg
                 If so, flash.
                 If not, send action.
              */
-            if(state.getTurn() == 0){
-                if(selectedPeg == array[x][y] || x==23 || x==0){
-                    flashBoolean = true;
+                if (state.getTurn() == 0) {
+                    if (selectedPeg == array[x][y] || x == 23 || x == 0) {
+                        flashBoolean = true;
+                    } else {
+                        actionId = 0;
+                        buttonPP.setBackgroundColor(Color.GRAY);
+                        buttonPP.setTextColor(Color.BLACK);
+                        game.sendAction(new PlacePegAction(this, selectedPeg));
+                    }
+                } else {
+                    if (selectedPeg == array[x][y] || y == 23 || y == 0) {
+                        flashBoolean = true;
+                    } else {
+                        actionId = 0;
+                        buttonPP.setBackgroundColor(Color.GRAY);
+                        buttonPP.setTextColor(Color.BLACK);
+                        game.sendAction(new PlacePegAction(this, selectedPeg));
+                    }
                 }
-                else{
-                    actionId =0;
-                    buttonPP.setBackgroundColor(Color.GRAY);
-                    buttonPP.setTextColor(Color.BLACK);
-                    game.sendAction(new PlacePegAction(this,selectedPeg));
-                }
-            }
-            else{
-                if(selectedPeg == array[x][y] || y==23 || y==0){
-                    flashBoolean = true;
-                }
-                else{
-                    actionId =0;
-                    buttonPP.setBackgroundColor(Color.GRAY);
-                    buttonPP.setTextColor(Color.BLACK);
-                    game.sendAction(new PlacePegAction(this,selectedPeg));
-                }
-            }
 
 
-        }
-        else if(actionId == 2){ //Remove Peg
+            } else if (actionId == 2) { //Remove Peg
             /*
                 checks if peg to be removed belongs to player
              */
-            if(selectedPeg.getPegTeam() != state.getTurn()){
-                flashBoolean = true;
-            }
-            else{
-                game.sendAction( new RemovePegAction(this,selectedPeg));
-                actionId =0;
-                buttonRP.setBackgroundColor(Color.GRAY);
-            }
+                if (selectedPeg.getPegTeam() != state.getTurn()) {
+                    flashBoolean = true;
+                } else {
+                    game.sendAction(new RemovePegAction(this, selectedPeg));
+                    actionId = 0;
+                    buttonRP.setBackgroundColor(Color.GRAY);
+                }
 
 
-        }
-        else if(actionId == 3){ //placeLinkAction
-            if(previousPeg == null && array[x][y] != null){
-                previousPeg = selectedPeg;
-            }
-            else if(array[x][y] == null){
-                flashBoolean = true;
-            }
-            else if(previousPeg.getxPos() == selectedPeg.getxPos() && previousPeg.getyPos() == selectedPeg.getyPos()){
-                //flashBoolean = true;
-            }
-            else{
+            } else if (actionId == 3) { //placeLinkAction
+                if (previousPeg == null && array[x][y] != null) {
+                    previousPeg = selectedPeg;
+                } else if (array[x][y] == null) {
+                    flashBoolean = true;
+                } else if (previousPeg.getxPos() == selectedPeg.getxPos() && previousPeg.getyPos() == selectedPeg.getyPos()) {
+                    //flashBoolean = true;
+                } else {
 
-                game.sendAction( new PlaceLinkAction(this,selectedPeg,previousPeg));
-                previousPeg = null;
-                actionId = 0;
-                buttonPL.setBackgroundColor(Color.GRAY);
+                    game.sendAction(new PlaceLinkAction(this, selectedPeg, previousPeg));
+                    previousPeg = null;
+                    actionId = 0;
+                    buttonPL.setBackgroundColor(Color.GRAY);
 
-            }
+                }
 
-        }
-        else if(actionId == 4) { //removeLinkAction
-            if(previousPeg == null){
-                previousPeg = selectedPeg;
-            }
-            else if(previousPeg.getxPos() == selectedPeg.getxPos() && previousPeg.getyPos() == selectedPeg.getyPos()){
-                //flashBoolean = true;
-            }
-            else{
+            } else if (actionId == 4) { //removeLinkAction
+                if (previousPeg == null) {
+                    previousPeg = selectedPeg;
+                } else if (previousPeg.getxPos() == selectedPeg.getxPos() && previousPeg.getyPos() == selectedPeg.getyPos()) {
+                    //flashBoolean = true;
+                } else {
 
-                game.sendAction( new RemoveLinkAction(this,selectedPeg,previousPeg));
-                previousPeg = null;
-                actionId = 0;
-                buttonRL.setBackgroundColor(Color.GRAY);
+                    game.sendAction(new RemoveLinkAction(this, selectedPeg, previousPeg));
+                    previousPeg = null;
+                    actionId = 0;
+                    buttonRL.setBackgroundColor(Color.GRAY);
+
+
+                }
 
 
             }
-
-
-
         }
     }
 

@@ -4,7 +4,23 @@
         "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\mipmap-mdpi\\twixt_launcher.png"
     },
     {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
         "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
         "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\twixt_launcher.png",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\mipmap-mdpi\\twixt_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\twixt_launcher.png",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\mipmap-mdpi\\twixt_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
+        "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     }
 ]
