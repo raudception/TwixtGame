@@ -276,7 +276,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     public void onTouch(MotionEvent e){
         int x = (int)e.getX()/printOffset;
         int y = (int)e.getY()/printOffset;
-if((x>-1 && x<24) && (y<24 && y>-1)) {
+        if((x>-1 && x<24) && (y<24 && y>-1)) {
             Peg[][] array = state.stateToArray();
             Peg selectedPeg;
             if (array[x][y] != null) {
