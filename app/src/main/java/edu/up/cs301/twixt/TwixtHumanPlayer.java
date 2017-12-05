@@ -50,7 +50,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     private boolean drawAvailable = false;
     private boolean offerDraw = false;
     private boolean piRuleOffered = false;
-    private boolean piRuleAccepted = false;
+    private boolean piRuleResolved = false;
     // These variables will reference widgets that will be modified during play
     private Button buttonPP;
     private Button buttonRP;
@@ -129,7 +129,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             turn.setText("Red's Turn");
         }
 
-        if(state.getTotalturns() == 1 && state.getTurn() == humanPlayer && !piRuleOffered ){
+        if(state.getTotalturns() == 1 && state.getTurn() == humanPlayer && !piRuleResolved ){
             MessageBox.popUpMessage("Would you like to switch side?",myActivity);
             buttonPP.setBackgroundColor(Color.GRAY);
             buttonPP.setText("Accept");
@@ -144,6 +144,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             buttonET.setBackgroundColor(Color.GRAY);
             buttonET.setTextColor(Color.GRAY);
             piRuleOffered = true;
+            piRuleResolved = true;
         }
 
 
