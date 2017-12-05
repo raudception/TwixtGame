@@ -65,14 +65,16 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                     if (blockTurnCounter < 3) {
                         attemptBlock(firstMoveMade);//places peg as an attempted block if the other player has a 4 in a row
                         basicMove(firstMoveMade);//places pegs continuing from the first placed peg and going across the board.
-                    } else {
-                        basicMove(firstMoveMade);
                     }
+                    else{
+                            basicMove(firstMoveMade);
+                        }
 
+                    }
                 }
+                Log.d("recieved info", "received info");
             }
-            Log.d("recieved info", "received info");
-        }
+        
 
     }//end of recieveInfo
 
@@ -196,7 +198,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
     /**
      * This method attempts to block the other player if they have at least 4 links in a row.
-     * Done by placing a peg in a spot that inhibits further progress
+     * Done by placing a peg in a spot that might inhibit further progress
      **/
     public void attemptBlock(boolean moved) {
         firstMoveMade = moved;
@@ -259,22 +261,22 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                                                                         // our turn, or that that position is unoccupied.
                                                                         if (pegPlaced == false) {
 
-                                                                            if (blockTurnCounter != 3) {
+                                                                            if (blockTurnCounter < 3) {
                                                                                 game.sendAction(new PlacePegAction(this, blockPeg));//sends action to game for validation
                                                                                 blockTurnCounter++;
                                                                                 pegPlaced = true;
                                                                             } else {
                                                                                 blockTurnCounter = 0;
+                                                                                pegPlaced = false;
                                                                             }
 
                                                                         }
 
                                                                     } else {
-                                                                        game.sendAction(new EndTurnAction(this));//ends this turn with an attempted block
                                                                         pegPlaced = false;
+                                                                        game.sendAction(new EndTurnAction(this));//ends this turn with an attempted block
                                                                     }
 
-                                                                    Log.d("IN THE ", "_aTTEMPT BLOCK");
                                                                 }
                                                             }
                                                         }
@@ -293,6 +295,20 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
 
     }//attemptBlock
+
+    public void lastResort(boolean moved) {
+        firstMoveMade = moved;
+        int rndX = rand.nextInt(24);
+        int rndY = rand.nextInt(24);
+        Peg lastResortPeg = new Peg(rndX, rndY, 1);
+        if (pegPlaced == false) {
+            game.sendAction(new PlacePegAction(this, lastResortPeg));//sends action to game for validation
+            pegPlaced = true;
+        } else {
+            game.sendAction(new EndTurnAction(this));
+            pegPlaced = true;
+        }
+    }
 
 
 }//end of class
