@@ -58,15 +58,18 @@ public class TwixtLocalGame extends LocalGame {
                     official.incrementTotalTurns(); //keep track of the total number of turns
                 } else {
                     Log.i("makeMove", "Invalid Turn: " + official.getTurn());
+                    return false;
                 }
                 pegUsed = false;
                 lastPeg = new Peg(0, 0, -1);
-                sendAllUpdatedState();
+
+                return true;
+
             }
 
         }
 
-        else if (action instanceof OfferDrawAction) {
+        if (action instanceof OfferDrawAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 if(official.getTurn() == 1){
                     Log.i("draw","offered by computer");
@@ -81,7 +84,7 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
 
-        else if (action instanceof PlaceLinkAction) {
+        if (action instanceof PlaceLinkAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 PlaceLinkAction pla = (PlaceLinkAction) action;
                 if (pla.getHoldPeg1() != null && pla.getHoldPeg2() != null) {
@@ -114,7 +117,7 @@ public class TwixtLocalGame extends LocalGame {
             return true;
         }
 
-        else if (action instanceof PlacePegAction) {
+        if (action instanceof PlacePegAction) {
             if (action.getPlayer().equals(players[official.getTurn()]) && !pegUsed) {
                 int endRows = 0;
 
@@ -153,7 +156,7 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
 
-        else if (action instanceof RemoveLinkAction) {
+        if (action instanceof RemoveLinkAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemoveLinkAction rla = (RemoveLinkAction) action;
                 Peg[][] temp = official.getBoard();
@@ -169,7 +172,7 @@ public class TwixtLocalGame extends LocalGame {
             return true;
         }
 
-        else if (action instanceof RemovePegAction) {
+        if (action instanceof RemovePegAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemovePegAction rmP = (RemovePegAction) action;
                 Peg peg = rmP.getHoldPeg();
@@ -192,12 +195,12 @@ public class TwixtLocalGame extends LocalGame {
                         }
                     }
                 }
-                official.setBoard(temp);
+
                 return true;
             }
         }
 
-        else if (action instanceof SwitchSidesAction) { //unsure of functionality
+        if (action instanceof SwitchSidesAction) { //unsure of functionality
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 if (official.getTotalturns() == 1) {
                     GamePlayer player0 = players[0];
@@ -409,7 +412,6 @@ public class TwixtLocalGame extends LocalGame {
                 temp[p.getxPos()][p.getyPos()].getLinkedPegs().add(current);
             }
         }
-        official.setBoard(temp); //changed copy in GameSate
     }
 
     /**
