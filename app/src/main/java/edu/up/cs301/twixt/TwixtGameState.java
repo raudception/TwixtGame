@@ -54,7 +54,11 @@ public Peg[][] makeBoardCopy(){
         for(int j = 0; j<24; j++){
             returnval[i][j] = Board[i][j];
             if(Board[i][j] != null && Board[i][j].getLinkedPegs() != null){
-                returnval[i][j].setLinkedPegs(Board[i][j].getLinkedPegs());
+                ArrayList<Peg> setNew = new ArrayList<Peg>();
+                for(Peg p: Board[i][j].getLinkedPegs()){
+                    setNew.add(p);
+                }
+                returnval[i][j].setLinkedPegs(setNew);
             }
         }
     }
@@ -80,6 +84,23 @@ public Peg[][] makeBoardCopy(){
         totalturns ++;
     }
 
+    public void setBoard(Peg[][] board){ //needs debugging
+        for(int i =0; i<24; i++){
+            for(int j =0; j<24; j++){{
+               Board[i][j] = board[i][j];
+                if(Board[i][j] != null && Board[i][j].getLinkedPegs() != null){
+                    ArrayList<Peg> newSet = new ArrayList<Peg>();
+                    for(Peg p : Board[i][j].getLinkedPegs()){
+                        newSet.add(p);
+                    }
+                    Board[i][j].setLinkedPegs(newSet);
+                }
+            }
+        }
+        }
+
+    }
+
     public boolean getOfferDraw0(){
         Log.i("draw","was got");
         return offerDraw0;
@@ -97,8 +118,5 @@ public Peg[][] makeBoardCopy(){
         Log.i("draw","was set");
         offerDraw1 = b;
     }
-
-
-
 
 }
