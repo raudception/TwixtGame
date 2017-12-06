@@ -20,6 +20,7 @@ public class TwixtLocalGame extends LocalGame {
     private boolean pegUsed = false;
     Peg lastPeg;
 
+
     /**
      * This ctor creates a new game state
      */
