@@ -68,7 +68,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
                 }
             }
-            Log.d("recieved info", "received info");
         }
 
 
@@ -93,7 +92,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                     placedPegs.add(lastTurnPeg);//adding the first peg to the array of placed pegs
                     firstMoveMade = true;
                     pegPlaced = true;
-                    Log.d("MOVEMADE IS TRUE", "completed firstMove");
                 } else {
                     pegPlaced = false;
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed in left end row
@@ -112,7 +110,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                     placedPegs.add(lastTurnPeg);//adding the first peg to the array of placed pegs
                     firstMoveMade = true;
                     pegPlaced = true;
-                    Log.d("MOVEMADE IS TRUE", "completed firstMove");
                 } else {
                     pegPlaced = false;
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed in left end row
@@ -161,7 +158,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
-                    Log.d("just completed for", "" + whatMove);
                 }
 
 
@@ -182,7 +178,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
-                    Log.d("just completed for", "" + whatMove);
                 }
 
 
@@ -203,7 +198,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
-                    Log.d("just completed for", "" + whatMove);
                 }
 
 
@@ -225,7 +219,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
-                    Log.d("just completed for", "" + whatMove);
                 }
 
 
@@ -254,7 +247,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
-                    Log.d("just completed for", "" + whatMove);
                 }
 
 
@@ -274,7 +266,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
-                    Log.d("just completed for", "" + whatMove);
                 }
 
 
@@ -294,7 +285,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
-                    Log.d("just completed for", "" + whatMove);
                 }
 
 
@@ -315,7 +305,6 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
-                    Log.d("just completed for", "" + whatMove);
                 }
 
 
@@ -373,10 +362,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
         }
 
         return false;
-
     }
-
-
 
 }//end of class
 
