@@ -151,12 +151,16 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            if (!findNewPeg()){
-                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            if (!findNewPeg()) {
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size() / 2);
                             }
                         }
                     } else {
-                        lastResort(firstMoveMade);
+                        if(!findNewPeg()) {
+                            lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size() / 2);
+                            basicMove(firstMoveMade);
+                            //(firstMoveMade);
+                        }
                     }
 
                 } else {
@@ -176,12 +180,15 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            if (!findNewPeg()){
-                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            if (!findNewPeg()) {
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size() / 2);
                             }
                         }
                     } else {
-                        lastResort(firstMoveMade);
+                        if (!findNewPeg()) {
+                            basicMove(firstMoveMade);
+                            //(firstMoveMade);
+                        }
                     }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
@@ -200,12 +207,15 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            if (!findNewPeg()){
-                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            if (!findNewPeg()) {
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size() / 2);
                             }
                         }
                     } else {
-                        lastResort(firstMoveMade);
+                        if (!findNewPeg()) {
+                            basicMove(firstMoveMade);
+                            //(firstMoveMade);
+                        }
                     }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
@@ -225,12 +235,15 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            if (!findNewPeg()){
-                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            if (!findNewPeg()) {
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size() / 2);
                             }
                         }
                     } else {
-                        lastResort(firstMoveMade);
+                        if (!findNewPeg()) {
+                            basicMove(firstMoveMade);
+                            //(firstMoveMade);
+                        }
                     }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
@@ -257,12 +270,15 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            if (!findNewPeg()){
-                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            if (!findNewPeg()) {
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size() / 2);
                             }
                         }
                     } else {
-                        lastResort(firstMoveMade);
+                        if (!findNewPeg()) {
+                            basicMove(firstMoveMade);
+                            //(firstMoveMade);
+                        }
                     }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
@@ -280,12 +296,15 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            if (!findNewPeg()){
-                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            if (!findNewPeg()) {
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size() / 2);
                             }
                         }
                     } else {
-                        lastResort(firstMoveMade);
+                        if (!findNewPeg()) {
+                            basicMove(firstMoveMade);
+                            //(firstMoveMade);
+                        }
                     }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
@@ -303,12 +322,15 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            if (!findNewPeg()){
-                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            if (!findNewPeg()) {
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size() / 2);
                             }
                         }
                     } else {
-                        lastResort(firstMoveMade);
+                        if (!findNewPeg()) {
+                            basicMove(firstMoveMade);
+                            //(firstMoveMade);
+                        }
                     }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
@@ -327,12 +349,15 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            if (!findNewPeg()){
-                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            if (!findNewPeg()) {
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size() / 2);
                             }
                         }
                     } else {
-                        lastResort(firstMoveMade);
+                        if (!findNewPeg()) {
+                            basicMove(firstMoveMade);
+                            //(firstMoveMade);
+                        }
                     }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
@@ -405,7 +430,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
      * @return
      */
     private boolean canAddLinks(Peg peg, Peg comp) {
-        if(peg != null && comp != null) {
+        if (peg != null && comp != null) {
             int x1 = peg.getxPos();
             int y1 = peg.getyPos();
             int x2 = comp.getxPos();
@@ -559,20 +584,20 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
             if (current[lastTurnPeg.getxPos() + 1][lastTurnPeg.getyPos() + 2] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() + 1][lastTurnPeg.getyPos() + 2];
-                if(canAddLinks(newPeg, lastTurnPeg)){
+                if (canAddLinks(newPeg, lastTurnPeg)) {
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
                     return true;
                 }
             } else if (current[lastTurnPeg.getxPos() + 1][lastTurnPeg.getyPos() - 2] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() + 1][lastTurnPeg.getyPos() - 2];
-                if(canAddLinks(newPeg, lastTurnPeg)){
+                if (canAddLinks(newPeg, lastTurnPeg)) {
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
                     return true;
                 }
 
             } else if (current[lastTurnPeg.getxPos() + 2][lastTurnPeg.getyPos() + 1] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() + 2][lastTurnPeg.getyPos() + 1];
-                if(canAddLinks(newPeg, lastTurnPeg)){
+                if (canAddLinks(newPeg, lastTurnPeg)) {
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
                     return true;
                 }
@@ -580,40 +605,39 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
             } else if (current[lastTurnPeg.getxPos() + 2][lastTurnPeg.getyPos() - 1] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() + 2][lastTurnPeg.getyPos() - 1];
-                if(canAddLinks(newPeg, lastTurnPeg)){
+                if (canAddLinks(newPeg, lastTurnPeg)) {
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
                     return true;
                 }
 
             }
 
-        }
-        else if(playerNum == 0){
+        } else if (playerNum == 0) {
 
             if (current[lastTurnPeg.getxPos() + 1][lastTurnPeg.getyPos() + 2] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() + 1][lastTurnPeg.getyPos() + 2];
-                if(canAddLinks(newPeg, lastTurnPeg)){
+                if (canAddLinks(newPeg, lastTurnPeg)) {
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
                     return true;
                 }
 
             } else if (current[lastTurnPeg.getxPos() - 1][lastTurnPeg.getyPos() + 2] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() - 1][lastTurnPeg.getyPos() + 2];
-                if(canAddLinks(newPeg, lastTurnPeg)){
+                if (canAddLinks(newPeg, lastTurnPeg)) {
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
                     return true;
                 }
 
             } else if (current[lastTurnPeg.getxPos() + 2][lastTurnPeg.getyPos() + 1] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() + 2][lastTurnPeg.getyPos() + 1];
-                if(canAddLinks(newPeg, lastTurnPeg)){
+                if (canAddLinks(newPeg, lastTurnPeg)) {
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
                     return true;
                 }
 
             } else if (current[lastTurnPeg.getxPos() - 2][lastTurnPeg.getyPos() + 1] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() - 2][lastTurnPeg.getyPos() + 1];
-                if(canAddLinks(newPeg, lastTurnPeg)){
+                if (canAddLinks(newPeg, lastTurnPeg)) {
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
                     return true;
                 }
