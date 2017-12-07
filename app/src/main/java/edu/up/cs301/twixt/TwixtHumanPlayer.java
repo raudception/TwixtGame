@@ -47,9 +47,9 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     Peg previousPlacedPeg = null;
     Peg previousPeg = null;
     private boolean flashBoolean = false;
-    private int turnCount;
     private boolean drawAvailable = false;
     private boolean offerDraw = false;
+    private boolean offerDrawResolved = false;
     private boolean piRuleOffered = false;
     private boolean piRuleResolved = false;
     // These variables will reference widgets that will be modified during play
@@ -111,7 +111,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         else if( this.playerNum == 1 ){
             offerDraw = state.getOfferDraw1();
         }
-        if(offerDraw){
+        if(offerDraw && !offerDrawResolved){
 
             MessageBox.popUpMessage("A draw has been offered!",myActivity);
             buttonPP.setBackgroundColor(Color.GRAY);
@@ -182,8 +182,10 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
 
         if(button.getId() == R.id.PlacePegButton){
-            if(offerDraw){
+            if(offerDraw && !offerDrawResolved){
                 MessageBox.popUpMessage("It is a draw!",myActivity);
+                offerDraw = false;
+                offerDrawResolved = true;
                 myActivity.setGameOver(true);
             }
             else if(piRuleOffered){
@@ -212,13 +214,14 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         }
         else if(button.getId() == R.id.RemovePegButton){
-            if(offerDraw){
+            if(offerDraw && !offerDrawResolved){
                 buttonPL.setTextColor(Color.WHITE);
                 buttonRL.setTextColor(Color.WHITE);
                 buttonET.setTextColor(Color.WHITE);
                 buttonOD.setTextColor(Color.WHITE);
                 buttonET.setBackgroundColor(Color.RED);
                 offerDraw = false;
+                offerDrawResolved = true;
                 game.sendAction( new EndTurnAction(this));
                 buttonPP.setText("Place Peg");
                 buttonRP.setText("Remove Peg");
