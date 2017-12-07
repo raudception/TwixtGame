@@ -325,8 +325,8 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
     public void lastResort(boolean moved) {
         firstMoveMade = moved;
-        int rndX = rand.nextInt(20)+1;
-        int rndY = rand.nextInt(20)+1;
+        int rndX = rand.nextInt(21)+1;
+        int rndY = rand.nextInt(21)+1;
         Peg lastResortPeg = new Peg(rndX, rndY, this.playerNum);
         if (pegPlaced == false) {
             game.sendAction(new PlacePegAction(this, lastResortPeg));//sends action to game for validation
