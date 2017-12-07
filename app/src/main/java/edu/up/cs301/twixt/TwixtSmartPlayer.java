@@ -63,13 +63,8 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 if (!firstMoveMade) {
                     firstMove(firstMoveMade);//places a peg in the end row for the first move
 
-                } else if (firstMoveMade) {
-                    if (blockTurnCounter < 3) {
-                        attemptBlock(firstMoveMade);//places peg as an attempted block if the other player has a 4 in a row
-                        basicMove(firstMoveMade);//places pegs continuing from the first placed peg and going across the board.
-                    } else {
-                        basicMove(firstMoveMade);
-                    }
+                } else {
+                    basicMove(firstMoveMade);
 
                 }
             }
@@ -152,10 +147,17 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 1), (lastTurnPeg.getyPos() + 2), this.playerNum);//peg object that is being placed on this turn
                     //Submit our move to the game object. We haven't even checked it it's
                     // our turn, or that that position is unoccupied.
-                    game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                    lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                    placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                    pegPlaced = true;
+                    if(isLegalMove(thisTurnPeg)) {
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
+                    }
+                    else
+                    {
+                        lastResort(firstMoveMade);
+                    }
+
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
@@ -163,15 +165,20 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 }
 
 
-            } else if (whatMove == 1 && lastTurnPeg != null ) {
+            } else if (whatMove == 1 && lastTurnPeg != null) {
                 if (pegPlaced == false) {
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 1), (lastTurnPeg.getyPos() - 2), this.playerNum);//peg object that is being placed on this turn
-                    //Submit our move to the game object. We haven't even checked it it's
-                    // our turn, or that that position is unoccupied.
-                    game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                    lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                    placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                    pegPlaced = true;
+
+                    if(isLegalMove(thisTurnPeg)) {
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
+                    }
+                    else
+                    {
+                        lastResort(firstMoveMade);
+                    }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
@@ -182,12 +189,17 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
             } else if (whatMove == 2 && lastTurnPeg != null) {
                 if (pegPlaced == false) {
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 2), (lastTurnPeg.getyPos() - 1), this.playerNum);//peg object that is being placed on this turn
-                    //Submit our move to the game object. We haven't even checked it it's
-                    // our turn, or that that position is unoccupied.
-                    game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                    lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                    placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                    pegPlaced = true;
+
+                    if(isLegalMove(thisTurnPeg)) {
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
+                    }
+                    else
+                    {
+                        lastResort(firstMoveMade);
+                    }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
@@ -199,12 +211,17 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
                 if (pegPlaced == false) {
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 2), (lastTurnPeg.getyPos() + 1), this.playerNum);//peg object that is being placed on this turn
-                    //Submit our move to the game object. We haven't even checked it it's
-                    // our turn, or that that position is unoccupied.
-                    game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                    lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                    placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                    pegPlaced = true;
+
+                    if(isLegalMove(thisTurnPeg)) {
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
+                    }
+                    else
+                    {
+                        lastResort(firstMoveMade);
+                    }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
@@ -213,7 +230,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
 
             }
-        }else if (moved && turnState.getTurn() == this.playerNum && this.playerNum == 0) {
+        } else if (moved && turnState.getTurn() == this.playerNum && this.playerNum == 0) {
 
             if (lastTurnPeg != null) {
                 lastTurnPeg = placedPegs.get((placedPegs.size()) - 1);
@@ -224,12 +241,16 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
                 if (pegPlaced == false) {
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() - 1), (lastTurnPeg.getyPos() + 2), this.playerNum);//peg object that is being placed on this turn
-                    //Submit our move to the game object. We haven't even checked it it's
-                    // our turn, or that that position is unoccupied.
-                    game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                    lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                    placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                    pegPlaced = true;
+                    if(isLegalMove(thisTurnPeg)) {
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
+                    }
+                    else
+                    {
+                        lastResort(firstMoveMade);
+                    }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
@@ -237,15 +258,19 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 }
 
 
-            } else if (whatMove == 1 && lastTurnPeg != null ) {
+            } else if (whatMove == 1 && lastTurnPeg != null) {
                 if (pegPlaced == false) {
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 1), (lastTurnPeg.getyPos() + 2), this.playerNum);//peg object that is being placed on this turn
-                    //Submit our move to the game object. We haven't even checked it it's
-                    // our turn, or that that position is unoccupied.
-                    game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                    lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                    placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                    pegPlaced = true;
+                    if(isLegalMove(thisTurnPeg)) {
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
+                    }
+                    else
+                    {
+                        lastResort(firstMoveMade);
+                    }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
@@ -256,12 +281,16 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
             } else if (whatMove == 2 && lastTurnPeg != null) {
                 if (pegPlaced == false) {
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() - 2), (lastTurnPeg.getyPos() + 1), this.playerNum);//peg object that is being placed on this turn
-                    //Submit our move to the game object. We haven't even checked it it's
-                    // our turn, or that that position is unoccupied.
-                    game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                    lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                    placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                    pegPlaced = true;
+                    if(isLegalMove(thisTurnPeg)) {
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
+                    }
+                    else
+                    {
+                        lastResort(firstMoveMade);
+                    }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
@@ -273,12 +302,16 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
                 if (pegPlaced == false) {
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 2), (lastTurnPeg.getyPos() + 1), this.playerNum);//peg object that is being placed on this turn
-                    //Submit our move to the game object. We haven't even checked it it's
-                    // our turn, or that that position is unoccupied.
-                    game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                    lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                    placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                    pegPlaced = true;
+                    if(isLegalMove(thisTurnPeg)) {
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
+                    }
+                    else
+                    {
+                        lastResort(firstMoveMade);
+                    }
                 } else {
                     game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed
                     pegPlaced = false;
@@ -298,195 +331,14 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
      * Done by placing a peg in a spot that might inhibit further progress
      **/
     public void attemptBlock(boolean moved) {
-        firstMoveMade = moved;
-        //This chunk of logic will see if there is 4 in a row of the other player and try to block
-        //as of now, it puts pegs in the vicinity of an end of the other players link of 4
-        if (moved && turnState.getTurn() == this.playerNum) {
-            if (this.playerNum == 0) {
-                for (int x = 0; x < 24; x++) {
-                    for (int y = 0; y < 24; y++) {//iterates through the current state of the board
-                        if (current[x][y] != null) {//if there is a piece in this spot
-                            if (current[x][y].getPegTeam() == 0) {//if the piece belongs to the other player
-                                copy = (current[x][y].getLinkedPegs());//getting linked pegs of this peg into a arraylist
-                                if (copy != null) {//if there are linked pegs for this piece
-                                    for (int one = 0; one < copy.size(); one++) {//iterates through copy arraylist
-                                        copy2 = (copy.get(one).getLinkedPegs());//arraylist for all linked pegs in the selected pegs linked pegs
-                                        if (copy2 != null) {//if there are pegs linked to this peg
-                                            for (int two = 0; two < copy2.size(); two++) {
-                                                if (copy2.get(two) != current[x][y]) {//making sure that these linked pegs are not the first peg
-                                                    copy3 = (copy2.get(two).getLinkedPegs());
-                                                    if (copy3 != null) {
-                                                        for (int three = 0; three < copy3.size(); three++) {
-                                                            if (copy3.get(three) != copy.get(one)) {//making sure that there are no re counts of pegs
-                                                                copy4 = (copy3.get(three).getLinkedPegs());
-                                                                if (copy4 != null) {
-                                                                    for (int four = 0; four < copy4.size(); four++) {
-                                                                        if (copy4.get(four) != copy2.get(two)) {
-
-
-                                                                            int xLoc = copy4.get(four).getxPos();//location of peg at end of a string of 4
-                                                                            int yLoc = copy4.get(four).getyPos();//location of peg at end of a string of 4
-                                                                            int rndX = rand.nextInt(2);//either 2 or 1
-                                                                            int rndY = rand.nextInt(2);//either 2 or 1
-                                                                            int tempRnd = rand.nextInt(2);//either 2 or l, will be used to "randomly" choose a valid linkable hole
-                                                                            if (rndX == rndY && rndX == 1) {
-                                                                                if (tempRnd == 1)
-                                                                                    rndX += 1;
-                                                                                else {
-                                                                                    rndY += 1;
-                                                                                }
-                                                                                //the above if else makes sure it is an 'L' shape from the last peg in the row
-                                                                            } else if (rndX == rndY && rndX == 2) {
-                                                                                if (tempRnd == 2) {
-                                                                                    rndX -= 1;
-                                                                                } else {
-                                                                                    rndY -= 1;
-                                                                                }
-                                                                                //the above if else makes it an l shape from last peg
-                                                                            }
-
-                                                                            if (tempRnd == 1) {
-                                                                                xLoc = xLoc + rndX;//attempts to move in an l shape
-                                                                                yLoc = yLoc - rndY;//attempts to move in an l shape so it linkes
-                                                                            } else {
-                                                                                xLoc = xLoc - rndX;//attempts to move in an l shape
-                                                                                yLoc = yLoc + rndY;//attempts to move in an l shape so it linkes
-                                                                            }
-
-                                                                            Peg blockPeg = new Peg(xLoc, yLoc, this.playerNum);//peg object that is being placed on this turn
-
-                                                                            //Submit our move to the game object. We haven't even checked it it's
-                                                                            // our turn, or that that position is unoccupied.]
-
-                                                                                if (blockTurnCounter < 3 && pegPlaced == false) {
-                                                                                    game.sendAction(new PlacePegAction(this, blockPeg));//sends action to game for validation
-                                                                                    blockTurnCounter++;
-                                                                                    pegPlaced = true;
-                                                                                } else {
-                                                                                    blockTurnCounter = 0;
-                                                                                    game.sendAction(new EndTurnAction(this));
-                                                                                    pegPlaced = false;
-                                                                                }
-
-
-
-                                                                        } else {
-                                                                            pegPlaced = false;
-                                                                            game.sendAction(new EndTurnAction(this));//ends this turn with an attempted block
-                                                                        }
-
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }else if (this.playerNum == 1) {
-                for (int x = 0; x < 24; x++) {
-                    for (int y = 0; y < 24; y++) {//iterates through the current state of the board
-                        if (current[x][y] != null) {//if there is a piece in this spot
-                            if (current[x][y].getPegTeam() == 0) {//if the piece belongs to the other player
-                                copy = (current[x][y].getLinkedPegs());//getting linked pegs of this peg into a arraylist
-                                if (copy != null) {//if there are linked pegs for this piece
-                                    for (int one = 0; one < copy.size(); one++) {//iterates through copy arraylist
-                                        copy2 = (copy.get(one).getLinkedPegs());//arraylist for all linked pegs in the selected pegs linked pegs
-                                        if (copy2 != null) {//if there are pegs linked to this peg
-                                            for (int two = 0; two < copy2.size(); two++) {
-                                                if (copy2.get(two) != current[x][y]) {//making sure that these linked pegs are not the first peg
-                                                    copy3 = (copy2.get(two).getLinkedPegs());
-                                                    if (copy3 != null) {
-                                                        for (int three = 0; three < copy3.size(); three++) {
-                                                            if (copy3.get(three) != copy.get(one)) {//making sure that there are no re counts of pegs
-                                                                copy4 = (copy3.get(three).getLinkedPegs());
-                                                                if (copy4 != null) {
-                                                                    for (int four = 0; four < copy4.size(); four++) {
-                                                                        if (copy4.get(four) != copy2.get(two)) {
-
-
-                                                                            int xLoc = copy4.get(four).getxPos();//location of peg at end of a string of 4
-                                                                            int yLoc = copy4.get(four).getyPos();//location of peg at end of a string of 4
-                                                                            int rndX = rand.nextInt(2);//either 2 or 1
-                                                                            int rndY = rand.nextInt(2);//either 2 or 1
-                                                                            int tempRnd = rand.nextInt(2);//either 2 or l, will be used to "randomly" choose a valid linkable hole
-                                                                            if (rndX == rndY && rndX == 1) {
-                                                                                if (tempRnd == 1)
-                                                                                    rndX += 1;
-                                                                                else {
-                                                                                    rndY += 1;
-                                                                                }
-                                                                                //the above if else makes sure it is an 'L' shape from the last peg in the row
-                                                                            } else if (rndX == rndY && rndX == 2) {
-                                                                                if (tempRnd == 2) {
-                                                                                    rndX -= 1;
-                                                                                } else {
-                                                                                    rndY -= 1;
-                                                                                }
-                                                                                //the above if else makes it an l shape from last peg
-                                                                            }
-
-                                                                            if (tempRnd == 1) {
-                                                                                xLoc = xLoc + rndX;//attempts to move in an l shape
-                                                                                yLoc = yLoc - rndY;//attempts to move in an l shape so it linkes
-                                                                            } else {
-                                                                                xLoc = xLoc - rndX;//attempts to move in an l shape
-                                                                                yLoc = yLoc + rndY;//attempts to move in an l shape so it linkes
-                                                                            }
-
-                                                                            Peg blockPeg = new Peg(xLoc, yLoc, this.playerNum);//peg object that is being placed on this turn
-
-                                                                            //Submit our move to the game object. We haven't even checked it it's
-                                                                            // our turn, or that that position is unoccupied.
-                                                                            if (pegPlaced == false) {
-
-                                                                                if (blockTurnCounter < 3) {
-                                                                                    game.sendAction(new PlacePegAction(this, blockPeg));//sends action to game for validation
-                                                                                    blockTurnCounter++;
-                                                                                    pegPlaced = true;
-                                                                                } else {
-                                                                                    blockTurnCounter = 0;
-                                                                                    pegPlaced = false;
-                                                                                }
-
-                                                                            }
-
-                                                                        } else {
-                                                                            pegPlaced = false;
-                                                                            game.sendAction(new EndTurnAction(this));//ends this turn with an attempted block
-                                                                        }
-
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
 
     }//attemptBlock
 
     public void lastResort(boolean moved) {
         firstMoveMade = moved;
-        int rndX = rand.nextInt(24);
-        int rndY = rand.nextInt(24);
-        Peg lastResortPeg = new Peg(rndX, rndY, 1);
+        int rndX = rand.nextInt(20)+1;
+        int rndY = rand.nextInt(20)+1;
+        Peg lastResortPeg = new Peg(rndX, rndY, this.playerNum);
         if (pegPlaced == false) {
             game.sendAction(new PlacePegAction(this, lastResortPeg));//sends action to game for validation
             pegPlaced = true;
@@ -495,6 +347,35 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
             pegPlaced = true;
         }
     }
+
+    public boolean isLegalMove(Peg p) {
+
+        thisTurnPeg = p;
+
+        if (this.playerNum == 0) {
+            if (thisTurnPeg.getxPos() > 0 && thisTurnPeg.getxPos() < 23) {
+                if (thisTurnPeg.getyPos() >= 0 && thisTurnPeg.getyPos() <= 23) {
+                    if (current[thisTurnPeg.getxPos()][thisTurnPeg.getyPos()] == null){
+                        return true;
+                    }
+                }
+            }
+        }
+
+        if (this.playerNum == 1) {
+            if (thisTurnPeg.getxPos() >= 0 && thisTurnPeg.getxPos() <= 23) {
+                if (thisTurnPeg.getyPos() > 0 && thisTurnPeg.getyPos() < 23) {
+                    if (current[thisTurnPeg.getxPos()][thisTurnPeg.getyPos()] == null){
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+
+    }
+
 
 
 }//end of class
