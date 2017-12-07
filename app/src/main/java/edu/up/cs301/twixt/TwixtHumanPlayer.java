@@ -155,6 +155,9 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                             piRuleResolved = true;
                             break;
                         }
+                        else{
+                            piRuleResolved = true;
+                        }
                     }
                 }
             }
