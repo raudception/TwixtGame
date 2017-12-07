@@ -48,7 +48,7 @@ public class TwixtLocalGame extends LocalGame {
      * @return true if the action was taken or false if the action was invalid/illegal.
      */
     @Override
-    protected boolean makeMove(GameAction action){
+    protected boolean makeMove(GameAction action) {
         if (action instanceof EndTurnAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 if (official.getTurn() == 1) {
@@ -301,6 +301,54 @@ public class TwixtLocalGame extends LocalGame {
         return false;
     }
 
+//if both mins happen before each max, then overlap
+    private boolean XYCross(Peg peg, Peg comp, Peg temp, Peg p) {
+        int x1 = peg.getxPos();
+        int y1 = peg.getyPos();
+        int x2 = comp.getxPos();
+        int y2 = comp.getyPos();
+
+        int x3 = temp.getxPos();
+        int y3 = temp.getyPos();
+        int x4 = p.getxPos();
+        int y4 = p.getyPos();
+
+        int linkMinX = Math.min(x1,x2);
+        int linkMinY = Math.min(y1,y2);
+        int linkMaxX = Math.max(x1,x2);
+        int linkMaxY = Math.max(y1,y2);
+
+        int checkMinX = Math.min(x3,x4);
+        int checkMinY = Math.min(y3,y4);
+        int checkMaxX = Math.max(x3,x4);
+        int checkMaxY = Math.max(y3,y4);
+
+       if(linkMinX < checkMaxX && checkMinX < linkMaxX){
+           if(linkMinY < checkMaxY && checkMinY < linkMaxY){
+               return true;
+           }
+       }
+
+        return false;
+
+
+    }
+
+    /**
+     * Add's the current Peg to each peg in the linked arraylist's linkedPegs
+     *
+     * @param linked
+     * @param current
+     */
+    private void addCurentPegTo(ArrayList<Peg> linked, Peg current) {
+        Peg[][] temp = official.getBoard();
+        for (Peg p : linked) {
+            if (p.getLinkedPegs() != null && !p.getLinkedPegs().contains(current)) {
+                temp[p.getxPos()][p.getyPos()].getLinkedPegs().add(current);
+            }
+        }
+        official.setBoard(temp,false, null);
+    }
     /**
      * Iterates through a region around the pegs, to determine if any other pegs have links that will interfere with placing
      * a new link.
@@ -352,26 +400,26 @@ public class TwixtLocalGame extends LocalGame {
                 if ((i < 24 && i > -1) && (j < 24 && j > -1)) { //check for array locations
                     if (temp[i][j] != null) {
 
-                            if ( !(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop, cause it cannot overlap
+                        if ( !(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop, cause it cannot overlap
 
-                                if (temp[i][j].getLinkedPegs() != null) {
-                                    for (Peg p : temp[i][j].getLinkedPegs()) {
-                                        if (!(p.equals(peg) || p.equals(comp))) { //check if the peg we have is the same as the two pegs we are trying to connect
+                            if (temp[i][j].getLinkedPegs() != null) {
+                                for (Peg p : temp[i][j].getLinkedPegs()) {
+                                    if (!(p.equals(peg) || p.equals(comp))) { //check if the peg we have is the same as the two pegs we are trying to connect
 
-                                                if (XYCross(peg, comp, temp[i][j], p)) { //check maxes and mins
-                                                    if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
-                                                        return false;
-                                                    }
-
-                                                }
-
+                                        if (XYCross(peg, comp, temp[i][j], p)) { //check maxes and mins
+                                            if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
+                                                return false;
+                                            }
 
                                         }
 
-                                    }
-                                }
 
+                                    }
+
+                                }
                             }
+
+                        }
 
                     }
                 }
@@ -381,54 +429,6 @@ public class TwixtLocalGame extends LocalGame {
         }
 
         return true; //if no pegs are crossing
-    }
-
-//if both mins happen before each max, then overlap
-    private boolean XYCross(Peg peg, Peg comp, Peg temp, Peg p) {
-        int x1 = peg.getxPos();
-        int y1 = peg.getyPos();
-        int x2 = comp.getxPos();
-        int y2 = comp.getyPos();
-
-        int x3 = temp.getxPos();
-        int y3 = temp.getyPos();
-        int x4 = p.getxPos();
-        int y4 = p.getyPos();
-
-        int linkMinX = Math.min(x1,x2);
-        int linkMinY = Math.min(y1,y2);
-        int linkMaxX = Math.max(x1,x2);
-        int linkMaxY = Math.max(y1,y2);
-
-        int checkMinX = Math.min(x3,x4);
-        int checkMinY = Math.min(y3,y4);
-        int checkMaxX = Math.max(x3,x4);
-        int checkMaxY = Math.max(y3,y4);
-
-       if(linkMinX < checkMaxX && checkMinX < linkMaxX){
-           if(linkMinY < checkMaxY && checkMinY < linkMaxY){
-               return true;
-           }
-       }
-
-        return false;
-
-
-    }
-    /**
-     * Add's the current Peg to each peg in the linked arraylist's linkedPegs
-     *
-     * @param linked
-     * @param current
-     */
-    private void addCurentPegTo(ArrayList<Peg> linked, Peg current) {
-        Peg[][] temp = official.getBoard();
-        for (Peg p : linked) {
-            if (p.getLinkedPegs() != null && !p.getLinkedPegs().contains(current)) {
-                temp[p.getxPos()][p.getyPos()].getLinkedPegs().add(current);
-            }
-        }
-        official.setBoard(temp,false, null);
     }
 
     /**

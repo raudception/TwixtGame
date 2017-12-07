@@ -364,5 +364,155 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
         return false;
     }
 
+    /**
+     * Iterates through a region around the pegs, to determine if any other pegs have links that will interfere with placing
+     * a new link.
+     *
+     * @param peg
+     * @param comp
+     * @return
+     */
+    private boolean canAddLinks(Peg peg, Peg comp) {
+        int x1 = peg.getxPos();
+        int y1 = peg.getyPos();
+        int x2 = comp.getxPos();
+        int y2 = comp.getyPos();
+        Peg[][] temp = turnState.getBoard();
+
+        int oldI;
+        int oldJ;
+        int maxI;
+        int maxJ;
+
+        if (x1 < x2) { //determine the range of the for loops
+            if (y1 < y2) {
+                oldI = x1 - 1;
+                oldJ = y1 - 1;
+                maxI = x2 + 1;
+                maxJ = y2 + 1;
+            } else { //y1>y2
+                oldI = x1 - 1;
+                oldJ = y2 - 1;
+                maxI = x2 + 1;
+                maxJ = y1 + 1;
+            }
+        } else { //x1>x2
+            if (y1 < y2) {
+                oldI = x2 - 1;
+                oldJ = y1 - 1;
+                maxI = x1 + 1;
+                maxJ = y2 + 1;
+            } else {
+                oldI = x2 - 1;
+                oldJ = y2 - 1;
+                maxI = x1 + 1;
+                maxJ = y1 + 1;
+            }
+        }
+        //iterate through the array at the given values
+        for (int i = oldI; i < maxI; i++) {
+            for (int j = oldJ; j < maxJ; j++) {
+                if ((i < 24 && i > -1) && (j < 24 && j > -1)) { //check for array locations
+                    if (temp[i][j] != null) {
+
+                        if ( !(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop, cause it cannot overlap
+
+                            if (temp[i][j].getLinkedPegs() != null) {
+                                for (Peg p : temp[i][j].getLinkedPegs()) {
+                                    if (!(p.equals(peg) || p.equals(comp))) { //check if the peg we have is the same as the two pegs we are trying to connect
+
+                                        if (XYCross(peg, comp, temp[i][j], p)) { //check maxes and mins
+                                            if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
+                                                return false;
+                                            }
+
+                                        }
+
+
+                                    }
+
+                                }
+                            }
+
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+
+        return true; //if no pegs are crossing
+    }
+
+    /**
+     * Get the Slopes between the two pegs and compare them, return true if they are the same.
+     * Called from canAddLinks
+     * @param peg
+     * @param comp
+     * @param temp
+     * @param p
+     * @return
+     */
+    private boolean XYCross(Peg peg, Peg comp, Peg temp, Peg p) {
+        int x1 = peg.getxPos();
+        int y1 = peg.getyPos();
+        int x2 = comp.getxPos();
+        int y2 = comp.getyPos();
+
+        int x3 = temp.getxPos();
+        int y3 = temp.getyPos();
+        int x4 = p.getxPos();
+        int y4 = p.getyPos();
+
+        int linkMinX = Math.min(x1,x2);
+        int linkMinY = Math.min(y1,y2);
+        int linkMaxX = Math.max(x1,x2);
+        int linkMaxY = Math.max(y1,y2);
+
+        int checkMinX = Math.min(x3,x4);
+        int checkMinY = Math.min(y3,y4);
+        int checkMaxX = Math.max(x3,x4);
+        int checkMaxY = Math.max(y3,y4);
+
+        if(linkMinX < checkMaxX && checkMinX < linkMaxX){
+            if(linkMinY < checkMaxY && checkMinY < linkMaxY){
+                return true;
+            }
+        }
+
+        return false;
+
+
+    }
+    /**
+     * Returns False if the slope of the lines between peg1 and peg2 is not the same as the slop of peg3 and peg4.
+     *
+     * @param peg1
+     * @param peg2
+     * @param peg3
+     * @param peg4
+     * @return
+     */
+    private boolean slopeSame(Peg peg1, Peg peg2, Peg peg3, Peg peg4) {
+        float x1 = peg1.getxPos();
+        float y1 = peg1.getyPos();
+        float x2 = peg2.getxPos();
+        float y2 = peg2.getyPos();
+
+        float x3 = peg3.getxPos();
+        float y3 = peg3.getyPos();
+        float x4 = peg4.getxPos();
+        float y4 = peg4.getyPos();
+        float slope1 = (y1 - y2) / (x1 - x2);
+        float slope2 = (y3 - y4) / (x3 - x4);
+        if (slope1 == slope2) {
+            return true;
+        }
+
+
+        return false;
+    }
 }//end of class
 
