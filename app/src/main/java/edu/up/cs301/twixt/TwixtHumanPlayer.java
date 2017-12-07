@@ -91,7 +91,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     @Override
     public void receiveInfo(GameInfo info) {
         if(!(info instanceof TwixtGameState)){return;}
-
+        state = null;
         //this method will need to paint objects, and update the states of buttons
         if(!(info instanceof TwixtGameState)){
             return;
@@ -130,23 +130,36 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             turn.setText("Red's Turn");
         }
 
-        if(state.getTotalturns() == 1 && this.playerNum != 0 && piRuleResolved == false){
-            MessageBox.popUpMessage("Would you like to switch side?",myActivity);
-            buttonPP.setBackgroundColor(Color.GRAY);
-            buttonPP.setText("Accept");
-            buttonRP.setBackgroundColor(Color.GRAY);
-            buttonRP.setText("Reject");
-            buttonPL.setBackgroundColor(Color.GRAY);
-            buttonPL.setTextColor(Color.GRAY);
-            buttonRL.setBackgroundColor(Color.GRAY);
-            buttonRL.setTextColor(Color.GRAY);
-            buttonOD.setBackgroundColor(Color.GRAY);
-            buttonOD.setTextColor(Color.GRAY);
-            buttonET.setBackgroundColor(Color.GRAY);
-            buttonET.setTextColor(Color.GRAY);
-            piRuleOffered = true;
-            piRuleResolved = true;
+        if(state.getTotalturns() == 1 && this.playerNum != 0 && piRuleResolved == false) {
+
+
+            Peg[][] array = state.getBoard();
+            for (int i = 0; i < 24; i++) {
+                for (int j = 0; j < 24; j++) {
+                    if(array[i][j] != null) {
+                        if (array[i][j].getyPos() != 0 && array[i][j].getyPos() != 23 && array[i][j].getxPos() != 0 && array[i][j].getxPos() != 23) {
+                            MessageBox.popUpMessage("Would you like to switch side?", myActivity);
+                            buttonPP.setBackgroundColor(Color.GRAY);
+                            buttonPP.setText("Accept");
+                            buttonRP.setBackgroundColor(Color.GRAY);
+                            buttonRP.setText("Reject");
+                            buttonPL.setBackgroundColor(Color.GRAY);
+                            buttonPL.setTextColor(Color.GRAY);
+                            buttonRL.setBackgroundColor(Color.GRAY);
+                            buttonRL.setTextColor(Color.GRAY);
+                            buttonOD.setBackgroundColor(Color.GRAY);
+                            buttonOD.setTextColor(Color.GRAY);
+                            buttonET.setBackgroundColor(Color.GRAY);
+                            buttonET.setTextColor(Color.GRAY);
+                            piRuleOffered = true;
+                            piRuleResolved = true;
+                            break;
+                        }
+                    }
+                }
+            }
         }
+
 
 
 
