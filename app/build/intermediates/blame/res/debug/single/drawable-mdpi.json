@@ -1,5 +1,13 @@
 [
     {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_launcher.png",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_action_search.png",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\drawable-mdpi\\ic_action_search.png"
+    },
+    {
         "merged": "C:\\CS301\\Assignments\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_launcher.png",
         "source": "C:\\CS301\\Assignments\\TwixtGame\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
     },
