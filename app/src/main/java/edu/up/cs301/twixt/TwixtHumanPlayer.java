@@ -44,6 +44,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     private AnimationSurface surface;
     private int printOffset = 50;
     private TextView turn;
+    Peg previousPlacedPeg = null;
     Peg previousPeg = null;
     private boolean flashBoolean = false;
     private int turnCount;
@@ -257,7 +258,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
         }
         else if(button.getId() == R.id.EndTurnButton){
-
+            previousPeg = null;
             buttonPP.setTextColor(Color.WHITE);
             buttonPP.setBackgroundColor(Color.GRAY);
             buttonRP.setBackgroundColor(Color.GRAY);
@@ -300,6 +301,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                         buttonPP.setBackgroundColor(Color.GRAY);
                         buttonPP.setTextColor(Color.BLACK);
                         game.sendAction(new PlacePegAction(this, selectedPeg));
+                        previousPlacedPeg = selectedPeg;
                     }
                 } else {
                     if (selectedPeg == array[x][y] || y == 23 || y == 0) {
@@ -309,6 +311,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                         buttonPP.setBackgroundColor(Color.GRAY);
                         buttonPP.setTextColor(Color.BLACK);
                         game.sendAction(new PlacePegAction(this, selectedPeg));
+                        previousPlacedPeg = selectedPeg;
                     }
                 }
 
@@ -323,6 +326,9 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                     game.sendAction(new RemovePegAction(this, selectedPeg));
                     actionId = 0;
                     buttonRP.setBackgroundColor(Color.GRAY);
+                    if(selectedPeg.getxPos() == previousPlacedPeg.getxPos() && selectedPeg.getyPos() == previousPlacedPeg.getyPos()){
+                        buttonPP.setTextColor(Color.WHITE);
+                    }
                 }
 
 
@@ -484,10 +490,11 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 if(array[i][j] != null){
                     if(array[i][j].getLinkedPegs() != null) {
                         for (Peg p:array[i][j].getLinkedPegs()) {
-                            if(p.getLinkedPegs().contains(array[i][j])){
-                                g.drawLine(i * printOffset + 15, j * printOffset + 15, (p.getxPos()) * printOffset + 15, (p.getyPos()) * printOffset + 15, paint);
-                            }
+                            if(array[p.getxPos()][p.getyPos()] != null) { //check to see if the peg to link to exists
 
+                                g.drawLine(i * printOffset + 15, j * printOffset + 15, (p.getxPos()) * printOffset + 15, (p.getyPos()) * printOffset + 15, paint);
+
+                            }
                         }
                     }
                 }

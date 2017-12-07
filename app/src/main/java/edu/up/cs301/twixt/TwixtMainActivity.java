@@ -9,7 +9,7 @@ import edu.up.cs301.game.config.GameConfig;
 import edu.up.cs301.game.config.GamePlayerType;
 
 /**
- * this is the primary activity for Pig
+ * this is the primary activity for Twixt
  *
  * @author Andrew M. Nuxoll, modified by Steven R. Vegdahl
  * @version February 2016
@@ -60,7 +60,7 @@ public class TwixtMainActivity extends GameMainActivity {
      * create a local game
      *
      * @return
-     * 		the local game, a pig game
+     * 		the local game, a Twixt game
      */
     @Override
     public LocalGame createLocalGame() {

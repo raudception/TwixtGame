@@ -5,6 +5,7 @@ import android.util.Log;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.infoMsg.GameState;
 
 /**
@@ -16,13 +17,14 @@ public class TwixtGameState extends GameState implements Serializable {
 
     private int turn;
     private int totalturns =0;
+    private GamePlayer[] players;
 
     private boolean offerDraw0;
     private boolean offerDraw1;
 
     public TwixtGameState (){
         Board = new Peg[24][24];
-    turn =0;
+        turn =0;
 
 
     }

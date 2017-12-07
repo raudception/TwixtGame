@@ -29,6 +29,19 @@ public class Peg implements Serializable {
         linkedPegs = linked;
         setEndRow();
     }
+    public Peg(Peg p){
+        this.xPos = p.getxPos();
+        this.yPos = p.getyPos();
+        this.isEndRow = p.getIsEndRow();
+        this.pegTeam = p.getPegTeam();
+        ArrayList<Peg> newLinked = new ArrayList<Peg>();
+        if(p.getLinkedPegs() != null) {
+            for (Peg g : p.getLinkedPegs()){
+                newLinked.add(new Peg(g));
+            }
+        }
+        this.linkedPegs = newLinked;
+    }
 
     public String ComparePeg(){
         return "" +xPos +yPos;
