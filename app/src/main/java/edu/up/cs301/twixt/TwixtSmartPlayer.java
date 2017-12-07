@@ -151,7 +151,9 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            findNewPeg();
+                            if (!findNewPeg()){
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            }
                         }
                     } else {
                         lastResort(firstMoveMade);
@@ -174,7 +176,9 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            findNewPeg();
+                            if (!findNewPeg()){
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            }
                         }
                     } else {
                         lastResort(firstMoveMade);
@@ -196,7 +200,9 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            findNewPeg();
+                            if (!findNewPeg()){
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            }
                         }
                     } else {
                         lastResort(firstMoveMade);
@@ -219,7 +225,9 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            findNewPeg();
+                            if (!findNewPeg()){
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            }
                         }
                     } else {
                         lastResort(firstMoveMade);
@@ -249,7 +257,9 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            findNewPeg();
+                            if (!findNewPeg()){
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            }
                         }
                     } else {
                         lastResort(firstMoveMade);
@@ -270,7 +280,9 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            findNewPeg();
+                            if (!findNewPeg()){
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            }
                         }
                     } else {
                         lastResort(firstMoveMade);
@@ -291,7 +303,9 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            findNewPeg();
+                            if (!findNewPeg()){
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            }
                         }
                     } else {
                         lastResort(firstMoveMade);
@@ -313,7 +327,9 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                             placedPegs.add(lastTurnPeg);//and adds it to placed pegs
                             pegPlaced = true;
                         } else {
-                            findNewPeg();
+                            if (!findNewPeg()){
+                                lastTurnPeg = placedPegs.get(placedPegs.size() - placedPegs.size()/2);
+                            }
                         }
                     } else {
                         lastResort(firstMoveMade);
@@ -533,7 +549,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
         return false;
     }
 
-    private void findNewPeg() {
+    private boolean findNewPeg() {
 
         if (playerNum == 1) {
 
@@ -542,20 +558,20 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 Peg newPeg = current[lastTurnPeg.getxPos() + 1][lastTurnPeg.getyPos() + 2];
                 if(canAddLinks(newPeg, lastTurnPeg)){
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
-                    return;
+                    return true;
                 }
             } else if (current[lastTurnPeg.getxPos() + 1][lastTurnPeg.getyPos() - 2] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() + 1][lastTurnPeg.getyPos() - 2];
                 if(canAddLinks(newPeg, lastTurnPeg)){
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
-                    return;
+                    return true;
                 }
 
             } else if (current[lastTurnPeg.getxPos() + 2][lastTurnPeg.getyPos() + 1] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() + 2][lastTurnPeg.getyPos() + 1];
                 if(canAddLinks(newPeg, lastTurnPeg)){
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
-                    return;
+                    return true;
                 }
 
 
@@ -563,7 +579,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 Peg newPeg = current[lastTurnPeg.getxPos() + 2][lastTurnPeg.getyPos() - 1];
                 if(canAddLinks(newPeg, lastTurnPeg)){
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
-                    return;
+                    return true;
                 }
 
             }
@@ -575,32 +591,33 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                 Peg newPeg = current[lastTurnPeg.getxPos() + 1][lastTurnPeg.getyPos() + 2];
                 if(canAddLinks(newPeg, lastTurnPeg)){
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
-                    return;
+                    return true;
                 }
 
             } else if (current[lastTurnPeg.getxPos() - 1][lastTurnPeg.getyPos() + 2] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() - 1][lastTurnPeg.getyPos() + 2];
                 if(canAddLinks(newPeg, lastTurnPeg)){
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
-                    return;
+                    return true;
                 }
 
             } else if (current[lastTurnPeg.getxPos() + 2][lastTurnPeg.getyPos() + 1] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() + 2][lastTurnPeg.getyPos() + 1];
                 if(canAddLinks(newPeg, lastTurnPeg)){
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
-                    return;
+                    return true;
                 }
 
             } else if (current[lastTurnPeg.getxPos() - 2][lastTurnPeg.getyPos() + 1] == null) {
                 Peg newPeg = current[lastTurnPeg.getxPos() - 2][lastTurnPeg.getyPos() + 1];
                 if(canAddLinks(newPeg, lastTurnPeg)){
                     game.sendAction(new PlacePegAction(this, newPeg));//sends action to game for validation
-                    return;
+                    return true;
                 }
 
             }
         }
+        return false;
     }
 }//end of class
 
