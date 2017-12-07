@@ -301,7 +301,15 @@ public class TwixtLocalGame extends LocalGame {
         return false;
     }
 
-//if both mins happen before each max, then overlap
+    /**
+     * Compares the mins and maxes of both sets of peg's x and y values to determine if they have x and y overlap, a necessary quality
+     * for links crossing.
+     * @param peg
+     * @param comp
+     * @param temp
+     * @param p
+     * @return
+     */
     private boolean XYCross(Peg peg, Peg comp, Peg temp, Peg p) {
         int x1 = peg.getxPos();
         int y1 = peg.getyPos();

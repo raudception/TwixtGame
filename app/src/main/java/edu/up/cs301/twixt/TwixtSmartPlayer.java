@@ -405,77 +405,80 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
      * @return
      */
     private boolean canAddLinks(Peg peg, Peg comp) {
-        int x1 = peg.getxPos();
-        int y1 = peg.getyPos();
-        int x2 = comp.getxPos();
-        int y2 = comp.getyPos();
-        Peg[][] temp = turnState.getBoard();
+        if(peg != null && comp != null) {
+            int x1 = peg.getxPos();
+            int y1 = peg.getyPos();
+            int x2 = comp.getxPos();
+            int y2 = comp.getyPos();
+            Peg[][] temp = turnState.getBoard();
 
-        int oldI;
-        int oldJ;
-        int maxI;
-        int maxJ;
+            int oldI;
+            int oldJ;
+            int maxI;
+            int maxJ;
 
-        if (x1 < x2) { //determine the range of the for loops
-            if (y1 < y2) {
-                oldI = x1 - 1;
-                oldJ = y1 - 1;
-                maxI = x2 + 1;
-                maxJ = y2 + 1;
-            } else { //y1>y2
-                oldI = x1 - 1;
-                oldJ = y2 - 1;
-                maxI = x2 + 1;
-                maxJ = y1 + 1;
+            if (x1 < x2) { //determine the range of the for loops
+                if (y1 < y2) {
+                    oldI = x1 - 1;
+                    oldJ = y1 - 1;
+                    maxI = x2 + 1;
+                    maxJ = y2 + 1;
+                } else { //y1>y2
+                    oldI = x1 - 1;
+                    oldJ = y2 - 1;
+                    maxI = x2 + 1;
+                    maxJ = y1 + 1;
+                }
+            } else { //x1>x2
+                if (y1 < y2) {
+                    oldI = x2 - 1;
+                    oldJ = y1 - 1;
+                    maxI = x1 + 1;
+                    maxJ = y2 + 1;
+                } else {
+                    oldI = x2 - 1;
+                    oldJ = y2 - 1;
+                    maxI = x1 + 1;
+                    maxJ = y1 + 1;
+                }
             }
-        } else { //x1>x2
-            if (y1 < y2) {
-                oldI = x2 - 1;
-                oldJ = y1 - 1;
-                maxI = x1 + 1;
-                maxJ = y2 + 1;
-            } else {
-                oldI = x2 - 1;
-                oldJ = y2 - 1;
-                maxI = x1 + 1;
-                maxJ = y1 + 1;
-            }
-        }
-        //iterate through the array at the given values
-        for (int i = oldI; i < maxI; i++) {
-            for (int j = oldJ; j < maxJ; j++) {
-                if ((i < 24 && i > -1) && (j < 24 && j > -1)) { //check for array locations
-                    if (temp[i][j] != null) {
+            //iterate through the array at the given values
+            for (int i = oldI; i < maxI; i++) {
+                for (int j = oldJ; j < maxJ; j++) {
+                    if ((i < 24 && i > -1) && (j < 24 && j > -1)) { //check for array locations
+                        if (temp[i][j] != null) {
 
-                        if (!(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop, cause it cannot overlap
+                            if (!(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop, cause it cannot overlap
 
-                            if (temp[i][j].getLinkedPegs() != null) {
-                                for (Peg p : temp[i][j].getLinkedPegs()) {
-                                    if (!(p.equals(peg) || p.equals(comp))) { //check if the peg we have is the same as the two pegs we are trying to connect
+                                if (temp[i][j].getLinkedPegs() != null) {
+                                    for (Peg p : temp[i][j].getLinkedPegs()) {
+                                        if (!(p.equals(peg) || p.equals(comp))) { //check if the peg we have is the same as the two pegs we are trying to connect
 
-                                        if (XYCross(peg, comp, temp[i][j], p)) { //check maxes and mins
-                                            if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
-                                                return false;
+                                            if (XYCross(peg, comp, temp[i][j], p)) { //check maxes and mins
+                                                if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
+                                                    return false;
+                                                }
+
                                             }
+
 
                                         }
 
-
                                     }
-
                                 }
+
                             }
 
                         }
-
                     }
+
                 }
 
             }
 
+            return true; //if no pegs are crossing
         }
-
-        return true; //if no pegs are crossing
+        return false; // illegal comparison
     }
 
     /**
