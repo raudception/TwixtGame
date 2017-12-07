@@ -27,6 +27,7 @@ public class TwixtLocalGame extends LocalGame {
     public TwixtLocalGame() {
         // TwixtGameState test = new TwixtGameState();
         official = new TwixtGameState();
+
     }
 
     /**
@@ -162,10 +163,12 @@ public class TwixtLocalGame extends LocalGame {
                 Peg[][] temp = official.getBoard();
                 Peg peg1 = rla.getHoldPeg1();
                 Peg peg2 = rla.getHoldPeg2();
-                if (peg1.getLinkedPegs().contains(peg2) && peg2.getLinkedPegs().contains(peg1) && peg1.getPegTeam() == official.getTurn()) {
+                if (peg1.getLinkedPegs().contains(peg2) && peg1.getPegTeam() == official.getTurn()) { //removes links from pegs independently
                     temp[peg1.getxPos()][peg1.getyPos()].getLinkedPegs().remove(peg2);
-                    temp[peg2.getxPos()][peg2.getyPos()].getLinkedPegs().remove(peg1);
 
+                }
+                if( peg2.getLinkedPegs().contains(peg1) && peg2.getPegTeam() == official.getTurn()){
+                    temp[peg2.getxPos()][peg2.getyPos()].getLinkedPegs().remove(peg1);
                 }
             }
 
@@ -196,6 +199,7 @@ public class TwixtLocalGame extends LocalGame {
                         }
                     }
                 }
+
 
                 return true;
             }
