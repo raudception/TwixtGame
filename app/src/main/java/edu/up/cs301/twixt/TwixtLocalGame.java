@@ -47,7 +47,7 @@ public class TwixtLocalGame extends LocalGame {
      * @return true if the action was taken or false if the action was invalid/illegal.
      */
     @Override
-    protected boolean makeMove(GameAction action) {
+    protected boolean makeMove(GameAction action){
         if (action instanceof EndTurnAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 if (official.getTurn() == 1) {
@@ -301,14 +301,13 @@ public class TwixtLocalGame extends LocalGame {
     }
 
     /**
-     * Unfinished
+     * Iterates through a region around the pegs, to determine if any other pegs have links that will interfere with placing
+     * a new link.
      *
      * @param peg
      * @param comp
      * @return
      */
-    //if there isn't any x overlap, y overlap, they aren't parallel, and they do not share a peg
-    //for x and y different, compare the max and min of each peg to the max and min of the other
     private boolean canAddLinks(Peg peg, Peg comp) {
         int x1 = peg.getxPos();
         int y1 = peg.getyPos();
@@ -334,31 +333,31 @@ public class TwixtLocalGame extends LocalGame {
                 maxJ = y1 + 1;
             }
         } else { //x1>x2
-            if (y1 < y2) { //position 1
+            if (y1 < y2) {
                 oldI = x2 - 1;
                 oldJ = y1 - 1;
                 maxI = x1 + 1;
                 maxJ = y2 + 1;
-            } else {  //pos4
+            } else {
                 oldI = x2 - 1;
                 oldJ = y2 - 1;
                 maxI = x1 + 1;
                 maxJ = y1 + 1;
             }
         }
-        //if pegs are bottom left to top right
+        //iterate through the array at the given values
         for (int i = oldI; i < maxI; i++) {
             for (int j = oldJ; j < maxJ; j++) {
                 if ((i < 24 && i > -1) && (j < 24 && j > -1)) { //check for array locations
                     if (temp[i][j] != null) {
 
-                            if ( !(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop cause it cannot overlap
+                            if ( !(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop, cause it cannot overlap
 
                                 if (temp[i][j].getLinkedPegs() != null) {
                                     for (Peg p : temp[i][j].getLinkedPegs()) {
                                         if (!(p.equals(peg) || p.equals(comp))) { //check if the peg we have is the same as the two pegs we are trying to connect
 
-                                                if (XYCross(peg, comp, temp[i][j], p)) {
+                                                if (XYCross(peg, comp, temp[i][j], p)) { //check maxes and mins
                                                     if (!(slopeSame(peg, comp, temp[i][j], p))) { //if the slope is not the same/ they aren't parallel
                                                         return false;
                                                     }
