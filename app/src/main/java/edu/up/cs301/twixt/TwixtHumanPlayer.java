@@ -101,7 +101,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         if(state.getTurn() == 0){
             turn.setText("Your Turn");
         }
-        if(state.getTotalturns() > 30){
+        if(state.getTotalturns() > 10){
             buttonOD.setTextColor(Color.WHITE);
             drawAvailable = true;
         }
@@ -130,7 +130,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             turn.setText("Red's Turn");
         }
 
-        if(state.getTotalturns() == 1 && state.getTurn() == humanPlayer && !piRuleResolved ){
+        if(state.getTotalturns() == 1 && this.playerNum != 0 && piRuleResolved == false){
             MessageBox.popUpMessage("Would you like to switch side?",myActivity);
             buttonPP.setBackgroundColor(Color.GRAY);
             buttonPP.setText("Accept");
