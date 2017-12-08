@@ -29,6 +29,7 @@ public class TwixtGameState extends GameState implements Serializable {
     /**
      * Default constructor, creates a new board and sets the turn to 0
      */
+
     public TwixtGameState (){
         Board = new Peg[24][24];
         turn =0;
