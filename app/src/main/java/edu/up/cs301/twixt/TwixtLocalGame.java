@@ -130,32 +130,30 @@ public class TwixtLocalGame extends LocalGame {
 
                 PlacePegAction rmP = (PlacePegAction) action;
                 Peg peg = rmP.getHoldPeg();
-                int x = peg.getxPos();
-                int y = peg.getyPos();
+                if (peg != null) {
+                    int x = peg.getxPos();
+                    int y = peg.getyPos();
 
-                Peg[][] temparray = official.stateToArray();
-                if (x > -1 && x < 24 && y > -1 && y < 24) { //don't allow placing out of bounds
-                    if (temparray[x][y] == null) {
+                    Peg[][] temparray = official.stateToArray();
+                    if (x > -1 && x < 24 && y > -1 && y < 24) { //don't allow placing out of bounds
+                        if (temparray[x][y] == null) {
 
-                        if ((endRows == 1) && (x != 0) && (x != 23)) { //don't allow placing in opponent's end Rows
-                            peg = new Peg(x, y, official.getTurn(), addPegLinks(peg));
-                            official.placePeg(peg, false);
-                            lastPeg = peg;
-                            pegUsed = true;
-                        } else if ((endRows == 2) && (y != 0) && (y != 23)) {
-                            peg = new Peg(x, y, official.getTurn(), addPegLinks(peg));
-                            official.placePeg(peg, false); //add the peg to the temp array
-                            lastPeg = peg;
-                            pegUsed = true;
-                        } else {
-                            return false;
+                            if ((endRows == 1) && (x != 0) && (x != 23)) { //don't allow placing in opponent's end Rows
+                                peg = new Peg(x, y, official.getTurn(), addPegLinks(peg));
+                                official.placePeg(peg, false);
+                                lastPeg = peg;
+                                pegUsed = true;
+                            } else if ((endRows == 2) && (y != 0) && (y != 23)) {
+                                peg = new Peg(x, y, official.getTurn(), addPegLinks(peg));
+                                official.placePeg(peg, false); //add the peg to the temp array
+                                lastPeg = peg;
+                                pegUsed = true;
+                            } else {
+                                return false;
+                            }
                         }
-
+                        return true;
                     }
-                    //set the board's state, including the new peg
-
-
-                    return true;
                 }
             }
         }
@@ -206,8 +204,6 @@ public class TwixtLocalGame extends LocalGame {
                             }
                         }
                     }
-
-
                     return true;
                 }
                 return false;
@@ -225,6 +221,7 @@ public class TwixtLocalGame extends LocalGame {
 
             return true;
         }
+
         else if (action instanceof PiRuleAction){
             Peg[][] temp = official.getBoard();
             for (int i = 0; i < 24; i++) {
@@ -241,7 +238,6 @@ public class TwixtLocalGame extends LocalGame {
                 }
             }
         }
-
         return false;
     }//makeMove
 

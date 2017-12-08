@@ -49,10 +49,6 @@ public Peg[][] stateToArray(){
        else if(peg != null) {
             Board[peg.getxPos()][peg.getyPos()] = peg;
         }
-
-
-
-
     }
 
 
@@ -64,13 +60,18 @@ public Peg[][] makeBoardCopy(){
     Peg [][] returnval = new Peg[24][24];
     for(int i = 0; i<24; i++ ){
         for(int j = 0; j<24; j++){
-            returnval[i][j] = Board[i][j];
-            if(Board[i][j] != null && Board[i][j].getLinkedPegs() != null){
-                ArrayList<Peg> setNew = new ArrayList<Peg>();
-                for(Peg p: Board[i][j].getLinkedPegs()){
-                    setNew.add(p);
+            if(Board[i][j] != null) {
+                returnval[i][j] = new Peg(Board[i][j]);
+                if(Board[i][j].getLinkedPegs() != null) {
+                    ArrayList<Peg> setNew = new ArrayList<Peg>();
+                    for (Peg p : Board[i][j].getLinkedPegs()) {
+                        setNew.add(p);
+                    }
+                    returnval[i][j].setLinkedPegs(setNew);
                 }
-                returnval[i][j].setLinkedPegs(setNew);
+            }
+            else{
+                returnval[i][j] = null;
             }
         }
     }
@@ -87,7 +88,6 @@ public Peg[][] makeBoardCopy(){
         }
 
     }
-    public void setTotalTurns(int turns){this.totalturns = turns;}
 
     public int getTotalturns() {
         return totalturns;
