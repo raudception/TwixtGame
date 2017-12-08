@@ -8,6 +8,14 @@
         "source": "C:\\Users\\tdog9\\Documents\\CS301\\TwixtGame\\app\\src\\main\\res\\mipmap-xhdpi\\twixt_launcher.png"
     },
     {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\twixt_launcher.png",
+        "source": "D:\\TwixtGame\\app\\src\\main\\res\\mipmap-xhdpi\\twixt_launcher.png"
+    },
+    {
         "merged": "C:\\Users\\Kollin\\Desktop\\Git\\TwixtGame\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
         "source": "C:\\Users\\Kollin\\Desktop\\Git\\TwixtGame\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
