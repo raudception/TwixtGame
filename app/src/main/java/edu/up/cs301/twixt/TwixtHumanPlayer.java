@@ -35,30 +35,30 @@ import java.util.ArrayList;
  */
 public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener, Animator  {
 
-	/* instance variables */
-    private int actionId;
-    private int humanPlayer = 0;
-    private GameAction action = null;
-    protected TwixtGameState state;
-    private int backgroundColor;
-    private AnimationSurface surface;
-    private int printOffset = 50;
-    private TextView turn;
-    Peg previousPlacedPeg = null;
-    Peg previousPeg = null;
-    private boolean flashBoolean = false;
-    private boolean drawAvailable = false;
-    private boolean offerDraw = false;
-    private boolean offerDrawResolved = false;
-    private boolean piRuleOffered = false;
-    private boolean piRuleResolved = false;
+    /* instance variables */
+    private int actionId; //tells which action is selected
+    private int humanPlayer = 0; //assigns a value to the human player
+    protected TwixtGameState state; //stores the passed in game state
+    private AnimationSurface surface; //the current animation surface
+    private int printOffset = 50; //the value between dots
+    Peg previousPlacedPeg = null; //previously placed Peg
+    Peg previousPeg = null; //previously selected Peg
+    private boolean flashBoolean = false; //boolean telling whether a flash needs to occur
+    private boolean drawAvailable = false; //tells whether a draw is available
+    private boolean offerDraw = false; //tells whether a draw has been offered
+    private boolean offerDrawResolved = false; //tells whether offerDraw has been resolved
+    private boolean piRuleOffered = false; //tells whether the pi rule is applicable
+    private boolean piRuleResolved = false; //tells whether the pi rule has been resolved
+    private boolean placePegAvailable = true; //tells whether a player may still place a Peg
+
     // These variables will reference widgets that will be modified during play
-    private Button buttonPP;
-    private Button buttonRP;
-    private Button buttonPL;
-    private Button buttonRL;
-    private Button buttonOD;
-    private Button buttonET;
+    private Button buttonPP; //placePeg
+    private Button buttonRP; //removePeg
+    private Button buttonPL; //placeLink
+    private Button buttonRL; //removeLink
+    private Button buttonOD; //offerDraw
+    private Button buttonET; //endTurn
+    private TextView turn; //displays whose turn it is
 
 
 
@@ -92,25 +92,28 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     public void receiveInfo(GameInfo info) {
         if(!(info instanceof TwixtGameState)){return;}
         state = null;
-        //this method will need to paint objects, and update the states of buttons
+
+        //ensures info is a TwixtGameState object
         if(!(info instanceof TwixtGameState)){
             return;
         }
         this.state = (TwixtGameState) info;
 
-        if(state.getTurn() == 0){
-            turn.setText("Your Turn");
-        }
+        //offer draw button becomes available after 20 turns
         if(state.getTotalturns() > 20){
             buttonOD.setTextColor(Color.WHITE);
             drawAvailable = true;
         }
+
+        //offerDraw is set to true when other player makes an offerDraw action
         if( this.playerNum == 0 ){
             offerDraw = state.getOfferDraw0();
         }
         else if( this.playerNum == 1 ){
             offerDraw = state.getOfferDraw1();
         }
+
+        //creates a dialog box and changes buttons when a draw is offered, but not resolved
         if(offerDraw && !offerDrawResolved){
 
             MessageBox.popUpMessage("A draw has been offered!",myActivity);
@@ -128,6 +131,8 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             buttonET.setTextColor(Color.GRAY);
             state.setOfferDraw0(false);
         }
+
+        //sets turn text view based on whose turn it is
         if(state.getTurn() == humanPlayer){
             turn.setText("Green's Turn");
         }
@@ -135,6 +140,11 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             turn.setText("Red's Turn");
         }
 
+        /*
+            After the first turn, the second player will be offered to switch sides.
+            The loop searches through the board to find the first Peg placed and switches the value of that Peg to the second player's color
+            The first player then gets to make a move again
+          */
         if(state.getTotalturns() == 1 && this.playerNum != 0 && piRuleResolved == false) {
             Peg[][] array = state.getBoard();
             for (int i = 0; i < 24; i++) {
@@ -158,9 +168,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                             piRuleResolved = true;
                             break;
                         }
-                        else{
-                            piRuleResolved = true;
-                        }
+                        else{piRuleResolved = true;}
                     }
                 }
             }
@@ -180,14 +188,20 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
      */
     public void onClick(View button) {
 
-
+        /*
+            if statements check which button has been pressed
+            turns the button selected green, other buttons return to gray
+         */
         if(button.getId() == R.id.PlacePegButton){
+
+            //if the other player has offered a draw, pressing this button will accept the draw
             if(offerDraw && !offerDrawResolved){
                 MessageBox.popUpMessage("It is a draw!",myActivity);
                 offerDraw = false;
                 offerDrawResolved = true;
                 myActivity.setGameOver(true);
             }
+            //if the pi rule is applicable, pressing this button will accept the switch
             else if(piRuleOffered){
                 MessageBox.popUpMessage("Side's switched!",myActivity);
                 game.sendAction( new PiRuleAction(this));
@@ -201,19 +215,28 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 buttonPP.setText("Place Peg");
                 buttonRP.setText("Remove Peg");
             }
+            //sets actionId to 1
             else{
-                actionId =1;
-                button.setBackgroundColor(Color.GREEN);
-                buttonRP.setBackgroundColor(Color.GRAY);
-                buttonPL.setBackgroundColor(Color.GRAY);
-                buttonRL.setBackgroundColor(Color.GRAY);
-                buttonOD.setBackgroundColor(Color.GRAY);
+
+                if(placePegAvailable) {
+                    actionId = 1;
+                    button.setBackgroundColor(Color.GREEN);
+                    buttonRP.setBackgroundColor(Color.GRAY);
+                    buttonPL.setBackgroundColor(Color.GRAY);
+                    buttonRL.setBackgroundColor(Color.GRAY);
+                    buttonOD.setBackgroundColor(Color.GRAY);
+                }
+                else{
+                    flashBoolean = true;
+                }
             }
 
 
 
         }
         else if(button.getId() == R.id.RemovePegButton){
+
+            //if other player offers a draw, this button will reject the draw
             if(offerDraw && !offerDrawResolved){
                 buttonPL.setTextColor(Color.WHITE);
                 buttonRL.setTextColor(Color.WHITE);
@@ -227,6 +250,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 buttonRP.setText("Remove Peg");
 
             }
+            //if pi rule is applicable, this button will reject the draw
             else if(piRuleOffered){
                 buttonPL.setTextColor(Color.WHITE);
                 buttonRL.setTextColor(Color.WHITE);
@@ -237,6 +261,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 buttonPP.setText("Place Peg");
                 buttonRP.setText("Remove Peg");
             }
+            //sets actionId to 2
             else{
                 actionId =2;
                 button.setBackgroundColor(Color.GREEN);
@@ -247,6 +272,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             }
 
         }
+        //sets actionId to 3
         else if(button.getId() == R.id.PlaceLinkButton){
             actionId =3;
             button.setBackgroundColor(Color.GREEN);
@@ -255,6 +281,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             buttonRL.setBackgroundColor(Color.GRAY);
             buttonOD.setBackgroundColor(Color.GRAY);
         }
+        //sets actionId to 4
         else if(button.getId() == R.id.RemoveLinkButton){
             actionId =4;
             button.setBackgroundColor(Color.GREEN);
@@ -264,8 +291,9 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             buttonOD.setBackgroundColor(Color.GRAY);
         }
         else if(button.getId() == R.id.OfferDrawButton){
-            if(drawAvailable){
 
+            //sends an offerDraw action if available
+            if(drawAvailable){
                 game.sendAction( new OfferDrawAction(this));
                 button.setBackgroundColor(Color.GREEN);
                 buttonPP.setBackgroundColor(Color.GRAY);
@@ -280,6 +308,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
 
         }
+        //ends the current player's turn
         else if(button.getId() == R.id.EndTurnButton){
             previousPeg = null;
             buttonPP.setTextColor(Color.WHITE);
@@ -289,6 +318,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             buttonPL.setBackgroundColor(Color.GRAY);
             buttonRL.setBackgroundColor(Color.GRAY);
             game.sendAction( new EndTurnAction(this));
+            placePegAvailable = true;
 
 
         }
@@ -298,11 +328,15 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     }// onClick
 
     public void onTouch(MotionEvent e){
-        int x = (int)e.getX()/printOffset;
-        int y = (int)e.getY()/printOffset;
+        int x = (int)e.getX()/printOffset; //x value for the area on the board that is touched
+        int y = (int)e.getY()/printOffset; //y value for the area on the board that is touched
+
+        //loop checks to make sure the touch is not out of bounds
         if((x>-1 && x<24) && (y<24 && y>-1)) {
-            Peg[][] array = state.stateToArray();
+            Peg[][] array = state.stateToArray(); //creates an array from the passed in game state
             Peg selectedPeg = null;
+
+            //if touched area of the board contains a Peg, select that Peg
             if (array[x][y] != null) {
                 selectedPeg = array[x][y];
             }
@@ -314,16 +348,19 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 If so, flash.
                 If not, send action.
              */
-                selectedPeg = new Peg(x, y, state.getTurn());
+                selectedPeg = new Peg(x, y, state.getTurn()); //creates new Peg in touched location
+
+                //if statements make sure Peg isn't placed in opponent's end row
                 if (state.getTurn() == 0) {
                     if (selectedPeg == array[x][y] || x == 23 || x == 0) {
                         flashBoolean = true;
                     } else {
                         actionId = 0;
                         buttonPP.setBackgroundColor(Color.GRAY);
-                        buttonPP.setTextColor(Color.BLACK);
-                        game.sendAction(new PlacePegAction(this, selectedPeg));
+                        buttonPP.setTextColor(Color.BLACK); //setting text to black to show another Peg cannot be placed
+                        game.sendAction(new PlacePegAction(this, selectedPeg)); //sends action to local game
                         previousPlacedPeg = selectedPeg;
+                        placePegAvailable = false;
                     }
                 } else {
                     if (selectedPeg == array[x][y] || y == 23 || y == 0) {
@@ -334,14 +371,14 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                         buttonPP.setTextColor(Color.BLACK);
                         game.sendAction(new PlacePegAction(this, selectedPeg));
                         previousPlacedPeg = selectedPeg;
+                        placePegAvailable = false;
                     }
                 }
 
 
             } else if (actionId == 2) { //Remove Peg
-            /*
-                checks if peg to be removed belongs to player
-             */
+
+                //checks if peg to be removed belongs to player
                 if(selectedPeg != null) {
                     if (selectedPeg.getPegTeam() != state.getTurn()) {
                         flashBoolean = true;
@@ -349,22 +386,32 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                         game.sendAction(new RemovePegAction(this, selectedPeg));
                         actionId = 0;
                         buttonRP.setBackgroundColor(Color.GRAY);
+
+                        //checks if peg removed is the Peg just placed
                         if (selectedPeg.getxPos() == previousPlacedPeg.getxPos() && selectedPeg.getyPos() == previousPlacedPeg.getyPos()) {
-                            buttonPP.setTextColor(Color.WHITE);
+                            buttonPP.setTextColor(Color.WHITE); //turns text in place peg button back to white
+                            placePegAvailable = true;
                         }
                     }
 
 
                 }
             } else if (actionId == 3) { //placeLinkAction
+
+                //assigns previousPeg the Peg selected
                 if (previousPeg == null && array[x][y] != null) {
                     previousPeg = selectedPeg;
-                } else if (array[x][y] == null) {
+                }
+                //checks if place selected is empty
+                else if (array[x][y] == null) {
                     flashBoolean = true;
-                } else if (previousPeg.getxPos() == selectedPeg.getxPos() && previousPeg.getyPos() == selectedPeg.getyPos()) {
-                    //flashBoolean = true;
-                } else {
-
+                }
+                //checks if Peg selected is the player's team
+                else if(array[x][y].getPegTeam() != this.playerNum){
+                    flashBoolean = true;
+                }
+                //the selected Peg will be linked with the Peg assigned to previousPeg
+                else if(selectedPeg.getxPos() != previousPeg.getxPos() && selectedPeg.getyPos() != previousPeg.getyPos()){
                     game.sendAction(new PlaceLinkAction(this, selectedPeg, previousPeg));
                     previousPeg = null;
                     actionId = 0;
@@ -374,13 +421,21 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
             } else if (actionId == 4) { //removeLinkAction
 
-
+                //assigns previousPeg the Peg selected
                 if (previousPeg == null && selectedPeg != null ) {
                     previousPeg = selectedPeg;
+                }
+                //checks if place selected is empty
+                else if (array[x][y] == null) {
+                    flashBoolean = true;
+                }
+                //checks if Peg selected is the player's team
+                else if(array[x][y].getPegTeam() != this.playerNum){
+                    flashBoolean = true;
+                }
 
-                } else if (previousPeg != null && selectedPeg != null && previousPeg.getxPos() == selectedPeg.getxPos() && previousPeg.getyPos() == selectedPeg.getyPos()) {
-                    //flashBoolean = true;
-                } else {
+                //link between the selected Peg and the previousPeg will be removed
+                else if(selectedPeg.getxPos() != previousPeg.getxPos() && selectedPeg.getyPos() != previousPeg.getyPos()){
 
                     game.sendAction(new RemoveLinkAction(this, selectedPeg, previousPeg));
                     previousPeg = null;
@@ -409,10 +464,12 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         myActivity = activity;
         activity.setContentView(R.layout.twixt_layout);
 
+        //assigns the surface
         surface = (AnimationSurface) myActivity
                 .findViewById(R.id.animation_surface);
         surface.setAnimator(this);
 
+        //creates widgets
         buttonPP = (Button) activity.findViewById(R.id.PlacePegButton);
         buttonPP.setOnClickListener(this);
 
@@ -432,12 +489,6 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         buttonET.setOnClickListener(this);
 
         turn = (TextView) activity.findViewById(R.id.turnDisplay);
-
-
-
-
-
-        //initialize widgets, buttons etc. here
     }//setAsGui
 
     public int interval() {
@@ -450,7 +501,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
      * 		the background color
      */
     public int backgroundColor() {
-        return backgroundColor;
+        return 0;
     }
 
     /**
@@ -472,6 +523,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     public void tick(Canvas g){
         Paint flashColor = new Paint();
 
+        //flashes the screen red for one tick
         if(flashBoolean){
             flashColor.setColor(Color.RED);
             flashBoolean = false;
@@ -483,37 +535,43 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         g.drawRect(0,0,1200,1200,flashColor);
 
 
-
+        //null check on state
         if (state == null){
             return;
         }
-        //Log.i("tick","running");
+
         Peg[][] array = state.stateToArray();
 
+        //loop paints small white dot at each index in the 2-dimensional board array
         for(int i=0; i<24; i++){
             for(int j=0; j<24;j++){
                 int radius = 5;
                 Paint paint = new Paint();
                 paint.setColor(Color.WHITE);
 
+                //paints a Peg at the array index
                 if(array[i][j] != null){
 
                     int pegTeam = array[i][j].getPegTeam();
                     radius = 12;
 
                     if(pegTeam == humanPlayer) {
-                        paint.setColor(Color.GREEN);
+                        paint.setColor(Color.GREEN); //Pegs paint green for player 1
                     }
                     else{
-                        paint.setColor(Color.RED);
+                        paint.setColor(Color.RED); //{egs paint red for player 2
                     }
 
                 }
+                //corner places paint black
                 else if((i==0 && j==0)||(i==0 && j==23)||(i==23 && j==0)||(i==23 && j==23)){
                     paint.setColor(Color.BLACK);
                 }
+
+                //paints dot
                 g.drawCircle(i*printOffset+15, j*printOffset+15, radius, paint);
 
+                //draws line between linked Pegs
                 if(array[i][j] != null){
                     if(array[i][j].getLinkedPegs() != null) {
                         for (Peg p:array[i][j].getLinkedPegs()) {
@@ -529,24 +587,19 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
 
             }
         }
+
+        //paints lines to indicate end rows
         Paint red = new Paint();
         red.setColor(Color.RED);
 
-        Paint blue = new Paint();
-        blue.setColor(Color.GREEN);
+        Paint green = new Paint();
+        green.setColor(Color.GREEN);
 
-        g.drawLine(60,40,1120,40,blue);
-        g.drawLine(60,1140,1120,1140,blue);
+        g.drawLine(60,40,1120,40,green);
+        g.drawLine(60,1140,1120,1140,green);
         g.drawLine(40,60,40,1120,red);
         g.drawLine(1140,60,1140,1120,red);
 
-
-    }
-
-
-
-
-
-
+    }//tick
 
 }// class TwixtHumanPlayer
