@@ -3,7 +3,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by Kollin Raudsepp on 11/8/2017.
+ * @author Kollin Raudsepp
+ * @version 11/8/2017
  * This class populates the game board.
  */
 
