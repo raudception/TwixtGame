@@ -191,106 +191,131 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
          */
         if(button.getId() == R.id.PlacePegButton){
 
-            //if the other player has offered a draw, pressing this button will accept the draw
-            if(offerDraw && !offerDrawResolved){
-                MessageBox.popUpMessage("It is a draw!",myActivity);
-                offerDraw = false;
-                offerDrawResolved = true;
-                myActivity.setGameOver(true);
-            }
-            //if the pi rule is applicable, pressing this button will accept the switch
-            else if(piRuleOffered){
-                MessageBox.popUpMessage("Side's switched!",myActivity);
-                game.sendAction( new PiRuleAction(this));
-                game.sendAction( new EndTurnAction(this));
-                buttonPL.setTextColor(Color.WHITE);
-                buttonRL.setTextColor(Color.WHITE);
-                buttonET.setTextColor(Color.WHITE);
-                buttonOD.setTextColor(Color.WHITE);
-                buttonET.setBackgroundColor(Color.RED);
-                piRuleOffered = false;
-                buttonPP.setText("Place Peg");
-                buttonRP.setText("Remove Peg");
-            }
-            //sets actionId to 1
-            else{
-
-                if(placePegAvailable) {
-                    actionId = 1;
-                    button.setBackgroundColor(Color.GREEN);
-                    buttonRP.setBackgroundColor(Color.GRAY);
-                    buttonPL.setBackgroundColor(Color.GRAY);
-                    buttonRL.setBackgroundColor(Color.GRAY);
-                    buttonOD.setBackgroundColor(Color.GRAY);
+            if(state.getTurn() == this.playerNum){
+                //if the other player has offered a draw, pressing this button will accept the draw
+                if(offerDraw && !offerDrawResolved){
+                    MessageBox.popUpMessage("It is a draw!",myActivity);
+                    offerDraw = false;
+                    offerDrawResolved = true;
+                    myActivity.setGameOver(true);
                 }
+                //if the pi rule is applicable, pressing this button will accept the switch
+                else if(piRuleOffered){
+                    MessageBox.popUpMessage("Side's switched!",myActivity);
+                    game.sendAction( new PiRuleAction(this));
+                    game.sendAction( new EndTurnAction(this));
+                    buttonPL.setTextColor(Color.WHITE);
+                    buttonRL.setTextColor(Color.WHITE);
+                    buttonET.setTextColor(Color.WHITE);
+                    buttonOD.setTextColor(Color.WHITE);
+                    buttonET.setBackgroundColor(Color.RED);
+                    piRuleOffered = false;
+                    buttonPP.setText("Place Peg");
+                    buttonRP.setText("Remove Peg");
+                }
+                //sets actionId to 1
                 else{
-                    flashBoolean = true;
+
+                    if(placePegAvailable) {
+                        actionId = 1;
+                        button.setBackgroundColor(Color.GREEN);
+                        buttonRP.setBackgroundColor(Color.GRAY);
+                        buttonPL.setBackgroundColor(Color.GRAY);
+                        buttonRL.setBackgroundColor(Color.GRAY);
+                        buttonOD.setBackgroundColor(Color.GRAY);
+                    }
+                    else{
+                        flashBoolean = true;
+                    }
                 }
             }
+            else{
+                flashBoolean = true;
+            }
+
 
 
 
         }
         else if(button.getId() == R.id.RemovePegButton){
 
-            //if other player offers a draw, this button will reject the draw
-            if(offerDraw && !offerDrawResolved){
-                buttonPL.setTextColor(Color.WHITE);
-                buttonRL.setTextColor(Color.WHITE);
-                buttonET.setTextColor(Color.WHITE);
-                buttonOD.setTextColor(Color.WHITE);
-                buttonET.setBackgroundColor(Color.RED);
-                offerDraw = false;
-                offerDrawResolved = true;
-                game.sendAction( new EndTurnAction(this));
-                buttonPP.setText("Place Peg");
-                buttonRP.setText("Remove Peg");
+            if(state.getTurn() == this.playerNum){
+                //if other player offers a draw, this button will reject the draw
+                if(offerDraw && !offerDrawResolved){
+                    buttonPL.setTextColor(Color.WHITE);
+                    buttonRL.setTextColor(Color.WHITE);
+                    buttonET.setTextColor(Color.WHITE);
+                    buttonOD.setTextColor(Color.WHITE);
+                    buttonET.setBackgroundColor(Color.RED);
+                    offerDraw = false;
+                    offerDrawResolved = true;
+                    game.sendAction( new EndTurnAction(this));
+                    buttonPP.setText("Place Peg");
+                    buttonRP.setText("Remove Peg");
 
+                }
+                //if pi rule is applicable, this button will reject the draw
+                else if(piRuleOffered){
+                    buttonPL.setTextColor(Color.WHITE);
+                    buttonRL.setTextColor(Color.WHITE);
+                    buttonET.setTextColor(Color.WHITE);
+                    buttonOD.setTextColor(Color.WHITE);
+                    buttonET.setBackgroundColor(Color.RED);
+                    piRuleOffered = false;
+                    buttonPP.setText("Place Peg");
+                    buttonRP.setText("Remove Peg");
+                }
+                //sets actionId to 2
+                else{
+                    actionId =2;
+                    button.setBackgroundColor(Color.GREEN);
+                    buttonPP.setBackgroundColor(Color.GRAY);
+                    buttonOD.setBackgroundColor(Color.GRAY);
+                    buttonPL.setBackgroundColor(Color.GRAY);
+                    buttonRL.setBackgroundColor(Color.GRAY);
+                }
             }
-            //if pi rule is applicable, this button will reject the draw
-            else if(piRuleOffered){
-                buttonPL.setTextColor(Color.WHITE);
-                buttonRL.setTextColor(Color.WHITE);
-                buttonET.setTextColor(Color.WHITE);
-                buttonOD.setTextColor(Color.WHITE);
-                buttonET.setBackgroundColor(Color.RED);
-                piRuleOffered = false;
-                buttonPP.setText("Place Peg");
-                buttonRP.setText("Remove Peg");
-            }
-            //sets actionId to 2
             else{
-                actionId =2;
-                button.setBackgroundColor(Color.GREEN);
-                buttonPP.setBackgroundColor(Color.GRAY);
-                buttonOD.setBackgroundColor(Color.GRAY);
-                buttonPL.setBackgroundColor(Color.GRAY);
-                buttonRL.setBackgroundColor(Color.GRAY);
+                flashBoolean = true;
             }
+
+
 
         }
         //sets actionId to 3
         else if(button.getId() == R.id.PlaceLinkButton){
-            actionId =3;
-            button.setBackgroundColor(Color.GREEN);
-            buttonPP.setBackgroundColor(Color.GRAY);
-            buttonRP.setBackgroundColor(Color.GRAY);
-            buttonRL.setBackgroundColor(Color.GRAY);
-            buttonOD.setBackgroundColor(Color.GRAY);
+
+            if(state.getTurn() == this.playerNum) {
+                actionId = 3;
+                button.setBackgroundColor(Color.GREEN);
+                buttonPP.setBackgroundColor(Color.GRAY);
+                buttonRP.setBackgroundColor(Color.GRAY);
+                buttonRL.setBackgroundColor(Color.GRAY);
+                buttonOD.setBackgroundColor(Color.GRAY);
+            }
+            else{
+                flashBoolean = true;
+            }
         }
         //sets actionId to 4
         else if(button.getId() == R.id.RemoveLinkButton){
-            actionId =4;
-            button.setBackgroundColor(Color.GREEN);
-            buttonPP.setBackgroundColor(Color.GRAY);
-            buttonRP.setBackgroundColor(Color.GRAY);
-            buttonPL.setBackgroundColor(Color.GRAY);
-            buttonOD.setBackgroundColor(Color.GRAY);
+
+            if(state.getTurn() == this.playerNum) {
+                actionId = 4;
+                button.setBackgroundColor(Color.GREEN);
+                buttonPP.setBackgroundColor(Color.GRAY);
+                buttonRP.setBackgroundColor(Color.GRAY);
+                buttonPL.setBackgroundColor(Color.GRAY);
+                buttonOD.setBackgroundColor(Color.GRAY);
+            }
+            else{
+                flashBoolean = true;
+            }
         }
         else if(button.getId() == R.id.OfferDrawButton){
 
             //sends an offerDraw action if available
-            if(drawAvailable){
+            if(drawAvailable && state.getTurn() == this.playerNum){
                 game.sendAction( new OfferDrawAction(this));
                 button.setBackgroundColor(Color.GREEN);
                 buttonPP.setBackgroundColor(Color.GRAY);
@@ -307,15 +332,20 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         }
         //ends the current player's turn
         else if(button.getId() == R.id.EndTurnButton){
-            previousPeg = null;
-            buttonPP.setTextColor(Color.WHITE);
-            buttonPP.setBackgroundColor(Color.GRAY);
-            buttonRP.setBackgroundColor(Color.GRAY);
-            buttonOD.setBackgroundColor(Color.GRAY);
-            buttonPL.setBackgroundColor(Color.GRAY);
-            buttonRL.setBackgroundColor(Color.GRAY);
-            game.sendAction( new EndTurnAction(this));
-            placePegAvailable = true;
+            if(state.getTurn() == this.playerNum) {
+                previousPeg = null;
+                buttonPP.setTextColor(Color.WHITE);
+                buttonPP.setBackgroundColor(Color.GRAY);
+                buttonRP.setBackgroundColor(Color.GRAY);
+                buttonOD.setBackgroundColor(Color.GRAY);
+                buttonPL.setBackgroundColor(Color.GRAY);
+                buttonRL.setBackgroundColor(Color.GRAY);
+                game.sendAction(new EndTurnAction(this));
+                placePegAvailable = true;
+            }
+            else{
+                flashBoolean = true;
+            }
 
 
         }
@@ -427,7 +457,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                     flashBoolean = true;
                 }
                 //checks if Peg selected is the player's team
-                else if(array[x][y].getPegTeam() != this.playerNum){
+                else if(array[x][y].getPegTeam() != this.playerNum && array[x][y] != null){
                     flashBoolean = true;
                 }
 

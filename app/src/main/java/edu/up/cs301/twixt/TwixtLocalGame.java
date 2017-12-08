@@ -15,7 +15,7 @@ import edu.up.cs301.game.actionMsg.GameAction;
  * @author Andrew M. Nuxoll, modified by Kollin A. Raudsepp
  * @version November 2017
  */
-public class TwixtLocalGame extends LocalGame {
+public class  TwixtLocalGame extends LocalGame {
     //the official instance of the TwixtGameState
     private TwixtGameState official;
 
