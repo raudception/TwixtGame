@@ -107,7 +107,7 @@ public class TwixtLocalGame extends LocalGame {
                             newlinked2.add(peg1);
                             peg2.setLinkedPegs(newlinked2);
 
-                            official.placePeg(peg1, false);
+                            official.placePeg(peg1, false);//modify the two pegs in the gamestate
                             official.placePeg(peg2, false);
                         } else if (((x1 - x2) == 2 || (x1 - x2) == -2) && ((y1 - y2 == 1) || (y1 - y2) == -1) && canAddLinks(pla.getHoldPeg1(), pla.getHoldPeg2())) {
                             ArrayList<Peg> newlinked1 = peg1.getLinkedPegs(); //add peg 2 to the first peg's arraylist
@@ -118,7 +118,7 @@ public class TwixtLocalGame extends LocalGame {
                             newlinked2.add(peg1);
                             peg2.setLinkedPegs(newlinked2);
 
-                            official.placePeg(peg1, false);
+                            official.placePeg(peg1, false); //modify the two pegs in the gamestate
                             official.placePeg(peg2, false);
                         }
                     }
@@ -131,7 +131,7 @@ public class TwixtLocalGame extends LocalGame {
             if (action.getPlayer().equals(players[official.getTurn()]) && !pegUsed) {
                 int endRows = 0;
 
-                if (official.getTurn() == 0) {
+                if (official.getTurn() == 0) { //determine what player's turn it is, and what endrows are legal for them to place in
                     endRows = 1;
                 } else {
                     endRows = 2;
@@ -170,16 +170,16 @@ public class TwixtLocalGame extends LocalGame {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemoveLinkAction rla = (RemoveLinkAction) action;
 
-                if (rla.getHoldPeg1() != null && rla.getHoldPeg2() != null) {
+                if (rla.getHoldPeg1() != null && rla.getHoldPeg2() != null) {//check that the action was created properly
                     Peg peg1 = rla.getHoldPeg1();
                     Peg peg2 = rla.getHoldPeg2();
                     if (peg1.getLinkedPegs().contains(peg2) && peg1.getPegTeam() == official.getTurn()) { //removes links from pegs independently
                         peg1.getLinkedPegs().remove(peg2);
-                        official.placePeg(peg1, false);
+                        official.placePeg(peg1, false);//modify the current peg in the gamestate
                     }
                     if (peg2.getLinkedPegs().contains(peg1) && peg2.getPegTeam() == official.getTurn()) {
                         peg2.getLinkedPegs().remove(peg1);
-                        official.placePeg(peg2, false);
+                        official.placePeg(peg2, false);//modify the current peg in the gamestate
                     }
                 }
 

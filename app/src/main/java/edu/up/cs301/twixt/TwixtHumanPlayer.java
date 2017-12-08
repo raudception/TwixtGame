@@ -175,9 +175,6 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
         }
 
 
-
-
-
     }//receiveInfo
 
     /**
