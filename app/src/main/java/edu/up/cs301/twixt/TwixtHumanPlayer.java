@@ -373,9 +373,12 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                 }
 
             } else if (actionId == 4) { //removeLinkAction
-                if (previousPeg == null) {
+
+
+                if (previousPeg == null && selectedPeg != null ) {
                     previousPeg = selectedPeg;
-                } else if (previousPeg.getxPos() == selectedPeg.getxPos() && previousPeg.getyPos() == selectedPeg.getyPos()) {
+
+                } else if (previousPeg != null && selectedPeg != null && previousPeg.getxPos() == selectedPeg.getxPos() && previousPeg.getyPos() == selectedPeg.getyPos()) {
                     //flashBoolean = true;
                 } else {
 

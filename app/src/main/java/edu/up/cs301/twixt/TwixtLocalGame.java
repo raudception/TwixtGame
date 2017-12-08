@@ -141,16 +141,19 @@ public class TwixtLocalGame extends LocalGame {
                             peg = new Peg(x, y, official.getTurn(), addPegLinks(peg));
                             official.placePeg(peg, false);
                             lastPeg = peg;
+                            pegUsed = true;
                         } else if ((endRows == 2) && (y != 0) && (y != 23)) {
                             peg = new Peg(x, y, official.getTurn(), addPegLinks(peg));
                             official.placePeg(peg, false); //add the peg to the temp array
                             lastPeg = peg;
+                            pegUsed = true;
                         } else {
                             return false;
                         }
+
                     }
                     //set the board's state, including the new peg
-                    pegUsed = true;
+
 
                     return true;
                 }
