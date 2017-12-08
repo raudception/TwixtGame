@@ -93,23 +93,31 @@ public class TwixtLocalGame extends LocalGame {
                     int y1 = pla.getHoldPeg1().getyPos();
                     int x2 = pla.getHoldPeg2().getxPos();
                     int y2 = pla.getHoldPeg2().getyPos();
-                    if (pla.getHoldPeg1().getPegTeam() == official.getTurn() && pla.getHoldPeg2().getPegTeam() == official.getTurn()) {
-                        if (((x1 - x2) == 1 || (x1 - x2) == -1) && ((y1 - y2 == 2) || (y1 - y2) == -2) && canAddLinks(pla.getHoldPeg1(), pla.getHoldPeg2())) {
-                            ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
-                            newlinked1.add(pla.getHoldPeg2());
-                            pla.getHoldPeg1().setLinkedPegs(newlinked1);
+                    Peg peg1 = pla.getHoldPeg1();
+                    Peg peg2 = pla.getHoldPeg2();
+                    if (peg1.getPegTeam() == official.getTurn() && peg2.getPegTeam() == official.getTurn()) {
+                        if (((x1 - x2) == 1 || (x1 - x2) == -1) && ((y1 - y2 == 2) || (y1 - y2) == -2) && canAddLinks(peg1, peg2)) {
+                            ArrayList<Peg> newlinked1 = peg1.getLinkedPegs(); //add peg 2 to the first peg's arraylist
+                            newlinked1.add(peg2);
+                            peg1.setLinkedPegs(newlinked1);
 
-                            ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
-                            newlinked2.add(pla.getHoldPeg1());
-                            pla.getHoldPeg2().setLinkedPegs(newlinked2);
+                            ArrayList<Peg> newlinked2 = peg2.getLinkedPegs(); //add the peg1 to the second peg's linked pegs
+                            newlinked2.add(peg1);
+                            peg2.setLinkedPegs(newlinked2);
+
+                            official.placePeg(peg1,false);
+                            official.placePeg(peg2,false);
                         } else if (((x1 - x2) == 2 || (x1 - x2) == -2) && ((y1 - y2 == 1) || (y1 - y2) == -1) && canAddLinks(pla.getHoldPeg1(), pla.getHoldPeg2())) {
-                            ArrayList<Peg> newlinked1 = pla.getHoldPeg1().getLinkedPegs(); //add peg 2 to the first peg's arraylist
-                            newlinked1.add(pla.getHoldPeg2());
-                            pla.getHoldPeg1().setLinkedPegs(newlinked1);
+                            ArrayList<Peg> newlinked1 = peg1.getLinkedPegs(); //add peg 2 to the first peg's arraylist
+                            newlinked1.add(peg2);
+                            peg1.setLinkedPegs(newlinked1);
 
-                            ArrayList<Peg> newlinked2 = pla.getHoldPeg2().getLinkedPegs(); //add the peg1 to the second peg's linked pegs
-                            newlinked2.add(pla.getHoldPeg1());
-                            pla.getHoldPeg2().setLinkedPegs(newlinked2);
+                            ArrayList<Peg> newlinked2 = peg2.getLinkedPegs(); //add the peg1 to the second peg's linked pegs
+                            newlinked2.add(peg1);
+                            peg2.setLinkedPegs(newlinked2);
+
+                            official.placePeg(peg1,false);
+                            official.placePeg(peg2,false);
                         }
                     }
                 }
@@ -166,11 +174,12 @@ public class TwixtLocalGame extends LocalGame {
                     Peg peg1 = rla.getHoldPeg1();
                     Peg peg2 = rla.getHoldPeg2();
                     if (peg1.getLinkedPegs().contains(peg2) && peg1.getPegTeam() == official.getTurn()) { //removes links from pegs independently
-                        temp[peg1.getxPos()][peg1.getyPos()].getLinkedPegs().remove(peg2);
-
+                        peg1.getLinkedPegs().remove(peg2);
+                        official.placePeg(peg1, false);
                     }
                     if (peg2.getLinkedPegs().contains(peg1) && peg2.getPegTeam() == official.getTurn()) {
-                        temp[peg2.getxPos()][peg2.getyPos()].getLinkedPegs().remove(peg1);
+                        peg2.getLinkedPegs().remove(peg1);
+                        official.placePeg(peg2, false);
                     }
                 }
 
@@ -233,7 +242,7 @@ public class TwixtLocalGame extends LocalGame {
 
             return true;
         }
-        return false;
+        return true;
     }//makeMove
 
     /**

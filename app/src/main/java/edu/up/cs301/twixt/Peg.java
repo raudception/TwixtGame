@@ -37,7 +37,7 @@ public class Peg implements Serializable {
         ArrayList<Peg> newLinked = new ArrayList<Peg>();
         if(p.getLinkedPegs() != null) {
             for (Peg g : p.getLinkedPegs()){
-                newLinked.add(new Peg(g));
+                newLinked.add(g);
             }
         }
         this.linkedPegs = newLinked;
@@ -77,7 +77,11 @@ public class Peg implements Serializable {
     }
 
     public void setLinkedPegs(ArrayList<Peg> linkedPegs) {
-        this.linkedPegs = linkedPegs;
+        ArrayList<Peg> newlinked = new ArrayList<Peg>();
+        for(Peg p: linkedPegs){
+            newlinked.add(p);
+        }
+        this.linkedPegs = newlinked;
     }
 
     public int getIsEndRow() {
