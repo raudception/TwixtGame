@@ -149,12 +149,12 @@ public class TwixtLocalGame extends LocalGame {
 
                             if ((endRows == 1) && (x != 0) && (x != 23)) { //don't allow placing in opponent's end Rows
                                 peg = new Peg(x, y, official.getTurn(), addPegLinks(peg));
-                                official.placePeg(peg, false);
+                                official.placePeg(peg, false);//add the peg to the Board array
                                 lastPeg = peg;
                                 pegUsed = true;
                             } else if ((endRows == 2) && (y != 0) && (y != 23)) {
                                 peg = new Peg(x, y, official.getTurn(), addPegLinks(peg));
-                                official.placePeg(peg, false); //add the peg to the temp array
+                                official.placePeg(peg, false); //add the peg to the array
                                 lastPeg = peg;
                                 pegUsed = true;
                             } else {
@@ -166,10 +166,10 @@ public class TwixtLocalGame extends LocalGame {
                 }
             }
         }
-        else if (action instanceof RemoveLinkAction) { //This action allows player to remove links from their pegs
+        else if (action instanceof RemoveLinkAction) { //This action allows players to remove links from their pegs
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemoveLinkAction rla = (RemoveLinkAction) action;
-                Peg[][] temp = official.getBoard();
+
                 if (rla.getHoldPeg1() != null && rla.getHoldPeg2() != null) {
                     Peg peg1 = rla.getHoldPeg1();
                     Peg peg2 = rla.getHoldPeg2();
@@ -191,32 +191,29 @@ public class TwixtLocalGame extends LocalGame {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemovePegAction rmP = (RemovePegAction) action;
                 if (rmP.getHoldPeg() != null) {
-                    Peg peg = rmP.getHoldPeg();
+                    Peg peg = rmP.getHoldPeg();//get the x and y location of the peg
                     int x = peg.getxPos();
                     int y = peg.getyPos();
                     Peg[][] temp = official.getBoard();
-                    for (int i = 0; i < 24; i++) {
-                        for (int j = 0; j < 24; j++) {
-                            if (temp[i][j] != null) {
-                                if ((temp[i][j].getxPos() == x) && (temp[i][j].getyPos() == y) && (temp[i][j].getPegTeam() == official.getTurn())) {
-                                    Peg removepeg = temp[i][j];
+                            if (temp[x][y] != null) {
+                                if ((temp[x][y].getPegTeam() == official.getTurn())) {
+                                    Peg removepeg = temp[x][y];
                                     if (removepeg.equals(lastPeg)) { //allow removing a peg that was placed in the same turn
                                         pegUsed = false;
                                     }
 
-                                    for (Peg p : removepeg.getLinkedPegs()) {
+                                    for (Peg p : removepeg.getLinkedPegs()) { //
                                         temp[p.getxPos()][p.getyPos()].getLinkedPegs().remove(peg);
                                     }
                                     official.setBoard(temp, true, removepeg);
                                 }
                             }
-                        }
-                    }
                     return true;
                 }
                 return false;
             }
         }
+
         else if (action instanceof PiRuleAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 if (official.getTotalturns() == 1) {
