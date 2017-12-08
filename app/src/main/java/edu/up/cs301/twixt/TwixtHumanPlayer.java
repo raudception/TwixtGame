@@ -30,8 +30,8 @@ import java.util.ArrayList;
  * A GUI for a human to play Twixt. This default version displays the GUI but is incomplete
  *
  *
- * @author Andrew M. Nuxoll, modified by Steven R. Vegdahl
- * @version February 2016
+ * @author Andrew M. Nuxoll, modified by Steven R. Vegdahl, Taylor Odem
+ * @version November 2017
  */
 public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener, Animator  {
 
