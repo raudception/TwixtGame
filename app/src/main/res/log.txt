@@ -1,0 +1,10 @@
+1.) Overriding the default .equals method for Pegs to compare something other than the actual object in memory.
+https://stackoverflow.com/questions/15175109/why-do-we-have-to-override-the-equals-method-in-java
+11/20/17
+
+2-4.)Steve Vegdahl assisted with:
+Array Deep Copy vs. directly referencing the array object.
+
+The Logic For not allowing links to cross.
+
+Smart AI receiving info multiple times in a turn and trying to play each time.

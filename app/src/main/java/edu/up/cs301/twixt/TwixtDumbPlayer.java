@@ -51,6 +51,7 @@ public class TwixtDumbPlayer extends GameComputerPlayer {
         // Submit our move to the game object. We haven't even checked it it's
         // our turn, or that that position is unoccupied.
         game.sendAction(new PlacePegAction(this, thisTurnPeg));//the this may not be correct
+
         game.sendAction(new EndTurnAction(this));//ends this turn
 
 

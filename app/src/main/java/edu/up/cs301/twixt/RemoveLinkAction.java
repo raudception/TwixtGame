@@ -7,6 +7,8 @@ import edu.up.cs301.game.actionMsg.GameAction;
 
 /**
  * Created by Kollin on 11/8/2017.
+ * Sends an RemoveLinkAction to the game state with the player that created it, and the two pegs
+ * that are linked.
  */
 
 public class RemoveLinkAction extends GameAction implements Serializable {

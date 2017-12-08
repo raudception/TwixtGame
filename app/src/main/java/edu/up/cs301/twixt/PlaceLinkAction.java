@@ -7,6 +7,8 @@ import edu.up.cs301.game.actionMsg.GameAction;
 
 /**
  * Created by Kollin on 11/8/2017.
+ * Sends an PlaceLinkAction to the game state with the player that created it, and the two pegs that are
+  * being modified
  */
 
 public class PlaceLinkAction extends GameAction implements Serializable {

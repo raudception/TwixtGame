@@ -7,6 +7,7 @@ import edu.up.cs301.game.actionMsg.GameAction;
 
 /**
  * Created by Kollin on 11/8/2017.
+ * Sends a RemovePegAction to the game state with the player that created it, and the peg to be removed.
  */
 
 public class RemovePegAction extends GameAction implements Serializable {

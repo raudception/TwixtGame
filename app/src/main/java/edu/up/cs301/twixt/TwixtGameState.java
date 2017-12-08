@@ -10,17 +10,25 @@ import edu.up.cs301.game.infoMsg.GameState;
 
 /**
  * Created by Kollin on 10/12/2017.
+ * This class holds the necessary information for the state of a TwixtGame
  */
 
 public class TwixtGameState extends GameState implements Serializable {
+    //the array that holds the game Board with all its Pegs
     private Peg[][] Board;
 
+    //the current player's turn
     private int turn;
+    //the total number of turns, used by OfferDraw and piRule
     private int totalturns =0;
-    private GamePlayer[] players;
 
+    //used by players to determine if/which one was offered a draw
     private boolean offerDraw0;
     private boolean offerDraw1;
+
+    /**
+     * Default constructor, creates a new board and sets the turn to 0
+     */
 
     public TwixtGameState (){
         Board = new Peg[24][24];
@@ -29,6 +37,10 @@ public class TwixtGameState extends GameState implements Serializable {
 
     }
 
+    /**
+     * Copy Constructor
+     * @param fresh
+     */
     public TwixtGameState(TwixtGameState fresh){
         this.Board = fresh.getBoard();
         this.turn = fresh.getTurn();
@@ -42,6 +54,11 @@ public Peg[][] stateToArray(){
     return makeBoardCopy();
 } //deprecated getBoard method
 
+    /**
+     * Sets the position on the board to the given Peg, if nullPeg is true, it will delete the given peg
+     * @param peg
+     * @param nullPeg
+     */
     public void placePeg(Peg peg, Boolean nullPeg){
         if(nullPeg){
             Board[peg.getxPos()][peg.getyPos()] = null;
@@ -49,10 +66,6 @@ public Peg[][] stateToArray(){
        else if(peg != null) {
             Board[peg.getxPos()][peg.getyPos()] = peg;
         }
-
-
-
-
     }
 
 
@@ -60,17 +73,26 @@ public Peg[][] stateToArray(){
         return makeBoardCopy();
     }
 
-public Peg[][] makeBoardCopy(){
+    /**
+     * Deep Copy of the Board Array
+     * @return
+     */
+    public Peg[][] makeBoardCopy(){
     Peg [][] returnval = new Peg[24][24];
     for(int i = 0; i<24; i++ ){
         for(int j = 0; j<24; j++){
-            returnval[i][j] = Board[i][j];
-            if(Board[i][j] != null && Board[i][j].getLinkedPegs() != null){
-                ArrayList<Peg> setNew = new ArrayList<Peg>();
-                for(Peg p: Board[i][j].getLinkedPegs()){
-                    setNew.add(p);
+            if(Board[i][j] != null) {
+                returnval[i][j] = new Peg(Board[i][j]);
+                if(Board[i][j].getLinkedPegs() != null) {
+                    ArrayList<Peg> setNew = new ArrayList<Peg>();
+                    for (Peg p : Board[i][j].getLinkedPegs()) {
+                        setNew.add(p);
+                    }
+                    returnval[i][j].setLinkedPegs(setNew);
                 }
-                returnval[i][j].setLinkedPegs(setNew);
+            }
+            else{
+                returnval[i][j] = null;
             }
         }
     }
@@ -87,7 +109,6 @@ public Peg[][] makeBoardCopy(){
         }
 
     }
-    public void setTotalTurns(int turns){this.totalturns = turns;}
 
     public int getTotalturns() {
         return totalturns;
@@ -117,7 +138,6 @@ public Peg[][] makeBoardCopy(){
     }
 
     public boolean getOfferDraw0(){
-        Log.i("draw","was got");
         return offerDraw0;
     }
 
@@ -130,7 +150,6 @@ public Peg[][] makeBoardCopy(){
     }
 
     public void setOfferDraw1(boolean b){
-        Log.i("draw","was set");
         offerDraw1 = b;
     }
 
