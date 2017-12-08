@@ -157,51 +157,57 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
 
-        if (action instanceof RemoveLinkAction) {
+        if (action instanceof RemoveLinkAction) { //remove link for null check
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemoveLinkAction rla = (RemoveLinkAction) action;
                 Peg[][] temp = official.getBoard();
-                Peg peg1 = rla.getHoldPeg1();
-                Peg peg2 = rla.getHoldPeg2();
-                if (peg1.getLinkedPegs().contains(peg2) && peg1.getPegTeam() == official.getTurn()) { //removes links from pegs independently
-                    temp[peg1.getxPos()][peg1.getyPos()].getLinkedPegs().remove(peg2);
+                if (rla.getHoldPeg1() != null && rla.getHoldPeg2() != null) {
+                    Peg peg1 = rla.getHoldPeg1();
+                    Peg peg2 = rla.getHoldPeg2();
+                    if (peg1.getLinkedPegs().contains(peg2) && peg1.getPegTeam() == official.getTurn()) { //removes links from pegs independently
+                        temp[peg1.getxPos()][peg1.getyPos()].getLinkedPegs().remove(peg2);
 
+                    }
+                    if (peg2.getLinkedPegs().contains(peg1) && peg2.getPegTeam() == official.getTurn()) {
+                        temp[peg2.getxPos()][peg2.getyPos()].getLinkedPegs().remove(peg1);
+                    }
                 }
-                if( peg2.getLinkedPegs().contains(peg1) && peg2.getPegTeam() == official.getTurn()){
-                    temp[peg2.getxPos()][peg2.getyPos()].getLinkedPegs().remove(peg1);
-                }
+
+                return true;
             }
-
-            return true;
+            return false;
         }
 
         if (action instanceof RemovePegAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemovePegAction rmP = (RemovePegAction) action;
-                Peg peg = rmP.getHoldPeg();
-                int x = peg.getxPos();
-                int y = peg.getyPos();
-                Peg[][] temp = official.getBoard();
-                for (int i = 0; i < 24; i++) {
-                    for (int j = 0; j < 24; j++) {
-                        if (temp[i][j] != null) {
-                            if ((temp[i][j].getxPos() == x) && (temp[i][j].getyPos() == y) && (temp[i][j].getPegTeam() == official.getTurn())) {
-                                Peg removepeg = temp[i][j];
-                                if (removepeg.equals(lastPeg)) { //allow removing a peg that was placed in the same turn
-                                    pegUsed = false;
-                                }
+                if(rmP.getHoldPeg() != null) {
+                    Peg peg = rmP.getHoldPeg();
+                    int x = peg.getxPos();
+                    int y = peg.getyPos();
+                    Peg[][] temp = official.getBoard();
+                    for (int i = 0; i < 24; i++) {
+                        for (int j = 0; j < 24; j++) {
+                            if (temp[i][j] != null) {
+                                if ((temp[i][j].getxPos() == x) && (temp[i][j].getyPos() == y) && (temp[i][j].getPegTeam() == official.getTurn())) {
+                                    Peg removepeg = temp[i][j];
+                                    if (removepeg.equals(lastPeg)) { //allow removing a peg that was placed in the same turn
+                                        pegUsed = false;
+                                    }
 
-                                for (Peg p : removepeg.getLinkedPegs()) {
-                                    temp[p.getxPos()][p.getyPos()].getLinkedPegs().remove(peg);
+                                    for (Peg p : removepeg.getLinkedPegs()) {
+                                        temp[p.getxPos()][p.getyPos()].getLinkedPegs().remove(peg);
+                                    }
+                                    official.setBoard(temp, true, removepeg);
                                 }
-                                official.setBoard(temp, true, removepeg);
                             }
                         }
                     }
+
+
+                    return true;
                 }
-
-
-                return true;
+                return false;
             }
         }
 
