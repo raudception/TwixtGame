@@ -91,12 +91,15 @@ public class TwixtLocalGame extends LocalGame {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 PlaceLinkAction pla = (PlaceLinkAction) action;
                 if (pla.getHoldPeg1() != null && pla.getHoldPeg2() != null) {
+
                     int x1 = pla.getHoldPeg1().getxPos();
                     int y1 = pla.getHoldPeg1().getyPos();
                     int x2 = pla.getHoldPeg2().getxPos();
                     int y2 = pla.getHoldPeg2().getyPos();
+
                     Peg peg1 = pla.getHoldPeg1();
                     Peg peg2 = pla.getHoldPeg2();
+
                     if (peg1.getPegTeam() == official.getTurn() && peg2.getPegTeam() == official.getTurn()) {
                         if (((x1 - x2) == 1 || (x1 - x2) == -1) && ((y1 - y2 == 2) || (y1 - y2) == -2) && canAddLinks(peg1, peg2)) {
                             ArrayList<Peg> newlinked1 = peg1.getLinkedPegs(); //add peg 2 to the first peg's arraylist
@@ -109,6 +112,7 @@ public class TwixtLocalGame extends LocalGame {
 
                             official.placePeg(peg1, false);//modify the two pegs in the gamestate
                             official.placePeg(peg2, false);
+
                         } else if (((x1 - x2) == 2 || (x1 - x2) == -2) && ((y1 - y2 == 1) || (y1 - y2) == -1) && canAddLinks(pla.getHoldPeg1(), pla.getHoldPeg2())) {
                             ArrayList<Peg> newlinked1 = peg1.getLinkedPegs(); //add peg 2 to the first peg's arraylist
                             newlinked1.add(peg2);
@@ -187,14 +191,18 @@ public class TwixtLocalGame extends LocalGame {
             }
             return false;
         }
+
         else if (action instanceof RemovePegAction) {//this action allows players to remove their pegs
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemovePegAction rmP = (RemovePegAction) action;
+
                 if (rmP.getHoldPeg() != null) {
                     Peg peg = rmP.getHoldPeg();//get the x and y location of the peg
                     int x = peg.getxPos();
                     int y = peg.getyPos();
+
                     Peg[][] temp = official.getBoard();
+
                             if (temp[x][y] != null) {
                                 if ((temp[x][y].getPegTeam() == official.getTurn())) {
                                     Peg removepeg = temp[x][y];
@@ -214,14 +222,13 @@ public class TwixtLocalGame extends LocalGame {
             }
         }
 
-        else if (action instanceof PiRuleAction) {
+        else if (action instanceof PiRuleAction) { //allow the players to change sides after the first turn
             if (action.getPlayer().equals(players[official.getTurn()])) {
-                if (official.getTotalturns() == 1) {
+                if (official.getTotalturns() == 1) { //changes the array position of the players
                     GamePlayer player0 = players[0];
                     players[0] = players[1];
-                    players[1] = player0; //unsure if this is working correctly
-                } else {
-                }
+                    players[1] = player0;
+                } else {}
             }
             return true;
         }
