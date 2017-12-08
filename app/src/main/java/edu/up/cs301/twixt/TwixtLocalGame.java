@@ -16,8 +16,13 @@ import edu.up.cs301.game.actionMsg.GameAction;
  * @version November 2017
  */
 public class TwixtLocalGame extends LocalGame {
+    //the official instance of the TwixtGameState
     private TwixtGameState official;
+
+    //if a given player has already placed a peg on their turn
     private boolean pegUsed = false;
+
+    //what the last peg placed was by a certain player
     Peg lastPeg;
 
 
@@ -50,7 +55,7 @@ public class TwixtLocalGame extends LocalGame {
      */
     @Override
     protected boolean makeMove(GameAction action) {
-        if (action instanceof EndTurnAction) {
+        if (action instanceof EndTurnAction) { //this action ends the current player's turn
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 if (official.getTurn() == 1) {
                     official.setTurn(0);
@@ -70,13 +75,11 @@ public class TwixtLocalGame extends LocalGame {
             }
 
         }
-
-        if (action instanceof OfferDrawAction) {
-            if (action.getPlayer().equals(players[official.getTurn()])) {
-                if(official.getTurn() == 1){
+        else if (action instanceof OfferDrawAction) { //this action allows players to offer a draw after 20 turns
+            if (action.getPlayer().equals(players[official.getTurn()]) && official.getTotalturns() > 20) {
+                if (official.getTurn() == 1) {
                     official.setOfferDraw0(true);
-                }
-                else if(official.getTurn() == 0){
+                } else if (official.getTurn() == 0) {
                     official.setOfferDraw1(true);
                 }
 
@@ -84,8 +87,7 @@ public class TwixtLocalGame extends LocalGame {
                 return true;
             }
         }
-
-        if (action instanceof PlaceLinkAction) {
+        else if (action instanceof PlaceLinkAction) { //this action allows players to manually place links between legal pegs
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 PlaceLinkAction pla = (PlaceLinkAction) action;
                 if (pla.getHoldPeg1() != null && pla.getHoldPeg2() != null) {
@@ -105,8 +107,8 @@ public class TwixtLocalGame extends LocalGame {
                             newlinked2.add(peg1);
                             peg2.setLinkedPegs(newlinked2);
 
-                            official.placePeg(peg1,false);
-                            official.placePeg(peg2,false);
+                            official.placePeg(peg1, false);
+                            official.placePeg(peg2, false);
                         } else if (((x1 - x2) == 2 || (x1 - x2) == -2) && ((y1 - y2 == 1) || (y1 - y2) == -1) && canAddLinks(pla.getHoldPeg1(), pla.getHoldPeg2())) {
                             ArrayList<Peg> newlinked1 = peg1.getLinkedPegs(); //add peg 2 to the first peg's arraylist
                             newlinked1.add(peg2);
@@ -116,8 +118,8 @@ public class TwixtLocalGame extends LocalGame {
                             newlinked2.add(peg1);
                             peg2.setLinkedPegs(newlinked2);
 
-                            official.placePeg(peg1,false);
-                            official.placePeg(peg2,false);
+                            official.placePeg(peg1, false);
+                            official.placePeg(peg2, false);
                         }
                     }
                 }
@@ -125,8 +127,7 @@ public class TwixtLocalGame extends LocalGame {
 
             return true;
         }
-
-        if (action instanceof PlacePegAction) {
+        else if (action instanceof PlacePegAction) { //this action allows players to place a new peg on the board
             if (action.getPlayer().equals(players[official.getTurn()]) && !pegUsed) {
                 int endRows = 0;
 
@@ -165,8 +166,7 @@ public class TwixtLocalGame extends LocalGame {
                 }
             }
         }
-
-        if (action instanceof RemoveLinkAction) { //remove link for null check
+        else if (action instanceof RemoveLinkAction) { //This action allows player to remove links from their pegs
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemoveLinkAction rla = (RemoveLinkAction) action;
                 Peg[][] temp = official.getBoard();
@@ -187,11 +187,10 @@ public class TwixtLocalGame extends LocalGame {
             }
             return false;
         }
-
-        if (action instanceof RemovePegAction) {
+        else if (action instanceof RemovePegAction) {//this action allows players to remove their pegs
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 RemovePegAction rmP = (RemovePegAction) action;
-                if(rmP.getHoldPeg() != null) {
+                if (rmP.getHoldPeg() != null) {
                     Peg peg = rmP.getHoldPeg();
                     int x = peg.getxPos();
                     int y = peg.getyPos();
@@ -218,36 +217,25 @@ public class TwixtLocalGame extends LocalGame {
                 return false;
             }
         }
-
-        if (action instanceof SwitchSidesAction) { //unsure of functionality
+        else if (action instanceof PiRuleAction) {
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 if (official.getTotalturns() == 1) {
                     GamePlayer player0 = players[0];
                     players[0] = players[1];
                     players[1] = player0; //unsure if this is working correctly
-                } else {}
+                } else {
+                }
             }
-
             return true;
         }
+        return false;
 
-        else if (action instanceof PiRuleAction){
-            if (action.getPlayer().equals(players[official.getTurn()])) {
-                if (official.getTotalturns() == 1) {
-                    GamePlayer player0 = players[0];
-                    players[0] = players[1];
-                    players[1] = player0; //unsure if this is working correctly
-                } else {}
-            }
 
-            return true;
-        }
-        return true;
     }//makeMove
 
     /**
      * This method is called in the add PegAction of makemove.  It adds pegs to the linkedPegs ArrayList for the Peg input
-     * implementing the canAddLinks Method will complete functionality, not alllowing lines to cross each other
+     *  the canAddLinks Method completes functionality, not alllowing lines to cross each other
      *
      * @param peg
      */
@@ -314,8 +302,9 @@ public class TwixtLocalGame extends LocalGame {
     }
 
     /**
-     * Compares the mins and maxes of both sets of peg's x and y values to determine if they have x and y overlap, a necessary quality
+     * Compares the mins and maxes of both sets of peg's x and y values to determine if they have x and y overlap, a requirement if any links are to cross
      * for links crossing.
+     *
      * @param peg
      * @param comp
      * @param temp
@@ -333,21 +322,21 @@ public class TwixtLocalGame extends LocalGame {
         int x4 = p.getxPos();
         int y4 = p.getyPos();
 
-        int linkMinX = Math.min(x1,x2);
-        int linkMinY = Math.min(y1,y2);
-        int linkMaxX = Math.max(x1,x2);
-        int linkMaxY = Math.max(y1,y2);
+        int linkMinX = Math.min(x1, x2);
+        int linkMinY = Math.min(y1, y2);
+        int linkMaxX = Math.max(x1, x2);
+        int linkMaxY = Math.max(y1, y2);
 
-        int checkMinX = Math.min(x3,x4);
-        int checkMinY = Math.min(y3,y4);
-        int checkMaxX = Math.max(x3,x4);
-        int checkMaxY = Math.max(y3,y4);
+        int checkMinX = Math.min(x3, x4);
+        int checkMinY = Math.min(y3, y4);
+        int checkMaxX = Math.max(x3, x4);
+        int checkMaxY = Math.max(y3, y4);
 
-       if(linkMinX < checkMaxX && checkMinX < linkMaxX){
-           if(linkMinY < checkMaxY && checkMinY < linkMaxY){
-               return true;
-           }
-       }
+        if (linkMinX < checkMaxX && checkMinX < linkMaxX) {
+            if (linkMinY < checkMaxY && checkMinY < linkMaxY) {
+                return true;
+            }
+        }
 
         return false;
 
@@ -367,8 +356,9 @@ public class TwixtLocalGame extends LocalGame {
                 temp[p.getxPos()][p.getyPos()].getLinkedPegs().add(current);
             }
         }
-        official.setBoard(temp,false, null);
+        official.setBoard(temp, false, null);
     }
+
     /**
      * Iterates through a region around the pegs, to determine if any other pegs have links that will interfere with placing
      * a new link.
@@ -417,10 +407,10 @@ public class TwixtLocalGame extends LocalGame {
         //iterate through the array at the given values
         for (int i = oldI; i < maxI; i++) {
             for (int j = oldJ; j < maxJ; j++) {
-                if ((i < 24 && i > -1) && (j < 24 && j > -1)) { //check for array locations
+                if ((i < 24 && i > -1) && (j < 24 && j > -1)) { //check for valid array locations
                     if (temp[i][j] != null) {
 
-                        if ( !(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop, cause it cannot overlap
+                        if (!(temp[i][j].equals(peg) || temp[i][j].equals(comp))) { //check if the peg is the same, if it is, stop, cause it cannot overlap
 
                             if (temp[i][j].getLinkedPegs() != null) {
                                 for (Peg p : temp[i][j].getLinkedPegs()) {
@@ -506,8 +496,8 @@ public class TwixtLocalGame extends LocalGame {
 
     /**
      * This method takes in an arrayList of Pegs, a given endRow Value, and an ArrayList of Pegs that have
-     * already iterated over.  It is recursive, and returns true when a Peg has been found, connected to the
-     * input array of Pegs, that has an opposite value.
+     * already been iterated over.  It is recursive, and returns true when a Peg has been found, connected to the
+     * input array of Pegs, that has an opposite endRow value.
      *
      * @param input
      * @param endRow
