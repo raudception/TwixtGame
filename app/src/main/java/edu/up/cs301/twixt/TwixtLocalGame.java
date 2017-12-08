@@ -223,20 +223,15 @@ public class TwixtLocalGame extends LocalGame {
         }
 
         else if (action instanceof PiRuleAction){
-            Peg[][] temp = official.getBoard();
-            for (int i = 0; i < 24; i++) {
-                for (int j = 0; j < 24; j++) {
-                    if (temp[i][j] != null) {
-                        if(temp[i][j].getPegTeam() == 0){
-                            temp[i][j].setPegTeam(1);
-                        }
-                        else{
-                            temp[i][j].setPegTeam(0);
-                        }
-
-                    }
-                }
+            if (action.getPlayer().equals(players[official.getTurn()])) {
+                if (official.getTotalturns() == 1) {
+                    GamePlayer player0 = players[0];
+                    players[0] = players[1];
+                    players[1] = player0; //unsure if this is working correctly
+                } else {}
             }
+
+            return true;
         }
         return false;
     }//makeMove
