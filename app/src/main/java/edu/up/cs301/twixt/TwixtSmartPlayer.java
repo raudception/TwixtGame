@@ -2,18 +2,17 @@ package edu.up.cs301.twixt;
 
 import java.util.ArrayList;
 import java.util.Random;
+
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.infoMsg.GameInfo;
 
 /**
  * Created by Sean P.Gillespie on 11/14/2017.
- *
+ * <p>
  * This class creates a player will win quickly if not blocked
  * This player works from the left if player 1 or top if player 0
  * and links pegs together to win the game.  If it is blocked, it
  * makes a random move and then tries to go again from the same spot
- *
- *
  */
 
 public class TwixtSmartPlayer extends GameComputerPlayer {
@@ -27,7 +26,9 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
     private Peg thisTurnPeg;//peg that is being placed this turn
     private Peg firstTurnPeg;//peg that is placed on the first turn
     private TwixtGameState turnState;//the state of the board on each turn
-    private boolean doneSwitchNum = false; //if the player numebr has been switched
+    private boolean doneSwitchNum = false; //if the player number has been switched
+    int rndX;//random x location for last resort
+    int rndY;//random y location for last resort
 
     /**
      * Constructor for TwixtSmartPlayer class
@@ -55,9 +56,10 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
             turnState = (TwixtGameState) info;
             current = turnState.stateToArray();
             //check for the piRule
-            if(turnState.getSwitchPlayerNum() && !doneSwitchNum){
-                this.playerNum  ^= 1;
-                doneSwitchNum = false;
+            if (turnState.getSwitchPlayerNum() && !doneSwitchNum) {
+                this.playerNum ^= 1;
+                doneSwitchNum = true;
+                firstMoveMade = false;
             }
             if (turnState.getTurn() == this.playerNum) {//if it is the AI players turn
 
@@ -82,6 +84,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
      **/
     public void firstMove(boolean moved) {
         moved = firstMoveMade;
+
         if (!moved && turnState.getTurn() == this.playerNum) {//ensures this is the first move
 
             if (this.playerNum == 1 && current[0][11] == null) //If the AI is player 1
@@ -102,7 +105,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
             if (this.playerNum == 0 && current[11][0] == null) //if the AI is player 0
             {
-                if (pegPlaced == false){//if peg has not been placed
+                if (pegPlaced == false) {//if peg has not been placed
                     firstTurnPeg = new Peg(11, 0, this.playerNum);//peg object that is being placed on this turn
                     game.sendAction(new PlacePegAction(this, firstTurnPeg));//sends action to game for validation
                     lastTurnPeg = firstTurnPeg;//setting peg as last peg placed after it is placed
@@ -117,15 +120,17 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
             }
 
         }
-
+        if (doneSwitchNum) {
+            //pegPlaced = false;//lets peg be placed next turn
+            game.sendAction(new EndTurnAction(this));//ends this turn with a peg placed in left end row
+        }
 
     }//end of firstMove
 
 
     /**
-     *
      * Basic Move
-     *
+     * <p>
      * This method places a peg that follows from the previously placed peg.
      * only happens after the first move.
      * Goes in one of four moves from the last peg placed
@@ -146,13 +151,13 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
                 if (pegPlaced == false) {//if peg has not been placed
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 1), (lastTurnPeg.getyPos() + 2), this.playerNum);//peg object that is being placed on this turn
-                    
+
                     if (isLegalMove(thisTurnPeg)) {
 
-                            game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                            lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                            placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                            pegPlaced = true;
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
 
                     } else {
                         lastResort(firstMoveMade);
@@ -170,10 +175,10 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
                     if (isLegalMove(thisTurnPeg)) {
 
-                            game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                            lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                            placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                            pegPlaced = true;
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
 
                     } else {
                         lastResort(firstMoveMade);
@@ -190,10 +195,10 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
                     if (isLegalMove(thisTurnPeg)) {
 
-                            game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                            lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                            placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                            pegPlaced = true;
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
 
                     } else {
                         lastResort(firstMoveMade);
@@ -211,10 +216,10 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
                     if (isLegalMove(thisTurnPeg)) {
 
-                            game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                            lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                            placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                            pegPlaced = true;
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
 
                     } else {
                         lastResort(firstMoveMade);
@@ -239,10 +244,10 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() - 1), (lastTurnPeg.getyPos() + 2), this.playerNum);//peg object that is being placed on this turn
                     if (isLegalMove(thisTurnPeg)) {
 
-                            game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                            lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                            placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                            pegPlaced = true;
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
 
                     } else {
                         lastResort(firstMoveMade);
@@ -258,10 +263,10 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 1), (lastTurnPeg.getyPos() + 2), this.playerNum);//peg object that is being placed on this turn
                     if (isLegalMove(thisTurnPeg)) {
 
-                            game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                            lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                            placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                            pegPlaced = true;
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
 
                     } else {
                         lastResort(firstMoveMade);
@@ -277,10 +282,10 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() - 2), (lastTurnPeg.getyPos() + 1), this.playerNum);//peg object that is being placed on this turn
                     if (isLegalMove(thisTurnPeg)) {
 
-                            game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                            lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                            placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                            pegPlaced = true;
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
 
                     } else {
                         lastResort(firstMoveMade);
@@ -297,10 +302,10 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
                     thisTurnPeg = new Peg((lastTurnPeg.getxPos() + 2), (lastTurnPeg.getyPos() + 1), this.playerNum);//peg object that is being placed on this turn
                     if (isLegalMove(thisTurnPeg)) {
 
-                            game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
-                            lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
-                            placedPegs.add(lastTurnPeg);//and adds it to placed pegs
-                            pegPlaced = true;
+                        game.sendAction(new PlacePegAction(this, thisTurnPeg));//sends action to game for validation
+                        lastTurnPeg = thisTurnPeg;//makes the peg that just got placed the last turn peg
+                        placedPegs.add(lastTurnPeg);//and adds it to placed pegs
+                        pegPlaced = true;
 
                     } else {
                         lastResort(firstMoveMade);//place random peg and then try again next turn
@@ -319,16 +324,24 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
 
     /**
+     * if the next move is taken by another peg, it places a random peg for this turn.
+     * Next turn it will try from the previous place again
      *
-     if the next move is taken by another peg, it places a random peg for this turn.
-     Next turn it will try from the previous place again
      * @param moved
      */
 
     public void lastResort(boolean moved) {
         firstMoveMade = moved;
-        int rndX = rand.nextInt(21) + 1;//x loc of the random peg
-        int rndY = rand.nextInt(21) + 1;//y loc of the random peg
+
+        if (this.playerNum == 0) {//the range of valid spots depends on the player cause of endrows
+            rndX = rand.nextInt(22) + 1;//x loc of the random peg
+            rndY = rand.nextInt(24);//y loc of the random peg
+        }
+        else if(this.playerNum == 1){//the range of valid spots depends on the player cause of endrows
+            rndX = rand.nextInt(24);//x loc of the random peg
+            rndY = rand.nextInt(22) + 1;//y loc of the random peg
+        }
+
         Peg lastResortPeg = new Peg(rndX, rndY, this.playerNum);
         if (pegPlaced == false && isLegalMove(lastResortPeg)) {
             game.sendAction(new PlacePegAction(this, lastResortPeg));//sends action to game for validation
