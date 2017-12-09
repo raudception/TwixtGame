@@ -225,6 +225,9 @@ public class TwixtLocalGame extends LocalGame {
         else if (action instanceof PiRuleAction) { //allow the players to change sides after the first turn
             if (action.getPlayer().equals(players[official.getTurn()])) {
                 if (official.getTotalturns() == 1) { //changes the array position of the players
+                    String player0S = playerNames[0];
+                    playerNames[0] = playerNames[1];
+                    playerNames[1] = player0S;
                     GamePlayer player0 = players[0];
                     players[0] = players[1];
                     players[1] = player0;
