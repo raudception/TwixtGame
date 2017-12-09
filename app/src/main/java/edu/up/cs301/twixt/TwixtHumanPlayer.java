@@ -155,10 +155,10 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
           */
         if(state.getTotalturns() == 1 && this.playerNum != 0 && piRuleResolved == false && !doneSwitchNum) {
             Peg[][] array = state.getBoard();
-            for (int i = 0; i < 24; i++) {
-                for (int j = 0; j < 24; j++) {
-                    if(array[i][j] != null) {
-                        if (array[i][j].getyPos() != 0 && array[i][j].getyPos() != 23 && array[i][j].getxPos() != 0 && array[i][j].getxPos() != 23) {
+//            for (int i = 0; i < 24; i++) {
+//                for (int j = 0; j < 24; j++) {
+//                    if(array[i][j] != null) {
+//                        if (array[i][j].getyPos() != 0 && array[i][j].getyPos() != 23 && array[i][j].getxPos() != 0 && array[i][j].getxPos() != 23) {
                             MessageBox.popUpMessage("Would you like to switch side?", myActivity);
                             buttonPP.setBackgroundColor(Color.GRAY);
                             buttonPP.setText("Accept");
@@ -174,12 +174,12 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                             buttonET.setTextColor(Color.GRAY);
                             piRuleOffered = true;
                             piRuleResolved = true;
-                            break;
-                        }
-                        else{piRuleResolved = true;}
-                    }
-                }
-            }
+
+//                        }
+//                        else{piRuleResolved = true;}
+//                    }
+//                }
+//            }
         }
 
 
