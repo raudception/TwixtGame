@@ -51,6 +51,8 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
     private boolean piRuleResolved = false; //tells whether the pi rule has been resolved
     private boolean placePegAvailable = true; //tells whether a player may still place a Peg
 
+    private boolean doneSwitchNum = false; //if the player numebr has been switched
+
     // These variables will reference widgets that will be modified during play
     private Button buttonPP; //placePeg
     private Button buttonRP; //removePeg
@@ -98,6 +100,12 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             return;
         }
         this.state = (TwixtGameState) info;
+        Log.i("Switch Player Num Human"," " + state.getSwitchPlayerNum());
+        //check for the piRule
+        if(state.getSwitchPlayerNum() && !doneSwitchNum){
+            this.playerNum  ^= 1;
+            doneSwitchNum = true;
+        }
 
         //offer draw button becomes available after 20 turns
         if(state.getTotalturns() > 20){
@@ -198,6 +206,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
                     offerDraw = false;
                     offerDrawResolved = true;
                     myActivity.setGameOver(true);
+
                 }
                 //if the pi rule is applicable, pressing this button will accept the switch
                 else if(piRuleOffered){

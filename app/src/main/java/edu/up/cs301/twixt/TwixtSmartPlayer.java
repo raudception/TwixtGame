@@ -27,6 +27,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
     private Peg thisTurnPeg;//peg that is being placed this turn
     private Peg firstTurnPeg;//peg that is placed on the first turn
     private TwixtGameState turnState;//the state of the board on each turn
+    private boolean doneSwitchNum = false; //if the player numebr has been switched
 
     /**
      * Constructor for TwixtSmartPlayer class
@@ -53,7 +54,11 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
             //converts arraylist into 2d array of the board
             turnState = (TwixtGameState) info;
             current = turnState.stateToArray();
-
+            //check for the piRule
+            if(turnState.getSwitchPlayerNum() && !doneSwitchNum){
+                this.playerNum  ^= 1;
+                doneSwitchNum = false;
+            }
             if (turnState.getTurn() == this.playerNum) {//if it is the AI players turn
 
                 if (!firstMoveMade) {

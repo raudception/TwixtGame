@@ -15,7 +15,7 @@ import edu.up.cs301.game.actionMsg.GameAction;
  * @author Andrew M. Nuxoll, modified by Kollin A. Raudsepp
  * @version November 2017
  */
-public class  TwixtLocalGame extends LocalGame {
+public class TwixtLocalGame extends LocalGame {
     //the official instance of the TwixtGameState
     private TwixtGameState official;
 
@@ -228,6 +228,8 @@ public class  TwixtLocalGame extends LocalGame {
                     GamePlayer player0 = players[0];
                     players[0] = players[1];
                     players[1] = player0;
+                    official.setSwitchPlayerNum(true);
+                    Log.i("Switch Player Num Local"," " + official.getSwitchPlayerNum());
                 } else {}
             }
             return true;

@@ -22,6 +22,7 @@ public class TwixtDumbPlayer extends GameComputerPlayer {
     private Peg[][] current = new Peg[24][24];//array with current peg placements
     private TwixtGameState turnState;//the state of the board on this turn
     private Peg thisTurnPeg;//teh peg being placed this turn
+    private boolean doneSwitchNum = false; //if the player numebr has been switched
 
     /**
      * Constructor for the TwixtDumbPlayer class
@@ -45,7 +46,12 @@ public class TwixtDumbPlayer extends GameComputerPlayer {
             //converts arraylist into 2d array of the board
             turnState = (TwixtGameState) info;
             current = turnState.stateToArray();
+            if(turnState.getSwitchPlayerNum() && !doneSwitchNum){
+                this.playerNum  ^= 1;
+                doneSwitchNum = true;
+            }
         }
+
 
         // pick peg positions at random on the board
         Random r = new Random();

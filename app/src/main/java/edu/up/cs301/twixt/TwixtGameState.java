@@ -26,6 +26,9 @@ public class TwixtGameState extends GameState implements Serializable {
     private boolean offerDraw0;
     private boolean offerDraw1;
 
+    private boolean switchPlayerNum = false;
+
+
     /**
      * Default constructor, creates a new board and sets the turn to 0
      */
@@ -33,8 +36,6 @@ public class TwixtGameState extends GameState implements Serializable {
     public TwixtGameState (){
         Board = new Peg[24][24];
         turn =0;
-
-
     }
 
     /**
@@ -47,6 +48,7 @@ public class TwixtGameState extends GameState implements Serializable {
         this.totalturns = fresh.getTotalturns();
         this.offerDraw0 = fresh.getOfferDraw0();
         this.offerDraw1 = fresh.getOfferDraw1();
+        this.switchPlayerNum = fresh.getSwitchPlayerNum();
     }
 
 
@@ -124,13 +126,6 @@ public Peg[][] stateToArray(){
                 if(nullPeg){
                     placePeg(removePeg, true);
                 }
-//                if(Board[i][j] != null && Board[i][j].getLinkedPegs() != null){
-//                    ArrayList<Peg> newSet = new ArrayList<Peg>();
-//                    for(Peg p : Board[i][j].getLinkedPegs()){
-//                        newSet.add(p);
-//                    }
-//                    Board[i][j].setLinkedPegs(newSet);
-//                }
             }
         }
         }
@@ -152,5 +147,14 @@ public Peg[][] stateToArray(){
     public void setOfferDraw1(boolean b){
         offerDraw1 = b;
     }
+
+    public boolean getSwitchPlayerNum() {
+        return switchPlayerNum;
+    }
+
+    public void setSwitchPlayerNum(boolean b) {
+        this.switchPlayerNum = b;
+    }
+
 
 }
