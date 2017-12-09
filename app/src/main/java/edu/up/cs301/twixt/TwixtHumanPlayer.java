@@ -153,7 +153,7 @@ public class TwixtHumanPlayer extends GameHumanPlayer implements OnClickListener
             The loop searches through the board to find the first Peg placed and switches the value of that Peg to the second player's color
             The first player then gets to make a move again
           */
-        if(state.getTotalturns() == 1 && this.playerNum != 0 && piRuleResolved == false) {
+        if(state.getTotalturns() == 1 && this.playerNum != 0 && piRuleResolved == false && !doneSwitchNum) {
             Peg[][] array = state.getBoard();
             for (int i = 0; i < 24; i++) {
                 for (int j = 0; j < 24; j++) {

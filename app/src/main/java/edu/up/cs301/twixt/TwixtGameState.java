@@ -49,6 +49,7 @@ public class TwixtGameState extends GameState implements Serializable {
         this.offerDraw0 = fresh.getOfferDraw0();
         this.offerDraw1 = fresh.getOfferDraw1();
         this.switchPlayerNum = fresh.getSwitchPlayerNum();
+
     }
 
 
