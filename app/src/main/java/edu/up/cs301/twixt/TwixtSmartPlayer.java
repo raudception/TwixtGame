@@ -330,7 +330,7 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
         int rndX = rand.nextInt(21) + 1;//x loc of the random peg
         int rndY = rand.nextInt(21) + 1;//y loc of the random peg
         Peg lastResortPeg = new Peg(rndX, rndY, this.playerNum);
-        if (pegPlaced == false && isLegalMove(current[rndX][rndY])) {
+        if (pegPlaced == false && isLegalMove(lastResortPeg)) {
             game.sendAction(new PlacePegAction(this, lastResortPeg));//sends action to game for validation
             pegPlaced = true;
         } else {
@@ -349,22 +349,20 @@ public class TwixtSmartPlayer extends GameComputerPlayer {
 
     public boolean isLegalMove(Peg p) {
 
-        thisTurnPeg = p;
-
-        if (this.playerNum == 0) {
-            if (thisTurnPeg.getxPos() > 0 && thisTurnPeg.getxPos() < 23) {
-                if (thisTurnPeg.getyPos() >= 0 && thisTurnPeg.getyPos() <= 23) {
-                    if (current[thisTurnPeg.getxPos()][thisTurnPeg.getyPos()] == null) {
+        if (this.playerNum == 0) {//if AI player is player 0
+            if (p.getxPos() > 0 && p.getxPos() < 23) {
+                if (p.getyPos() >= 0 && p.getyPos() <= 23) {
+                    if (current[p.getxPos()][p.getyPos()] == null) {
                         return true;
                     }
                 }
             }
         }
 
-        if (this.playerNum == 1) {
-            if (thisTurnPeg.getxPos() >= 0 && thisTurnPeg.getxPos() <= 23) {
-                if (thisTurnPeg.getyPos() > 0 && thisTurnPeg.getyPos() < 23) {
-                    if (current[thisTurnPeg.getxPos()][thisTurnPeg.getyPos()] == null) {
+        if (this.playerNum == 1) {//if AI player is player 1
+            if (p.getxPos() >= 0 && p.getxPos() <= 23) {
+                if (p.getyPos() > 0 && p.getyPos() < 23) {
+                    if (current[p.getxPos()][p.getyPos()] == null) {
                         return true;
                     }
                 }
